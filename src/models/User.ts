@@ -1,40 +1,31 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
-// Shared interface for both personal and organization users
 export interface User extends Document {
   username: string;
   email: string;
-  password?: string; // Optional for Google OAuth users
+  password?: string;
   verifyCode: string;
   verifyCodeExpiry: Date;
   isVerified: boolean;
   siteVisible: boolean;
-  accountType: 'personal' | 'organization'; // Define account type
-  profile?: PersonalProfile | OrganizationProfile; // Profile for either personal or organization
-  googleId?: string; // For Google OAuth users
-}
+  accountType: 'personal' | 'organization'; // Personal or organization account type
 
-// Define personal profile structure
-interface PersonalProfile {
+  // Common profile fields for both personal and organization users
   name: string;
-  about: string;
+  about?: string;
   favoriteQuote?: string;
-  socialMediaLinks?: { platform: string, link: string }[];
+  socialMediaLinks?: { platform: string; link: string }[];
   profilePhoto?: string;
   gender?: string;
   occupation?: string;
-}
 
-// Define organization profile structure
-interface OrganizationProfile {
-  adminId: mongoose.Types.ObjectId; // Reference to admin user
-  teamName: string;
-  designation: string;
+  // Organization/team-specific fields (optional for personal accounts)
+  teamName?: string;
+  designation?: string;
   department?: string;
   bloodGroup?: string;
 }
 
-// Schema for User
 const UserSchema: Schema<User> = new mongoose.Schema({
   username: {
     type: String,
@@ -50,13 +41,9 @@ const UserSchema: Schema<User> = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: function() {
-      return !this.googleId; // Password required only for non-Google accounts
+    required: function (this: User) {
+      return !this.oauthProvider; // Password is required if not using OAuth
     },
-  },
-  googleId: {
-    type: String,
-    unique: true, // For Google OAuth users
   },
   verifyCode: {
     type: String,
@@ -77,17 +64,32 @@ const UserSchema: Schema<User> = new mongoose.Schema({
   accountType: {
     type: String,
     enum: ['personal', 'organization'],
-    required: [true, 'Account type is required'],
+    required: true,
   },
-  profile: {
-    type: mongoose.Schema.Types.Mixed, // Either PersonalProfile or OrganizationProfile
-    required: [true, 'Profile information is required'],
-  },
+
+  // Common profile fields
+  name: { type: String, required: true },
+  about: { type: String },
+  favoriteQuote: { type: String },
+  socialMediaLinks: [
+    {
+      platform: { type: String },
+      link: { type: String },
+    },
+  ],
+  profilePhoto: { type: String },
+  gender: { type: String },
+  occupation: { type: String },
+
+  // Organization/team-specific fields (optional for personal accounts)
+  teamName: { type: String },
+  designation: { type: String },
+  department: { type: String },
+  bloodGroup: { type: String },
 });
 
-// Create User model
-const UserModel = 
-  (mongoose.models.User as mongoose.Model<User>) || 
+const UserModel =
+  (mongoose.models.User as mongoose.Model<User>) ||
   mongoose.model<User>('User', UserSchema);
 
 export default UserModel;
