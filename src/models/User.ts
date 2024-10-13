@@ -8,8 +8,8 @@ export interface User extends Document {
   verifyCodeExpiry: Date;
   isVerified: boolean;
   siteVisible: boolean;
-  accountType: 'personal' | 'organization'; // Personal or organization account type
-
+  accountType: 'personal' | 'organization';
+  
   // Common profile fields for both personal and organization users
   name: string;
   about?: string;
@@ -24,6 +24,10 @@ export interface User extends Document {
   designation?: string;
   department?: string;
   bloodGroup?: string;
+
+  // OAuth-specific fields
+  oauthProvider?: string; // e.g., 'google', 'github'
+  oauthProviderId?: string; // e.g., Google or GitHub ID
 }
 
 const UserSchema: Schema<User> = new mongoose.Schema({
@@ -86,10 +90,14 @@ const UserSchema: Schema<User> = new mongoose.Schema({
   designation: { type: String },
   department: { type: String },
   bloodGroup: { type: String },
+
+  // OAuth fields
+  oauthProvider: { type: String }, // e.g., 'google', 'github'
+  oauthProviderId: { type: String }, // e.g., Google or GitHub user ID
 });
 
 const UserModel =
-  (mongoose.models.User as mongoose.Model<User>) ||
+  mongoose.models.User ||
   mongoose.model<User>('User', UserSchema);
 
 export default UserModel;

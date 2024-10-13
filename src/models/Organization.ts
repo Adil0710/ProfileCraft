@@ -1,26 +1,37 @@
-// models/Organization.ts
-import mongoose, { Document, Model, Schema } from "mongoose";
-import { IUser } from "./User";
+import mongoose, { Schema, Document } from 'mongoose';
 
-export interface IOrganization extends Document {
-  name: string;
-  slug: string;
-  adminId: mongoose.Types.ObjectId;
+export interface Organization extends Document {
+  teamName: string;
+  adminId: mongoose.Schema.Types.ObjectId;
+  members: mongoose.Schema.Types.ObjectId[]; // references User model
   createdAt: Date;
-  updatedAt: Date;
 }
 
-const OrganizationSchema: Schema<IOrganization> = new mongoose.Schema(
-  {
-    name: { type: String, required: true, unique: true },
-    slug: { type: String, required: true, unique: true },
-    adminId: { type: Schema.Types.ObjectId, ref: "User", required: true },
+const OrganizationSchema: Schema<Organization> = new mongoose.Schema({
+  teamName: {
+    type: String,
+    required: [true, 'Team/Organization name is required'],
+    unique: true,
   },
-  { timestamps: true }
-);
+  adminId: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'User', // Admin of the team
+  },
+  members: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User', // List of users part of the organization
+    },
+  ],
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
 
-const Organization: Model<IOrganization> =
+const OrganizationModel =
   mongoose.models.Organization ||
-  mongoose.model<IOrganization>("Organization", OrganizationSchema);
+  mongoose.model<Organization>('Organization', OrganizationSchema);
 
-export default Organization;
+export default OrganizationModel;
