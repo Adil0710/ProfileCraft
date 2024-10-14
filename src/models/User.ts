@@ -72,7 +72,7 @@ const UserSchema: Schema<User> = new mongoose.Schema({
   },
 
   // Common profile fields
-  name: { type: String, required: true },
+  name: { type: String, required:[true, 'Name is required'] },
   about: { type: String },
   favoriteQuote: { type: String },
   socialMediaLinks: [
