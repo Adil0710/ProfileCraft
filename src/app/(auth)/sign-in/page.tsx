@@ -4,7 +4,6 @@ import * as z from "zod";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useDebounceCallback } from "usehooks-ts";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { Button } from "@/components/ui/button";
@@ -13,7 +12,6 @@ import Image from "next/image";
 import { ModeToggle } from "@/components/theme-toggle";
 import { useToast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
-import { signUpSchema } from "@/schemas/signUpSchema";
 import axios, { AxiosError } from "axios";
 import { ApiResponse } from "@/types/ApiResponse";
 import {
@@ -32,28 +30,22 @@ import {
   CircleCheckIcon,
 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { signInSchema } from "@/schemas/signInSchema";
 
-export default function SignUp() {
-  const [username, setUsername] = useState("");
-  const [usernameMessage, setUsernameMessage] = useState("");
-  const [isCheckingUsername, setIsCheckingUSername] = useState(false);
+export default function LogIn() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  const debounced = useDebounceCallback(setUsername, 300);
   const { toast } = useToast();
   const router = useRouter();
 
   //zod validation
 
-  const form = useForm<z.infer<typeof signUpSchema>>({
-    resolver: zodResolver(signUpSchema),
+  const form = useForm<z.infer<typeof signInSchema>>({
+    resolver: zodResolver(signInSchema),
     defaultValues: {
-      name: "",
-      username: "",
-      email: "",
+      identifier: "",
       password: "",
-      accountType: "personal",
     },
   });
 
@@ -70,51 +62,50 @@ export default function SignUp() {
   //   )
   // }
 
-  useEffect(() => {
-    const checkUsernameUnique = async () => {
-      if (username) {
-        setIsCheckingUSername(true);
-        setUsernameMessage("");
-        try {
-          const response = await axios.get(
-            `/api/check-username-unique?username=${username}`
-          );
-          setUsernameMessage(response.data.message);
-        } catch (error) {
-          const axiosError = error as AxiosError<ApiResponse>;
-          setUsernameMessage(
-            axiosError.response?.data.message ?? "Error Checking username"
-          );
-        } finally {
-          setIsCheckingUSername(false);
-        }
-      }
-    };
-    checkUsernameUnique();
-  }, [username]);
-
-  const onSubmit = async (data: z.infer<typeof signUpSchema>) => {
-    setIsSubmitting(true);
+  const onSubmit = async (data: z.infer<typeof signInSchema>) => {
+    setIsSubmitting(true)
     try {
-      const response = await axios.post("/api/sign-up", data);
-      toast({
-        title: "Success",
-        description: response.data.message,
+      const result = await signIn('credentials', {
+        redirect: false,
+        identifier: data.identifier,
+        password: data.password,
       });
-      router.replace(`/verify/${username}`);
+  
+      // Handle the sign-in result
+      if (result?.error) {
+        if (result.error === 'CredentialsSignin') {
+          toast({
+            title: 'Uh oh! Login Failed',
+            description: 'Incorrect username or password',
+            variant: 'destructive',
+          });
+        } else {
+          toast({
+            title: 'Uh oh! Error',
+            description: result.error,
+            variant: 'destructive',
+          });
+        }
+      } else if (result?.url) {
+        // Success case
+        toast({
+          title: 'Login Successful',
+          description: 'Welcome back!',
+        });
+        router.replace('/dashboard');
+      }
     } catch (error) {
-      console.error("Error while signup of user", error);
-
+      // Handle any unexpected errors
       const axiosError = error as AxiosError<ApiResponse>;
-      let errorMessage = axiosError.response?.data.message;
-
+      const errorMessage = axiosError.response?.data.message || 'An unexpected error occurred. Please try again later.';
+      
       toast({
-        variant: "destructive",
-        title: "Uh oh! Signup failed",
+        title: 'Error',
         description: errorMessage,
+        variant: 'destructive',
       });
-    } finally {
-      setIsSubmitting(false);
+    }finally{
+        setIsSubmitting(false)
     }
   };
 
@@ -124,7 +115,7 @@ export default function SignUp() {
         <div className="flex items-center justify-center py-12">
           <div className="mx-auto grid w-[350px] gap-6">
             <div className="grid gap-2 text-center">
-              <h1 className="text-3xl font-bold">Sign up</h1>
+              <h1 className="text-3xl font-bold">Login</h1>
               {/* <p className="text-balance text-muted-foreground">
                 Enter your email below to login to your account
               </p> */}
@@ -136,78 +127,14 @@ export default function SignUp() {
               >
                 <FormField
                   control={form.control}
-                  name="name"
+                  name="identifier"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Name</FormLabel>
-                      <FormControl>
-                        <Input placeholder="enter name" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="username"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Username</FormLabel>
-                      <div className=" relative">
-                        <FormControl>
-                          <Input
-                            placeholder="create username"
-                            {...field}
-                            onChange={(e) => {
-                              field.onChange(e);
-                              debounced(e.target.value);
-                              if (e.target.value === "") {
-                                setUsernameMessage("");
-                              }
-                            }}
-                          />
-                        </FormControl>
-                        {isCheckingUsername && (
-                          <Loader2
-                            className="absolute right-2 top-1/2 h-4 w-4 animate-spin"
-                            style={{ marginTop: "-2.2%" }}
-                          />
-                        )}
-                        {!isCheckingUsername &&
-                          usernameMessage &&
-                          (usernameMessage === "Username is available" ? (
-                            <CircleCheckIcon className="absolute right-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-green-500" />
-                          ) : (
-                            <CircleXIcon className="absolute right-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-red-500" />
-                          ))}
-                      </div>
-                      {usernameMessage && (
-                        <p
-                          className={`text-sm flex items-center ${
-                            usernameMessage === "Username is available"
-                              ? "text-green-500"
-                              : "text-red-500"
-                          }`}
-                        >
-                          {usernameMessage}
-                        </p>
-                      )}
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Email</FormLabel>
+                      <FormLabel>Email / Username</FormLabel>
                       <FormControl>
                         <Input
                           type="email"
-                          placeholder="enter email"
+                          placeholder="email / username"
                           {...field}
                           onChange={(e) =>
                             field.onChange(e.target.value.toLowerCase())
@@ -229,7 +156,7 @@ export default function SignUp() {
                         <FormControl>
                           <Input
                             type={showPassword ? "text" : "password"}
-                            placeholder="create password"
+                            placeholder="password"
                             {...field}
                             className=" mb-2"
                           />
@@ -266,7 +193,7 @@ export default function SignUp() {
                       Please wait
                     </>
                   ) : (
-                    "Signup"
+                    "Login"
                   )}
                 </Button>
               </form>
@@ -292,14 +219,13 @@ export default function SignUp() {
               <span>Continue with Google</span>
             </Button>
             <div className="mt-2 text-center text-sm">
-              Already have an account?{" "}
-              <Link href="/sign-in" className="underline font-bold">
-                Login
+              Don&apos;t have an account?{" "}
+              <Link href="/sign-up" className="underline font-bold">
+                Sign up
               </Link>
             </div>
           </div>
         </div>
-
         {/* Right Side */}
 
         <div className="hidden lg:block">

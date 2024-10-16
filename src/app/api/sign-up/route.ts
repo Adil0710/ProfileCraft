@@ -7,7 +7,7 @@ export async function POST(request: Request) {
   await dbConnect();
 
   try {
-    const { username, email, password, name } = await request.json();
+    const { username, email, password, name, accountType } = await request.json();
 
     const existingUserVerifiedByUsername = await UserModel.findOne({
       username,
@@ -61,10 +61,9 @@ export async function POST(request: Request) {
         verifyCodeExpiry: expiryDate,
         isVerified: false,
         siteVisible: true,
-        accountType: "personal",
+        accountType,
         name
       });
-
       await newUser.save();
     }
 
@@ -89,7 +88,7 @@ export async function POST(request: Request) {
     return Response.json(
       {
         success: true,
-        message: "USer registered Successfully. Please verify your email",
+        message: "User registered Successfully. Please verify your email",
       },
       { status: 201 }
     );
