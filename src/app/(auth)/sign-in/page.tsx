@@ -133,7 +133,8 @@ export default function LogIn() {
                       <FormLabel>Email / Username</FormLabel>
                       <FormControl>
                         <Input
-                          type="email"
+                          type="text"
+                          required
                           placeholder="email / username"
                           {...field}
                           onChange={(e) =>
@@ -233,7 +234,7 @@ export default function LogIn() {
 
         </div>
 
-        <div className=" absolute right-10 top-4">
+        <div className=" absolute right-10 top-5">
           <ModeToggle />
         </div>
 
