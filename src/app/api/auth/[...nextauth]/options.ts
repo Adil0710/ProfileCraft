@@ -73,56 +73,75 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async signIn({ user, account, profile }) {
       await dbConnect();
-
+  
       if (account && account.provider === "google") {
         if (!profile || !profile.email) {
-          throw new Error("Google profile not found or email missing");
+          console.error("Google profile not found or email missing");
+          return false; // Prevent sign-in
         }
-
-        const existingUser = await UserModel.findOne({ email: profile.email });
-
+  
+        // Find existing user by email
+        let existingUser = await UserModel.findOne({ email: profile.email });
+  
         if (!existingUser) {
+          // Create new user if not found
+          const username = profile.email.split("@")[0].replace(/[^a-zA-Z0-9_]/g, "_");
+  
           const newUser = new UserModel({
             email: profile.email,
-            name: profile.name || "User", // Use profile.name or fallback to "User"
-            username: profile.email, // Use email as username for uniqueness
+            name: profile.name || "User",
+            username: username, // Set username for new user
             password: "", // Not needed for OAuth
-            verifyCode: generateVerifyCode(), // Generate a random 6-digit verification code
-            verifyCodeExpiry: new Date(Date.now() + 3600000), // Set expiry to 1 hour from now
-            isVerified: true, // Auto-verify Google users
-            siteVisible: true, // Set as needed
-            accountType: "personal", // Or set to "organization" based on your logic
+            verifyCode: generateVerifyCode(),
+            verifyCodeExpiry: new Date(Date.now() + 3600000),
+            isVerified: true,
+            siteVisible: true,
+            accountType: "personal",
             oauthProvider: "google",
-            oauthProviderId: profile.id,
-            profilePhoto: profile.picture || "", // Add profile photo URL
+            oauthProviderId: profile.sub,
+            profilePhoto: profile.picture || "",
           });
-
+  
           await newUser.save();
-
-          await registrationEmail(profile.email, newUser.name); // Send registration email
+          await registrationEmail(profile.email, newUser.name);
+  
+          existingUser = newUser; // Assign newly created user
+        } else {
+          // If the user exists, ensure they have a username
+          if (!existingUser.username) {
+            existingUser.username = profile.email.split("@")[0].replace(/[^a-zA-Z0-9_]/g, "_");
+            await existingUser.save();  // Save username for existing user if missing
+          }
         }
+  
+        // Add user information to the session and token via the jwt callback
+        return true; // Allow sign-in to continue
       }
-      return true; // Successful sign-in
+  
+      // Handle non-Google sign-in
+      return true; // Successful sign-in for other providers
     },
-
-    async jwt({ token, user }) {
+  
+    async jwt({ token, user, profile }) {
+      // Add user information to the token
       if (user) {
         token._id = user._id?.toString();
         token.isVerified = user.isVerified;
         token.siteVisible = user.siteVisible;
-        token.username = user.username;
-        token.profilePhoto = user.profilePhoto; // Add profile photo to the token
+        token.username = user.username || profile?.email?.split("@")[0].replace(/[^a-zA-Z0-9_]/g, "_");  // Ensure username is added to the token
+        token.profilePhoto = user.profilePhoto;
       }
       return token;
     },
-
+  
     async session({ session, token }) {
+      // Set user details from the token into the session
       if (token) {
         session.user._id = token._id;
         session.user.isVerified = token.isVerified;
         session.user.siteVisible = token.siteVisible;
-        session.user.username = token.username;
-        session.user.profilePhoto = token.profilePhoto; // Include profile photo in the session
+        session.user.username = token.username
+        session.user.profilePhoto = token.profilePhoto;
       }
       return session;
     },

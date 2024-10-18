@@ -1,6 +1,5 @@
 import nodemailer from 'nodemailer';
-import ReactDOMServer from 'react-dom/server';
-import VerificationEmail from '../../emails/VerificationEmail';
+import RegistrationEmail from '../../emails/RegistrationEmail';
 import { ApiResponse } from '@/types/ApiResponse';
 
 // Create a reusable transporter object using the default SMTP transport
@@ -14,7 +13,7 @@ const transporter = nodemailer.createTransport({
 
 export async function registrationEmail(
   email: string,
-  name: string,
+  username: string,
 ): Promise<ApiResponse> {
   try {
     // Convert the JSX to a string (HTML) using ReactDOMServer
@@ -22,10 +21,10 @@ export async function registrationEmail(
 
     // Send email using the transporter
     const info = await transporter.sendMail({
-      from: '"OpenBio" <your-email@example.com>', // Change this to your verified email
+      from: '"ProfileCraft" <padil2246@gmail.com>', // Change this to your verified email
       to: email, // Recipient email
-      subject: 'OpenBio | Verification Code', // Subject line
-      html: `Welcome to openbio | ${name}`, // HTML body content (as a string)
+      subject: 'Welcome to ProfileCraft', // Subject line
+      html: RegistrationEmail({username}) , // HTML body content (as a string)
     });
 
     console.log('Message sent: %s', info.messageId); // Access the messageId properly

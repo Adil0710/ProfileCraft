@@ -63,49 +63,79 @@ export default function LogIn() {
   // }
 
   const onSubmit = async (data: z.infer<typeof signInSchema>) => {
-    setIsSubmitting(true)
+    setIsSubmitting(true);
     try {
-      const result = await signIn('credentials', {
+      const result = await signIn("credentials", {
         redirect: false,
         identifier: data.identifier,
         password: data.password,
       });
-  
+
       // Handle the sign-in result
       if (result?.error) {
-        if (result.error === 'CredentialsSignin') {
+        if (result.error === "CredentialsSignin") {
           toast({
-            title: 'Uh oh! Login Failed',
-            description: 'Incorrect username or password',
-            variant: 'destructive',
+            title: "Uh oh! Login Failed",
+            description: "Incorrect username or password",
+            variant: "destructive",
           });
         } else {
           toast({
-            title: 'Uh oh! Error',
+            title: "Uh oh! Error",
             description: result.error,
-            variant: 'destructive',
+            variant: "destructive",
           });
         }
       } else if (result?.url) {
         // Success case
         toast({
-          title: 'Login Successful',
-          description: 'Welcome back!',
+          title: "Login Successful",
+          description: "Welcome back!",
         });
-        router.replace('/dashboard');
+        router.replace("/dashboard");
       }
     } catch (error) {
       // Handle any unexpected errors
       const axiosError = error as AxiosError<ApiResponse>;
-      const errorMessage = axiosError.response?.data.message || 'An unexpected error occurred. Please try again later.';
-      
+      const errorMessage =
+        axiosError.response?.data.message ||
+        "An unexpected error occurred. Please try again later.";
+
       toast({
-        title: 'Error',
+        title: "Error",
         description: errorMessage,
-        variant: 'destructive',
+        variant: "destructive",
       });
-    }finally{
-        setIsSubmitting(false)
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    setIsSubmitting(true); // Set loading state to true when clicked
+
+    try {
+      // Trigger Google OAuth sign-in
+      await signIn("google");
+      toast({
+        title: "Login Successful please wait",
+        description: "Welcome back!",
+      });
+    } catch (error) {
+      // Fixed syntax here
+      console.error("Google Sign-In failed:", error);
+
+      // Ensure errorMessage is a string or fallback to a default message
+      let errorMessage =
+        error instanceof Error ? error.message : "An unknown error occurred";
+
+      toast({
+        title: "Error",
+        description: errorMessage,
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false); // Reset loading state after sign-in completes or fails
     }
   };
 
@@ -207,18 +237,37 @@ export default function LogIn() {
             <Button
               variant="outline"
               className="w-full"
-              onClick={() => signIn("google")}
+              onClick={handleGoogleSignIn} // Use the handleGoogleSignIn function
+              disabled={isSubmitting} // Disable the button when submitting
             >
-              <Image
-                className="w-4 h-4 mr-2"
-                src="https://www.svgrepo.com/show/475656/google-color.svg"
-                width={50}
-                height={50}
-                loading="lazy"
-                alt="google logo"
-              />
-              <span>Continue with Google</span>
+              {isSubmitting ? (
+                <>
+                  <Loader2 className=" mr-2 h-4 w-4 animate-spin" />
+                  <Image
+                    className="w-4 h-4 mr-2"
+                    src="https://www.svgrepo.com/show/475656/google-color.svg"
+                    width={50}
+                    height={50}
+                    loading="lazy"
+                    alt="google logo"
+                  />
+                  <span>Logging in with Google</span>
+                </>
+              ) : (
+                <>
+                  <Image
+                    className="w-4 h-4 mr-2"
+                    src="https://www.svgrepo.com/show/475656/google-color.svg"
+                    width={50}
+                    height={50}
+                    loading="lazy"
+                    alt="google logo"
+                  />
+                  <span>Continue with Google</span>
+                </>
+              )}
             </Button>
+
             <div className="mt-2 text-center text-sm">
               Don&apos;t have an account?{" "}
               <Link href="/sign-up" className="underline font-bold">
@@ -229,15 +278,11 @@ export default function LogIn() {
         </div>
         {/* Right Side */}
 
-        <div className="hidden lg:block">
-
-
-        </div>
+        <div className="hidden lg:block"></div>
 
         <div className=" absolute right-10 top-5">
           <ModeToggle />
         </div>
-
       </div>
     </>
   );

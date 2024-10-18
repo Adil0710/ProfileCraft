@@ -118,6 +118,34 @@ export default function SignUp() {
     }
   };
 
+  const handleGoogleSignIn = async () => {
+    setIsSubmitting(true); // Set loading state to true when clicked
+
+    try {
+      // Trigger Google OAuth sign-in
+      await signIn("google");
+      toast({
+        title: "Login Successful please wait",
+        description: "Welcome back!",
+      });
+    } catch (error) {
+      // Fixed syntax here
+      console.error("Google Sign-In failed:", error);
+
+      // Ensure errorMessage is a string or fallback to a default message
+      let errorMessage =
+        error instanceof Error ? error.message : "An unknown error occurred";
+
+      toast({
+        title: "Error",
+        description: errorMessage,
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false); // Reset loading state after sign-in completes or fails
+    }
+  };
+
   return (
     <>
       <div className="w-full lg:grid lg:min-h-screen lg:grid-cols-2 sm:px-0 px-2">
@@ -279,17 +307,35 @@ export default function SignUp() {
             <Button
               variant="outline"
               className="w-full"
-              onClick={() => signIn("google")}
+              onClick={handleGoogleSignIn} // Use the handleGoogleSignIn function
+              disabled={isSubmitting} // Disable the button when submitting
             >
-              <Image
-                className="w-4 h-4 mr-2"
-                src="https://www.svgrepo.com/show/475656/google-color.svg"
-                width={50}
-                height={50}
-                loading="lazy"
-                alt="google logo"
-              />
-              <span>Continue with Google</span>
+              {isSubmitting ? (
+                <>
+                  <Loader2 className=" mr-2 h-4 w-4 animate-spin" />
+                  <Image
+                    className="w-4 h-4 mr-2"
+                    src="https://www.svgrepo.com/show/475656/google-color.svg"
+                    width={50}
+                    height={50}
+                    loading="lazy"
+                    alt="google logo"
+                  />
+                  <span>Logging in with Google</span>
+                </>
+              ) : (
+                <>
+                  <Image
+                    className="w-4 h-4 mr-2"
+                    src="https://www.svgrepo.com/show/475656/google-color.svg"
+                    width={50}
+                    height={50}
+                    loading="lazy"
+                    alt="google logo"
+                  />
+                  <span>Continue with Google</span>
+                </>
+              )}
             </Button>
             <div className="mt-2 text-center text-sm">
               Already have an account?{" "}

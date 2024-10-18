@@ -1,5 +1,4 @@
 import nodemailer from 'nodemailer';
-import ReactDOMServer from 'react-dom/server';
 import VerificationEmail from '../../emails/VerificationEmail';
 import { ApiResponse } from '@/types/ApiResponse';
 
@@ -23,10 +22,10 @@ export async function sendVerificationEmail(
 
     // Send email using the transporter
     const info = await transporter.sendMail({
-      from: '"OpenBio" <your-email@example.com>', // Change this to your verified email
+      from: '"ProfileCraft" <padil2246@gmail.com>', // Change this to your verified email
       to: email, // Recipient email
-      subject: 'OpenBio | Verification Code', // Subject line
-      html: verifyCode, // HTML body content (as a string)
+      subject: 'ProfileCraft | Verification Code', // Subject line
+      html: VerificationEmail({username, verifyCode}), // HTML body content (as a string)
     });
 
     console.log('Message sent: %s', info.messageId); // Access the messageId properly

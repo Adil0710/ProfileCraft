@@ -1,67 +1,83 @@
+import { registrationEmail } from "@/helpers/registrationEmail";
 import dbConnect from "@/lib/dbConnect";
 import UserModel from "@/models/User";
 
-export async function POST(request:Request) {
-    await dbConnect()
+export async function POST(request: Request) {
+  await dbConnect();
 
+  try {
+    const { username, code } = await request.json();
 
-    try {
-        const {username , code} = await request.json()
+    const decodedUsername = decodeURIComponent(username);
+    const user = await UserModel.findOne({ username: decodedUsername });
 
-        const decodedUsername = decodeURIComponent(username)
-        const user = await UserModel.findOne({username: decodedUsername})
-
-        if (!user) {
-            return Response.json(
-                {
-                  success: false,
-                  message: "User not found",
-                },
-                {
-                  status: 500,
-                }
-              );
+    if (!user) {
+      return Response.json(
+        {
+          success: false,
+          message: "User not found",
+        },
+        {
+          status: 500,
         }
+      );
+    }
 
-        const isCodeValid = user.verifyCode === code
-        const isCodeNotExpired = new Date(user.verifyCodeExpiry) > new Date()
+    const isCodeValid = user.verifyCode === code;
+    const isCodeNotExpired = new Date(user.verifyCodeExpiry) > new Date();
 
-        if (isCodeValid && isCodeNotExpired) {
-            user.isVerified = true
-            await user.save()
-            return Response.json(
-                {
-                  success: true,
-                  message: "Account verified successfully",
-                },
-                {
-                  status: 200,
-                }
-              );
-        } else if (!isCodeNotExpired) {
-            return Response.json(
-                {
-                  success: false,
-                  message: "Verification code has expired please signup again to get a new code",
-                },
-                {
-                  status: 400,
-                }
-              );
-        } else {
-            return Response.json(
-                {
-                  success: false,
-                  message: "Incorrect verification code",
-                },
-                {
-                  status: 400,
-                }
-              );
+    if (isCodeValid && isCodeNotExpired) {
+      user.isVerified = true;
+      await user.save();
+
+      try {
+        await registrationEmail(user.email, username);
+      } catch (emailError) {
+        console.error("Error sending welcome email", emailError);
+        return Response.json(
+          {
+            success: true,
+            message: "Account verified, but failed to send welcome email",
+          },
+          {
+            status: 200,
+          }
+        );
+      }
+
+      return Response.json(
+        {
+          success: true,
+          message: "Account verified successfully",
+        },
+        {
+          status: 200,
         }
-
-    } catch (error) {
-        console.error("Error verifying user", error);
+      );
+    } else if (!isCodeNotExpired) {
+      return Response.json(
+        {
+          success: false,
+          message:
+            "Verification code has expired please signup again to get a new code",
+        },
+        {
+          status: 400,
+        }
+      );
+    } else {
+      return Response.json(
+        {
+          success: false,
+          message: "Incorrect verification code",
+        },
+        {
+          status: 400,
+        }
+      );
+    }
+  } catch (error) {
+    console.error("Error verifying user", error);
     return Response.json(
       {
         success: false,
@@ -71,5 +87,5 @@ export async function POST(request:Request) {
         status: 500,
       }
     );
-    }
+  }
 }
