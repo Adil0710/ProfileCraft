@@ -6,6 +6,7 @@ declare module "next-auth" {
     isVerified?: boolean;
     siteVisible?: boolean;
     username?: string;
+    profilePhoto?: string;
   }
   interface Session {
     user: {
@@ -13,6 +14,7 @@ declare module "next-auth" {
       isVerified?: boolean;
       siteVisible?: boolean;
       username?: string;
+      profilePhoto?: string;
     } & DefaultSession["user"];
   }
 }
@@ -22,6 +24,16 @@ declare module "next-auth/jwt" {
     id?: string;
     isVerified?: boolean;
     siteVisible?: boolean;
-    username?: string;
+    profilePhoto?: string;
+  }
+}
+
+declare module "next-auth" {
+  interface Profile {
+    id: string; // Add this line to include the id
+    name: string;
+    email: string;
+    picture: string;
+    // Add any other properties you expect from the profile
   }
 }
