@@ -12,7 +12,7 @@ export default function Navbar() {
   const { data: session } = useSession();
   const user: User = session?.user;
   return (
-    <nav className=" absolute w-full px-10 pt-5 z-50 flex items-center justify-between">
+    <nav className=" navbar absolute w-full px-10 py-5 z-50 flex items-center justify-between">
       <Image src={logo} alt="ProfileCraft" height={50} width={50} />
       <div className=" flex gap-5">
         {session ? (
