@@ -25,8 +25,6 @@ function genId() {
   return count.toString()
 }
 
-// Define action types directly without `actionTypes` object
-type ActionType = "ADD_TOAST" | "UPDATE_TOAST" | "DISMISS_TOAST" | "REMOVE_TOAST"
 
 type Action =
   | {
