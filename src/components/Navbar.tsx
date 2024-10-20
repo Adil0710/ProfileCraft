@@ -16,11 +16,11 @@ export default function Navbar() {
       <Image src={logo} alt="ProfileCraft" height={50} width={50} />
       <div className=" flex gap-5">
         {session ? (
-          <Button onClick={() => signOut()}>Logout</Button>
+          <Button size="sm" onClick={() => signOut()}>Logout</Button>
         ) : (
           <>
             <Link href="/sign-in">
-              <Button>Login</Button>
+              <Button size="sm" >Login</Button>
             </Link>
           </>
         )}

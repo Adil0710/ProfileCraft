@@ -9,21 +9,17 @@ export interface User extends Document {
   isVerified: boolean;
   siteVisible: boolean;
   accountType: 'personal' | 'organization';
-  
+
   // Common profile fields for both personal and organization users
   name: string;
   about?: string;
   favoriteQuote?: string;
-  socialMediaLinks?: { platform: string; link: string }[];
+  socialMediaLinks?: { platform: string; platform_username: string }[];
   profilePhoto?: string;
   gender?: string;
   occupation?: string;
-
-  // Organization/team-specific fields (optional for personal accounts)
-  teamName?: string;
-  designation?: string;
-  department?: string;
-  bloodGroup?: string;
+  image?: string;
+  location?: string;
 
   // OAuth-specific fields
   oauthProvider?: string; // e.g., 'google', 'github'
@@ -72,24 +68,20 @@ const UserSchema: Schema<User> = new mongoose.Schema({
   },
 
   // Common profile fields
-  name: { type: String, required:[true, 'Name is required'] },
+  name: { type: String, required: [true, 'Name is required'] },
   about: { type: String },
   favoriteQuote: { type: String },
   socialMediaLinks: [
     {
-      platform: { type: String },
-      link: { type: String },
+      platform: { type: String, required: [true, 'Platform is required'] },
+      platform_username: { type: String, required: [true, 'Platform username is required'] },
     },
   ],
   profilePhoto: { type: String },
   gender: { type: String },
   occupation: { type: String },
-
-  // Organization/team-specific fields (optional for personal accounts)
-  teamName: { type: String },
-  designation: { type: String },
-  department: { type: String },
-  bloodGroup: { type: String },
+  image: { type: String },
+  location: { type: String },
 
   // OAuth fields
   oauthProvider: { type: String }, // e.g., 'google', 'github'
@@ -97,7 +89,6 @@ const UserSchema: Schema<User> = new mongoose.Schema({
 });
 
 const UserModel =
-  mongoose.models.User ||
-  mongoose.model<User>('User', UserSchema);
+  mongoose.models.User || mongoose.model<User>('User', UserSchema);
 
 export default UserModel;
