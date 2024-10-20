@@ -83,7 +83,7 @@ export default function DashboardPage() {
                 <h2 className="mt-3 font-medium text-neutral-500 dark:text-neutral-500 sm:text-base text-sm">
                   @{profileDetails.username || user?.username}
                 </h2>
-                <p className=" mt-3 font-medium dark:text-neutral-400">{profileDetails.about}</p>
+                <p className=" mt-3 font-medium dark:text-neutral-400 text-neutral-700 ">{profileDetails.about}</p>
 
                 <Button
                   onClick={handleDrawerOpen}

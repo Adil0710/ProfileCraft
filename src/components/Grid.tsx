@@ -71,9 +71,9 @@ function Grid({ profileUpdated, setProfileUpdated }: GridProps) {
                 {/* Content */}
                 <div className="relative shadow-xl bg-gray-900 border border-gray-800 p-10 h-full rounded-md flex flex-col items-center justify-center">
                   {/* FavQuotes component */}
-                  { !profileDetails.favoriteQuote ? ( <p className="font-normal text-sm sm:text-base text-slate-500 relative z-50">
+                  { !profileDetails.favoriteQuote ? ( <p className="font-normal text-sm sm:text-base text-slate-400 relative z-50">
                    add your quote or thoughts here
-                   </p>) : ( <p className="font-normal text-sm sm:text-base text-slate-500 relative z-50">
+                   </p>) : ( <p className="font-normal text-sm sm:text-base text-slate-400 relative z-50">
                     {profileDetails.favoriteQuote}
                    </p>)
                    }
