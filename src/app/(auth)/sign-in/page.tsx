@@ -12,7 +12,7 @@ import Image from "next/image";
 import { ModeToggle } from "@/components/theme-toggle";
 import { useToast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
-import axios, { AxiosError } from "axios";
+import { AxiosError } from "axios";
 import { ApiResponse } from "@/types/ApiResponse";
 import {
   Form,
@@ -22,13 +22,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import {
-  EyeOffIcon,
-  EyeIcon,
-  Loader2,
-  CircleXIcon,
-  CircleCheckIcon,
-} from "lucide-react";
+import { EyeOffIcon, EyeIcon, Loader2 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { signInSchema } from "@/schemas/signInSchema";
 
@@ -126,7 +120,7 @@ export default function LogIn() {
       console.error("Google Sign-In failed:", error);
 
       // Ensure errorMessage is a string or fallback to a default message
-      let errorMessage =
+      const errorMessage =
         error instanceof Error ? error.message : "An unknown error occurred";
 
       toast({

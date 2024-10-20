@@ -12,7 +12,7 @@ export async function middleware(request: NextRequest) {
     if (
       url.pathname.startsWith("/sign-in") ||
       url.pathname.startsWith("/sign-up") ||
-      url.pathname.startsWith("/verify")
+      url.pathname.startsWith("/verify") 
     ) {
       return NextResponse.redirect(new URL("/dashboard", request.url));
     }

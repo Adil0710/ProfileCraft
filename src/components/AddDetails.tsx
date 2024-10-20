@@ -115,7 +115,7 @@ export default function AddDetails({
           platform: platform.platform,
           platform_username:
             user.socialMediaLinks?.find(
-              (link: any) => link.platform === platform.platform
+              (link: SocialLink) => link.platform === platform.platform
             )?.platform_username || "", // Set existing username or leave blank
         }));
 
@@ -346,7 +346,7 @@ export default function AddDetails({
                     key={index}
                     control={form.control}
                     name={`socialLinks.${index}.platform_username`}
-                    render={({ field }) => (
+                    render={({  }) => (
                       <FormItem>
                         <div className="flex w-full items-center gap-5">
                           <FormLabel className="flex-shrink-0 w-1/6 text-left">

@@ -106,7 +106,7 @@ export default function SignUp() {
       console.error("Error while signup of user", error);
 
       const axiosError = error as AxiosError<ApiResponse>;
-      let errorMessage = axiosError.response?.data.message;
+      const errorMessage = axiosError.response?.data.message;
 
       toast({
         variant: "destructive",
@@ -133,7 +133,7 @@ export default function SignUp() {
       console.error("Google Sign-In failed:", error);
 
       // Ensure errorMessage is a string or fallback to a default message
-      let errorMessage =
+      const errorMessage =
         error instanceof Error ? error.message : "An unknown error occurred";
 
       toast({

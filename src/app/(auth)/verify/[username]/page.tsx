@@ -55,7 +55,7 @@ export default function VerifyAccount() {
       console.error("Error while verifying user", error);
 
       const axiosError = error as AxiosError<ApiResponse>;
-      let errorMessage = axiosError.response?.data.message;
+      const errorMessage = axiosError.response?.data.message;
 
       toast({
         variant: "destructive",
