@@ -55,7 +55,7 @@ function Grid({ profileUpdated, setProfileUpdated }: GridProps) {
     <div className="w-full h-auto lg:h-screen overflow-y-auto pt-28 sm:pb-5 pb-20 md:pr-0 pr-0 lg:pr-10">
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 m-4">
               <a href="">
-                <div className="bg-[#fff7fb] rounded-md p-10 h-48"></div>
+                <div className="bg-[#fff7fb] rounded-md p-10 h-48">insta</div>
               </a>
 
               <div className="bg-green-200 rounded-md p-10 h-48">music</div>
@@ -71,9 +71,9 @@ function Grid({ profileUpdated, setProfileUpdated }: GridProps) {
                 {/* Content */}
                 <div className="relative shadow-xl bg-gray-900 border border-gray-800 p-10 h-full rounded-md flex flex-col items-center justify-center">
                   {/* FavQuotes component */}
-                  { !profileDetails.favoriteQuote ? ( <p className="font-normal text-sm sm:text-base text-slate-400 relative z-50">
+                  { !profileDetails.favoriteQuote ? ( <p className="font-normal text-sm sm:text-base text-slate-400 relative z-40">
                    add your quote or thoughts here
-                   </p>) : ( <p className="font-normal text-sm sm:text-base text-slate-400 relative z-50">
+                   </p>) : ( <p className="font-normal text-sm sm:text-base text-slate-400 relative z-40">
                     {profileDetails.favoriteQuote}
                    </p>)
                    }
