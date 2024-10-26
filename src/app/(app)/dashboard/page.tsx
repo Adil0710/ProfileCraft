@@ -9,6 +9,8 @@ import axios from "axios";
 import { Button } from "@/components/ui/button";
 import AddDetails from "@/components/AddDetails";
 import Background from "@/components/Background";
+import Link from "next/link";
+import { Separator } from "@/components/ui/separator";
 
 export default function DashboardPage() {
   const { data: session } = useSession();
@@ -101,9 +103,34 @@ export default function DashboardPage() {
                 />
               </div>
             </div>
-            <div className="absolute left-10 sm:bottom-5 bottom-0">
-              <h1>Adil</h1>
-            </div>
+            <div className="absolute sm:left-10 sm:bottom-2 -bottom-10 sm:space-y-7 space-y-7 pb-3 left-3">
+                  
+                  <div className="flex flex-row text-sm sm:text-base">
+                    <p className="text-neutral-500 dark:text-neutral-400">
+                      Powered by{" "}
+                      <Link
+                        href="/"
+                        className="underline text-neutral-800 hover:text-black duration-200 dark:text-neutral-300 dark:hover:text-neutral-50"
+                      >
+                        ProfileCraft
+                      </Link>
+                    </p>
+                    <Separator
+                      orientation="vertical"
+                      className="h-auto w-[1px] bg-gray-300 mx-4"
+                    />{" "}
+                    <p className="text-neutral-500 dark:text-neutral-400">
+                      Developed by{" "}
+                      <Link
+                        href="https://devadil.vercel.app/"
+                        target="_blank"
+                        className=" text-neutral-800 dark:text-neutral-300 dark:hover:text-neutral-50 font-semibold hover:text-black duration-200"
+                      >
+                        Adil
+                      </Link>
+                    </p>
+                  </div>
+                </div>
           </div>
 
           {/* Right Side (Scrollable) */}
