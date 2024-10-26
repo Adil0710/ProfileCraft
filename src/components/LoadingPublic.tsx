@@ -1,7 +1,6 @@
 import React from "react";
 import { Skeleton } from "./ui/skeleton";
 import { Meteors } from "./ui/meteors";
-import ShinyButton from "./ui/shiny-button";
 import { Separator } from "./ui/separator";
 import Link from "next/link";
 
