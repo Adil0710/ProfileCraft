@@ -39,6 +39,7 @@ export default function UserProfile({ params }: { params: { username: string } }
         console.log(response);
       } catch (err) {
         setError("User not found or an error occurred.");
+        console.log(err)
       }
     }
     fetchUser();
