@@ -8,6 +8,7 @@ import Grid from "@/components/Grid";
 import axios from "axios";
 import { Button } from "@/components/ui/button";
 import AddDetails from "@/components/AddDetails";
+import Background from "@/components/Background";
 
 export default function DashboardPage() {
   const { data: session } = useSession();
@@ -56,9 +57,7 @@ export default function DashboardPage() {
   return (
     <>
       <div className="relative w-full min-h-screen">
-        <div className="main">
-          <div className="content"></div>
-        </div>
+      <Background/>
 
         <div className="flex flex-col lg:flex-row w-full h-full">
           <div className="lg:w-[35%] flex-shrink-0 flex flex-col justify-between w-full h-auto lg:h-full pt-28 pb-5 pl-10">

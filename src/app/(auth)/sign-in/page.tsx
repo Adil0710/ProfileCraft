@@ -274,9 +274,7 @@ export default function LogIn() {
 
         <div className="hidden lg:block"></div>
 
-        <div className=" absolute right-10 top-5">
-          <ModeToggle />
-        </div>
+       
       </div>
     </>
   );
