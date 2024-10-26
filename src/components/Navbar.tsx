@@ -12,7 +12,7 @@ export default function Navbar() {
 
   return (
     <nav className=" navbar absolute w-full px-10 py-5 z-50 flex items-center justify-between">
-      <Image src={logo} alt="ProfileCraft" height={50} width={50} />
+      <Image src={logo} alt="ProfileCraft" className="w-10 sm:w-12" />
       <div className=" flex gap-5">
         {session ? (
           <Button size="sm" onClick={() => signOut()}>Logout</Button>
