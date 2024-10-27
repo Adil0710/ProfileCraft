@@ -4,7 +4,7 @@ import { Meteors } from "./ui/meteors";
 import { Separator } from "./ui/separator";
 import Link from "next/link";
 
-export default function LoadingPublic() {
+export default function Loading() {
   return (
     <div className="flex flex-col lg:flex-row w-full h-full">
       <div className="lg:w-[35%] flex-shrink-0 flex flex-col justify-between w-full h-auto lg:h-full pt-28 pb-5 sm:pl-10 pl-5">
@@ -15,17 +15,11 @@ export default function LoadingPublic() {
             <Skeleton className="h-12 w-1/2" />
             <Skeleton className="mt-3 w-[20%] h-5 " />
             <Skeleton className=" mt-3 w-[80%] h-8 " />
+            <Skeleton className="mt-10 h-8 w-16" />
           </div>
         </div>
         <div className="absolute sm:left-10 sm:bottom-2 -bottom-10 sm:space-y-7 space-y-7 pb-3 left-3">
-          <div className=" flex flex-row">
-            <Skeleton className="h-8 w-[125px]" />{" "}
-            <Separator
-              orientation="vertical"
-              className="h-auto w-[1px] bg-gray-300 mx-4"
-            />{" "}
-            <Skeleton className="h-8 w-16" />
-          </div>
+          
           <div className="flex flex-row text-sm sm:text-base">
             <p className="text-neutral-500">
               Powered by{" "}

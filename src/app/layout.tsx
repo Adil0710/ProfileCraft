@@ -39,7 +39,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <NavbarPublic/>
+            
         {children}
         <Toaster />
         </ThemeProvider>

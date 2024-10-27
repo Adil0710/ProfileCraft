@@ -36,6 +36,7 @@ import { Textarea } from "./ui/textarea";
 import { ScrollArea } from "./ui/scroll-area";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
+import { Skeleton } from "./ui/skeleton";
 
 // Hardcoded platforms
 const platforms = [
@@ -89,6 +90,7 @@ export default function AddDetails({
   const { toast } = useToast();
   const [selectedGender, setSelectedGender] = useState<string | null>(null); // State for gender selection
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [loading, setIsLoading] = useState(false)
 
   // Initialize form with default values
   const form = useForm({
@@ -107,6 +109,7 @@ export default function AddDetails({
   // Fetch profile details and set them in form when drawer opens
   useEffect(() => {
     const getProfileDetails = async () => {
+      setIsLoading(true)
       try {
         const response = await axios.get("/api/get-profile-details");
         const user = response.data.user;
@@ -133,6 +136,8 @@ export default function AddDetails({
         }); // Populate form with fetched data
       } catch (error) {
         console.error("Error fetching profile details:", error);
+      } finally {
+        setIsLoading(false)
       }
     };
 
@@ -217,10 +222,12 @@ export default function AddDetails({
                     <FormItem>
                       <FormLabel>Full Name</FormLabel>
                       <FormControl>
-                        <Input
+                       {
+                        loading ? (<Skeleton className=" h-4 w-full" />) : ( <Input
                           placeholder="Your current occupation"
                           {...field}
-                        />
+                        />)
+                       }
                       </FormControl>
 
                       <FormMessage />

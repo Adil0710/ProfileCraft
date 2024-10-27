@@ -84,7 +84,7 @@ export default function UserProfile({
           <>
             {" "}
             <div className="flex flex-col lg:flex-row w-full h-full">
-              <div className="lg:w-[35%] flex-shrink-0 flex flex-col justify-between w-full h-auto lg:h-full pt-28 pb-5 pl-10">
+              <div className="lg:w-[35%] flex-shrink-0 flex flex-col justify-between w-full h-auto lg:h-full pt-28 pb-5 sm:pl-10 pl-5">
                 <div>
                   <div className="relative w-36 h-36 rounded-full bg-slate-300 dark:bg-slate-800 flex items-center justify-center">
                     <Image
@@ -100,7 +100,7 @@ export default function UserProfile({
                   </div>
 
                   <div className="mt-10">
-                    <h1 className="text-5xl font-bold dark:text-neutral-300">
+                    <h1 className="sm:text-5xl text-4xl font-bold dark:text-neutral-300">
                       {user.name}
                     </h1>
                     <h2 className="mt-3 font-medium text-neutral-500 dark:text-neutral-500 sm:text-base text-sm">

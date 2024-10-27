@@ -11,6 +11,7 @@ import AddDetails from "@/components/AddDetails";
 import Background from "@/components/Background";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
+import Loading from "@/components/Loading";
 
 export default function DashboardPage() {
   const { data: session } = useSession();
@@ -59,52 +60,57 @@ export default function DashboardPage() {
   return (
     <>
       <div className="relative w-full min-h-screen">
-      <Background/>
+        <Background />
 
-        <div className="flex flex-col lg:flex-row w-full h-full">
-          <div className="lg:w-[35%] flex-shrink-0 flex flex-col justify-between w-full h-auto lg:h-full pt-28 pb-5 pl-10">
-            <div>
-              <div className="relative w-36 h-36 rounded-full bg-slate-300 dark:bg-slate-800 flex items-center justify-center">
-                <Image
-                  src={
-                    profileDetails.profilePhoto ||
-                    (profileDetails.gender === "Female" ? female : male)
-                  }
-                  alt="Profile"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-full"
-                />
-              </div>
+        {!user ? (
+          <Loading />
+        ) : (
+          <>
+            <div className="flex flex-col lg:flex-row w-full h-full">
+              <div className="lg:w-[35%] flex-shrink-0 flex flex-col justify-between w-full h-auto lg:h-full pt-28 pb-5 sm:pl-10 pl-5">
+                <div>
+                  <div className="relative w-36 h-36 rounded-full bg-slate-300 dark:bg-slate-800 flex items-center justify-center">
+                    <Image
+                      src={
+                        profileDetails.profilePhoto ||
+                        (profileDetails.gender === "Female" ? female : male)
+                      }
+                      alt="Profile"
+                      layout="fill"
+                      objectFit="cover"
+                      className="rounded-full"
+                    />
+                  </div>
 
-              <div className="mt-10">
-                <h1 className="text-5xl font-bold dark:text-neutral-300">
-                  {profileDetails.name || user?.name}
-                </h1>
-                <h2 className="mt-3 font-medium text-neutral-500 dark:text-neutral-500 sm:text-base text-sm">
-                  @{profileDetails.username || user?.username}
-                </h2>
-                <p className=" mt-3 font-medium dark:text-neutral-400 text-neutral-700 ">{profileDetails.about}</p>
+                  <div className="mt-10">
+                    <h1 className="sm:text-5xl text-4xl font-bold dark:text-neutral-300">
+                      {profileDetails.name || user?.name}
+                    </h1>
+                    <h2 className="mt-3 font-medium text-neutral-500 dark:text-neutral-500 sm:text-base text-sm">
+                      @{profileDetails.username || user?.username}
+                    </h2>
+                    <p className=" mt-3 font-medium dark:text-neutral-400 text-neutral-700 ">
+                      {profileDetails.about}
+                    </p>
 
-                <Button
-                  onClick={handleDrawerOpen}
-                  size={"sm"}
-                  className=" mt-10"
-                >
-                  Profile
-                </Button>
+                    <Button
+                      onClick={handleDrawerOpen}
+                      size={"sm"}
+                      className=" mt-10"
+                    >
+                      Profile
+                    </Button>
 
-                {/* Pass the open state and close handler to the Drawer component */}
-                <AddDetails
-                  isOpen={isDrawerOpen}
-                  onClose={handleDrawerClose}
-                  setProfileUpdated={setProfileUpdated} // Ensure this function updates the profile state
-                  onUpdate={getProfileDetails} // Trigger fetching updated profile details after update
-                />
-              </div>
-            </div>
-            <div className="absolute sm:left-10 sm:bottom-2 -bottom-10 sm:space-y-7 space-y-7 pb-3 left-3">
-                  
+                    {/* Pass the open state and close handler to the Drawer component */}
+                    <AddDetails
+                      isOpen={isDrawerOpen}
+                      onClose={handleDrawerClose}
+                      setProfileUpdated={setProfileUpdated} // Ensure this function updates the profile state
+                      onUpdate={getProfileDetails} // Trigger fetching updated profile details after update
+                    />
+                  </div>
+                </div>
+                <div className="absolute sm:left-10 sm:bottom-2 -bottom-10 sm:space-y-7 space-y-7 pb-3 left-3">
                   <div className="flex flex-row text-sm sm:text-base">
                     <p className="text-neutral-500 dark:text-neutral-400">
                       Powered by{" "}
@@ -131,14 +137,16 @@ export default function DashboardPage() {
                     </p>
                   </div>
                 </div>
-          </div>
+              </div>
 
-          {/* Right Side (Scrollable) */}
-          <Grid
-            profileUpdated={profileUpdated}
-            setProfileUpdated={setProfileUpdated}
-          />
-        </div>
+              {/* Right Side (Scrollable) */}
+              <Grid
+                profileUpdated={profileUpdated}
+                setProfileUpdated={setProfileUpdated}
+              />
+            </div>
+          </>
+        )}
       </div>
     </>
   );
