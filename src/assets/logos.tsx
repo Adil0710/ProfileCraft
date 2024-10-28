@@ -35,6 +35,7 @@ const logos = {
       id="instagram"
       stroke="#404040"
       strokeWidth="0.5"
+      className="icon-shadow" // Apply shadow class here
     >
       <defs>
         <radialGradient
@@ -82,6 +83,7 @@ const logos = {
       id="gmail"
       stroke="#404040"
       strokeWidth="0.1"
+      className="icon-shadow" // Apply shadow class here
     >
       <path
         fill="#ea4435"
@@ -113,6 +115,7 @@ const logos = {
       aria-label="LinkedIn"
       viewBox="0 0 512 512"
       id="linkedin"
+      className="icon-shadow" // Apply shadow class here
     >
       <rect
         width="512"
@@ -133,6 +136,7 @@ const logos = {
       aria-label="GitHub"
       viewBox="0 0 512 512"
       id="github"
+      className="icon-shadow" // Apply shadow class here
     >
       <rect
         width="512"
@@ -155,6 +159,7 @@ const logos = {
       aria-label="YouTube"
       viewBox="0 0 512 512"
       id="youtube"
+      className="icon-shadow" // Apply shadow class here
     >
       <rect
         width="512"
@@ -171,7 +176,12 @@ const logos = {
     </svg>
   ),
   twitter: (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="twitter">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 64 64"
+      id="twitter"
+      className="icon-shadow" // Apply shadow class here
+    >
       <path
         fill="#050505"
         fill-rule="evenodd"
@@ -186,7 +196,12 @@ const logos = {
     </svg>
   ),
   threads: (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="threads">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 64 64"
+      id="threads"
+      className="icon-shadow" // Apply shadow class here
+    >
       <path
         fill="#020202"
         fill-rule="evenodd"
