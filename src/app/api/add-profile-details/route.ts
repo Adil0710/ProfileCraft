@@ -25,7 +25,7 @@ export async function PUT(request: Request) {
       name,
       about,
       favoriteQuote,
-      socialMediaLinks,
+      socialLinks,
       profilePhoto,
       gender,
       occupation,
@@ -54,7 +54,17 @@ export async function PUT(request: Request) {
         { status: 404 }
       );
     }
-
+    console.log("Updating user with data:", {
+      name,
+      about,
+      favoriteQuote,
+      gender,
+      occupation,
+      image,
+      location,
+      socialLinks,
+    });
+    
     const updatedUser = await UserModel.findByIdAndUpdate(
       userId,
       {
@@ -67,7 +77,7 @@ export async function PUT(request: Request) {
           occupation,
           image,
           location,
-          socialMediaLinks,
+          socialMediaLinks:socialLinks,
         },
       },
       { new: true }

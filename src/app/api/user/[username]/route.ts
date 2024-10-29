@@ -10,7 +10,7 @@ export async function GET(request: Request, { params }: { params: { username: st
 
     // Fetch the user by username
     const user = await UserModel.findOne({ username, isVerified: true }).select(
-      "profilePhoto name username about favoriteQuote gender occupation socialMediaLinks location image"
+      "profilePhoto email name username about favoriteQuote gender occupation socialMediaLinks location image"
     );
 
     if (!user) {
