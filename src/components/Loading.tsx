@@ -20,7 +20,7 @@ export default function Loading() {
 
               <Separator
                 orientation="vertical"
-                className="h-auto w-[1px] bg-gray-300 mx-5"
+                className="h-auto w-[1px] bg-gray-300 dark:bg-gray-700 mx-5"
               />
               <Skeleton className=" h-8 w-[70%]" />
             </div>
@@ -40,7 +40,7 @@ export default function Loading() {
             </p>
             <Separator
               orientation="vertical"
-              className="h-auto w-[1px] bg-gray-300 mx-4"
+              className="h-auto w-[1px] bg-gray-300 dark:bg-gray-700 mx-4"
             />{" "}
             <p className="text-neutral-500">
               Developed by{" "}
