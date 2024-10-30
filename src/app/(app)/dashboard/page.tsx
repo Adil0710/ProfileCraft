@@ -40,7 +40,7 @@ export default function DashboardPage() {
     about: "",
   });
 
-  const baseURL = `${window.location.protocol}//${window.location.host}`;
+  const [baseURL, setBaseURL] = useState(""); // Store baseURL in state
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [profileUpdated, setProfileUpdated] = useState(false); // Track profile updates
   const [buttonState, setButtonState] = useState<keyof Button>("idle");
@@ -101,6 +101,17 @@ export default function DashboardPage() {
       setButtonState("idle");
     }, 3000);
   }, [baseURL, profileDetails.username]);
+
+
+
+   // Set baseURL in a useEffect to ensure it only runs on the client
+   useEffect(() => {
+    if (typeof window !== "undefined") {
+      setBaseURL(`${window.location.protocol}//${window.location.host}`);
+    }
+  }, []);
+
+  
   return (
     <>
       <div className="relative w-full min-h-screen">
