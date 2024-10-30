@@ -22,7 +22,7 @@ export default function LoadingPublic() {
             <Skeleton className="h-8 w-[125px]" />{" "}
             <Separator
               orientation="vertical"
-              className="h-auto w-[1px] bg-gray-300 dark:bg-neutral-500 mx-4"
+              className="h-auto w-[1px] bg-gray-300 dark:bg-neutral-600 mx-4"
             />{" "}
             <Skeleton className="h-8 w-16" />
           </div>
@@ -38,7 +38,7 @@ export default function LoadingPublic() {
             </p>
             <Separator
               orientation="vertical"
-              className="h-auto w-[1px] bg-gray-300 dark:bg-neutral-500 mx-4"
+              className="h-auto w-[1px] bg-gray-300 dark:bg-neutral-600 mx-4"
             />{" "}
             <p className="text-neutral-500">
               Developed by{" "}

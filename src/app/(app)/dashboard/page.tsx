@@ -159,7 +159,7 @@ export default function DashboardPage() {
 
                       <Separator
                       orientation="vertical"
-                      className="h-auto w-[1px] bg-gray-300 dark:bg-neutral-500 mx-5"
+                      className="h-auto w-[1px] bg-gray-300 dark:bg-neutral-600 mx-5"
                     />
 
                       {/* Input with Copy Button */}
@@ -233,7 +233,7 @@ export default function DashboardPage() {
                     </p>
                     <Separator
                       orientation="vertical"
-                      className="h-auto w-[1px] bg-gray-300 dark:bg-neutral-500 mx-4"
+                      className="h-auto w-[1px] bg-gray-300 dark:bg-neutral-600 mx-4"
                     />{" "}
                     <p className="text-neutral-500 dark:text-neutral-400">
                       Developed by{" "}
