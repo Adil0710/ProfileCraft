@@ -155,7 +155,7 @@ function Grid({ profileUpdated, setProfileUpdated }: GridProps) {
                       <div className=" logo-container">
                         <Logo name="linkedin" size={35} />
                       </div>
-                      <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
+                      <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words overflow-hidden text-ellipsis whitespace-nowrap">
                         {linkedinProfile}
                       </p>
                       <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
