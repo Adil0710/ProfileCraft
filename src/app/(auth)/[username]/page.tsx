@@ -244,7 +244,7 @@ export default function UserProfile({
                       <div className=" logo-container">
                         <Logo name="linkedin" size={35} />
                       </div>
-                      <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
+                      <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words overflow-hidden text-ellipsis whitespace-nowrap">
                         {linkedinProfile}
                       </p>
                       <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
@@ -265,7 +265,7 @@ export default function UserProfile({
                         <Logo name="github" size={35} />
                       </div>
                       <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
-                        {linkedinProfile}
+                        {githubUsername}
                       </p>
                       <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
                         <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition border border-neutral-50">
@@ -285,7 +285,7 @@ export default function UserProfile({
                         <Logo name="youtube" size={35} />
                       </div>
                       <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
-                        {linkedinProfile}
+                        @ {youtubeChannel}
                       </p>
                       <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
                         <p className=" py-0.5 text-sm font-medium px-1.5 bg-rose-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-rose-300 transition border border-neutral-300">
@@ -305,7 +305,7 @@ export default function UserProfile({
                         <Logo name="twitter" size={35} />
                       </div>
                       <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
-                        {linkedinProfile}
+                        @ {twitterUsername}
                       </p>
                       <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
                         <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition border border-neutral-200">
@@ -325,7 +325,7 @@ export default function UserProfile({
                         <Logo name="threads" size={35} />
                       </div>
                       <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
-                        {linkedinProfile}
+                        {threadsUsername}
                       </p>
                       <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
                         <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition border border-neutral-200">
