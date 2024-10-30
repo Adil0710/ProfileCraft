@@ -80,9 +80,12 @@ export default function UserProfile({
   // Get Instagram username
   const instagramUsername = userNames["instagram"] || "";
   const spotifyLink = userNames["spotify"] || "";
-  const linkedinUsername = userNames["linkedin"] || "";
+  const linkedinProfile = userNames["linkedin"] || "";
+  const youtubeChannel = userNames["youtube"] || "";
   const twitterUsername = userNames["twitter"] || "";
-  console.log(spotifyLink);
+  const threadsUsername = userNames["threads"] || "";
+  const githubUsername = userNames["github"] || "";
+  const customLink = userNames["custom"] || "";
 
   return (
     <>
@@ -117,22 +120,26 @@ export default function UserProfile({
                     <h2 className="mt-3 font-medium text-neutral-500 dark:text-neutral-500 sm:text-base text-sm">
                       @{user.username}
                     </h2>
-                    <p className=" mt-3 font-medium dark:text-neutral-400 text-neutral-700 ">
+                    <p className=" mt-3 font-medium dark:text-neutral-300 text-neutral-700 ">
                       {user.about}
                     </p>
                   </div>
                 </div>
                 <div className="absolute sm:left-10 sm:bottom-2 -bottom-10 sm:space-y-7 space-y-7 pb-3 left-3">
                   <div className="flex flex-row">
-                    <ShinyButton>Create Profile</ShinyButton>{" "}
+                    <Link href="/sign-up">
+                      <ShinyButton>Create Profile</ShinyButton>
+                    </Link>{" "}
                     <Separator
                       orientation="vertical"
                       className="h-auto w-[1px] bg-gray-300 mx-4"
                     />{" "}
-                    <ShinyButton className="bg-black/5">Log In</ShinyButton>
+                    <Link href="/sign-in">
+                      <ShinyButton className="bg-black/5">Log In</ShinyButton>
+                    </Link>
                   </div>
                   <div className="flex flex-row text-sm sm:text-base">
-                    <p className="text-neutral-500 dark:text-neutral-400">
+                    <p className="text-neutral-500 dark:text-neutral-300">
                       Powered by{" "}
                       <Link
                         href="/"
@@ -145,7 +152,7 @@ export default function UserProfile({
                       orientation="vertical"
                       className="h-auto w-[1px] bg-gray-300 mx-4"
                     />{" "}
-                    <p className="text-neutral-500 dark:text-neutral-400">
+                    <p className="text-neutral-500 dark:text-neutral-300">
                       Developed by{" "}
                       <Link
                         href="https://devadil.vercel.app/"
@@ -164,7 +171,10 @@ export default function UserProfile({
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 m-4">
                   {/* Instagram */}
 
-                  <Link href="">
+                  <Link
+                    href={`https://www.instagram.com/${instagramUsername}`}
+                    target="_blank"
+                  >
                     <div className="bg-[#fff2f8] dark:bg-gradient-to-l from-black/10 to-[#fff2f8] rounded-2xl px-5 py-5 h-48 border border-neutral-200">
                       <div className="logo-container">
                         <Logo name="instagram" size={33} />
@@ -173,7 +183,7 @@ export default function UserProfile({
                         @ {instagramUsername}
                       </p>
                       <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                        <p className=" py-0.5 text-sm font-medium px-1.5 bg-pink-100 text-black w-20 rounded-full flex items-center justify-center hover:bg-pink-200 transition border border-neutral-400">
+                        <p className=" py-0.5 text-sm font-medium px-1.5 bg-pink-100 text-black w-20 rounded-full flex items-center justify-center hover:bg-pink-200 transition border border-neutral-300">
                           Follow
                         </p>
                       </div>
@@ -181,48 +191,47 @@ export default function UserProfile({
                   </Link>
 
                   {/* Spotify */}
-                  {spotifyLink && (
-                    <Link href={spotifyLink} target="_blank">
-                      <div className="bg-green-100 dark:bg-gradient-to-l from-black/20 to-green-100 rounded-2xl px-5 py-5 h-48 border border-neutral-200 relative overflow-hidden">
-                        <div className="logo-container">
-                          <Logo name="spotify" size={33} />
-                          <div className="ripple"></div>
 
-                          {/* Music Chords */}
-                          <Music
-                            className="music-chord chord1"
-                            size={20}
-                            strokeWidth={3}
-                          />
-                          <Music
-                            className="music-chord chord2"
-                            size={20}
-                            strokeWidth={3}
-                          />
-                        </div>
-                        <p className=" font-semibold text-xs text-black/60 mt-2">
-                          Spotify
-                        </p>
-                        <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 mt-8">
-                          <IoPlaySkipBack />{" "}
-                          <IoPlay className=" sm:text-5xl text-3xl" />{" "}
-                          <IoPlaySkipForward />
-                        </div>
+                  <Link href={spotifyLink} target="_blank">
+                    <div className="bg-green-100 dark:bg-gradient-to-l from-black/20 to-green-100 rounded-2xl px-5 py-5 h-48 border border-neutral-200 relative overflow-hidden">
+                      <div className="logo-container">
+                        <Logo name="spotify" size={33} />
+                        <div className="ripple"></div>
+
+                        {/* Music Chords */}
+                        <Music
+                          className="music-chord chord1"
+                          size={20}
+                          strokeWidth={3}
+                        />
+                        <Music
+                          className="music-chord chord2"
+                          size={20}
+                          strokeWidth={3}
+                        />
                       </div>
-                    </Link>
-                  )}
+                      <p className=" font-semibold sm:text-xs text-black/60 mt-2">
+                        Spotify
+                      </p>
+                      <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 mt-8">
+                        <IoPlaySkipBack />{" "}
+                        <IoPlay className=" sm:text-5xl text-3xl" />{" "}
+                        <IoPlaySkipForward />
+                      </div>
+                    </div>
+                  </Link>
 
                   {/* Gmail */}
-                  <Link href={`mailto:${user.email}`}>
-                    <div className="bg-[#ffe2e2] dark:bg-gradient-to-l from-black/10 to-[#ffe2e2] rounded-xl px-5 py-5 h-48  border border-neutral-200">
-                      <div className=" logo-container">
+                  <Link href={`mailto:${user.email}`} target="_blank">
+                    <div className="bg-[#ffe2e2] dark:bg-gradient-to-l from-black/10 to-[#ffe2e2] rounded-xl pl-5 py-5 h-48 border border-neutral-200">
+                      <div className="logo-container">
                         <Logo name="gmail" size={35} />
                       </div>
-                      <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
+                      <p className="font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words overflow-hidden text-ellipsis whitespace-nowrap">
                         {user.email}
                       </p>
-                      <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                        <p className=" py-0.5 text-sm font-medium px-1.5 bg-red-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-red-300 transition border border-neutral-400">
+                      <div className="flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                        <p className="py-0.5 text-sm font-medium px-1.5 bg-red-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-red-300 transition border border-neutral-300">
                           Mail
                         </p>
                       </div>
@@ -230,52 +239,102 @@ export default function UserProfile({
                   </Link>
 
                   {/* LinkedIn */}
-                  <Link href="">
-                  <div className="bg-[#E9F4FA] dark:bg-gradient-to-l from-black/20 to-[#e9f3fa] rounded-xl px-5 py-5 h-48  border border-neutral-200">
-                    <div className=" logo-container">
-                      <Logo name="linkedin" size={35} />
-                    </div>
-                    <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
-                        {linkedinUsername}
+                  <Link href={`${linkedinProfile}`} target="_blank">
+                    <div className="bg-[#E9F4FA] dark:bg-gradient-to-l from-black/20 to-[#e9f3fa] rounded-xl px-5 py-5 h-48  border border-neutral-200">
+                      <div className=" logo-container">
+                        <Logo name="linkedin" size={35} />
+                      </div>
+                      <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
+                        {linkedinProfile}
                       </p>
                       <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                        <p className=" py-0.5 text-sm font-medium px-1.5 bg-blue-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-blue-300 transition border border-neutral-400">
+                        <p className=" py-0.5 text-sm font-medium px-1.5 bg-blue-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-blue-300 transition border border-neutral-300">
                           Connect
                         </p>
                       </div>
-                  </div>
+                    </div>
                   </Link>
 
                   {/* GitHub */}
-                  <div className="bg-gray-50 dark:bg-gradient-to-l from-black/10 to-gray-50 rounded-xl px-5 py-5 h-48 border border-neutral-200">
-                    <div className=" w-full">
-                      <Logo name="github" size={33} />
+                  <Link
+                    href={`https://github.com/${githubUsername}`}
+                    target="_blank"
+                  >
+                    <div className="bg-gray-50 dark:bg-gradient-to-l from-black/10 to-gray-50 rounded-xl px-5 py-5 h-48 border border-neutral-200">
+                      <div className=" logo-container">
+                        <Logo name="github" size={35} />
+                      </div>
+                      <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
+                        {linkedinProfile}
+                      </p>
+                      <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                        <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition border border-neutral-50">
+                          Profile
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
 
                   {/* Youtube */}
-                  <div className="bg-[#ffdddd] dark:bg-gradient-to-l from-black/10 to-[#ffdddd] rounded-xl px-5 py-5 h-48 border border-neutral-200">
-                    <div className=" w-full">
-                      <Logo name="youtube" size={33} />
+                  <Link
+                    href={`https://www.youtube.com/@${youtubeChannel}`}
+                    target="_blank"
+                  >
+                    <div className="bg-[#ffe7e7] dark:bg-gradient-to-l from-black/10 to-[#ffe7e7] rounded-xl px-5 py-5 h-48 border border-neutral-200">
+                      <div className=" logo-container">
+                        <Logo name="youtube" size={35} />
+                      </div>
+                      <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
+                        {linkedinProfile}
+                      </p>
+                      <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                        <p className=" py-0.5 text-sm font-medium px-1.5 bg-rose-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-rose-300 transition border border-neutral-300">
+                          Channel
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
 
                   {/* Twitter */}
-                  <div className="bg-[#f5f5f5] dark:bg-gradient-to-l from-black/10 to-[#e4f3ff] rounded-xl px-5 py-5 h-48 border border-neutral-200">
-                    <div className=" w-full">
-                      <Logo name="twitter" size={35} />
+                  <Link
+                    href={`https://x.com/${twitterUsername}`}
+                    target="_blank"
+                  >
+                    <div className="bg-[#f5f5f5] dark:bg-gradient-to-l from-black/10 to-[#e4f3ff] rounded-xl px-5 py-5 h-48 border border-neutral-200">
+                      <div className=" logo-container">
+                        <Logo name="twitter" size={35} />
+                      </div>
+                      <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
+                        {linkedinProfile}
+                      </p>
+                      <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                        <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition border border-neutral-200">
+                          Follow
+                        </p>
+                      </div>
                     </div>
-                    <p className=" font-semibold text-sm text-black/60 mt-3">
-                      {twitterUsername}
-                    </p>
-                  </div>
+                  </Link>
 
                   {/* Threads */}
-                  <div className="bg-gray-50 dark:bg-gradient-to-l from-black/10 to-gray-50 rounded-xl px-5 py-5 h-48 border border-neutral-200">
-                    <div className=" w-full">
-                      <Logo name="threads" size={35} />
+                  <Link
+                    href={`https://www.threads.net/@${threadsUsername}`}
+                    target="_blank"
+                  >
+                    <div className="bg-gray-50 dark:bg-gradient-to-l from-black/10 to-gray-50 rounded-xl px-5 py-5 h-48 border border-neutral-200">
+                      <div className=" logo-container">
+                        <Logo name="threads" size={35} />
+                      </div>
+                      <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
+                        {linkedinProfile}
+                      </p>
+                      <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                        <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition border border-neutral-200">
+                          Follow
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
+
                   {/* FavouriteQuote */}
                   <div className="relative rounded-xl col-span-2 h-48 overflow-hidden">
                     <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-full blur-3xl" />
@@ -283,7 +342,7 @@ export default function UserProfile({
                     {/* Content */}
                     <div className="relative shadow-xl bg-gray-900 border border-gray-800 px-5 py-5 h-full rounded-xl flex flex-col items-center justify-center">
                       {/* FavQuotes component */}
-                      <p className="font-normal text-sm sm:text-base text-slate-400 relative z-40">
+                      <p className="font-normal text-sm sm:text-base text-slate-300 relative z-40">
                         {user.favoriteQuote}
                       </p>
 
@@ -292,24 +351,29 @@ export default function UserProfile({
                   </div>
 
                   {/* Photo */}
-                  <div className="bg-gray-200 rounded-xl px-5 py-5 col-span-2 row-span-2 h-[400px] border border-neutral-200">
+                  <div className="bg-gray-200 rounded-xl px-5 py-5 col-span-2 row-span-2 h-[300px] border border-neutral-200">
                     pic
                   </div>
-                  
 
-                  {/* Custom_Link */}
-                  <div className="bg-gray-200 rounded-xl px-5 py-5 h-48 border border-neutral-200">
-                    custom link
-                  </div>
+                  {/* Location */}
+                  <Link
+                    href=""
+                    className="bg-gray-200 rounded-xl px-5 py-5 sm:col-span-2 col-span-2 h-48 border border-neutral-200"
+                  >
+                    <div>location</div>
+                  </Link>
 
                   {/* Occupation */}
                   <div className="bg-gray-200 rounded-xl px-5 py-5  h-48 border border-neutral-200">
                     occupation
                   </div>
-                  {/* Location */}
-                  <div className="bg-gray-200 rounded-xl px-5 py-5 sm:col-span-4 col-span-2 h-48 border border-neutral-200">
-                    location
-                  </div>
+
+                  {/* Custom_Link */}
+                  <Link href={`${customLink}`} target="_blank">
+                    <div className="bg-gray-200 rounded-xl px-5 py-5 h-48 border border-neutral-200">
+                      custom link
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -3,6 +3,10 @@ import { useSession } from "next-auth/react";
 import React, { useEffect, useState } from "react";
 import { Meteors } from "./ui/meteors";
 import axios from "axios";
+import Link from "next/link";
+import { Music } from "lucide-react";
+import Logo from "./Logo";
+import { IoPlay, IoPlaySkipBack, IoPlaySkipForward } from "react-icons/io5";
 
 // Define prop types
 interface GridProps {
@@ -49,57 +53,238 @@ function Grid({ profileUpdated, setProfileUpdated }: GridProps) {
     }
   }, [profileUpdated]);
 
+    // Extract social media platforms and URLs
+    const socialMediaLinks = profileDetails?.socialMediaLinks || [];
+
+    // Map social media links to create a username object
+    const userNames = socialMediaLinks.reduce((acc, link) => {
+      acc[link.platform.toLowerCase()] = link.platform_username;
+      return acc;
+    }, {} as Record<string, string>);
+  
+    // Now you can access usernames by platform
+    console.log(userNames); // For debugging
+  
+    // Get Instagram username
+    const instagramUsername = userNames["instagram"] || "";
+    const spotifyLink = userNames["spotify"] || "";
+    const linkedinProfile = userNames["linkedin"] || "";
+    const youtubeChannel = userNames["youtube"] || "";
+    const twitterUsername = userNames["twitter"] || "";
+    const threadsUsername = userNames["threads"] || "";
+    const githubUsername = userNames["github"] || "";
+    const customLink = userNames["custom"] || "";
+
   return (
     <>
     
     <div className="w-full h-auto lg:h-screen overflow-y-auto pt-28 sm:pb-5 pb-20 md:pr-0 pr-0 lg:pr-10">
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 m-4">
-              <a href="">
-                <div className="bg-[#fff7fb] rounded-md p-10 h-48">insta</div>
-              </a>
+                {/* Instagram */}
 
-              <div className="bg-green-200 rounded-md p-10 h-48">music</div>
-              <a href={`mailto:${user?.email}`}>
-                <div className="bg-[#ffdddd] rounded-md p-10 h-48">Gmail</div>
-              </a>
-              <div className="bg-[#E9F4FA] rounded-md p-10 h-48">linked</div>
+                <Link
+                    href={`https://www.instagram.com/${instagramUsername}`}
+                    target="_blank"
+                  >
+                    <div className="bg-[#fff2f8] dark:bg-gradient-to-l from-black/10 to-[#fff2f8] rounded-2xl px-5 py-5 h-48 border border-neutral-200">
+                      <div className="logo-container">
+                        <Logo name="instagram" size={33} />
+                      </div>
+                      <p className=" font-semibold text-xs text-black/60 mt-2">
+                        @ {instagramUsername}
+                      </p>
+                      <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                        <p className=" py-0.5 text-sm font-medium px-1.5 bg-pink-100 text-black w-20 rounded-full flex items-center justify-center hover:bg-pink-200 transition border border-neutral-300">
+                          Follow
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
 
-              <div className="relative rounded-md col-span-2 h-48 overflow-hidden">
-                {/* Background gradient and blur effect */}
-                <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-full blur-3xl" />
+                  {/* Spotify */}
 
-                {/* Content */}
-                <div className="relative shadow-xl bg-gray-900 border border-gray-800 p-10 h-full rounded-md flex flex-col items-center justify-center">
-                  {/* FavQuotes component */}
-                  { !profileDetails.favoriteQuote ? ( <p className="font-normal text-sm sm:text-base text-slate-400 relative z-40">
-                   add your quote or thoughts here
-                   </p>) : ( <p className="font-normal text-sm sm:text-base text-slate-400 relative z-40">
-                    {profileDetails.favoriteQuote}
-                   </p>)
-                   }
-                  {/* Optional text or additional content */}
-                 
+                  <Link href={spotifyLink} target="_blank">
+                    <div className="bg-green-100 dark:bg-gradient-to-l from-black/20 to-green-100 rounded-2xl px-5 py-5 h-48 border border-neutral-200 relative overflow-hidden">
+                      <div className="logo-container">
+                        <Logo name="spotify" size={33} />
+                        <div className="ripple"></div>
 
-                  {/* Meteor effect */}
-                  <Meteors number={20} />
-                </div>
-              </div>
+                        {/* Music Chords */}
+                        <Music
+                          className="music-chord chord1"
+                          size={20}
+                          strokeWidth={3}
+                        />
+                        <Music
+                          className="music-chord chord2"
+                          size={20}
+                          strokeWidth={3}
+                        />
+                      </div>
+                      <p className=" font-semibold sm:text-xs text-black/60 mt-2">
+                        Spotify
+                      </p>
+                      <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 mt-8">
+                        <IoPlaySkipBack />{" "}
+                        <IoPlay className=" sm:text-5xl text-3xl" />{" "}
+                        <IoPlaySkipForward />
+                      </div>
+                    </div>
+                  </Link>
 
-              <div className="bg-gray-200 rounded-md p-10 col-span-2 row-span-2 h-[400px]">
-                pic
-              </div>
-              <div className="bg-gray-200 rounded-md p-10 h-48">github</div>
-              <div className="bg-[#ffdddd] rounded-md p-10 h-48">youtube</div>
-              <div className="bg-gray-200 rounded-md p-10 sm:col-span-2 h-48">
-                occupation
-              </div>
-              <div className="bg-gray-200 rounded-md p-10 sm:col-span-2 h-48">
-                location
-              </div>
-              <div className="bg-[#e4f3ff] rounded-md p-10 h-48">twitter</div>
-              <div className="bg-gray-200 rounded-md p-10 h-48">
-                custom link
-              </div>
+                  {/* Gmail */}
+                  <Link href={`mailto:${user.email}`} target="_blank">
+                    <div className="bg-[#ffe2e2] dark:bg-gradient-to-l from-black/10 to-[#ffe2e2] rounded-xl pl-5 py-5 h-48 border border-neutral-200">
+                      <div className="logo-container">
+                        <Logo name="gmail" size={35} />
+                      </div>
+                      <p className="font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words overflow-hidden text-ellipsis whitespace-nowrap">
+                        {user.email}
+                      </p>
+                      <div className="flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                        <p className="py-0.5 text-sm font-medium px-1.5 bg-red-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-red-300 transition border border-neutral-300">
+                          Mail
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  {/* LinkedIn */}
+                  <Link href={`${linkedinProfile}`} target="_blank">
+                    <div className="bg-[#E9F4FA] dark:bg-gradient-to-l from-black/20 to-[#e9f3fa] rounded-xl px-5 py-5 h-48  border border-neutral-200">
+                      <div className=" logo-container">
+                        <Logo name="linkedin" size={35} />
+                      </div>
+                      <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
+                        {linkedinProfile}
+                      </p>
+                      <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                        <p className=" py-0.5 text-sm font-medium px-1.5 bg-blue-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-blue-300 transition border border-neutral-300">
+                          Connect
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  {/* GitHub */}
+                  <Link
+                    href={`https://github.com/${githubUsername}`}
+                    target="_blank"
+                  >
+                    <div className="bg-gray-50 dark:bg-gradient-to-l from-black/10 to-gray-50 rounded-xl px-5 py-5 h-48 border border-neutral-200">
+                      <div className=" logo-container">
+                        <Logo name="github" size={35} />
+                      </div>
+                      <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
+                        {githubUsername}
+                      </p>
+                      <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                        <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition border border-neutral-50">
+                          Profile
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  {/* Youtube */}
+                  <Link
+                    href={`https://www.youtube.com/@${youtubeChannel}`}
+                    target="_blank"
+                  >
+                    <div className="bg-[#ffe7e7] dark:bg-gradient-to-l from-black/10 to-[#ffe7e7] rounded-xl px-5 py-5 h-48 border border-neutral-200">
+                      <div className=" logo-container">
+                        <Logo name="youtube" size={35} />
+                      </div>
+                      <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
+                        {youtubeChannel}
+                      </p>
+                      <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                        <p className=" py-0.5 text-sm font-medium px-1.5 bg-rose-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-rose-300 transition border border-neutral-300">
+                          Channel
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  {/* Twitter */}
+                  <Link
+                    href={`https://x.com/${twitterUsername}`}
+                    target="_blank"
+                  >
+                    <div className="bg-[#f5f5f5] dark:bg-gradient-to-l from-black/10 to-[#e4f3ff] rounded-xl px-5 py-5 h-48 border border-neutral-200">
+                      <div className=" logo-container">
+                        <Logo name="twitter" size={35} />
+                      </div>
+                      <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
+                        {twitterUsername}
+                      </p>
+                      <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                        <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition border border-neutral-200">
+                          Follow
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  {/* Threads */}
+                  <Link
+                    href={`https://www.threads.net/@${threadsUsername}`}
+                    target="_blank"
+                  >
+                    <div className="bg-gray-50 dark:bg-gradient-to-l from-black/10 to-gray-50 rounded-xl px-5 py-5 h-48 border border-neutral-200">
+                      <div className=" logo-container">
+                        <Logo name="threads" size={35} />
+                      </div>
+                      <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
+                        {threadsUsername}
+                      </p>
+                      <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                        <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition border border-neutral-200">
+                          Follow
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  {/* FavouriteQuote */}
+                  <div className="relative rounded-xl col-span-2 h-48 overflow-hidden">
+                    <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-full blur-3xl" />
+
+                    {/* Content */}
+                    <div className="relative shadow-xl bg-gray-900 border border-gray-800 px-5 py-5 h-full rounded-xl flex flex-col items-center justify-center">
+                      {/* FavQuotes component */}
+                      <p className="font-normal text-sm sm:text-base text-slate-300 relative z-40">
+                        {user.favoriteQuote}
+                      </p>
+
+                      <Meteors number={20} />
+                    </div>
+                  </div>
+
+                  {/* Photo */}
+                  <div className="bg-gray-200 rounded-xl px-5 py-5 col-span-2 row-span-2 h-[300px] border border-neutral-200">
+                    pic
+                  </div>
+
+                  {/* Location */}
+                  <Link
+                    href=""
+                    className="bg-gray-200 rounded-xl px-5 py-5 sm:col-span-2 col-span-2 h-48 border border-neutral-200"
+                  >
+                    <div>location</div>
+                  </Link>
+
+                  {/* Occupation */}
+                  <div className="bg-gray-200 rounded-xl px-5 py-5  h-48 border border-neutral-200">
+                    occupation
+                  </div>
+
+                  {/* Custom_Link */}
+                  <Link href={`${customLink}`} target="_blank">
+                    <div className="bg-gray-200 rounded-xl px-5 py-5 h-48 border border-neutral-200">
+                      custom link
+                    </div>
+                  </Link>
              
             </div>
           </div>

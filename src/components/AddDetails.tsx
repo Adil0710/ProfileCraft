@@ -41,6 +41,7 @@ import { Skeleton } from "./ui/skeleton";
 // Hardcoded platforms
 const platforms = [
   { platform: "Instagram" },
+  { platform: "Threads" },
   { platform: "Spotify" },
   { platform: "LinkedIn" },
   { platform: "GitHub" },
@@ -364,10 +365,10 @@ export default function AddDetails({
                               placeholder={
                                 link.platform === "Spotify"
                                   ? "song or playlist link"
-                                  : link.platform === "YouTube"
-                                  ? "include @  |  e.g. @Coding_with_Adil"
                                   : link.platform === "Custom"
-                                  ? "Your custom link"
+                                  ? "Your custom link | e.g. https://devadil.vercel.app/"
+                                  : link.platform === "LinkedIn"
+                                  ? "LinkedIn profile URL"
                                   : `${link.platform} username`
                               }
                               value={link.platform_username}

@@ -3,7 +3,7 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 import female from "@/assets/female.png";
 import male from "@/assets/male.png";
-import { useState, useEffect } from "react";
+import { useState, useEffect, ReactNode, useCallback } from "react";
 import Grid from "@/components/Grid";
 import axios from "axios";
 import { Button } from "@/components/ui/button";
@@ -12,6 +12,21 @@ import Background from "@/components/Background";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import Loading from "@/components/Loading";
+import { AnimatePresence, motion } from "framer-motion";
+import { Check, Copy, LoaderCircle } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+
+interface Button {
+  idle: ReactNode;
+  loading: ReactNode;
+  success: ReactNode;
+}
+
+const buttonCopy: Button = {
+  idle: <Copy size={16} />,
+  loading: <LoaderCircle size={16} className="animate-spin" />,
+  success: <Check size={16} className=" text-green-500"/>,
+};
 
 export default function DashboardPage() {
   const { data: session } = useSession();
@@ -25,8 +40,12 @@ export default function DashboardPage() {
     about: "",
   });
 
+  const baseURL = `${window.location.protocol}//${window.location.host}`;
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [profileUpdated, setProfileUpdated] = useState(false); // Track profile updates
+  const [buttonState, setButtonState] = useState<keyof Button>("idle");
+  const {toast} = useToast()
+ 
 
   const handleDrawerOpen = () => {
     setIsDrawerOpen(true);
@@ -57,6 +76,31 @@ export default function DashboardPage() {
     }
   }, [profileUpdated]);
 
+
+  const handleClick = useCallback(() => {
+    const textToCopy = `${baseURL}/${profileDetails.username}`;
+  
+    // Set button state to "loading" and copy the text
+    setButtonState("loading");
+    navigator.clipboard.writeText(textToCopy)
+      .then(() => {
+        // Successfully copied, set button state to "success"
+        setButtonState("success");
+        toast({
+          title: "Copied to clipboard",
+          description: "Link copied to clipboard successfully",
+        })
+      })
+      .catch(() => {
+        // Handle errors if needed (e.g., if permissions are denied)
+        
+      });
+  
+    // Reset button state to "idle" after 3 seconds
+    setTimeout(() => {
+      setButtonState("idle");
+    }, 3000);
+  }, [baseURL, profileDetails.username]);
   return (
     <>
       <div className="relative w-full min-h-screen">
@@ -93,13 +137,68 @@ export default function DashboardPage() {
                       {profileDetails.about}
                     </p>
 
-                    <Button
-                      onClick={handleDrawerOpen}
-                      size={"sm"}
-                      className=" mt-10"
-                    >
-                      Profile
-                    </Button>
+                    <div className="flex flex-row mt-10">
+                      {/* Profile Button */}
+                      <Button
+                        onClick={handleDrawerOpen}
+                        size="sm"
+                      >
+                        Profile
+                      </Button>
+
+                      <Separator
+                      orientation="vertical"
+                      className="h-auto w-[1px] bg-gray-300 mx-5"
+                    />
+
+                      {/* Input with Copy Button */}
+                      <div className="relative flex items-center w-[70%] h-9 bg-gray-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 rounded-md overflow-hidden border border-neutral-200 dark:border-neutral-900">
+                        {/* Disabled Input */}
+                        <input
+                          className="w-full h-full px-4 bg-transparent outline-none sm:text-sm font-medium text-xs cursor-text"
+                          disabled
+                          value={`${baseURL}/${profileDetails.username}`}
+                        />
+
+                        {/* Copy Button */}
+                        <div className="absolute right-2 top-1/2 transform -translate-y-1/2">
+                          <button
+                            className="relative flex items-center justify-center px-2 py-1 text-sm font-medium text-neutral-700 dark:text-neutral-300 bg-white dark:bg-neutral-900 dark:hover:bg-black border border-gray-200 dark:border-neutral-700 rounded-md hover:bg-gray-50 disabled:opacity-50 dark:border-dark3 dark:bg-dark1"
+                            disabled={buttonState === "loading"}
+                            onClick={handleClick}
+                          >
+                            <AnimatePresence mode="popLayout" initial={false}>
+                              <motion.span
+                                transition={{
+                                  type: "spring",
+                                  duration: 0.3,
+                                  bounce: 0,
+                                }}
+                                initial={{
+                                  opacity: 0,
+                                  y: -10,
+                                  filter: "blur(10px)",
+                                }}
+                                animate={{
+                                  opacity: 1,
+                                  y: 0,
+                                  filter: "blur(0px)",
+                                }}
+                                exit={{
+                                  opacity: 0,
+                                  y: 10,
+                                  filter: "blur(10px)",
+                                }}
+                                key={buttonState}
+                                className="flex items-center justify-center"
+                              >
+                                {buttonCopy[buttonState]}
+                              </motion.span>
+                            </AnimatePresence>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
 
                     {/* Pass the open state and close handler to the Drawer component */}
                     <AddDetails

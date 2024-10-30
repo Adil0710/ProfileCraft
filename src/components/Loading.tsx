@@ -19,7 +19,6 @@ export default function Loading() {
           </div>
         </div>
         <div className="absolute sm:left-10 sm:bottom-2 -bottom-10 sm:space-y-7 space-y-7 pb-3 left-3">
-          
           <div className="flex flex-row text-sm sm:text-base">
             <p className="text-neutral-500">
               Powered by{" "}
@@ -51,19 +50,27 @@ export default function Loading() {
       {/* Right Side (Scrollable) */}
       <div className="w-full h-auto lg:h-screen pt-28 sm:pb-5 pb-20 md:pr-0 pr-0 lg:pr-10">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 m-4">
-          <Skeleton className=" rounded-md p-10 h-48" />
+          <Skeleton className=" rounded-2xl p-10 h-48" />
 
-          <Skeleton className=" rounded-md p-10 h-48" />
+          <Skeleton className=" rounded-2xl p-10 h-48" />
 
-          <Skeleton className=" rounded-md p-10 h-48" />
+          <Skeleton className=" rounded-2xl p-10 h-48" />
 
-          <Skeleton className=" rounded-md p-10 h-48" />
+          <Skeleton className=" rounded-2xl p-10 h-48" />
 
-          <div className="relative rounded-md col-span-2 h-48 overflow-hidden">
+          <Skeleton className=" rounded-2xl p-10 h-48" />
+
+          <Skeleton className=" rounded-2xl p-10 h-48" />
+
+          <Skeleton className=" rounded-2xl p-10 h-48" />
+
+          <Skeleton className=" rounded-2xl p-10 h-48" />
+
+          <div className="relative rounded-2xl col-span-2 h-48 overflow-hidden">
             {/* Background gradient and blur effect */}
 
             {/* Content */}
-            <Skeleton className="relative shadow-xl border p-10 h-full rounded-md flex flex-col justify-center">
+            <Skeleton className="relative shadow-xl border p-10 h-full rounded-2xl flex flex-col justify-center">
               {/* FavQuotes component */}
               <Skeleton className="h-4 w-full sm:text-base relative z-50" />
               <Skeleton className="h-4 mt-2 w-[100%] sm:text-base relative z-50" />
@@ -74,12 +81,11 @@ export default function Loading() {
             </Skeleton>
           </div>
 
-          <Skeleton className=" rounded-md p-10 col-span-2 row-span-2 h-[400px]" />
+          <Skeleton className=" rounded-2xl p-10 col-span-2 row-span-2 h-[400px]" />
 
-          <Skeleton className=" rounded-md p-10 h-48" />
-          <Skeleton className=" rounded-md p-10 h-48" />
-          <Skeleton className=" rounded-md p-10 sm:col-span-2 h-48" />
-          <Skeleton className=" rounded-md p-10 sm:col-span-2 h-48" />
+          <Skeleton className=" rounded-2xl p-10 sm:col-span-2 h-48" />
+          <Skeleton className=" rounded-2xl p-10 h-48" />
+          <Skeleton className=" rounded-2xl p-10 h-48" />
         </div>
       </div>
     </div>
