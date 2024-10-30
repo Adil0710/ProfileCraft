@@ -15,7 +15,16 @@ export default function Loading() {
             <Skeleton className="h-12 w-1/2" />
             <Skeleton className="mt-3 w-[20%] h-5 " />
             <Skeleton className=" mt-3 w-[80%] h-8 " />
-            <Skeleton className="mt-10 h-8 w-16" />
+            <div className="flex flex-row mt-10">
+            <Skeleton className="h-8 w-16" />
+
+              <Separator
+                orientation="vertical"
+                className="h-auto w-[1px] bg-gray-300 mx-5"
+              />
+              <Skeleton className=" h-8 w-[70%]" />
+            </div>
+            
           </div>
         </div>
         <div className="absolute sm:left-10 sm:bottom-2 -bottom-10 sm:space-y-7 space-y-7 pb-3 left-3">
