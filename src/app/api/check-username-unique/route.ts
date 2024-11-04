@@ -10,7 +10,6 @@ const UsernameQuerySchema = z.object({
 });
 
 export async function GET(request: Request) {
-
   await dbConnect();
 
   try {
@@ -37,19 +36,27 @@ export async function GET(request: Request) {
 
     const { username } = result.data;
 
-    const existingVerifiedUser = await UserModel.findOne({
-      username,
-      isVerified: true,
-    });
+    // Find any user with this username, regardless of verification status
+    const existingUser = await UserModel.findOne({ username });
 
-    if (existingVerifiedUser) {
-      return Response.json(
-        {
-          success: false,
-          message: "Username is already taken",
-        },
-        { status: 400 }
-      );
+    if (existingUser) {
+      if (existingUser.isVerified) {
+        return Response.json(
+          {
+            success: false,
+            message: "Username is already taken",
+          },
+          { status: 400 }
+        );
+      } else {
+        return Response.json(
+          {
+            success: false,
+            message: "Username is reserved but unverified",
+          },
+          { status: 409 } // Conflict status to indicate unverified reservation
+        );
+      }
     }
 
     return Response.json(
@@ -57,9 +64,8 @@ export async function GET(request: Request) {
         success: true,
         message: "Username is available",
       },
-      { status: 201 }
+      { status: 200 }
     );
-    
   } catch (error) {
     console.error("Error Checking username", error);
     return Response.json(
@@ -73,3 +79,4 @@ export async function GET(request: Request) {
     );
   }
 }
+ 
