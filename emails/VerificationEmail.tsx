@@ -82,7 +82,7 @@ export default function VerificationEmail({
                 color: #000;
                 display: inline-block;
                 font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
-                font-size: 18px;
+                font-size: 15px;
                 font-weight: bold;
                 line-height: 24px;
                 margin-bottom: 0;
