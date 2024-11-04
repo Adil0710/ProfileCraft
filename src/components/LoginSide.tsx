@@ -7,10 +7,10 @@ function LoginSide() {
       {/* Floating Boxes Container */}
       <div className="relative w-80 h-80">
         <div
-          className="floating-box w-28 h-28 bg-blue-300 flex items-center justify-center rounded-2xl absolute animate-float-1"
+          className="floating-box w-28 h-36 bg-blue-300 flex items-center justify-center rounded-2xl absolute animate-float-1"
           style={{ top: "10%", left: "10%" }}
         >
-          <Logo name="linkedin" size={40} />
+          <Logo name="linkedin" size={50} />
         </div>
         <div
           className="floating-box  flex items-center justify-center rounded-2xl absolute animate-float-2"
