@@ -37,6 +37,7 @@ function Grid({ profileUpdated, setProfileUpdated }: GridProps) {
     try {
       const response = await axios.get("/api/get-profile-details");
       setProfileDetails(response.data.user);  // Update profile details in state
+      console.log(response)
     } catch (error) {
       console.log("Error fetching profile details:", error);
     }
@@ -63,7 +64,8 @@ function Grid({ profileUpdated, setProfileUpdated }: GridProps) {
     }, {} as Record<string, string>);
   
     // Now you can access usernames by platform
-    console.log(userNames); // For debugging
+    // console.log(userNames); // For debugging
+    console.log("Details",profileDetails)
   
     // Get Instagram username
     const instagramUsername = userNames["instagram"] || "";
@@ -254,7 +256,7 @@ function Grid({ profileUpdated, setProfileUpdated }: GridProps) {
                     <div className="relative shadow-xl bg-gray-900 border border-gray-800 px-5 py-5 h-full rounded-xl flex flex-col items-center justify-center">
                       {/* FavQuotes component */}
                       <p className="font-normal text-sm sm:text-base text-slate-300 relative z-40">
-                        {user.favoriteQuote}
+                        {profileDetails.favoriteQuote}
                       </p>
 
                       <Meteors number={20} />

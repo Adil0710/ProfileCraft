@@ -24,6 +24,7 @@ import {
 import { EyeOffIcon, EyeIcon, Loader2 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { signInSchema } from "@/schemas/signInSchema";
+import LoginSide from "@/components/LoginSide";
 
 export default function LogIn() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -268,13 +269,17 @@ export default function LogIn() {
               </Link>
             </div>
           </div>
+          
         </div>
-        {/* Right Side */}
-
-        <div className="hidden lg:block"></div>
+        
 
        
-      </div>
+       {/* Right Side - Image or Content */}
+  <div className="hidden lg:flex items-center justify-center ">
+    
+    <LoginSide/>
+  </div>
+</div>
     </>
   );
 }

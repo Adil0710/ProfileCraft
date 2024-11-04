@@ -267,4 +267,43 @@ body {
     transform: translate(40px, -50px) scale(0.8);
   }
 }
+@keyframes float1 {
+  0% { transform: translate(0px, 0px) rotate(0deg); }
+  50% { transform: translate(10px, -10px) rotate(10deg); }
+  100% { transform: translate(0px, 0px) rotate(0deg); }
+}
+
+@keyframes float2 {
+  0% { transform: translate(0px, 0px) rotate(0deg); }
+  50% { transform: translate(-10px, 10px) rotate(-10deg); }
+  100% { transform: translate(0px, 0px) rotate(0deg); }
+}
+
+@keyframes float3 {
+  0% { transform: translate(0px, 0px) rotate(0deg); }
+  50% { transform: translate(10px, 10px) rotate(10deg); }
+  100% { transform: translate(0px, 0px) rotate(0deg); }
+}
+
+@keyframes float4 {
+  0% { transform: translate(0px, 0px) rotate(0deg); }
+  50% { transform: translate(-10px, -10px) rotate(-10deg); }
+  100% { transform: translate(0px, 0px) rotate(0deg); }
+}
+
+.animate-float-1 {
+  animation: float1 4s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float2 5s ease-in-out infinite;
+}
+
+.animate-float-3 {
+  animation: float3 6s ease-in-out infinite;
+}
+
+.animate-float-4 {
+  animation: float4 7s ease-in-out infinite;
+}
 
