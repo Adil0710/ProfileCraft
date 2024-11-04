@@ -164,7 +164,7 @@ export default function VerificationEmail({
               If you did not request this code, please ignore this email.
             </p>
             <p style="text-align: center; margin-top: 40px;">
-              <a href="http://localhost:3000/verify/${username}" style="padding: 8px 12px; background-color: #0a85ea; color: #fff; text-decoration: none; border-radius: 4px;" target="_blank">Verify here</a>
+              <a href="https://profilecraft.vercel.app/verify/${username}" style="padding: 8px 12px; background-color: #0a85ea; color: #fff; text-decoration: none; border-radius: 4px;" target="_blank">Verify here</a>
             </p>
           </td>
         </tr>

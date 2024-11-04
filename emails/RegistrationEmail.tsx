@@ -123,7 +123,7 @@ export default function RegistrationEmail({
             </p>
             <p style="text-align: center; margin-top: 40px;">
               <a
-                href="http://localhost:3000/sign-in"
+                href="https://profilecraft.vercel.app/sign-in"
                 style="
                   padding: 10px 15px;
                   background-color: #0a85ea;
