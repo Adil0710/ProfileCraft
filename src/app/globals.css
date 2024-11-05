@@ -275,7 +275,7 @@ body {
 
 @keyframes float2 {
   0% { transform: translate(0px, 0px) rotate(0deg); }
-  50% { transform: translate(-10px, 10px) rotate(-10deg); }
+  50% { transform: translate(-15px, 10px) rotate(-15deg); }
   100% { transform: translate(0px, 0px) rotate(0deg); }
 }
 
@@ -286,8 +286,14 @@ body {
 }
 
 @keyframes float4 {
-  0% { transform: translate(0px, 0px) rotate(0deg); }
+  0% { transform: translate(0px, 0px) rotate(5deg); }
   50% { transform: translate(-10px, -10px) rotate(-10deg); }
+  100% { transform: translate(0px, 0px) rotate(5deg); }
+}
+
+@keyframes float5 {
+  0% { transform: translate(0px, 0px) rotate(0deg); }
+  50% { transform: translate(-10px, 10px) rotate(10deg); }
   100% { transform: translate(0px, 0px) rotate(0deg); }
 }
 
@@ -306,4 +312,9 @@ body {
 .animate-float-4 {
   animation: float4 7s ease-in-out infinite;
 }
+
+.animate-float-5 {
+  animation: float5 5s ease-in-out infinite;
+}
+
 

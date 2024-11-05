@@ -31,6 +31,7 @@ import {
   CircleCheckIcon,
 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import LoginSide from "@/components/LoginSide";
 
 export default function SignUp() {
   const [username, setUsername] = useState("");
@@ -94,12 +95,12 @@ export default function SignUp() {
 
   const onSubmit = async (data: z.infer<typeof signUpSchema>) => {
     setIsSubmitting(true);
-      try {
-        const response = await axios.post("/api/sign-up", data);
-        toast({
-          title: "Success",
-          description: response.data.message,
-        });
+    try {
+      const response = await axios.post("/api/sign-up", data);
+      toast({
+        title: "Success",
+        description: response.data.message,
+      });
       router.replace(`/verify/${username}`);
     } catch (error) {
       console.error("Error while signup of user", error);
@@ -151,7 +152,7 @@ export default function SignUp() {
         <div className="flex items-center justify-center py-12">
           <div className="mx-auto grid w-[350px] gap-6">
             <div className="grid gap-2 text-center">
-              <h1 className="text-3xl font-bold mt-7 sm:mt-0">Sign up</h1>
+              <h1 className="text-3xl font-bold mt-7">Sign up</h1>
               {/* <p className="text-balance text-muted-foreground">
                 Enter your email below to login to your account
               </p> */}
@@ -347,13 +348,9 @@ export default function SignUp() {
 
         {/* Right Side */}
 
-        <div className="hidden lg:block">
-
-
+        <div className="hidden lg:flex items-center justify-center ">
+          <LoginSide />
         </div>
-
-        
-
       </div>
     </>
   );
