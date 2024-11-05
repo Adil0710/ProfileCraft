@@ -9,7 +9,7 @@ function LoginSide() {
       {/* Floating Boxes Container */}
       <div className="relative w-80 h-80">
         <div
-          className="floating-box w-24 h-36 bg-[#d2efff] dark:bg-gradient-to-l from-black/20 to-[#d2efff] flex items-center justify-center rounded-2xl absolute animate-float-1"
+          className="floating-box icon-shadow w-24 h-36 bg-[#d2efff] dark:bg-gradient-to-l from-black/20 to-[#d2efff] flex items-center justify-center rounded-2xl absolute animate-float-1"
           style={{ top: "-10%", left: "10%" }}
         >
           <Logo name="linkedin" size={50} />
@@ -22,7 +22,7 @@ function LoginSide() {
         </div>
         
         <div
-          className="floating-box w-56 h-32 bg-green-200 dark:bg-gradient-to-l from-black/20 to-green-200 flex items-center justify-between gap-4 px-5 flex-row rounded-2xl absolute animate-float-4"
+          className="floating-box icon-shadow w-56 h-32 bg-green-200 dark:bg-gradient-to-l from-black/20 to-green-200 flex items-center justify-between gap-4 px-5 flex-row rounded-2xl absolute animate-float-4"
           style={{ bottom: "22%", right: "10%" }}
         >
           <div className="logo-container">
@@ -40,7 +40,7 @@ function LoginSide() {
         </div>
 
         <div
-          className="floating-box w-24 h-24 bg-[#ffe8f2] dark:bg-gradient-to-l from-black/10 to-[#ffe8f2] flex items-center justify-center rounded-2xl absolute animate-float-3"
+          className="floating-box icon-shadow w-24 h-24 bg-[#ffe8f2] dark:bg-gradient-to-l from-black/10 to-[#ffe8f2] flex items-center justify-center rounded-2xl absolute animate-float-3"
           style={{ bottom: "-15%", right: "10%" }}
         >
           <Logo name="instagram" size={40} />
