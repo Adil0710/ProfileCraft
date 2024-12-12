@@ -87,6 +87,8 @@ export default function UserProfile({
   const githubUsername = userNames["github"] || "";
   const customLink = userNames["custom"] || "";
 
+  console.log(`user is this ${user?.profilePhoto} `);
+
   return (
     <>
       <div className="relative w-full min-h-screen">
@@ -103,13 +105,17 @@ export default function UserProfile({
                   <div className="relative w-36 h-36 rounded-full bg-slate-300 dark:bg-slate-800 flex items-center justify-center">
                     <Image
                       src={
-                        user.profilePhoto ||
-                        (user.gender === "Female" ? female : male)
+                        user.profilePhoto && user.profilePhoto.trim() !== ""
+                          ? user.profilePhoto
+                          : user.gender === "Female"
+                          ? female
+                          : male
                       }
-                      alt="Profile"
+                      alt={user.name}
                       layout="fill"
                       objectFit="cover"
                       className="rounded-full"
+                      priority
                     />
                   </div>
 
@@ -351,9 +357,20 @@ export default function UserProfile({
                   </div>
 
                   {/* Photo */}
-                  <div className="bg-gray-200 rounded-xl px-5 py-5 col-span-2 row-span-2 h-[300px] border border-neutral-200">
-                    pic
-                  </div>
+                  {/* Photo */}
+                  {user.image ? (
+                    <div className="bg-gray-50 relative dark:bg-gray-800 rounded-xl col-span-2 row-span-2 overflow-hidden border border-neutral-200 dark:border-none ">
+                      <Image
+                        src={user.image}
+                        alt={user.name}
+                        fill
+                        className="w-full h-full object-cover"
+                        priority
+                      />
+                    </div>
+                  ) : (
+                    ""
+                  )}
 
                   {/* Location */}
                   <Link

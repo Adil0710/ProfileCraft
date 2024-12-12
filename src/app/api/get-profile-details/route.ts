@@ -59,6 +59,7 @@ export async function GET() {
       image: existingUser.image,
       // Add any other fields that are necessary
     };
+    
 
     return Response.json(
       {

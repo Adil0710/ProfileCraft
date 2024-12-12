@@ -64,6 +64,8 @@ const profileSchema = z.object({
   favoriteQuote: z.string().optional(),
   gender: z.string().optional(),
   location: z.string().optional(),
+  image: z.instanceof(File).optional(),
+  profilePhoto: z.instanceof(File).optional(),
 });
 
 interface SocialLink {
@@ -91,7 +93,7 @@ export default function AddDetails({
   const { toast } = useToast();
   const [selectedGender, setSelectedGender] = useState<string | null>(null); // State for gender selection
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [loading, setIsLoading] = useState(false)
+  const [loading, setIsLoading] = useState(false);
 
   // Initialize form with default values
   const form = useForm({
@@ -104,13 +106,14 @@ export default function AddDetails({
       favoriteQuote: "",
       gender: "",
       location: "",
+      image: undefined,
     },
   });
 
   // Fetch profile details and set them in form when drawer opens
   useEffect(() => {
     const getProfileDetails = async () => {
-      setIsLoading(true)
+      setIsLoading(true);
       try {
         const response = await axios.get("/api/get-profile-details");
         const user = response.data.user;
@@ -138,7 +141,7 @@ export default function AddDetails({
       } catch (error) {
         console.error("Error fetching profile details:", error);
       } finally {
-        setIsLoading(false)
+        setIsLoading(false);
       }
     };
 
@@ -151,21 +154,36 @@ export default function AddDetails({
   const onSubmit = async (data: z.infer<typeof profileSchema>) => {
     console.log("Form Data Submitted:", data);
     setIsSubmitting(true);
+
     try {
+      // Create FormData to handle multipart/form-data
+      const formData = new FormData();
+      formData.append("name", data.name);
+      formData.append("about", data.about || "");
+      formData.append("occupation", data.occupation || "");
+      formData.append("favoriteQuote", data.favoriteQuote || "");
+      formData.append("gender", data.gender || "");
+      formData.append("location", data.location || "");
+
+      // Add socialLinks as a JSON string
+      formData.append("socialLinks", JSON.stringify(data.socialLinks || []));
+
+      // Add files (if selected)
+      if (data.image) formData.append("image", data.image);
+      if (data.profilePhoto) formData.append("profilePhoto", data.profilePhoto);
+
+      // Send FormData to the server
       const response = await fetch("/api/add-profile-details", {
         method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data), // Send all form data
+        body: formData, // Send FormData directly
       });
 
       const result = await response.json();
       if (response.ok) {
         console.log("Profile updated successfully:", result);
-        setProfileUpdated(true); // Set profile updated state
-        onUpdate(); // Call the onUpdate function
-        onClose(); // Close the drawer after successful submission
+        setProfileUpdated(true);
+        onUpdate();
+        onClose();
         toast({
           title: "Success",
           description: result.message,
@@ -174,7 +192,7 @@ export default function AddDetails({
         console.error("Failed to update profile:", result.message);
         toast({
           variant: "destructive",
-          title: "Uh oh! failed to save profile",
+          title: "Uh oh! Failed to save profile",
           description: result.message,
         });
       }
@@ -182,7 +200,7 @@ export default function AddDetails({
       console.error("Error during profile update:", error);
       toast({
         variant: "destructive",
-        title: "Uh oh! error occured see console",
+        title: "Uh oh! Error occurred",
         description: "Error during profile update",
       });
     } finally {
@@ -223,12 +241,14 @@ export default function AddDetails({
                     <FormItem>
                       <FormLabel>Full Name</FormLabel>
                       <FormControl>
-                       {
-                        loading ? (<Skeleton className=" h-4 w-full" />) : ( <Input
-                          placeholder="Your current occupation"
-                          {...field}
-                        />)
-                       }
+                        {loading ? (
+                          <Skeleton className=" h-4 w-full" />
+                        ) : (
+                          <Input
+                            placeholder="Your current occupation"
+                            {...field}
+                          />
+                        )}
                       </FormControl>
 
                       <FormMessage />
@@ -260,71 +280,6 @@ export default function AddDetails({
                   )}
                 />
 
-                {/* Occupation Field */}
-                <FormField
-                  control={form.control}
-                  name="occupation"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Occupation</FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="Your current occupation"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                {/* Gender Dropdown */}
-                <FormField
-                  control={form.control}
-                  name="gender"
-                  render={() => (
-                    <FormItem>
-                        <div className="flex w-full items-center gap-5">
-                        <FormLabel className="flex-shrink-0 w-1/6 text-left">Gender</FormLabel>
-                      
-                      <DropdownMenu >
-                        <DropdownMenuTrigger asChild>
-                          <Button className="flex-grow" variant="outline">
-                            {selectedGender ? selectedGender : "Select Gender"}
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent className="w-64">
-                          <DropdownMenuLabel>Choose Gender</DropdownMenuLabel>
-                          <DropdownMenuSeparator />
-                          <DropdownMenuCheckboxItem
-                            checked={selectedGender === "male"}
-                            onCheckedChange={(checked) => {
-                              if (checked) {
-                                setSelectedGender("Male");
-                                form.setValue("gender", "Male");
-                              }
-                            }}
-                          >
-                            Male
-                          </DropdownMenuCheckboxItem>
-                          <DropdownMenuCheckboxItem
-                            checked={selectedGender === "Female"}
-                            onCheckedChange={(checked) => {
-                              if (checked) {
-                                setSelectedGender("Female");
-                                form.setValue("gender", "Female");
-                              }
-                            }}
-                          >
-                            Female
-                          </DropdownMenuCheckboxItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
-                      </div>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
                 {/* Favorite Quote Field */}
                 <FormField
                   control={form.control}
@@ -348,13 +303,92 @@ export default function AddDetails({
                     </FormItem>
                   )}
                 />
+
+                {/* Image */}
+                <FormField
+                  control={form.control}
+                  name="image"
+                  render={({ field }) => (
+                    <FormItem className="cursor-pointer">
+                      <div className="flex w-full items-center gap-5">
+                        <FormLabel className="flex-shrink-0 w-1/6 text-left">
+                          Image
+                        </FormLabel>
+                        <FormControl className="flex-grow">
+                          <Input
+                            type="file"
+                            accept="image/*"
+                            onChange={(e) => {
+                              const file = e.target.files?.[0]; // Get the selected file
+                              field.onChange(file); // Update the field with the selected file
+                            }}
+                          />
+                        </FormControl>
+                      </div>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                {/* Gender Dropdown */}
+                <FormField
+                  control={form.control}
+                  name="gender"
+                  render={() => (
+                    <FormItem>
+                      <div className="flex w-full items-center gap-5">
+                        <FormLabel className="flex-shrink-0 w-1/6 text-left">
+                          Gender
+                        </FormLabel>
+
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <Button className="flex-grow" variant="outline">
+                              {selectedGender
+                                ? selectedGender
+                                : "Select Gender"}
+                            </Button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent className="w-64">
+                            <DropdownMenuLabel>Choose Gender</DropdownMenuLabel>
+                            <DropdownMenuSeparator />
+                            <DropdownMenuCheckboxItem
+                              checked={selectedGender === "male"}
+                              onCheckedChange={(checked) => {
+                                if (checked) {
+                                  setSelectedGender("Male");
+                                  form.setValue("gender", "Male");
+                                }
+                              }}
+                            >
+                              Male
+                            </DropdownMenuCheckboxItem>
+                            <DropdownMenuCheckboxItem
+                              checked={selectedGender === "Female"}
+                              onCheckedChange={(checked) => {
+                                if (checked) {
+                                  setSelectedGender("Female");
+                                  form.setValue("gender", "Female");
+                                }
+                              }}
+                            >
+                              Female
+                            </DropdownMenuCheckboxItem>
+                          </DropdownMenuContent>
+                        </DropdownMenu>
+                      </div>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
                 {/* Social Media Links */}
                 {socialLinks.map((link, index) => (
                   <FormField
                     key={index}
                     control={form.control}
                     name={`socialLinks.${index}.platform_username`}
-                    render={({  }) => (
+                    render={({}) => (
                       <FormItem>
                         <div className="flex w-full items-center gap-5">
                           <FormLabel className="flex-shrink-0 w-1/6 text-left">
@@ -397,6 +431,27 @@ export default function AddDetails({
                         </FormLabel>
                         <FormControl className="flex-grow">
                           <Input placeholder="Your location" {...field} />
+                        </FormControl>
+                      </div>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                {/* Occupation Field */}
+                <FormField
+                  control={form.control}
+                  name="occupation"
+                  render={({ field }) => (
+                    <FormItem>
+                      <div className="flex w-full items-center gap-5">
+                        <FormLabel className="flex-shrink-0 w-1/6 text-left">
+                          Occupation
+                        </FormLabel>
+                        <FormControl className="flex-grow">
+                          <Input
+                            placeholder="Your current occupation"
+                            {...field}
+                          />
                         </FormControl>
                       </div>
                       <FormMessage />
