@@ -23,8 +23,6 @@ import {
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -133,7 +131,7 @@ export default function DashboardPage() {
       toast({
         variant: "destructive",
         title: "Error",
-        description: "An error occurred while uploading the profile photo",
+        description: `An error occurred while uploading the profile photo:- ${error}`,
       });
     } finally {
       setIsUploading(false);
@@ -173,7 +171,7 @@ export default function DashboardPage() {
       toast({
         variant: "destructive",
         title: "Error",
-        description: "An error occurred while removing the profile photo",
+        description: `An error occurred while removing the profile photo ${error}`,
       });
     } finally {
       setIsUploading(false);

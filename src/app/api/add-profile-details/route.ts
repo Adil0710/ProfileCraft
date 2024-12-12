@@ -18,6 +18,7 @@ function uploadToCloudinary(
   fileBuffer: Buffer,
   folder: string,
   publicId: string,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   transformations: Record<string, any> = {} // Accept transformations as an argument
 ) {
   return new Promise((resolve, reject) => {
@@ -65,7 +66,7 @@ export async function PUT(request: Request) {
     const socialLinks = JSON.parse(
       (formData.get("socialLinks") as string) || "[]"
     );
-    const profilePhoto = formData.get("profilePhoto") as File | String | null;
+    const profilePhoto = formData.get("profilePhoto") as File | string | null;
     const image = formData.get("image") as File | null;
 
     if (!mongoose.Types.ObjectId.isValid(user._id)) {
@@ -96,6 +97,7 @@ export async function PUT(request: Request) {
       if (profilePhoto instanceof File) {
         // If profilePhoto is a File, upload it to Cloudinary
         const buffer = Buffer.from(await profilePhoto.arrayBuffer());
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const uploadResult: any = await uploadToCloudinary(
           buffer,
           "ProfileCraft_user_profiles",
@@ -141,7 +143,7 @@ export async function PUT(request: Request) {
                 gravity: "auto",
               },
             ];
-
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const uploadResult: any = await uploadToCloudinary(
         buffer,
         "ProfileCraft_user_images",
