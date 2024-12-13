@@ -82,11 +82,13 @@ export default function LogIn() {
         }
       } else if (result?.url) {
         // Success case
+        router.replace("/dashboard");
+        
         toast({
           title: "Login Successful",
           description: "Welcome back!",
         });
-        router.replace("/dashboard");
+       
       }
     } catch (error) {
       // Handle any unexpected errors

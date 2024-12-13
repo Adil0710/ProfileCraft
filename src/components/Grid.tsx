@@ -8,6 +8,7 @@ import { Images, MessageSquareQuote, Music } from "lucide-react";
 import Logo from "./Logo";
 import { IoPlay, IoPlaySkipBack, IoPlaySkipForward } from "react-icons/io5";
 import Image from "next/image";
+import LocationCard from "./LocationCard";
 
 // Define prop types
 interface GridProps {
@@ -26,6 +27,7 @@ function Grid({ profileUpdated, setProfileUpdated }: GridProps) {
     about: "",
     favoriteQuote: "",
     image: "",
+    location: "",
     socialMediaLinks: [
       {
         platform: "",
@@ -265,7 +267,7 @@ function Grid({ profileUpdated, setProfileUpdated }: GridProps) {
           </div>
 
           {/* Photo */}
-          <div className="bg-gray-50 relative dark:bg-gray-800 rounded-xl col-span-2 row-span-2 overflow-hidden border border-neutral-200 dark:border-none ">
+          <div className="bg-gray-50 relative dark:bg-gray-800 rounded-xl col-span-2 row-span-2 sm:h-auto h-[400px] overflow-hidden border border-neutral-200 dark:border-none ">
             {profileDetails.image ? (
               <Image
                 src={profileDetails.image}
@@ -285,13 +287,7 @@ function Grid({ profileUpdated, setProfileUpdated }: GridProps) {
           </div>
 
           {/* Location */}
-          <Link
-            href=""
-            className="bg-gray-200 rounded-xl px-5 py-5 sm:col-span-2 col-span-2 h-48 border border-neutral-200"
-          >
-            <div>location</div>
-          </Link>
-
+          <LocationCard location={`${profileDetails.location}`} />
           {/* Occupation */}
           <div className="bg-gray-200 rounded-xl px-5 py-5  h-48 border border-neutral-200">
             occupation

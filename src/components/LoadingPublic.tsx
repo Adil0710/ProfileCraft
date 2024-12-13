@@ -57,21 +57,25 @@ export default function LoadingPublic() {
       {/* Right Side (Scrollable) */}
       <div className="w-full h-auto lg:h-screen pt-28 sm:pb-5 pb-20 md:pr-0 pr-0 lg:pr-10">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 m-4">
-          <Skeleton className=" rounded-2xl p-10 h-48" />
-
-          <Skeleton className=" rounded-2xl p-10 h-48" />
-
-          <Skeleton className=" rounded-2xl p-10 h-48" />
-
-          <Skeleton className=" rounded-2xl p-10 h-48" />
-
-          <Skeleton className=" rounded-2xl p-10 h-48" />
-
-          <Skeleton className=" rounded-2xl p-10 h-48" />
-
-          <Skeleton className=" rounded-2xl p-10 h-48" />
-
-          <Skeleton className=" rounded-2xl p-10 h-48" />
+          {Array.from({ length: 8 }).map((_, index) =>
+            index === 1 ? (
+              <Skeleton className=" rounded-2xl px-5 py-5 h-48" key={index}>
+                <Skeleton className=" h-9 w-9" />
+                <Skeleton className=" h-5 w-[80%] mt-3" />
+                <div className=" flex flex-row items-center justify-between w-full mt-8">
+                  <Skeleton className=" sm:h-9 h-7 w-7 sm:w-9" />
+                  <Skeleton className=" sm:h-12 h-9 w-9 sm:w-12" />
+                  <Skeleton className=" sm:h-9 h-7 w-7 sm:w-9" />
+                </div>
+              </Skeleton>
+            ) : (
+              <Skeleton className=" rounded-2xl px-5 py-5 h-48" key={index}>
+                <Skeleton className=" h-9 w-9" />
+                <Skeleton className=" h-5 w-[80%] mt-3" />
+                <Skeleton className=" h-7 w-20 rounded-full sm:mt-12 mt-10" />
+              </Skeleton>
+            )
+          )}
 
           <div className="relative rounded-2xl col-span-2 h-48 overflow-hidden">
             {/* Background gradient and blur effect */}

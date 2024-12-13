@@ -16,7 +16,7 @@ export default function Loading() {
             <Skeleton className="mt-3 w-[20%] h-5 " />
             <Skeleton className=" mt-3 w-[80%] h-8 " />
             <div className="flex flex-row mt-10">
-            <Skeleton className="h-8 w-16" />
+              <Skeleton className="h-8 w-16" />
 
               <Separator
                 orientation="vertical"
@@ -24,7 +24,6 @@ export default function Loading() {
               />
               <Skeleton className=" h-8 w-[70%]" />
             </div>
-            
           </div>
         </div>
         <div className="absolute sm:left-10 sm:bottom-2 -bottom-10 sm:space-y-7 space-y-7 pb-3 left-3">
@@ -59,21 +58,28 @@ export default function Loading() {
       {/* Right Side (Scrollable) */}
       <div className="w-full h-auto lg:h-screen pt-28 sm:pb-5 pb-20 md:pr-0 pr-0 lg:pr-10">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 m-4">
-          <Skeleton className=" rounded-2xl p-10 h-48" />
+          {Array.from({ length: 8 }).map((_, index) =>
+            index === 1 ? (
+              <Skeleton className=" rounded-2xl px-5 py-5 h-48" key={index}>
+                <Skeleton className=" h-9 w-9" />
+                <Skeleton className=" h-5 w-[80%] mt-3" />
+                <div className=" flex flex-row items-center justify-between w-full mt-8">
 
-          <Skeleton className=" rounded-2xl p-10 h-48" />
+                <Skeleton className=" sm:h-9 h-7 w-7 sm:w-9"/>
+                <Skeleton className=" sm:h-12 h-9 w-9 sm:w-12"/>
+                <Skeleton className=" sm:h-9 h-7 w-7 sm:w-9"/>
+                </div>
+              </Skeleton>
+            ) : (
+              <Skeleton className=" rounded-2xl px-5 py-5 h-48" key={index}>
+                <Skeleton className=" h-9 w-9" />
+                <Skeleton className=" h-5 w-[80%] mt-3" />
+                <Skeleton className=" h-7 w-20 rounded-full sm:mt-12 mt-10" />
+              </Skeleton>
+            )
+          )}
 
-          <Skeleton className=" rounded-2xl p-10 h-48" />
-
-          <Skeleton className=" rounded-2xl p-10 h-48" />
-
-          <Skeleton className=" rounded-2xl p-10 h-48" />
-
-          <Skeleton className=" rounded-2xl p-10 h-48" />
-
-          <Skeleton className=" rounded-2xl p-10 h-48" />
-
-          <Skeleton className=" rounded-2xl p-10 h-48" />
+          
 
           <div className="relative rounded-2xl col-span-2 h-48 overflow-hidden">
             {/* Background gradient and blur effect */}
