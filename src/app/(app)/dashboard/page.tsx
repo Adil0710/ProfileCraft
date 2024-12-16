@@ -198,7 +198,7 @@ export default function DashboardPage() {
 
   useEffect(() => {
     getProfileDetails(); // Fetch details when the component mounts or user changes
-  }, [user]);
+  }, []);
 
   useEffect(() => {
     if (profileUpdated) {

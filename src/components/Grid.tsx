@@ -49,7 +49,7 @@ function Grid({ profileUpdated, setProfileUpdated }: GridProps) {
 
   useEffect(() => {
     getProfileDetails(); // Fetch details on component mount or user change
-  }, [user]);
+  }, []);
 
   useEffect(() => {
     if (profileUpdated) {

@@ -84,6 +84,7 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
           }
         }
       } catch (error) {
+        
         console.error("Error fetching weather data:", error);
         setTemperature("Error");
         setWeatherCondition("Unavailable");
