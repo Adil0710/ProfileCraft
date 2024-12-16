@@ -28,6 +28,7 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
   const [temperature, setTemperature] = useState<string | null>(null);
   const [weatherCondition, setWeatherCondition] = useState<string | null>(null);
   const [icon, setIcon] = useState<JSX.Element | null>(null);
+  const [loading, setLoading] = useState(true);
 
   const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?&units=metric&q=${location}&appid=${apiKey}`;
@@ -87,6 +88,8 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
         setTemperature("Error");
         setWeatherCondition("Unavailable");
         setIcon(null);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -109,10 +112,18 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
         <div className="flex items-center justify-between">
           <div>
             <div className="text-3xl font-bold text-neutral-700 dark:text-neutral-300">
-              {temperature || <Skeleton className="h-12 w-20" />}
+              {loading ? (
+                <Skeleton className="h-12 w-20" />
+              ) : (
+                <>{temperature}</>
+              )}
             </div>
             <div className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
-              {weatherCondition || <Skeleton className="w-10 h-5" />}
+              {loading ? (
+                <Skeleton className="w-10 h-5 mt-2" />
+              ) : (
+                <>{weatherCondition}</>
+              )}
             </div>
           </div>
         </div>
