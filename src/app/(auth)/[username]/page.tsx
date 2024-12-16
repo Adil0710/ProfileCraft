@@ -374,18 +374,47 @@ export default function UserProfile({
                   )}
 
                   {/* Location */}
-                  {/* Location */}
                   <LocationCard location={`${user.location}`} />
 
                   {/* Occupation */}
-                  <div className="bg-gray-200 rounded-xl px-5 py-5  h-48 border border-neutral-200">
-                    occupation
+                  <div className=" bgcustom rounded-xl px-5 py-5  h-48 border ">
+                    <div className=" logo-container">
+                      <img
+                        width="37"
+                        height="37"
+                        src="https://img.icons8.com/emoji/48/rocket-emji.png"
+                        alt="rocket-emji"
+                      />
+                    </div>
+                    <p className=" font-semibold w-full mx-auto sm:text-sm text-base text-center text-black/70 mt-2 ">
+                      {" "}
+                      Proudly I&apos;m a
+                    </p>
+                    <p className=" font-bold w-full sm:text-sm text-lg text-center text-black/90 mt-1 ">
+                      {" "}
+                      {profileDetails.occupation}
+                    </p>
                   </div>
 
                   {/* Custom_Link */}
                   <Link href={`${customLink}`} target="_blank">
-                    <div className="bg-gray-200 rounded-xl px-5 py-5 h-48 border border-neutral-200">
-                      custom link
+                    <div className="bg-[#e2efff] dark:bg-gradient-to-l from-black/10 to-[#e2efff] rounded-xl px-5 pb-5 pt-4 h-48 border border-neutral-200">
+                      <div className=" logo-container shadow-lg rounded-md bg-blue-200">
+                        <img
+                          width="40"
+                          height="40"
+                          src="https://img.icons8.com/bubbles/100/geography.png"
+                          alt="geography"
+                        />
+                      </div>
+                      <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words overflow-hidden text-ellipsis whitespace-nowrap">
+                        {customLink}
+                      </p>
+                      <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                        <p className=" py-0.5 text-sm font-medium px-1.5 bg-blue-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-blue-300 transition border border-neutral-300">
+                          Visit
+                        </p>
+                      </div>
                     </div>
                   </Link>
                 </div>

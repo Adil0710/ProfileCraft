@@ -33,7 +33,7 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
       setLoading(true);
       try {
         const response = await fetch(apiUrl);
-
+        console.log(response)
         if (!response.ok) {
           // Handle non-successful responses
           throw new Error(`Error ${response.status}: ${response.statusText}`);
