@@ -1,18 +1,3 @@
-// import RotatingGlobe from "./RotatingGlobe";
-
-// const LocationCard = ({ location }: { location: string }) => {
-//   return (
-//     <div className="relative bg-white rounded-xl p-5 sm:col-span-2 col-span-2 h-48 border border-neutral-200 shadow-lg hover:shadow-xl transition-all duration-300">
-//       <div className="text-lg font-semibold text-neutral-700">{location}</div>
-//       <div className="absolute bottom-5 right-5 w-52 h-52">
-//         <RotatingGlobe />
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default LocationCard;
-
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Sun, CloudRain, Cloud, Wind, Droplets } from "lucide-react"; // Import Lucide icons
@@ -24,10 +9,20 @@ interface LocationCardProps {
   location: string; // Location name fetched from the database
 }
 
+interface WeatherData {
+  temperature: string | null;
+  condition: string | null;
+  icon: JSX.Element | null;
+  error: boolean;
+}
+
 const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
-  const [temperature, setTemperature] = useState<string | null>(null);
-  const [weatherCondition, setWeatherCondition] = useState<string | null>(null);
-  const [icon, setIcon] = useState<JSX.Element | null>(null);
+  const [weather, setWeather] = useState<WeatherData>({
+    temperature: null,
+    condition: null,
+    icon: null,
+    error: false,
+  });
   const [loading, setLoading] = useState(true);
 
   const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
@@ -35,60 +30,41 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
 
   useEffect(() => {
     const fetchWeatherData = async () => {
+      setLoading(true);
       try {
         const response = await fetch(apiUrl);
-        console.log(response);
 
-        if (response.status === 404) {
-          setTemperature("N/A");
-          setWeatherCondition("Not Found");
-          setIcon(null);
-        } else {
-          const data = await response.json();
-          const temp = Math.round(data.main.temp) + "°C";
-          const condition = data.weather[0].main;
+        if (!response.ok) {
+          // Handle non-successful responses
+          throw new Error(`Error ${response.status}: ${response.statusText}`);
+        }
 
-          setTemperature(temp);
-          setWeatherCondition(condition);
+        const data = await response.json();
+        const temp = `${Math.round(data.main.temp)}°C`;
+        const condition = data.weather[0].main;
 
-          // Map weather conditions to Lucide icons
+        // Map weather conditions to Lucide icons
+        const icon = (() => {
           switch (condition) {
             case "Clear":
-              setIcon(
-                <Sun className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />
-              );
-              break;
+              return <Sun className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />;
             case "Clouds":
-              setIcon(
-                <Cloud className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />
-              );
-              break;
+              return <Cloud className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />;
             case "Rain":
-              setIcon(
-                <CloudRain className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />
-              );
-              break;
+              return <CloudRain className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />;
             case "Drizzle":
-              setIcon(
-                <Droplets className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />
-              );
-              break;
+              return <Droplets className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />;
             case "Mist":
-              setIcon(
-                <Wind className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />
-              );
-              break;
+              return <Wind className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />;
             default:
-              setIcon(<Sun className="w-8 h-8 " />); // Default icon
-              break;
+              return <Sun className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />;
           }
-        }
+        })();
+
+        setWeather({ temperature: temp, condition, icon, error: false });
       } catch (error) {
-        
         console.error("Error fetching weather data:", error);
-        setTemperature("Error");
-        setWeatherCondition("Unavailable");
-        setIcon(null);
+        setWeather({ temperature: "N/A", condition: "Unavailable", icon: null, error: true });
       } finally {
         setLoading(false);
       }
@@ -106,7 +82,12 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
     >
       <div className="flex flex-col justify-between h-full">
         <div className="text-2xl flex flex-row gap-2 font-bold text-neutral-800 dark:text-neutral-200">
-          {icon} <Separator orientation="vertical" className="w-0.5" />{" "}
+          {loading ? (
+            <Skeleton className="w-8 h-8" />
+          ) : (
+            weather.icon
+          )}
+          <Separator orientation="vertical" className="w-0.5" />
           {location}
         </div>
 
@@ -116,14 +97,14 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
               {loading ? (
                 <Skeleton className="h-12 w-20" />
               ) : (
-                <>{temperature}</>
+                weather.temperature
               )}
             </div>
             <div className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
               {loading ? (
                 <Skeleton className="w-10 h-5 mt-2" />
               ) : (
-                <>{weatherCondition}</>
+                weather.condition
               )}
             </div>
           </div>
