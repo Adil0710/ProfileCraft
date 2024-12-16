@@ -95,7 +95,8 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
 
   return (
     <Link
-      href="#"
+      href={`https://www.google.com/maps/place/${location}`}
+      target="_blank"
       className="bg-gradient-to-r from-neutral-100 to-neutral-50 dark:from-neutral-900 dark:to-neutral-950 rounded-xl p-5 sm:col-span-2 col-span-2 h-48 border border-neutral-200 dark:border-neutral-800
        transition-all duration-300 relative overflow-hidden"
     >
