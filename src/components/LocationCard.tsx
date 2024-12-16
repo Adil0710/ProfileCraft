@@ -28,8 +28,8 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
   const [temperature, setTemperature] = useState<string | null>(null);
   const [weatherCondition, setWeatherCondition] = useState<string | null>(null);
   const [icon, setIcon] = useState<JSX.Element | null>(null);
-  const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
 
+  const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?&units=metric&q=${location}&appid=${apiKey}`;
 
   useEffect(() => {
