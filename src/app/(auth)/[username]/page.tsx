@@ -358,7 +358,6 @@ export default function UserProfile({
                   </div>
 
                   {/* Photo */}
-                  {/* Photo */}
                   {user.image ? (
                     <div className="bg-gray-50 relative dark:bg-gray-800 rounded-xl col-span-2 row-span-2 overflow-hidden border border-neutral-200 dark:border-none ">
                       <Image
@@ -392,7 +391,7 @@ export default function UserProfile({
                     </p>
                     <p className=" font-bold w-full sm:text-sm text-lg text-center text-black/90 mt-1 ">
                       {" "}
-                      {profileDetails.occupation}
+                      {user.occupation}
                     </p>
                   </div>
 
