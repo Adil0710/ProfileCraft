@@ -18,6 +18,7 @@ import Link from "next/link";
 import { Sun, CloudRain, Cloud, Wind, Droplets } from "lucide-react"; // Import Lucide icons
 import { Skeleton } from "./ui/skeleton";
 import { Separator } from "./ui/separator";
+import { GlobeDemo } from "./GlobeDemo";
 
 interface LocationCardProps {
   location: string; // Location name fetched from the database
@@ -96,7 +97,7 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
     <Link
       href="#"
       className="bg-gradient-to-r from-neutral-100 to-neutral-50 dark:from-neutral-900 dark:to-neutral-950 rounded-xl p-5 sm:col-span-2 col-span-2 h-48 border border-neutral-200 dark:border-neutral-800
-       transition-all duration-300"
+       transition-all duration-300 relative overflow-hidden"
     >
       <div className="flex flex-col justify-between h-full">
         <div className="text-2xl flex flex-row gap-2 font-bold text-neutral-800 dark:text-neutral-200">
@@ -107,13 +108,18 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
         <div className="flex items-center justify-between">
           <div>
             <div className="text-3xl font-bold text-neutral-700 dark:text-neutral-300">
-              {temperature || <Skeleton className=" h-12 w-20 " />}
+              {temperature || <Skeleton className="h-12 w-20" />}
             </div>
             <div className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
-              {weatherCondition || <Skeleton className=" w-10 h-5" />}
+              {weatherCondition || <Skeleton className="w-10 h-5" />}
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Add GlobeDemo in the bottom right corner */}
+      <div className="absolute top-5 -right-[45%] w-full h-full z-40">
+        <GlobeDemo />
       </div>
     </Link>
   );
