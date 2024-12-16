@@ -13,6 +13,7 @@ import Link from "next/link";
 import Logo from "@/components/Logo";
 import { Music } from "lucide-react";
 import { IoPlay, IoPlaySkipBack, IoPlaySkipForward } from "react-icons/io5";
+import LocationCard from "@/components/LocationCard";
 
 interface SocialMediaLink {
   platform: string;
@@ -373,12 +374,8 @@ export default function UserProfile({
                   )}
 
                   {/* Location */}
-                  <Link
-                    href=""
-                    className="bg-gray-200 rounded-xl px-5 py-5 sm:col-span-2 col-span-2 h-48 border border-neutral-200"
-                  >
-                    <div>location</div>
-                  </Link>
+                  {/* Location */}
+                  <LocationCard location={`${user.location}`} />
 
                   {/* Occupation */}
                   <div className="bg-gray-200 rounded-xl px-5 py-5  h-48 border border-neutral-200">
