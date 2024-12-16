@@ -119,7 +119,7 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
       </div>
 
       {/* Add GlobeDemo in the bottom right corner */}
-      <div className="absolute top-5 -right-[45%] w-full h-full z-40">
+      <div className="absolute top-0 -right-[45%] w-full h-full z-40">
         <GlobeDemo />
       </div>
     </Link>
