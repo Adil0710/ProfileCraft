@@ -385,11 +385,11 @@ export default function UserProfile({
                         alt="rocket-emji"
                       />
                     </div>
-                    <p className=" font-semibold w-full mx-auto text-sm  text-center text-black/70 mt-2 ">
+                    <p className=" font-semibold w-full mx-auto sm:text-sm text-xs text-center text-black/70 mt-2 ">
                       {" "}
                       Proudly I&apos;m a
                     </p>
-                    <p className=" font-bold w-full text-center text-black/90 mt-1 ">
+                    <p className=" font-bold w-full text-center text-base text-black/90 mt-1 ">
                       {" "}
                       {user.occupation}
                     </p>
