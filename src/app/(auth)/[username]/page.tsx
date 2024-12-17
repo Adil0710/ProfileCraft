@@ -359,7 +359,7 @@ export default function UserProfile({
 
                   {/* Photo */}
                   {user.image ? (
-                    <div className="bg-gray-50 relative dark:bg-gray-800 rounded-xl col-span-2 row-span-2 overflow-hidden border border-neutral-200 dark:border-none ">
+                    <div className="bg-gray-50 relative dark:bg-gray-800 rounded-xl col-span-2 sm:h-auto h-[400px] row-span-2 overflow-hidden border border-neutral-200 dark:border-none ">
                       <Image
                         src={user.image}
                         alt={user.name}
