@@ -171,9 +171,13 @@ body {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
   backdrop-filter: blur(10px); /* Optional: Add a blur effect to the background */
 }
+.dark .navbar{
+  background: rgba(0, 0, 0, 0.5);
+
+}
 .navbar{
-  background: transparent;
-  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
 }
 
 /* Add this to your CSS file */
