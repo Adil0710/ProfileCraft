@@ -15,7 +15,7 @@ import { Music } from "lucide-react";
 import { IoPlay, IoPlaySkipBack, IoPlaySkipForward } from "react-icons/io5";
 import LocationCard from "@/components/LocationCard";
 import BlurFade from "@/components/ui/blur-fade";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface SocialMediaLink {
   platform: string;
@@ -178,6 +178,8 @@ export default function UserProfile({
               {/* Right Side (Scrollable) */}
               <div className="w-full h-auto lg:h-screen overflow-y-auto pt-28 sm:pb-5 pb-20 md:pr-0 pr-0 lg:pr-10 hidden-scrollbar">
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 m-4">
+                  
+    <AnimatePresence>
                   {/* Instagram */}
                   <BlurFade delay={0.0002} inView>
                     <Link
@@ -471,6 +473,7 @@ export default function UserProfile({
                       </div>
                     </Link>
                   </BlurFade>
+                  </AnimatePresence>
                 </div>
               </div>
             </div>
