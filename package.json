@@ -31,7 +31,7 @@
     "cloudinary": "^2.5.1",
     "clsx": "^2.1.1",
     "country-region-data": "^3.1.0",
-    "framer-motion": "^11.11.10",
+    "framer-motion": "^11.15.0",
     "image-size": "^1.1.1",
     "input-otp": "^1.2.4",
     "lodash": "^4.17.21",

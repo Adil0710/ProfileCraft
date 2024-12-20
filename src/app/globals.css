@@ -344,3 +344,25 @@ radial-gradient(at 53% 69%, hsla(282,79%,67%,1) 0px, transparent 50%);
 }
 
 
+*::-webkit-scrollbar {
+  width: 10px; /* Adjust scrollbar width */
+}
+
+*::-webkit-scrollbar-track {
+  background-color: transparent; /* Track color */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(112, 112, 112); /* Thumb color */
+  border-radius: 10px; /* Rounded corners for thumb */
+}
+
+/* For Firefox - Light Mode */
+* {
+  scrollbar-width: thin; /* Makes scrollbar thinner */
+  scrollbar-color: rgb(110, 110, 110) transparent; /* Thumb and track colors */
+  scroll-behavior: smooth !important;
+}
+
+
+
