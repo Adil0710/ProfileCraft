@@ -408,6 +408,7 @@ export function GlobeDemo() {
           }}
           transition={{
             duration: 1,
+            delay: 1
           }}
           className="div"
         >
