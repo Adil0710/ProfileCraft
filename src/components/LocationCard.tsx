@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Sun, CloudRain, Cloud, Wind, Droplets } from "lucide-react"; // Import Lucide icons
 import { Skeleton } from "./ui/skeleton";
 import { Separator } from "./ui/separator";
-import { GlobeDemo } from "./GlobeDemo";
+// import { GlobeDemo } from "./GlobeDemo";
 
 interface LocationCardProps {
   location: string; // Location name fetched from the database
@@ -113,7 +113,7 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
 
       {/* Add GlobeDemo in the bottom right corner */}
       <div className="absolute top-0 -right-[45%] w-full h-full z-40">
-        <GlobeDemo />
+        {/* <GlobeDemo /> */}
       </div>
     </Link>
   );
