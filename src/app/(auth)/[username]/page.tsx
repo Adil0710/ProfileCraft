@@ -14,7 +14,6 @@ import Logo from "@/components/Logo";
 import { Music } from "lucide-react";
 import { IoPlay, IoPlaySkipBack, IoPlaySkipForward } from "react-icons/io5";
 import LocationCard from "@/components/LocationCard";
-import BlurFade from "@/components/ui/blur-fade";
 import { motion } from "framer-motion";
 
 interface SocialMediaLink {
@@ -105,7 +104,7 @@ export default function UserProfile({
             <div className="flex flex-col lg:flex-row w-full h-full">
               <div className="lg:w-[35%] flex-shrink-0 flex flex-col justify-between w-full h-auto lg:h-full pt-28 pb-5 sm:pl-10 pl-5">
                 <div>
-                <BlurFade delay={0.0002} inView>
+     
                   <div className="relative w-36 h-36 rounded-full bg-slate-300 dark:bg-slate-800 flex items-center justify-center">
                     <Image
                       src={
@@ -122,24 +121,24 @@ export default function UserProfile({
                       priority
                     />
                   </div>
-                  </BlurFade>
+       
                  
                   <div className="mt-10">
-                  <BlurFade delay={0.05} inView>
+            
                     <h1 className="sm:text-5xl text-4xl font-bold dark:text-neutral-300">
                       {user.name}
                     </h1>
-                    </BlurFade>
-                    <BlurFade delay={0.10} inView>
+                
+                
                     <h2 className="mt-3 font-medium text-neutral-500 dark:text-neutral-500 sm:text-base text-sm">
                       @{user.username}
                     </h2>
-                    </BlurFade>
-                    <BlurFade delay={0.15} inView>
+                 
+                 
                     <p className=" mt-3 font-medium dark:text-neutral-300 text-neutral-700 ">
                       {user.about}
                     </p>
-                    </BlurFade>
+                  
                   </div>
                 </div>
                 <div className="absolute sm:left-10 sm:bottom-2 -bottom-10 sm:space-y-7 space-y-7 pb-3 left-3">
@@ -188,7 +187,7 @@ export default function UserProfile({
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 m-4">
                   
                     {/* Instagram */}
-                    <BlurFade delay={0.0002} inView>
+                   
                       <Link
                         href={`https://www.instagram.com/${instagramUsername}`}
                         target="_blank"
@@ -207,10 +206,10 @@ export default function UserProfile({
                           </div>
                         </div>
                       </Link>
-                    </BlurFade>
+               
 
                     {/* Spotify */}
-                    <BlurFade delay={0.05} inView>
+               
                       <Link href={spotifyLink} target="_blank">
                         <div className="bg-green-100 dark:bg-gradient-to-l from-black/20 to-green-100 rounded-2xl px-5 py-5 h-48 border border-neutral-200 relative overflow-hidden">
                           <div className="logo-container">
@@ -239,10 +238,10 @@ export default function UserProfile({
                           </div>
                         </div>
                       </Link>
-                    </BlurFade>
+        
 
                     {/* Gmail */}
-                    <BlurFade delay={0.1} inView>
+     
                       <Link href={`mailto:${user.email}`} target="_blank">
                         <div className="bg-[#ffe2e2] dark:bg-gradient-to-l from-black/10 to-[#ffe2e2] rounded-xl pl-5 py-5 h-48 border border-neutral-200">
                           <div className="logo-container">
@@ -258,10 +257,10 @@ export default function UserProfile({
                           </div>
                         </div>
                       </Link>
-                    </BlurFade>
+             
 
                     {/* LinkedIn */}
-                    <BlurFade delay={0.1} inView>
+                
                       <Link href={`${linkedinProfile}`} target="_blank">
                         <div className="bg-[#E9F4FA] dark:bg-gradient-to-l from-black/20 to-[#e9f3fa] rounded-xl px-5 py-5 h-48  border border-neutral-200">
                           <div className=" logo-container">
@@ -277,9 +276,9 @@ export default function UserProfile({
                           </div>
                         </div>
                       </Link>
-                    </BlurFade>
+                
                     {/* GitHub */}
-                    <BlurFade delay={0.15} inView>
+    
                       <Link
                         href={`https://github.com/${githubUsername}`}
                         target="_blank"
@@ -298,10 +297,10 @@ export default function UserProfile({
                           </div>
                         </div>
                       </Link>
-                    </BlurFade>
+             
 
                     {/* Youtube */}
-                    <BlurFade delay={0.2} inView>
+       
                       <Link
                         href={`https://www.youtube.com/@${youtubeChannel}`}
                         target="_blank"
@@ -320,10 +319,10 @@ export default function UserProfile({
                           </div>
                         </div>
                       </Link>
-                    </BlurFade>
+           
 
                     {/* Twitter */}
-                    <BlurFade delay={0.25} inView>
+         
                       <Link
                         href={`https://x.com/${twitterUsername}`}
                         target="_blank"
@@ -342,10 +341,10 @@ export default function UserProfile({
                           </div>
                         </div>
                       </Link>
-                    </BlurFade>
+             
 
                     {/* Threads */}
-                    <BlurFade delay={0.3} inView>
+            
                       <Link
                         href={`https://www.threads.net/@${threadsUsername}`}
                         target="_blank"
@@ -364,7 +363,7 @@ export default function UserProfile({
                           </div>
                         </div>
                       </Link>
-                    </BlurFade>
+       
 
                     {/* FavouriteQuote */}
 
@@ -402,7 +401,7 @@ export default function UserProfile({
                     <LocationCard location={`${user.location}`} />
 
                     {/* Occupation */}
-                    <BlurFade delay={0.45}>
+             
                       <div className=" bgcustom rounded-xl px-5 py-5  h-48 border ">
                         <div className=" logo-container">
                           <img
@@ -421,10 +420,10 @@ export default function UserProfile({
                           {user.occupation}
                         </p>
                       </div>
-                    </BlurFade>
+               
 
                     {/* Custom_Link */}
-                    <BlurFade delay={0.5}>
+           
                       <Link href={`${customLink}`} target="_blank">
                         <div className="bg-[#e2efff] dark:bg-gradient-to-l from-black/10 to-[#e2efff] rounded-xl px-5 pb-5 pt-4 h-48 border border-neutral-200">
                           <div className=" logo-container shadow-lg rounded-md bg-blue-200">
@@ -445,7 +444,7 @@ export default function UserProfile({
                           </div>
                         </div>
                       </Link>
-                    </BlurFade>
+               
             
                 </div>
               </div>
