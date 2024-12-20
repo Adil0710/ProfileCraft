@@ -5,6 +5,7 @@ import { Skeleton } from "./ui/skeleton";
 import { Separator } from "./ui/separator";
 
 import { WorldMapDemo } from "./WorldMapDemo";
+import { GlobeDemo } from "./GlobeDemo";
 
 interface LocationCardProps {
   location: string; // Location name fetched from the database
@@ -113,8 +114,8 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
       </div>
 
       {/* Add GlobeDemo in the bottom right corner */}
-      <div className="absolute top-0 left-[40%] w-full h-full z-0">
-      <WorldMapDemo/>
+      <div className="absolute top-0 left-[45%] w-full h-full z-0">
+  <GlobeDemo/>
       </div>
     </Link>
   );
