@@ -4,7 +4,7 @@ import { Sun, CloudRain, Cloud, Wind, Droplets } from "lucide-react"; // Import 
 import { Skeleton } from "./ui/skeleton";
 import { Separator } from "./ui/separator";
 
-import { WorldMapDemo } from "./WorldMapDemo";
+
 import { GlobeDemo } from "./GlobeDemo";
 
 interface LocationCardProps {
