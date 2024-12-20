@@ -185,6 +185,7 @@ export default function UserProfile({
 
               {/* Right Side (Scrollable) */}
               <div className="w-full h-auto lg:h-screen overflow-y-auto pt-28 sm:pb-5 pb-20 md:pr-0 pr-0 lg:pr-10 hidden-scrollbar">
+              <BlurFade delay={0.25}>
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 m-4">
                   {/* Instagram */}
 
@@ -192,7 +193,7 @@ export default function UserProfile({
                     href={`https://www.instagram.com/${instagramUsername}`}
                     target="_blank"
                   >
-                    <BlurFade delay={0.002}>
+                  
                       <div className="bg-[#fff2f8] dark:bg-gradient-to-l from-black/10 to-[#fff2f8] rounded-2xl px-5 py-5 h-48 border border-neutral-200">
                         <div className="logo-container">
                           <Logo name="instagram" size={33} />
@@ -206,13 +207,13 @@ export default function UserProfile({
                           </p>
                         </div>
                       </div>
-                    </BlurFade>
+                
                   </Link>
 
                   {/* Spotify */}
 
                   <Link href={spotifyLink} target="_blank">
-                    <BlurFade delay={0.1}>
+           
                       <div className="bg-green-100 dark:bg-gradient-to-l from-black/20 to-green-100 rounded-2xl px-5 py-5 h-48 border border-neutral-200 relative overflow-hidden">
                         <div className="logo-container">
                           <Logo name="spotify" size={33} />
@@ -239,13 +240,13 @@ export default function UserProfile({
                           <IoPlaySkipForward />
                         </div>
                       </div>
-                    </BlurFade>
+             
                   </Link>
 
                   {/* Gmail */}
 
                   <Link href={`mailto:${user.email}`} target="_blank">
-                    <BlurFade delay={0.15}>
+
                       <div className="bg-[#ffe2e2] dark:bg-gradient-to-l from-black/10 to-[#ffe2e2] rounded-xl pl-5 py-5 h-48 border border-neutral-200">
                         <div className="logo-container">
                           <Logo name="gmail" size={35} />
@@ -259,13 +260,13 @@ export default function UserProfile({
                           </p>
                         </div>
                       </div>
-                    </BlurFade>
+             
                   </Link>
 
                   {/* LinkedIn */}
 
                   <Link href={`${linkedinProfile}`} target="_blank">
-                    <BlurFade delay={0.2}>
+             
                       <div className="bg-[#E9F4FA] dark:bg-gradient-to-l from-black/20 to-[#e9f3fa] rounded-xl px-5 py-5 h-48  border border-neutral-200">
                         <div className=" logo-container">
                           <Logo name="linkedin" size={35} />
@@ -279,7 +280,7 @@ export default function UserProfile({
                           </p>
                         </div>
                       </div>
-                    </BlurFade>
+            
                   </Link>
 
                   {/* GitHub */}
@@ -288,7 +289,7 @@ export default function UserProfile({
                     href={`https://github.com/${githubUsername}`}
                     target="_blank"
                   >
-                    <BlurFade delay={0.25}>
+            
                       {" "}
                       <div className="bg-gray-50 dark:bg-gradient-to-l from-black/10 to-gray-50 rounded-xl px-5 py-5 h-48 border border-neutral-200">
                         <div className=" logo-container">
@@ -303,7 +304,7 @@ export default function UserProfile({
                           </p>
                         </div>
                       </div>
-                    </BlurFade>
+              
                   </Link>
 
                   {/* Youtube */}
@@ -312,7 +313,7 @@ export default function UserProfile({
                     href={`https://www.youtube.com/@${youtubeChannel}`}
                     target="_blank"
                   >
-                    <BlurFade delay={0.3}>
+             
                       <div className="bg-[#ffe7e7] dark:bg-gradient-to-l from-black/10 to-[#ffe7e7] rounded-xl px-5 py-5 h-48 border border-neutral-200">
                         <div className=" logo-container">
                           <Logo name="youtube" size={35} />
@@ -326,7 +327,7 @@ export default function UserProfile({
                           </p>
                         </div>
                       </div>
-                    </BlurFade>
+            
                   </Link>
 
                   {/* Twitter */}
@@ -335,7 +336,7 @@ export default function UserProfile({
                     href={`https://x.com/${twitterUsername}`}
                     target="_blank"
                   >
-                    <BlurFade delay={0.35}>
+                    
                       <div className="bg-[#f5f5f5] dark:bg-gradient-to-l from-black/10 to-[#e4f3ff] rounded-xl px-5 py-5 h-48 border border-neutral-200">
                         <div className=" logo-container">
                           <Logo name="twitter" size={35} />
@@ -349,7 +350,7 @@ export default function UserProfile({
                           </p>
                         </div>
                       </div>
-                    </BlurFade>
+              
                   </Link>
 
                   {/* Threads */}
@@ -358,7 +359,7 @@ export default function UserProfile({
                     href={`https://www.threads.net/@${threadsUsername}`}
                     target="_blank"
                   >
-                    <BlurFade delay={0.4}>
+                  
                       <div className="bg-gray-50 dark:bg-gradient-to-l from-black/10 to-gray-50 rounded-xl px-5 py-5 h-48 border border-neutral-200">
                         <div className=" logo-container">
                           <Logo name="threads" size={35} />
@@ -372,7 +373,7 @@ export default function UserProfile({
                           </p>
                         </div>
                       </div>
-                    </BlurFade>
+            
                   </Link>
 
                   {/* FavouriteQuote */}
@@ -488,6 +489,7 @@ export default function UserProfile({
                     </div>
                   </Link>
                 </div>
+                </BlurFade>
               </div>
             </div>
           </>
