@@ -429,7 +429,7 @@ export default function UserProfile({
                   <LocationCard location={`${user.location}`} />
 
                   {/* Occupation */}
-                  
+                  <BlurFade delay={0.45} >
                     <div className=" bgcustom rounded-xl px-5 py-5  h-48 border ">
                       <div className=" logo-container">
                         <img
@@ -448,10 +448,10 @@ export default function UserProfile({
                         {user.occupation}
                       </p>
                     </div>
-             
+                  </BlurFade>
 
                   {/* Custom_Link */}
-              
+                  <BlurFade delay={0.50} >
                     <Link href={`${customLink}`} target="_blank">
                       <div className="bg-[#e2efff] dark:bg-gradient-to-l from-black/10 to-[#e2efff] rounded-xl px-5 pb-5 pt-4 h-48 border border-neutral-200">
                         <div className=" logo-container shadow-lg rounded-md bg-blue-200">
@@ -472,7 +472,7 @@ export default function UserProfile({
                         </div>
                       </div>
                     </Link>
-           
+                  </BlurFade>
                   </AnimatePresence>
                 </div>
               </div>

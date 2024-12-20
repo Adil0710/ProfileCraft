@@ -3,7 +3,8 @@ import Link from "next/link";
 import { Sun, CloudRain, Cloud, Wind, Droplets } from "lucide-react"; // Import Lucide icons
 import { Skeleton } from "./ui/skeleton";
 import { Separator } from "./ui/separator";
-import { GlobeDemo } from "./GlobeDemo";
+
+import { WorldMapDemo } from "./WorldMapDemo";
 
 interface LocationCardProps {
   location: string; // Location name fetched from the database
@@ -77,11 +78,11 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
     <Link
       href={`https://www.google.com/maps/place/${location}`}
       target="_blank"
-      className="bg-gradient-to-r from-neutral-100 to-neutral-50 dark:from-neutral-900 dark:to-neutral-950 rounded-xl p-5 sm:col-span-2 col-span-2 h-48 border border-neutral-200 dark:border-neutral-800
+      className="bg-white dark:bg-black rounded-xl p-5 sm:col-span-2 col-span-2 h-48 border border-neutral-200 dark:border-neutral-800
        transition-all duration-300 relative overflow-hidden"
     >
-      <div className="flex flex-col justify-between h-full">
-        <div className="text-2xl flex flex-row gap-2 font-bold text-neutral-800 dark:text-neutral-200">
+      <div className="flex flex-col justify-between h-full z-10 ">
+        <div className="text-2xl flex flex-row gap-2 z-10  font-bold text-neutral-800 dark:text-neutral-200">
           {loading ? (
             <Skeleton className="w-8 h-8" />
           ) : (
@@ -91,7 +92,7 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
           {location}
         </div>
 
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between z-10">
           <div>
             <div className="text-3xl font-bold text-neutral-700 dark:text-neutral-300">
               {loading ? (
@@ -112,8 +113,8 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
       </div>
 
       {/* Add GlobeDemo in the bottom right corner */}
-      <div className="absolute top-0 -right-[45%] w-full h-full z-40">
-        <GlobeDemo />
+      <div className="absolute top-0 left-[40%] w-full h-full z-0">
+      <WorldMapDemo/>
       </div>
     </Link>
   );
