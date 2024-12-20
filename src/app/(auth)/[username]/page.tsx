@@ -378,21 +378,21 @@ export default function UserProfile({
                   {/* FavouriteQuote */}
 
                   <motion.div
-                    initial={{
-                      offset: 6, // Move 20 units down initially
-                      opacity: 0,
-                      filter: "blur(6px)", // Blur effect
-                    }}
-                    animate={{
-                      offset: 0, // Move to original position
-                      opacity: 1,
-                      filter: "blur(0px)", // Remove blur
-                    }}
-                    transition={{
-                      delay: 0.04 + 0.45, // Delay before animation starts
-                      duration: 0.4, // Animation duration
-                      ease: "easeOut", // Easing function
-                    }}
+                    // initial={{
+                    //   offset: 6, 
+                    //   opacity: 0,
+                    //   filter: "blur(6px)", 
+                    // }}
+                    // animate={{
+                    //   offset: 0, 
+                    //   opacity: 1,
+                    //   filter: "blur(0px)", 
+                    // }}
+                    // transition={{
+                    //   delay: 0.04 + 0.45, 
+                    //   duration: 0.4, 
+                    //   ease: "easeOut", 
+                    // }}
                     className="relative rounded-xl col-span-2 h-48 overflow-hidden"
                   >
                     <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-full blur-3xl" />
@@ -411,21 +411,21 @@ export default function UserProfile({
                   {/* Photo */}
                   {user.image ? (
                     <motion.div
-                      initial={{
-                        offset: 6, // Move 20 units down initially
-                        opacity: 0,
-                        filter: "blur(6px)", // Blur effect
-                      }}
-                      animate={{
-                        offset: 0, // Move to original position
-                        opacity: 1,
-                        filter: "blur(0px)", // Remove blur
-                      }}
-                      transition={{
-                        delay: 0.04 + 0.50, // Delay before animation starts
-                        duration: 0.4, // Animation duration
-                        ease: "easeOut", // Easing function
-                      }}
+                      // initial={{
+                      //   offset: 6, 
+                      //   opacity: 0,
+                      //   filter: "blur(6px)", 
+                      // }}
+                      // animate={{
+                      //   offset: 0, 
+                      //   opacity: 1,
+                      //   filter: "blur(0px)", 
+                      // }}
+                      // transition={{
+                      //   delay: 0.04 + 0.50, 
+                      //   duration: 0.4, 
+                      //   ease: "easeOut", 
+                      // }}
                       className="bg-gray-50 relative dark:bg-gray-800 rounded-xl col-span-2 sm:h-auto h-[400px] row-span-2 overflow-hidden border border-neutral-200 dark:border-none "
                     >
                       <Image
