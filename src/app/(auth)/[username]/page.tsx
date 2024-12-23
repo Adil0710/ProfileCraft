@@ -441,8 +441,24 @@ export default function UserProfile({
                   )}
 
                   {/* Occupation */}
-                  <BlurFade delay={0.55}>
-                    <div className=" bgcustom rounded-xl px-5 py-5 col-span-2  h-48 border ">
+              
+                    <motion.div 
+                      initial={{
+                        offset: 6,
+                        opacity: 0,
+                        filter: "blur(6px)",
+                      }}
+                      animate={{
+                        offset: 0,
+                        opacity: 1,
+                        filter: "blur(0px)",
+                      }}
+                      transition={{
+                        delay: 0.04 + 0.5,
+                        duration: 0.4,
+                        ease: "easeOut",
+                      }}
+                      className=" bgcustom rounded-xl px-5 py-5 col-span-2  h-48 border ">
                       <div className=" logo-container">
                         <img
                           width="37"
@@ -459,14 +475,13 @@ export default function UserProfile({
                         {" "}
                         {user.occupation}
                       </p>
-                    </div>
-                  </BlurFade>
+                    </motion.div>
+                  
 
                   {/* Location */}
-                  <BlurFade delay={0.6}>
+                 
                     <LocationCard location={`${user.location}`} />
-                  </BlurFade>
-
+              
                   {/* Custom_Link */}
 
                   <Link href={`${customLink}`} target="_blank">

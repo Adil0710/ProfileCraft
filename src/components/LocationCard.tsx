@@ -3,9 +3,7 @@ import Link from "next/link";
 import { Sun, CloudRain, Cloud, Wind, Droplets } from "lucide-react"; // Import Lucide icons
 import { Skeleton } from "./ui/skeleton";
 import { Separator } from "./ui/separator";
-
-
-
+import BlurFade from "./ui/blur-fade";
 
 interface LocationCardProps {
   location: string; // Location name fetched from the database
@@ -35,7 +33,7 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
       setLoading(true);
       try {
         const response = await fetch(apiUrl);
-        console.log(response)
+        console.log(response);
         if (!response.ok) {
           // Handle non-successful responses
           throw new Error(`Error ${response.status}: ${response.statusText}`);
@@ -49,24 +47,41 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
         const icon = (() => {
           switch (condition) {
             case "Clear":
-              return <Sun className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />;
+              return (
+                <Sun className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />
+              );
             case "Clouds":
-              return <Cloud className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />;
+              return (
+                <Cloud className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />
+              );
             case "Rain":
-              return <CloudRain className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />;
+              return (
+                <CloudRain className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />
+              );
             case "Drizzle":
-              return <Droplets className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />;
+              return (
+                <Droplets className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />
+              );
             case "Mist":
-              return <Wind className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />;
+              return (
+                <Wind className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />
+              );
             default:
-              return <Sun className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />;
+              return (
+                <Sun className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />
+              );
           }
         })();
 
         setWeather({ temperature: temp, condition, icon, error: false });
       } catch (error) {
         console.error("Error fetching weather data:", error);
-        setWeather({ temperature: "N/A", condition: "Unavailable", icon: null, error: true });
+        setWeather({
+          temperature: "N/A",
+          condition: "Unavailable",
+          icon: null,
+          error: true,
+        });
       } finally {
         setLoading(false);
       }
@@ -79,44 +94,43 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
     <Link
       href={`https://www.google.com/maps/place/${location}`}
       target="_blank"
-      className="bg-white dark:bg-black rounded-xl p-5 sm:col-span-1 col-span-1 h-48 border border-neutral-200 dark:border-neutral-800
-       transition-all duration-300 relative overflow-hidden"
     >
-      <div className="flex flex-col justify-between h-full z-10 ">
-        <div className="text-2xl flex flex-row gap-2 z-10  font-bold text-neutral-800 dark:text-neutral-200">
-          {loading ? (
-            <Skeleton className="w-8 h-8" />
-          ) : (
-            weather.icon
-          )}
-          <Separator orientation="vertical" className="w-0.5" />
-          {location}
-        </div>
-
-        <div className="flex items-center justify-between z-10">
-          <div>
-            <div className="text-3xl font-bold text-neutral-700 dark:text-neutral-300">
-              {loading ? (
-                <Skeleton className="h-12 w-20" />
-              ) : (
-                weather.temperature
-              )}
+      <BlurFade delay={0.55}>
+        <div
+          className="bg-white dark:bg-black rounded-xl p-5 col-span-1 h-48 border border-neutral-200 dark:border-neutral-800
+       transition-all duration-300 relative overflow-hidden"
+        >
+          <div className="flex flex-col justify-between h-full z-10 ">
+            <div className="text-2xl flex flex-row gap-2 z-10  font-bold text-neutral-800 dark:text-neutral-200">
+              {loading ? <Skeleton className="w-8 h-8" /> : weather.icon}
+              <Separator orientation="vertical" className="w-0.5" />
+              {location}
             </div>
-            <div className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
-              {loading ? (
-                <Skeleton className="w-10 h-5 mt-2" />
-              ) : (
-                weather.condition
-              )}
+
+            <div className="flex items-center justify-between z-10">
+              <div>
+                <div className="text-3xl font-bold text-neutral-700 dark:text-neutral-300">
+                  {loading ? (
+                    <Skeleton className="h-12 w-20" />
+                  ) : (
+                    weather.temperature
+                  )}
+                </div>
+                <div className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                  {loading ? (
+                    <Skeleton className="w-10 h-5 mt-2" />
+                  ) : (
+                    weather.condition
+                  )}
+                </div>
+              </div>
             </div>
           </div>
+
+          {/* Add GlobeDemo in the bottom right corner */}
+          <div className="absolute top-0 left-[45%] w-full h-full z-0"></div>
         </div>
-      </div>
-
-      {/* Add GlobeDemo in the bottom right corner */}
-      <div className="absolute top-0 left-[45%] w-full h-full z-0">
-
-      </div>
+      </BlurFade>
     </Link>
   );
 };
