@@ -52,23 +52,23 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
               );
             case "Clouds":
               return (
-                <Cloud className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />
+                <Cloud className="w-8 h-8 text-neutral-800" />
               );
             case "Rain":
               return (
-                <CloudRain className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />
+                <CloudRain className="w-8 h-8 text-neutral-800" />
               );
             case "Drizzle":
               return (
-                <Droplets className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />
+                <Droplets className="w-8 h-8 text-neutral-800" />
               );
             case "Mist":
               return (
-                <Wind className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />
+                <Wind className="w-8 h-8 text-neutral-800" />
               );
             default:
               return (
-                <Sun className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />
+                <Sun className="w-8 h-8 text-neutral-800" />
               );
           }
         })();
@@ -97,26 +97,26 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
     >
       <BlurFade delay={0.55}>
         <div
-          className="bg-white dark:bg-black rounded-xl p-5 col-span-1 h-48 border border-neutral-200 dark:border-neutral-800
+          className="bg-purple-100 dark:bg-gradient-to-l from-black/20 to-purple-100  rounded-xl p-5 col-span-1 h-48 border border-neutral-200 dark:border-neutral-800
        transition-all duration-300 relative overflow-hidden"
         >
           <div className="flex flex-col justify-between h-full z-10 ">
-            <div className="text-2xl flex flex-row gap-2 z-10  font-bold text-neutral-800 dark:text-neutral-200">
+            <div className="text-2xl flex flex-row gap-2 z-10  font-bold text-neutral-800 ">
               {loading ? <Skeleton className="w-8 h-8" /> : weather.icon}
-              <Separator orientation="vertical" className="w-0.5" />
+              <Separator orientation="vertical" className="w-0.5 bg-neutral-500 rounded-full" />
               {location}
             </div>
 
             <div className="flex items-center justify-between z-10">
               <div>
-                <div className="text-3xl font-bold text-neutral-700 dark:text-neutral-300">
+                <div className="text-3xl font-bold text-neutral-700 ">
                   {loading ? (
                     <Skeleton className="h-12 w-20" />
                   ) : (
                     weather.temperature
                   )}
                 </div>
-                <div className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                <div className="text-sm font-medium text-neutral-600 ">
                   {loading ? (
                     <Skeleton className="w-10 h-5 mt-2" />
                   ) : (
