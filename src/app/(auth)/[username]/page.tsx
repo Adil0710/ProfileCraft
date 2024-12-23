@@ -156,7 +156,7 @@ export default function UserProfile({
                     </Link>
                   </div>
                   <div className="flex flex-row text-sm sm:text-base">
-                    <p className="text-neutral-500 dark:text-neutral-300">
+                    <p className="text-neutral-500">
                       Powered by{" "}
                       <Link
                         href="/"
@@ -169,7 +169,7 @@ export default function UserProfile({
                       orientation="vertical"
                       className="h-auto w-[1px] bg-gray-300 dark:bg-neutral-600 mx-4"
                     />{" "}
-                    <p className="text-neutral-500 dark:text-neutral-300">
+                    <p className="text-neutral-500">
                       Developed by{" "}
                       <Link
                         href="https://devadil.vercel.app/"

@@ -31,7 +31,7 @@ export default function LoadingPublic() {
               Powered by{" "}
               <Link
                 href="/"
-                className="underline text-neutral-800 hover:text-black duration-200"
+                className="underline text-neutral-800 hover:text-black duration-200 dark:text-neutral-300 dark:hover:text-neutral-50"
               >
                 ProfileCraft
               </Link>
@@ -45,7 +45,7 @@ export default function LoadingPublic() {
               <Link
                 href="https://devadil.vercel.app/"
                 target="_blank"
-                className=" text-neutral-800 font-semibold hover:text-black duration-200"
+                className=" text-neutral-800 dark:text-neutral-300 dark:hover:text-neutral-50 font-semibold hover:text-black duration-200"
               >
                 Adil
               </Link>
