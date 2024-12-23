@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import {
   AnimatePresence,
   motion,
@@ -19,7 +19,7 @@ interface BlurFadeProps {
     visible: { y: number };
   };
   duration?: number;
-  delay?: number;
+  delay?: number | { base: number; md?: number; lg?: number };
   offset?: number;
   direction?: "up" | "down" | "left" | "right";
   inView?: boolean;
@@ -42,6 +42,31 @@ export default function BlurFade({
   const ref = useRef(null);
   const inViewResult = useInView(ref, { once: true, margin: inViewMargin });
   const isInView = !inView || inViewResult;
+
+  // Determine dynamic delay based on screen size
+  const [dynamicDelay, setDynamicDelay] = useState(
+    typeof delay === "number" ? delay : delay.base
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (typeof delay === "object") {
+        const screenWidth = window.innerWidth;
+        if (screenWidth >= 1024 && delay.lg !== undefined) {
+          setDynamicDelay(delay.lg);
+        } else if (screenWidth >= 768 && delay.md !== undefined) {
+          setDynamicDelay(delay.md);
+        } else {
+          setDynamicDelay(delay.base);
+        }
+      }
+    };
+
+    handleResize(); // Set initial delay
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [delay]);
+
   const defaultVariants: Variants = {
     hidden: {
       [direction === "left" || direction === "right" ? "x" : "y"]:
@@ -55,7 +80,9 @@ export default function BlurFade({
       filter: `blur(0px)`,
     },
   };
+
   const combinedVariants = variant || defaultVariants;
+
   return (
     <AnimatePresence>
       <motion.div
@@ -65,7 +92,7 @@ export default function BlurFade({
         exit="hidden"
         variants={combinedVariants}
         transition={{
-          delay: 0.04 + delay,
+          delay: 0.04 + dynamicDelay,
           duration,
           ease: "easeOut",
         }}
