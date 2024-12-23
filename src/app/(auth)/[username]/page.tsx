@@ -185,7 +185,6 @@ export default function UserProfile({
 
               {/* Right Side (Scrollable) */}
               <div className="w-full h-auto lg:h-screen overflow-y-auto pt-28 sm:pb-5 pb-20 md:pr-0 pr-0 lg:pr-10 hidden-scrollbar">
-              <BlurFade delay={0.25}>
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 m-4">
                   {/* Instagram */}
 
@@ -193,7 +192,7 @@ export default function UserProfile({
                     href={`https://www.instagram.com/${instagramUsername}`}
                     target="_blank"
                   >
-                  
+                    <BlurFade delay={0.002}>
                       <div className="bg-[#fff2f8] dark:bg-gradient-to-l from-black/10 to-[#fff2f8] rounded-2xl px-5 py-5 h-48 border border-neutral-200">
                         <div className="logo-container">
                           <Logo name="instagram" size={33} />
@@ -207,13 +206,13 @@ export default function UserProfile({
                           </p>
                         </div>
                       </div>
-                
+                    </BlurFade>
                   </Link>
 
                   {/* Spotify */}
 
                   <Link href={spotifyLink} target="_blank">
-           
+                    <BlurFade delay={0.1}>
                       <div className="bg-green-100 dark:bg-gradient-to-l from-black/20 to-green-100 rounded-2xl px-5 py-5 h-48 border border-neutral-200 relative overflow-hidden">
                         <div className="logo-container">
                           <Logo name="spotify" size={33} />
@@ -240,13 +239,13 @@ export default function UserProfile({
                           <IoPlaySkipForward />
                         </div>
                       </div>
-             
+                    </BlurFade>
                   </Link>
 
                   {/* Gmail */}
 
                   <Link href={`mailto:${user.email}`} target="_blank">
-
+                    <BlurFade delay={0.15}>
                       <div className="bg-[#ffe2e2] dark:bg-gradient-to-l from-black/10 to-[#ffe2e2] rounded-xl pl-5 py-5 h-48 border border-neutral-200">
                         <div className="logo-container">
                           <Logo name="gmail" size={35} />
@@ -260,13 +259,13 @@ export default function UserProfile({
                           </p>
                         </div>
                       </div>
-             
+                    </BlurFade>
                   </Link>
 
                   {/* LinkedIn */}
 
                   <Link href={`${linkedinProfile}`} target="_blank">
-             
+                    <BlurFade delay={0.2}>
                       <div className="bg-[#E9F4FA] dark:bg-gradient-to-l from-black/20 to-[#e9f3fa] rounded-xl px-5 py-5 h-48  border border-neutral-200">
                         <div className=" logo-container">
                           <Logo name="linkedin" size={35} />
@@ -280,7 +279,7 @@ export default function UserProfile({
                           </p>
                         </div>
                       </div>
-            
+                    </BlurFade>
                   </Link>
 
                   {/* GitHub */}
@@ -289,8 +288,8 @@ export default function UserProfile({
                     href={`https://github.com/${githubUsername}`}
                     target="_blank"
                   >
-            
-                      {" "}
+                    {" "}
+                    <BlurFade delay={0.25}>
                       <div className="bg-gray-50 dark:bg-gradient-to-l from-black/10 to-gray-50 rounded-xl px-5 py-5 h-48 border border-neutral-200">
                         <div className=" logo-container">
                           <Logo name="github" size={35} />
@@ -304,7 +303,7 @@ export default function UserProfile({
                           </p>
                         </div>
                       </div>
-              
+                    </BlurFade>
                   </Link>
 
                   {/* Youtube */}
@@ -313,7 +312,7 @@ export default function UserProfile({
                     href={`https://www.youtube.com/@${youtubeChannel}`}
                     target="_blank"
                   >
-             
+                    <BlurFade delay={0.3}>
                       <div className="bg-[#ffe7e7] dark:bg-gradient-to-l from-black/10 to-[#ffe7e7] rounded-xl px-5 py-5 h-48 border border-neutral-200">
                         <div className=" logo-container">
                           <Logo name="youtube" size={35} />
@@ -327,7 +326,7 @@ export default function UserProfile({
                           </p>
                         </div>
                       </div>
-            
+                    </BlurFade>
                   </Link>
 
                   {/* Twitter */}
@@ -336,7 +335,7 @@ export default function UserProfile({
                     href={`https://x.com/${twitterUsername}`}
                     target="_blank"
                   >
-                    
+                    <BlurFade delay={0.35}>
                       <div className="bg-[#f5f5f5] dark:bg-gradient-to-l from-black/10 to-[#e4f3ff] rounded-xl px-5 py-5 h-48 border border-neutral-200">
                         <div className=" logo-container">
                           <Logo name="twitter" size={35} />
@@ -350,7 +349,7 @@ export default function UserProfile({
                           </p>
                         </div>
                       </div>
-              
+                    </BlurFade>
                   </Link>
 
                   {/* Threads */}
@@ -359,7 +358,7 @@ export default function UserProfile({
                     href={`https://www.threads.net/@${threadsUsername}`}
                     target="_blank"
                   >
-                  
+                    <BlurFade delay={0.4}>
                       <div className="bg-gray-50 dark:bg-gradient-to-l from-black/10 to-gray-50 rounded-xl px-5 py-5 h-48 border border-neutral-200">
                         <div className=" logo-container">
                           <Logo name="threads" size={35} />
@@ -373,27 +372,27 @@ export default function UserProfile({
                           </p>
                         </div>
                       </div>
-            
+                    </BlurFade>
                   </Link>
 
                   {/* FavouriteQuote */}
 
                   <motion.div
-                    // initial={{
-                    //   offset: 6, 
-                    //   opacity: 0,
-                    //   filter: "blur(6px)", 
-                    // }}
-                    // animate={{
-                    //   offset: 0, 
-                    //   opacity: 1,
-                    //   filter: "blur(0px)", 
-                    // }}
-                    // transition={{
-                    //   delay: 0.04 + 0.45, 
-                    //   duration: 0.4, 
-                    //   ease: "easeOut", 
-                    // }}
+                    initial={{
+                      offset: 6,
+                      opacity: 0,
+                      filter: "blur(6px)",
+                    }}
+                    animate={{
+                      offset: 0,
+                      opacity: 1,
+                      filter: "blur(0px)",
+                    }}
+                    transition={{
+                      delay: 0.04 + 0.45,
+                      duration: 0.4,
+                      ease: "easeOut",
+                    }}
                     className="relative rounded-xl col-span-2 h-48 overflow-hidden"
                   >
                     <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-full blur-3xl" />
@@ -412,21 +411,21 @@ export default function UserProfile({
                   {/* Photo */}
                   {user.image ? (
                     <motion.div
-                      // initial={{
-                      //   offset: 6, 
-                      //   opacity: 0,
-                      //   filter: "blur(6px)", 
-                      // }}
-                      // animate={{
-                      //   offset: 0, 
-                      //   opacity: 1,
-                      //   filter: "blur(0px)", 
-                      // }}
-                      // transition={{
-                      //   delay: 0.04 + 0.50, 
-                      //   duration: 0.4, 
-                      //   ease: "easeOut", 
-                      // }}
+                      initial={{
+                        offset: 6,
+                        opacity: 0,
+                        filter: "blur(6px)",
+                      }}
+                      animate={{
+                        offset: 0,
+                        opacity: 1,
+                        filter: "blur(0px)",
+                      }}
+                      transition={{
+                        delay: 0.04 + 0.5,
+                        duration: 0.4,
+                        ease: "easeOut",
+                      }}
                       className="bg-gray-50 relative dark:bg-gray-800 rounded-xl col-span-2 sm:h-auto h-[400px] row-span-2 overflow-hidden border border-neutral-200 dark:border-none "
                     >
                       <Image
@@ -441,55 +440,58 @@ export default function UserProfile({
                     ""
                   )}
 
-                  {/* Location */}
-
-                  <LocationCard location={`${user.location}`} />
-
                   {/* Occupation */}
-
-                  <div className=" bgcustom rounded-xl px-5 py-5  h-48 border ">
-                    <div className=" logo-container">
-                      <img
-                        width="37"
-                        height="37"
-                        src="https://img.icons8.com/emoji/48/rocket-emji.png"
-                        alt="rocket-emji"
-                      />
+                  <BlurFade delay={0.55}>
+                    <div className=" bgcustom rounded-xl px-5 py-5 col-span-2  h-48 border ">
+                      <div className=" logo-container">
+                        <img
+                          width="37"
+                          height="37"
+                          src="https://img.icons8.com/emoji/48/rocket-emji.png"
+                          alt="rocket-emji"
+                        />
+                      </div>
+                      <p className=" font-semibold w-full mx-auto sm:text-sm text-xs text-center text-black/70 mt-2 ">
+                        {" "}
+                        Proudly I&apos;m a
+                      </p>
+                      <p className=" font-bold w-full text-center text-base text-black/90 mt-1 ">
+                        {" "}
+                        {user.occupation}
+                      </p>
                     </div>
-                    <p className=" font-semibold w-full mx-auto sm:text-sm text-xs text-center text-black/70 mt-2 ">
-                      {" "}
-                      Proudly I&apos;m a
-                    </p>
-                    <p className=" font-bold w-full text-center text-base text-black/90 mt-1 ">
-                      {" "}
-                      {user.occupation}
-                    </p>
-                  </div>
+                  </BlurFade>
+
+                  {/* Location */}
+                  <BlurFade delay={0.6}>
+                    <LocationCard location={`${user.location}`} />
+                  </BlurFade>
 
                   {/* Custom_Link */}
 
                   <Link href={`${customLink}`} target="_blank">
-                    <div className="bg-[#e2efff] dark:bg-gradient-to-l from-black/10 to-[#e2efff] rounded-xl px-5 pb-5 pt-4 h-48 border border-neutral-200">
-                      <div className=" logo-container shadow-lg rounded-md bg-blue-200">
-                        <img
-                          width="40"
-                          height="40"
-                          src="https://img.icons8.com/bubbles/100/geography.png"
-                          alt="geography"
-                        />
-                      </div>
-                      <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words overflow-hidden text-ellipsis whitespace-nowrap">
-                        {customLink}
-                      </p>
-                      <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                        <p className=" py-0.5 text-sm font-medium px-1.5 bg-blue-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-blue-300 transition border border-neutral-300">
-                          Visit
+                    <BlurFade delay={0.6}>
+                      <div className="bg-[#e2efff] dark:bg-gradient-to-l from-black/10 to-[#e2efff] rounded-xl px-5 pb-5 pt-4 h-48 border border-neutral-200">
+                        <div className=" logo-container shadow-lg rounded-md bg-blue-200">
+                          <img
+                            width="40"
+                            height="40"
+                            src="https://img.icons8.com/bubbles/100/geography.png"
+                            alt="geography"
+                          />
+                        </div>
+                        <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words overflow-hidden text-ellipsis whitespace-nowrap">
+                          {customLink}
                         </p>
+                        <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                          <p className=" py-0.5 text-sm font-medium px-1.5 bg-blue-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-blue-300 transition border border-neutral-300">
+                            Visit
+                          </p>
+                        </div>
                       </div>
-                    </div>
+                    </BlurFade>
                   </Link>
                 </div>
-                </BlurFade>
               </div>
             </div>
           </>

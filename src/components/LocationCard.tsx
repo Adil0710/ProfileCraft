@@ -3,11 +3,9 @@ import Link from "next/link";
 import { Sun, CloudRain, Cloud, Wind, Droplets } from "lucide-react"; // Import Lucide icons
 import { Skeleton } from "./ui/skeleton";
 import { Separator } from "./ui/separator";
-import Image from "next/image";
-import male from "@/assets/logo.png"
 
 
-// import { GlobeDemo } from "./GlobeDemo";
+
 
 interface LocationCardProps {
   location: string; // Location name fetched from the database
@@ -81,7 +79,7 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
     <Link
       href={`https://www.google.com/maps/place/${location}`}
       target="_blank"
-      className="bg-white dark:bg-black rounded-xl p-5 sm:col-span-2 col-span-2 h-48 border border-neutral-200 dark:border-neutral-800
+      className="bg-white dark:bg-black rounded-xl p-5 sm:col-span-1 col-span-1 h-48 border border-neutral-200 dark:border-neutral-800
        transition-all duration-300 relative overflow-hidden"
     >
       <div className="flex flex-col justify-between h-full z-10 ">
@@ -117,8 +115,7 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
 
       {/* Add GlobeDemo in the bottom right corner */}
       <div className="absolute top-0 left-[45%] w-full h-full z-0">
-  {/* <GlobeDemo/> */}
-  <Image src={male} alt="Male"/>
+
       </div>
     </Link>
   );
