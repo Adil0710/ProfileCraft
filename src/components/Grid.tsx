@@ -9,6 +9,7 @@ import Logo from "./Logo";
 import { IoPlay, IoPlaySkipBack, IoPlaySkipForward } from "react-icons/io5";
 import Image from "next/image";
 import LocationCard from "./LocationCard";
+import { motion } from "framer-motion";
 
 // Define prop types
 interface GridProps {
@@ -287,27 +288,45 @@ function Grid({ profileUpdated, setProfileUpdated }: GridProps) {
             )}
           </div>
 
-          {/* Location */}
-          <LocationCard location={`${profileDetails.location}`} />
+         
           {/* Occupation */}
-          <div className=" bgcustom rounded-xl px-5 py-5  h-48 border ">
-            <div className=" logo-container">
-              <img
-                width="37"
-                height="37"
-                src="https://img.icons8.com/emoji/48/rocket-emji.png"
-                alt="rocket-emji"
-              />
-            </div>
-            <p className=" font-semibold w-full mx-auto sm:text-sm text-xs text-center text-black/70 mt-2 ">
-              {" "}
-              Proudly I&apos;m a
-            </p>
-            <p className=" font-bold w-full text-base text-center text-black/90 mt-1 ">
-              {" "}
-              {profileDetails.occupation}
-            </p>
-          </div>
+          <motion.div 
+                      initial={{
+                        offset: 6,
+                        opacity: 0,
+                        filter: "blur(6px)",
+                      }}
+                      animate={{
+                        offset: 0,
+                        opacity: 1,
+                        filter: "blur(0px)",
+                      }}
+                      transition={{
+                        delay: 0.04 + 0.5,
+                        duration: 0.4,
+                        ease: "easeOut",
+                      }}
+                      className=" bgcustom rounded-xl px-5 py-5 col-span-2  h-48 border ">
+                      <div className=" logo-container">
+                        <img
+                          width="37"
+                          height="37"
+                          src="https://img.icons8.com/emoji/48/rocket-emji.png"
+                          alt="rocket-emji"
+                        />
+                      </div>
+                      <p className=" font-semibold w-full mx-auto sm:text-sm text-xs text-center text-black/70 mt-2 ">
+                        {" "}
+                        Proudly I&apos;m a
+                      </p>
+                      <p className=" font-bold w-full text-center text-base text-black/90 mt-1 ">
+                        {" "}
+                        {profileDetails.occupation}
+                      </p>
+                    </motion.div>
+
+                     {/* Location */}
+          <LocationCard location={`${profileDetails.location}`} />
 
           {/* Custom_Link */}
           <Link href={`${customLink}`} target="_blank">
