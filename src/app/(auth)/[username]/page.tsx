@@ -192,7 +192,7 @@ export default function UserProfile({
                     href={`https://www.instagram.com/${instagramUsername}`}
                     target="_blank"
                   >
-                    <BlurFade delay={{ lg: 0.25, md: 0.25, base: 0.002 }}>
+                    <BlurFade delay={{ lg: 0.25, base: 0.002 }}>
                       <div className="bg-[#fff2f8] dark:bg-gradient-to-l from-black/10 to-[#fff2f8] rounded-2xl px-5 py-5 h-48 border border-neutral-200">
                         <div className="logo-container">
                           <Logo name="instagram" size={33} />
@@ -212,7 +212,7 @@ export default function UserProfile({
                   {/* Spotify */}
 
                   <Link href={spotifyLink} target="_blank">
-                  <BlurFade delay={{ lg: 0.30, md: 0.30, base: 0.1 }}>
+                  <BlurFade delay={{ lg: 0.30, base: 0.1 }}>
                       <div className="bg-green-100 dark:bg-gradient-to-l from-black/20 to-green-100 rounded-2xl px-5 py-5 h-48 border border-neutral-200 relative overflow-hidden">
                         <div className="logo-container">
                           <Logo name="spotify" size={33} />
@@ -245,7 +245,7 @@ export default function UserProfile({
                   {/* Gmail */}
 
                   <Link href={`mailto:${user.email}`} target="_blank">
-                  <BlurFade delay={{ lg: 0.35, md: 0.35, base: 0.15 }}>
+                  <BlurFade delay={{ lg: 0.35, base: 0.15 }}>
                       <div className="bg-[#ffe2e2] dark:bg-gradient-to-l from-black/10 to-[#ffe2e2] rounded-xl pl-5 py-5 h-48 border border-neutral-200">
                         <div className="logo-container">
                           <Logo name="gmail" size={35} />

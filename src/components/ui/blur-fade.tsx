@@ -67,6 +67,12 @@ export default function BlurFade({
     return () => window.removeEventListener("resize", handleResize);
   }, [delay]);
 
+  useEffect(() => {
+    console.log("Screen width:", window.innerWidth);
+    console.log("Dynamic delay:", dynamicDelay);
+  }, [dynamicDelay]);
+  
+
   const defaultVariants: Variants = {
     hidden: {
       [direction === "left" || direction === "right" ? "x" : "y"]:
