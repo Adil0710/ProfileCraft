@@ -324,6 +324,32 @@ radial-gradient(at 53% 69%, #c568ed 0px, transparent 50%);
   100% { transform: translate(0px, 0px) rotate(0deg); }
 }
 
+@keyframes floatanimate {
+  0% { transform: translate(0px, 0px) ; }
+  50% { transform: translate(0px, 15px) ; }
+  100% { transform: translate(0px, 0px) ; }
+}
+
+@keyframes floatanimate1 {
+  0% { transform: translate(0px, 0px) rotate(0deg); }
+  50% { transform: translate(-10px, 20px) rotate(0deg); }
+  100% { transform: translate(0px, 0px) rotate(0deg) ; }
+}
+@keyframes floatanimate2 {
+  0% { transform: translate(0px, 0px) rotate(0deg); }
+  50% { transform: translate(12px, 18px) rotate(0deg); }
+  100% { transform: translate(0px, 0px) rotate(0deg) ; }
+}
+
+.floatanimate2 {
+  animation: floatanimate2 4.2s ease-in-out infinite;
+}
+.floatanimate1 {
+  animation: floatanimate1 4s ease-in-out infinite;
+}
+.floatanimate {
+  animation: floatanimate 4s ease-in-out infinite;
+}
 .animate-float-1 {
   animation: float1 4s ease-in-out infinite;
 }
