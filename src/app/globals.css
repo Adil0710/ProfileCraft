@@ -200,19 +200,20 @@ radial-gradient(at 0% 0%, hsla(343,100%,76%,1) 0px, transparent 50%);
 .bgcustomb {
   background-color:#f7ff99;
 background-image:
-radial-gradient(at 6% 77%, hsla(327,83%,74%,1) 0px, transparent 50%),
+radial-gradient(at 6% 77%, #f486c2 0px, transparent 50%),
 radial-gradient(at 7% 15%, hsla(16,68%,64%,1) 0px, transparent 50%),
 radial-gradient(at 64% 29%, hsla(285,81%,65%,1) 0px, transparent 50%),
 radial-gradient(at 61% 81%, hsla(341,66%,66%,1) 0px, transparent 50%),
 radial-gradient(at 46% 0%, hsla(243,77%,71%,1) 0px, transparent 50%),
-radial-gradient(at 65% 10%, hsla(198,81%,62%,1) 0px, transparent 50%),
-radial-gradient(at 53% 69%, hsla(282,79%,67%,1) 0px, transparent 50%);
+radial-gradient(at 65% 10%, #50bded 0px, transparent 50%),
+radial-gradient(at 53% 69%, #c568ed 0px, transparent 50%);
 }
 
 /* Logo container with ripple effect */
 .logo-container {
   position: relative;
   display: inline-block;
+  background: #e7e7e7;
 }
 
 .ripple {
