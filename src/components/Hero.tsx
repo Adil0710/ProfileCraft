@@ -22,7 +22,7 @@ function Hero() {
             <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
           </svg>
         </div>
-        <div className="social-icon floatanimate2 absolute right-[15%] top-[50%] sm:p-6 p-0 rounded-xl backdrop-blur-sm hover:scale-105 transition-all cursor-pointer">
+        <div className="social-icon floatanimate2 absolute right-[15%] sm:top-[50%] top-[58%] sm:p-6 p-0 rounded-xl backdrop-blur-sm hover:scale-105 transition-all cursor-pointer">
           <svg
             className="w-12 h-12 text-[#FF0000]"
             fill="currentColor"
