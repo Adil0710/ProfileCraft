@@ -12,7 +12,9 @@ export default function Navbar() {
 
   return (
     <nav className=" navbar fixed border-b-neutral-50 dark:border-b-neutral-900 border-b w-full px-10 py-1 z-50 flex items-center justify-between">
+      <Link href={"/"}>
       <Brand/>
+      </Link>
       <div className=" flex gap-5">
         {session ? (
           <Button size="sm" variant="ghost" onClick={() => signOut()}>Logout</Button>
