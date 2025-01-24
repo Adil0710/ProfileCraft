@@ -352,22 +352,22 @@ radial-gradient(at 53% 69%, #c568ed 0px, transparent 50%);
 }
 
 .floatanimate3 {
-  animation: floatanimate3 4.2s ease-in-out infinite;
+  animation: floatanimate3 4.5s ease-in-out infinite;
 }
 .floatanimate4 {
-  animation: floatanimate4 4.2s ease-in-out infinite;
+  animation: floatanimate4 4.32s ease-in-out infinite;
 }
 .floatanimate2 {
   animation: floatanimate2 4.2s ease-in-out infinite;
 }
 .floatanimate1 {
-  animation: floatanimate1 4s ease-in-out infinite;
+  animation: floatanimate1 4.45s ease-in-out infinite;
 }
 .floatanimate {
   animation: floatanimate 4s ease-in-out infinite;
 }
 .animate-float-1 {
-  animation: float1 4s ease-in-out infinite;
+  animation: float1 4.7s ease-in-out infinite;
 }
 
 .animate-float-2 {

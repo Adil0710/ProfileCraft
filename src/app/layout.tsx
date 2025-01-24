@@ -5,7 +5,6 @@ import AuthProvider from "@/context/AuthProvider";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
 
-
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -19,7 +18,27 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "ProfileCraft",
-  description: "a beautiful link for your bio 🔮",
+  description: "A Beautiful Link For Your Bio 🎉",
+  keywords: ["Profilecraft", "Bento", "Social Media", "Profile"],
+  icons: {
+    icon: "/favicon.ico",
+  },
+  openGraph: {
+    title: "ProfileCraft",
+    description: "A Beautiful Link For Your Bio 🎉",
+    url: "https://profilecraft.vercel.app",
+    siteName: "ProfileCraft",
+    images: [
+      {
+        url: "/favicon.ico",
+        width: 800,
+        height: 600,
+        alt: "ProfileCraft Preview",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -30,20 +49,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AuthProvider>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-         <ThemeProvider
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
           >
-            
-        {children}
-        <Toaster />
-        </ThemeProvider>
-      </body>
+            {children}
+            <Toaster />
+          </ThemeProvider>
+        </body>
       </AuthProvider>
     </html>
   );
