@@ -307,7 +307,7 @@ function Grid({ profileUpdated, setProfileUpdated }: GridProps) {
                         ease: "easeOut",
                       }}
                       className=" bgcustom rounded-xl px-5 py-5 col-span-2  h-48 border ">
-                      <div className=" logo-container">
+                      <div className="">
                         <img
                           width="37"
                           height="37"
