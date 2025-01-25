@@ -7,7 +7,7 @@ import { Button } from "./ui/button";
 import { ModeToggle } from "./theme-toggle";
 import Brand from "./Brand";
 import { Separator } from "./ui/separator";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const { data: session } = useSession();

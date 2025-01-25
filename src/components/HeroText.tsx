@@ -1,6 +1,5 @@
 import { ChevronRight } from "lucide-react";
 import React from "react";
-import Brand from "./Brand";
 import Link from "next/link";
 import BlurFade from "./ui/blur-fade";
 import { AnimatedGradientText } from "./ui/animated-gradient-text";

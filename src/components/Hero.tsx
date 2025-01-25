@@ -4,7 +4,6 @@ import Background from "@/components/Background";
 import HeroText from "./HeroText";
 import {
   motion,
-  useMotionTemplate,
   useSpring,
   useMotionValue,
 } from "framer-motion";
