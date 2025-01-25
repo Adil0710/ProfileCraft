@@ -15,11 +15,11 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className=" navbar fixed border-b-neutral-50 dark:border-b-neutral-900 border-b w-full px-10 py-1 z-50 flex items-center justify-between">
+    <nav className=" navbar max-w-screen fixed border-b-neutral-50 dark:border-b-neutral-900 border-b w-full px-5 sm:px-10 py-1 z-50 flex items-center justify-between">
       <Link href={"/"}>
         <Brand />
       </Link>
-      <div className=" flex gap-5 justify-center items-center">
+      <div className=" flex sm:gap-5 gap-2 justify-center items-center">
         {session ? (
           <>
             {pathname !== "/" ? (

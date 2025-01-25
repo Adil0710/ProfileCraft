@@ -247,7 +247,7 @@ function Grid({ profileUpdated, setProfileUpdated }: GridProps) {
           </Link>
 
           {/* FavouriteQuote */}
-          <div className="relative rounded-xl col-span-2 h-48 overflow-hidden">
+          <div className="relative rounded-xl md:col-span-3 sm:col-span-2 col-span-2 lg:col-span-2 h-48 overflow-hidden">
             <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-full blur-3xl" />
 
             {/* Content */}
@@ -269,7 +269,7 @@ function Grid({ profileUpdated, setProfileUpdated }: GridProps) {
           </div>
 
           {/* Photo */}
-          <div className="bg-gray-50 relative dark:bg-gray-800 rounded-xl col-span-2 row-span-2 sm:h-auto h-[400px] overflow-hidden border border-neutral-200 dark:border-none ">
+          <div className="bg-gray-50 relative dark:bg-gray-800 rounded-xl col-span-2 md:col-span-3 sm:col-span-2 lg:col-span-2 row-span-2 md:h-[400px] sm:h-auto h-[400px] overflow-hidden border border-neutral-200 dark:border-none ">
             {profileDetails.image ? (
               <Image
                 src={profileDetails.image}

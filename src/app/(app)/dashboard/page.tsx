@@ -391,7 +391,7 @@ export default function DashboardPage() {
                 </div>
                 <div className="absolute sm:left-10 sm:bottom-2 -bottom-10 sm:space-y-7 space-y-7 pb-3 left-3">
                   <div className="flex flex-row text-sm sm:text-base">
-                    <p className="text-neutral-500 dark:text-neutral-400">
+                    <p className="text-neutral-500">
                       Powered by{" "}
                       <Link
                         href="/"
@@ -404,7 +404,7 @@ export default function DashboardPage() {
                       orientation="vertical"
                       className="h-auto w-[1px] bg-gray-300 dark:bg-neutral-600 mx-4"
                     />{" "}
-                    <p className="text-neutral-500 dark:text-neutral-400">
+                    <p className="text-neutral-500">
                       Developed by{" "}
                       <Link
                         href="https://devadil.vercel.app/"

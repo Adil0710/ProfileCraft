@@ -19,7 +19,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "ProfileCraft",
   description: "A Beautiful Link For Your Bio 🎉",
-  keywords: ["Profilecraft", "Bento", "Social Media", "Profile"],
+  keywords: ["Profilecraft", "Bento", "Social Media", "Profile", "Link", "Bio"],
   icons: {
     icon: "/favicon.ico",
   },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "ProfileCraft",
     images: [
       {
-        url: "/favicon.ico",
+        url: "/profilecraft.png",
         width: 800,
         height: 600,
         alt: "ProfileCraft Preview",
@@ -38,6 +38,12 @@ export const metadata: Metadata = {
     ],
     locale: "en_IN",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ProfileCraft",
+    description: "A Beautiful Link For Your Bio 🎉",
+    images: ["/profilecraft.png"],
   },
 };
 

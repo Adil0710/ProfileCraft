@@ -32,7 +32,7 @@ export default function Loading() {
               Powered by{" "}
               <Link
                 href="/"
-                className="underline text-neutral-800 hover:text-black duration-200"
+                className="underline text-neutral-800 hover:text-black duration-200 dark:text-neutral-300 dark:hover:text-neutral-50"
               >
                 ProfileCraft
               </Link>
@@ -46,7 +46,7 @@ export default function Loading() {
               <Link
                 href="https://devadil.vercel.app/"
                 target="_blank"
-                className=" text-neutral-800 font-semibold hover:text-black duration-200"
+                className=" text-neutral-800 dark:text-neutral-300 dark:hover:text-neutral-50 font-semibold hover:text-black duration-200"
               >
                 Adil
               </Link>
@@ -64,10 +64,9 @@ export default function Loading() {
                 <Skeleton className=" h-9 w-9" />
                 <Skeleton className=" h-5 w-[80%] mt-3" />
                 <div className=" flex flex-row items-center justify-between w-full mt-8">
-
-                <Skeleton className=" sm:h-9 h-7 w-7 sm:w-9"/>
-                <Skeleton className=" sm:h-12 h-9 w-9 sm:w-12"/>
-                <Skeleton className=" sm:h-9 h-7 w-7 sm:w-9"/>
+                  <Skeleton className=" sm:h-9 h-7 w-7 sm:w-9" />
+                  <Skeleton className=" sm:h-12 h-9 w-9 sm:w-12" />
+                  <Skeleton className=" sm:h-9 h-7 w-7 sm:w-9" />
                 </div>
               </Skeleton>
             ) : (
@@ -78,8 +77,6 @@ export default function Loading() {
               </Skeleton>
             )
           )}
-
-          
 
           <div className="relative rounded-2xl col-span-2 h-48 overflow-hidden">
             {/* Background gradient and blur effect */}

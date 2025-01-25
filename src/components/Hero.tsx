@@ -30,14 +30,14 @@ function Hero() {
   };
 
   return (
-    <>
+    <div className="relative">
       <Background />
       <motion.div
         className="relative grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen max-h-screen p-5 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]"
         onMouseMove={handleMouseMove}
       >
        
-        <div className="social-icon floatanimate absolute left-[20%] sm:top-[15%] top-[18%] sm:p-6 p-0 rounded-xl backdrop-blur-sm hover:scale-105 transition-all cursor-pointer">
+        <div className="social-icon floatanimate absolute right-[22%] sm:right-[15%] sm:top-[50%] top-[63%]  sm:p-6 p-0 rounded-xl backdrop-blur-sm hover:scale-105 transition-all cursor-pointer">
         <BlurFade delay={0.04 * 3}>
           <motion.svg
             className="w-12 h-12 text-[#E4405F]"
@@ -55,7 +55,7 @@ function Hero() {
         </div>
      
 
-        <div className="social-icon floatanimate1 absolute sm:left-[15%] left-[12%] top-[60%] sm:top-[50%]  sm:p-6 p-0 rounded-xl backdrop-blur-sm hover:scale-105 transition-all cursor-pointer">
+        <div className="social-icon floatanimate1 absolute sm:left-[15%] left-[10%] top-[65%] sm:top-[50%]  sm:p-6 p-0 rounded-xl backdrop-blur-sm hover:scale-105 transition-all cursor-pointer">
         <BlurFade delay={0.04 * 6}>
           <motion.svg
             style={{
@@ -72,7 +72,7 @@ function Hero() {
           </BlurFade>
         </div>
 
-        <div className="social-icon floatanimate2 absolute right-[15%] sm:top-[50%] top-[58%] sm:p-6 p-0 rounded-xl backdrop-blur-sm hover:scale-105 transition-all cursor-pointer">
+        <div className="social-icon floatanimate2 absolute left-[10%] sm:left-[20%] sm:top-[15%] top-[8%]  sm:p-6 p-0 rounded-xl backdrop-blur-sm hover:scale-105 transition-all cursor-pointer">
         <BlurFade delay={0.04 * 9}>
           <motion.svg
             style={{
@@ -89,7 +89,7 @@ function Hero() {
           </BlurFade>
         </div>
 
-        <div className="social-icon floatanimate absolute top-[15%] right-[20%] sm:p-6 p-0 rounded-xl backdrop-blur-sm hover:scale-105 transition-all cursor-pointer">
+        <div className="social-icon floatanimate absolute top-[10%] sm:top-[15%] right-[20%] sm:p-6 p-0 rounded-xl backdrop-blur-sm hover:scale-105 transition-all cursor-pointer">
         <BlurFade delay={0.04 * 7}>
           <motion.svg
             style={{
@@ -106,7 +106,7 @@ function Hero() {
           </BlurFade>
         </div>
 
-        <div className="social-icon floatanimate3 absolute left-[30%] bottom-[10%] sm:p-6 p-0 rounded-xl backdrop-blur-sm hover:scale-105 transition-all cursor-pointer">
+        <div className="social-icon floatanimate3 absolute left-[20%] sm:left-[30%] bottom-[20%] sm:bottom-[10%] sm:p-6 p-0 rounded-xl backdrop-blur-sm hover:scale-105 transition-all cursor-pointer">
         <BlurFade delay={0.04 * 10}>
           <motion.svg
             style={{
@@ -123,7 +123,7 @@ function Hero() {
           </BlurFade>
         </div>
 
-        <div className="social-icon floatanimate4 absolute right-[30%] bottom-[10%] sm:p-6 p-0 rounded-xl backdrop-blur-sm hover:scale-105 transition-all cursor-pointer">
+        <div className="social-icon floatanimate4 absolute right-[30%] bottom-[20%] sm:bottom-[10%] sm:p-6 p-0 rounded-xl backdrop-blur-sm hover:scale-105 transition-all cursor-pointer">
         <BlurFade delay={0.04 * 14}>
           <motion.svg
             style={{
@@ -152,7 +152,7 @@ function Hero() {
 
         <HeroText />
       </motion.div>
-    </>
+    </ div>
   );
 }
 

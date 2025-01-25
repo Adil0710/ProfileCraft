@@ -82,6 +82,7 @@ body {
 .main {
   width: 100vw;
   min-height: 100vh;
+  max-height: 100vh;
   position: fixed;
   z-index: -1;
   display: flex;
@@ -104,7 +105,7 @@ body {
   height: fit-content;
   z-index: 3;
   width: 100%;
-  max-width: 80vw;
+  max-width: 100vw;
   background-image: radial-gradient(
       at 27% 37%,
       hsla(215, 98%, 61%, 1) 0px,
@@ -120,7 +121,7 @@ body {
   content: "";
   width: 100%;
   height: 100%;
-  filter: blur(100px) saturate(150%);
+  filter: blur(100px) saturate(350%);
   top: 0;
   opacity: 0.20;
   right: 0;
@@ -141,7 +142,7 @@ body {
   height: fit-content;
   z-index: 3;
   width: 100%;
-  max-width: 80vw;
+  max-width: 100vw;
   background-image: radial-gradient(
       at 27% 37%,
       hsla(215, 98%, 61%, 0.8) 0px,
@@ -209,6 +210,7 @@ radial-gradient(at 65% 10%, #50bded 0px, transparent 50%),
 radial-gradient(at 53% 69%, #c568ed 0px, transparent 50%);
 }
 
+
 /* Logo container with ripple effect */
 .logo-container {
   position: relative;
@@ -241,7 +243,9 @@ radial-gradient(at 53% 69%, #c568ed 0px, transparent 50%);
     opacity: 0;
   }
 }
-
+.shadowc {
+  box-shadow: 0 4px 10px #50bded;
+}
 /* General style for music chords */
 .music-chord {
   position: absolute;
@@ -276,7 +280,8 @@ radial-gradient(at 53% 69%, #c568ed 0px, transparent 50%);
   }
   100% {
     opacity: 0;
-    transform: translate(-60px, -50px) scale(0.8);
+    transform: translate(-60px, -50px) scale(0.8) ;
+    filter: blur(2ypx);
   }
 }
 
@@ -292,6 +297,7 @@ radial-gradient(at 53% 69%, #c568ed 0px, transparent 50%);
   100% {
     opacity: 0;
     transform: translate(40px, -50px) scale(0.8);
+    filter: blur(2px);
   }
 }
 @keyframes float1 {
