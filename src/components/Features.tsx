@@ -3,7 +3,7 @@ import { HoverEffect } from "./ui/card-hover-effect";
 export function Features() {
   return (
     <div id="features" className=" border-t border-black/[0.1] dark:border-white/[0.1] w-full h-full bg-white dark:bg-black flex justify-center items-center min-h-screen">
-      <div className="max-w-6xl mx-auto px-8">
+      <div className="max-w-6xl mx-auto px-8 py-8">
       <div className="text-center mb-16 animate__animated animate__fadeIn">
         <h2 className="sm:text-4xl text-xl font-bold dark:text-white text-black mb-4">Craft Your Perfect Profile</h2>
         <p className="dark:text-neutral-300 text-neutral-700 sm:text-lg text-base">Everything you need to create an impressive social media hub</p>
