@@ -15,8 +15,8 @@ function Howitworks() {
             Create your perfect profile in three simple steps
           </p>
         </div>
-        <div className="relative pt-28">
-        <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-indigo-600 transform -translate-y-1/2"></div>
+        <div className="relative pt-20">
+        <div className="hidden md:block absolute top-1/2 mt-10 left-0 w-full h-1 bg-indigo-600 transform -translate-y-1/2"></div>
         <div className="grid md:grid-cols-3 gap-10">
           <div className="relative bg-neutral-200 dark:bg-neutral-800 p-8 rounded-xl animate__animated animate__fadeInLeft">
             <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center text-2xl font-bold">1</div>
