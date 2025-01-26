@@ -2,12 +2,19 @@ import { HoverEffect } from "./ui/card-hover-effect";
 
 export function Features() {
   return (
-    <div id="features" className=" border-t border-black/[0.1] dark:border-white/[0.1] w-full h-full bg-white dark:bg-black flex justify-center items-center min-h-screen">
+    <div
+      id="features"
+      className=" border-t border-black/[0.1] dark:border-white/[0.1] w-full h-full bg-white dark:bg-black flex justify-center items-center min-h-screen"
+    >
       <div className="max-w-6xl mx-auto px-8 py-8">
-      <div className="text-center mb-16 animate__animated animate__fadeIn">
-        <h2 className="sm:text-4xl text-xl font-bold dark:text-white text-black mb-4">Craft Your Perfect Profile</h2>
-        <p className="dark:text-neutral-300 text-neutral-700 sm:text-lg text-base">Everything you need to create an impressive social media hub</p>
-      </div>
+        <div className="text-center mb-16 animate__animated animate__fadeIn">
+          <h2 className="sm:text-4xl text-xl font-bold dark:text-white text-black mb-4">
+            Craft Your Perfect Profile
+          </h2>
+          <p className="dark:text-neutral-300 text-neutral-700 sm:text-lg text-base">
+            Everything you need to create an impressive social media hub
+          </p>
+        </div>
         <HoverEffect items={projects} />
       </div>
     </div>
@@ -104,9 +111,9 @@ export const projects = [
   },
 
   {
-    title: "Media Integration",
+    title: "Image Upload",
     description:
-      "Seamlessly integrate photos, Profile Piicture and other media content.",
+      "Add your profile picture and custom images to make your profile stand out.",
     icon: (
       <div className="h-14 w-14 bg-green-600/10 rounded-lg flex items-center justify-center mb-6">
         <svg
@@ -129,11 +136,11 @@ export const projects = [
   {
     title: "Unique Link",
     description:
-      "Unique link for profile so user can visit, click, and engage with detailed profile.",
+      "Get your unique, shareable link that's easy to remember and share with your audience.",
     icon: (
       <div className="h-14 w-14 bg-blue-600/10 rounded-lg flex items-center justify-center mb-6">
         <svg
-          className="w-8 h-8 text-blue-500"
+          className="h-8 w-8 text-blue-600"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -142,7 +149,13 @@ export const projects = [
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
-            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+          ></path>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
           ></path>
         </svg>
       </div>
