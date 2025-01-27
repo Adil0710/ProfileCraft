@@ -11,11 +11,12 @@ import ShinyButton from "@/components/ui/shiny-button";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import Logo from "@/components/Logo";
-import { Music } from "lucide-react";
+import { Music, RotateCcw } from "lucide-react";
 import { IoPlay, IoPlaySkipBack, IoPlaySkipForward } from "react-icons/io5";
 import LocationCard from "@/components/LocationCard";
 import { motion } from "framer-motion";
 import BlurFade from "@/components/ui/blur-fade";
+import { Button } from "@/components/ui/button";
 
 interface SocialMediaLink {
   platform: string;
@@ -54,7 +55,6 @@ export default function UserProfile({
         console.log(response);
       } catch (err) {
         setError("User not found or an error occurred.");
-        console.log(err);
       }
     }
     fetchUser();
@@ -62,9 +62,52 @@ export default function UserProfile({
 
   if (error)
     return (
-      <div className="relative w-full flex items-center justify-center min-h-screen">
+      <div className="relative w-full flex flex-col gap-5 items-center justify-center min-h-screen">
         <Background />
         <p>{error}</p>
+        <Button onClick={() => window.location.reload()}>
+          <RotateCcw size={16} className=" mr-2" />
+          Retry
+        </Button>
+        <div className="absolute sm:left-10 sm:bottom-2 -bottom-10 sm:space-y-7 space-y-7 pb-3 left-3">
+          <div className="flex flex-row">
+            <Link href="/sign-up">
+              <ShinyButton>Create Profile</ShinyButton>
+            </Link>{" "}
+            <Separator
+              orientation="vertical"
+              className="h-auto w-[1px] bg-gray-300 dark:bg-neutral-600 mx-4"
+            />{" "}
+            <Link href="/sign-in">
+              <ShinyButton className="bg-black/5">Log In</ShinyButton>
+            </Link>
+          </div>
+          <div className="flex flex-row text-sm sm:text-base">
+            <p className="text-neutral-500">
+              Powered by{" "}
+              <Link
+                href="/"
+                className="underline text-neutral-800 hover:text-black duration-200 dark:text-neutral-300 dark:hover:text-neutral-50"
+              >
+                ProfileCraft
+              </Link>
+            </p>
+            <Separator
+              orientation="vertical"
+              className="h-auto w-[1px] bg-gray-300 dark:bg-neutral-600 mx-4"
+            />{" "}
+            <p className="text-neutral-500">
+              Developed by{" "}
+              <Link
+                href="https://devadil.vercel.app/"
+                target="_blank"
+                className=" text-neutral-800 dark:text-neutral-300 dark:hover:text-neutral-50 font-semibold hover:text-black duration-200"
+              >
+                Adil
+              </Link>
+            </p>
+          </div>
+        </div>
       </div>
     );
 
@@ -77,9 +120,6 @@ export default function UserProfile({
     return acc;
   }, {} as Record<string, string>);
 
-  // Now you can access usernames by platform
-  console.log(userNames); // For debugging
-
   // Get Instagram username
   const instagramUsername = userNames["instagram"] || "";
   const spotifyLink = userNames["spotify"] || "";
@@ -89,8 +129,6 @@ export default function UserProfile({
   const threadsUsername = userNames["threads"] || "";
   const githubUsername = userNames["github"] || "";
   const customLink = userNames["custom"] || "";
-
-  console.log(`user is this ${user?.profilePhoto} `);
 
   return (
     <>
@@ -212,7 +250,7 @@ export default function UserProfile({
                   {/* Spotify */}
 
                   <Link href={spotifyLink} target="_blank">
-                  <BlurFade delay={{ lg: 0.30, base: 0.1 }}>
+                    <BlurFade delay={{ lg: 0.3, base: 0.1 }}>
                       <div className="bg-green-100 dark:bg-gradient-to-l from-black/20 to-green-100 rounded-2xl px-5 py-5 h-48 border border-neutral-200 relative overflow-hidden">
                         <div className="logo-container">
                           <Logo name="spotify" size={33} />
@@ -245,7 +283,7 @@ export default function UserProfile({
                   {/* Gmail */}
 
                   <Link href={`mailto:${user.email}`} target="_blank">
-                  <BlurFade delay={{ lg: 0.35, base: 0.15 }}>
+                    <BlurFade delay={{ lg: 0.35, base: 0.15 }}>
                       <div className="bg-[#ffe2e2] dark:bg-gradient-to-l from-black/10 to-[#ffe2e2] rounded-xl pl-5 py-5 h-48 border border-neutral-200">
                         <div className="logo-container">
                           <Logo name="gmail" size={35} />
@@ -441,47 +479,47 @@ export default function UserProfile({
                   )}
 
                   {/* Occupation */}
-              
-                    <motion.div 
-                      initial={{
-                        offset: 6,
-                        opacity: 0,
-                        filter: "blur(6px)",
-                      }}
-                      animate={{
-                        offset: 0,
-                        opacity: 1,
-                        filter: "blur(0px)",
-                      }}
-                      transition={{
-                        delay: 0.04 + 0.5,
-                        duration: 0.4,
-                        ease: "easeOut",
-                      }}
-                      className=" bgcustom rounded-xl px-5 py-5 col-span-2  h-48 border ">
-                      <div className="">
-                        <img
-                          width="37"
-                          height="37"
-                          src="https://img.icons8.com/emoji/48/rocket-emji.png"
-                          alt="rocket-emji"
-                        />
-                      </div>
-                      <p className=" font-semibold w-full mx-auto sm:text-sm text-xs text-center text-black/70 mt-2 ">
-                        {" "}
-                        Proudly I&apos;m a
-                      </p>
-                      <p className=" font-bold w-full text-center text-base text-black/90 mt-1 ">
-                        {" "}
-                        {user.occupation}
-                      </p>
-                    </motion.div>
-                  
+
+                  <motion.div
+                    initial={{
+                      offset: 6,
+                      opacity: 0,
+                      filter: "blur(6px)",
+                    }}
+                    animate={{
+                      offset: 0,
+                      opacity: 1,
+                      filter: "blur(0px)",
+                    }}
+                    transition={{
+                      delay: 0.04 + 0.5,
+                      duration: 0.4,
+                      ease: "easeOut",
+                    }}
+                    className=" bgcustom rounded-xl px-5 py-5 col-span-2  h-48 border "
+                  >
+                    <div className="">
+                      <img
+                        width="37"
+                        height="37"
+                        src="https://img.icons8.com/emoji/48/rocket-emji.png"
+                        alt="rocket-emji"
+                      />
+                    </div>
+                    <p className=" font-semibold w-full mx-auto sm:text-sm text-xs text-center text-black/70 mt-2 ">
+                      {" "}
+                      Proudly I&apos;m a
+                    </p>
+                    <p className=" font-bold w-full text-center text-base text-black/90 mt-1 ">
+                      {" "}
+                      {user.occupation}
+                    </p>
+                  </motion.div>
 
                   {/* Location */}
-                 
-                    <LocationCard location={`${user.location}`} />
-              
+
+                  <LocationCard location={`${user.location}`} />
+
                   {/* Custom_Link */}
 
                   <Link href={`${customLink}`} target="_blank">
