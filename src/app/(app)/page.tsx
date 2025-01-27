@@ -1,6 +1,7 @@
 import { Features } from "@/components/Features";
 import Hero from "@/components/Hero";
 import Howitworks from "@/components/Howitworks";
+import Showcase from "@/components/Showcase";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero/>
       <Howitworks/>
       <Features/>
+      <Showcase/>
     </div>
   );
 }

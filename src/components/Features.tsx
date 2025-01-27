@@ -4,7 +4,7 @@ export function Features() {
   return (
     <div
       id="features"
-      className=" border-t border-black/[0.1] dark:border-white/[0.1] w-full h-full bg-white dark:bg-black flex justify-center items-center min-h-screen"
+      className=" w-full h-full bg-white dark:bg-black flex justify-center items-center min-h-screen"
     >
       <div className="max-w-6xl mx-auto px-8 py-8">
         <div className="text-center mb-16 animate__animated animate__fadeIn">

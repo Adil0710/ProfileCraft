@@ -43,7 +43,7 @@ function HeroText() {
 
       <BlurFade delay={0.04}>
         <h1 className=" text-center font-bold md:text-4xl text-xl text-neutral-800 dark:text-neutral-200">
-          Create Your Perfect Social Profile Hub with <br />
+          Create Your Perfect Social Profile With <br />
           <svg width="100%" height="50" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <radialGradient id="text-gradient" cx="0%" cy="80%" r="100%">
@@ -67,12 +67,11 @@ function HeroText() {
       </BlurFade>
       <BlurFade delay={0.04 * 3}>
         <h2 className=" font-medium text-center text-sm md:text-base h text-neutral-600 dark:text-neutral-400 max-w-2xl">
-          Share all your social media profiles in one beautiful Bento grid
-          layout. Stand out with an interactive showcase of your digital
-          presence !
+          Share all your social profiles, bio, and more to world with one beautiful link. <br />
+          Create your personalized profile bento grid in minutes with ProfileCraft !
         </h2>
       </BlurFade>
-      <BlurFade delay={0.04 *3}>
+      <BlurFade delay={0.04 * 3}>
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <Link
             className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-1 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-9 px-4 sm:px-5 group"
