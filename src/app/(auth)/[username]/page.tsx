@@ -67,7 +67,7 @@ export default function UserProfile({
         <Background />
         <p>{error}</p>
         <Button onClick={() => window.location.reload()}>
-          <RotateCcw size={16} className=" mr-2" />
+          <RotateCcw size={16} className=" mr-1" />
           Retry
         </Button>
         <div className="absolute sm:left-10 sm:bottom-2 -bottom-10 sm:space-y-7 space-y-7 pb-3 left-3">
