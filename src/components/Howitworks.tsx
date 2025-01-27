@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 function Howitworks() {
   return (
@@ -16,7 +17,7 @@ function Howitworks() {
             Create your perfect profile in three simple steps
           </p>
         </div>
-        <div className=" py-8 flex flex-col items-center justify-center gap-16">
+        <div className=" py-8 pt-12 flex flex-col items-center justify-center gap-16">
           <div className="relative">
             <div className="hidden md:block absolute top-1/2 mt-4 left-0 w-full h-1 bg-indigo-600 transform -translate-y-1/2"></div>
             <div className="grid md:grid-cols-3 gap-10">
@@ -114,7 +115,7 @@ function Howitworks() {
               </div>
             </div>
           </div>
-          <Button className=" bg-indigo-600 text-white hover:bg-indigo-500">Start Creating Your Profile</Button>
+         <Link href="/sign-up"> <Button className=" bg-indigo-600 text-white hover:bg-indigo-500">Start Creating Your Profile</Button></Link>
         </div>
       </div>
     </div>
