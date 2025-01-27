@@ -5,7 +5,7 @@ function Howitworks() {
   return (
     <div
       id="features"
-      className=" border-t border-black/[0.1] dark:border-white/[0.1] w-full h-full bg-white dark:bg-black flex justify-center pt-20 min-h-screen"
+      className=" border-t border-black/[0.1] dark:border-white/[0.1] w-full h-full bg-white dark:bg-black flex justify-center pt-10 min-h-screen"
     >
       <div className="max-w-6xl mx-auto px-8">
         <div className="text-center mb-12 animate__animated animate__fadeIn">
