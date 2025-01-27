@@ -55,6 +55,7 @@ export default function UserProfile({
         console.log(response);
       } catch (err) {
         setError("User not found or an error occurred.");
+        console.log(err)
       }
     }
     fetchUser();
