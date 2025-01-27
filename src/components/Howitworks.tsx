@@ -20,7 +20,7 @@ function Howitworks() {
         <div className=" py-8 pt-12 flex flex-col items-center justify-center gap-16">
           <div className="relative">
             <div className="hidden md:block absolute top-1/2 mt-4 left-0 w-full h-1 bg-indigo-600 transform -translate-y-1/2"></div>
-            <div className="md:hidden block absolute  left-1/2 -translate-X-1/2 w-1 h-full bg-indigo-600 transform "></div>
+            <div className="md:hidden block absolute left-1/2 -translate-x-1/2 w-1 h-full bg-indigo-600 transform "></div>
             <div className="grid md:grid-cols-3 md:gap-10 gap-14">
               <div className="relative bg-gray-100 dark:bg-neutral-800 p-8 rounded-xl animate__animated animate__fadeInLeft">
                 <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center text-2xl font-bold">
