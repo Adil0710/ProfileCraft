@@ -42,7 +42,7 @@ function Showcase() {
               </div>
             </div>
             <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">Full-stack developer passionate about creating beautiful web experiences.</p>
-            <button className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition">View Profile</button>
+            <button className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-500 transition">View Profile</button>
           </div>
         </div>
 
@@ -71,7 +71,7 @@ function Showcase() {
               </div>
             </div>
             <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">Creating digital art and illustrations for brands worldwide.</p>
-            <button className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition">View Profile</button>
+            <button className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-500 transition">View Profile</button>
           </div>
         </div>
 
@@ -99,7 +99,7 @@ function Showcase() {
               </div>
             </div>
             <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">Lifestyle vlogger sharing daily adventures and tips.</p>
-            <button className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition">View Profile</button>
+            <button className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-500 transition">View Profile</button>
           </div>
         </div>
       </div>
