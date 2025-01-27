@@ -23,8 +23,8 @@ function Showcase() {
             <div className="flex items-center mb-6">
               <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-200 rounded-full"></div>
               <div className="ml-4">
-                <h3 className="font-semibold text-lg">@creative_dev</h3>
-                <p className="text-gray-500 dark:text-gray-400">Developer & Designer</p>
+                <h3 className="font-semibold text-lg">@adil</h3>
+                <p className="text-gray-500 dark:text-gray-400">Fullstack Developer</p>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4 mb-4">
