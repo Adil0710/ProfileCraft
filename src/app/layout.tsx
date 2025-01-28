@@ -18,14 +18,14 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "ProfileCraft",
-  description: "A Beautiful Link For Your Bio 🎉",
+  description: "A Beautiful Link For Your Bio! 🎉",
   keywords: ["Profilecraft", "Bento", "Social Media", "Profile", "Link", "Bio"],
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
     title: "ProfileCraft",
-    description: "A Beautiful Link For Your Bio 🎉",
+    description: "A Beautiful Link For Your Bio! 🎉",
     url: "https://profilecraft.vercel.app",
     siteName: "ProfileCraft",
     images: [
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "ProfileCraft",
-    description: "A Beautiful Link For Your Bio 🎉",
+    description: "A Beautiful Link For Your Bio! 🎉",
     images: ["/profilecraft.png"],
   },
 };
