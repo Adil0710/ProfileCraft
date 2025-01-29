@@ -26,7 +26,7 @@ export const HoverEffect = ({
       {items.map((item, idx) => (
         <div
           key={item.title}
-          className="relative group  block p-2 h-full w-full"
+          className="relative group  block p-2 h-full w-full group"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
@@ -47,10 +47,12 @@ export const HoverEffect = ({
               />
             )}
           </AnimatePresence>
-          <Card>
-            <CardIcon>{item.icon}</CardIcon>
-            <CardTitle>{item.title}</CardTitle>
-            <CardDescription>{item.description}</CardDescription>
+          <Card className=" pl-4 group-hover:pl-5 transition-all">
+          
+              <CardIcon>{item.icon}</CardIcon>
+              <CardTitle>{item.title}</CardTitle>
+              <CardDescription>{item.description}</CardDescription>
+        
           </Card>
         </div>
       ))}
@@ -79,17 +81,8 @@ export const Card = ({
   );
 };
 
-export const CardIcon = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
-  return (
-   <>
-      {children}
-   </>
-   
-  );
+export const CardIcon = ({ children }: { children: React.ReactNode }) => {
+  return <>{children}</>;
 };
 
 export const CardTitle = ({
@@ -101,7 +94,10 @@ export const CardTitle = ({
 }) => {
   return (
     <h4
-      className={cn("text-black dark:text-white sm:text-xl text-lg font-bold tracking-wide mt-4", className)}
+      className={cn(
+        "text-black dark:text-white sm:text-xl text-lg font-bold tracking-wide mt-4",
+        className
+      )}
     >
       {children}
     </h4>

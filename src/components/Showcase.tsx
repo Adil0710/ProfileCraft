@@ -1,12 +1,13 @@
 import React from "react";
+import { Button } from "./ui/button";
 
 function Showcase() {
   return (
     <div
       id="showcase"
-      className="  w-full h-full bg-gray-50 dark:bg-neutral-900 flex justify-center items-center min-h-screen"
+      className="  w-full h-full bg-gray-50 dark:bg-neutral-900 flex flex-col justify-center items-center min-h-screen"
     >
-      <div className="max-w-6xl mx-auto px-8 -mt-14 pb-8">
+      <div className="max-w-6xl mx-auto px-8 pb-8">
         <div className="text-center mb-16 animate__animated animate__fadeIn">
           <h2 className="sm:text-4xl text-xl font-bold dark:text-white text-black mb-4">
             Profile Showcase
@@ -104,6 +105,9 @@ function Showcase() {
         </div>
       </div>
       </div>
+      <Button className=" mt-20 bg-indigo-600 hover:bg-indigo-500 text-white">
+        Join These Creators
+      </Button>
     </div>
   );
 }
