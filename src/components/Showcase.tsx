@@ -1,12 +1,14 @@
 import React from "react";
 import { Button } from "./ui/button";
+import BlurryBlob from "./ui/blurry-blob";
 
 function Showcase() {
   return (
     <div
       id="showcase"
-      className="  w-full h-full bg-gray-50 dark:bg-neutral-900 flex flex-col justify-center items-center min-h-screen"
+      className="relative  w-full h-full bg-gray-50 dark:bg-neutral-900 flex flex-col justify-center items-center min-h-screen"
     >
+      
       <div className="max-w-6xl mx-auto px-8 pb-8">
         <div className="text-center mb-16 animate__animated animate__fadeIn">
           <h2 className="sm:text-4xl text-xl font-bold dark:text-white text-black mb-4">

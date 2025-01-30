@@ -5,6 +5,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Header from "./ui/header";
 
 function Howitworks() {
   const [hoveredStep, setHoveredStep] = useState<number | null>(null);
@@ -16,14 +17,8 @@ function Howitworks() {
     >
       
       <div className="max-w-6xl mx-auto px-8">
-        <div className="text-center mb-12 animate__animated animate__fadeIn">
-          <h2 className="sm:text-4xl text-xl font-bold dark:text-white text-black mb-4">
-            How ProfileCraft Works
-          </h2>
-          <p className="dark:text-neutral-300 text-neutral-700 sm:text-lg text-base">
-            Create your perfect profile in three simple steps
-          </p>
-        </div>
+       
+        <Header header=" How ProfileCraft Works" description="Create your perfect profile in three simple steps" />
         <div className=" py-8 pt-12 flex flex-col items-center justify-center gap-16">
           <div className="relative">
             <div
@@ -63,10 +58,14 @@ function Howitworks() {
             <div className="grid md:grid-cols-3 md:gap-10 gap-14">
               {/* <div className="relative group"> */}
               {/* <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg blur opacity-0  group-hover:opacity-30 transition-all duration-500" id="el-iwncp6q6" style={{padding: "45px"}}></div> */}
-              <div
+              <motion.div
                 className="relative bg-gray-100 dark:bg-neutral-800 p-8 rounded-xl animate__animated animate__fadeInLeft hover:bg-indigo-50 cursor-pointer group"
                 onMouseEnter={() => setHoveredStep(1)}
                 onMouseLeave={() => setHoveredStep(null)}
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                transition={{ delay: 1 * 0.1 }}
+                viewport={{once:true}}
               >
                 <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center text-2xl font-bold">
                   1
@@ -93,14 +92,18 @@ function Howitworks() {
                     your profile link.
                   </p>
                 </div>
-              </div>
+              </motion.div>
               {/* </div> */}
 
-              <div
+              <motion.div
                 className="relative bg-gray-100 dark:bg-neutral-800 p-8 rounded-xl animate__animated animate__fadeInLeft hover:bg-indigo-50 cursor-pointer group"
                 style={{ animationDelay: "0.2s" }}
                 onMouseEnter={() => setHoveredStep(2)}
                 onMouseLeave={() => setHoveredStep(null)}
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                transition={{ delay: 2 * 0.1 }}
+                viewport={{once:true}}
               >
                 <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center text-2xl font-bold">
                   2
@@ -129,13 +132,17 @@ function Howitworks() {
                     other personal details.
                   </p>
                 </div>
-              </div>
+              </motion.div>
 
-              <div
+              <motion.div
                 className="relative bg-gray-100 dark:bg-neutral-800 p-8 rounded-xl animate__animated animate__fadeInLeft hover:bg-indigo-50 cursor-pointer group"
                 style={{ animationDelay: "0.4s" }}
                 onMouseEnter={() => setHoveredStep(2)}
                 onMouseLeave={() => setHoveredStep(null)}
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                transition={{ delay: 3 * 0.1 }}
+                viewport={{once:true}}
               >
                 <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center text-2xl font-bold">
                   3
@@ -163,7 +170,7 @@ function Howitworks() {
                     Get your unique link and share your profile with the world.
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
           <Link href="/sign-up">

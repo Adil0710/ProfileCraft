@@ -5,13 +5,9 @@ export function Features() {
   return (
     <div
       id="features"
-      className=" w-full h-full bg-white dark:bg-black flex justify-center items-center min-h-screen"
+      className=" z-0 w-full h-full bg-white dark:bg-black flex justify-center items-center min-h-screen"
     >
-      <BlurryBlob
-  className="rounded-xl opacity-45"
-  firstBlobColor="bg-purple-400"
-  secondBlobColor="bg-blue-400"
-/>
+      
       <div className="max-w-6xl mx-auto px-8 py-8">
         <div className="text-center mb-16 animate__animated animate__fadeIn">
           <h2 className="sm:text-4xl text-xl font-bold dark:text-white text-black mb-4">
