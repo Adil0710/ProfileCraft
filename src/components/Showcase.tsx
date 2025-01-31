@@ -6,7 +6,7 @@ function Showcase() {
   return (
     <div
       id="showcase"
-      className="relative  w-full h-full bg-gray-50 dark:bg-neutral-900 flex flex-col justify-center items-center min-h-screen"
+      className="relative  w-full h-full bg-gray-50 dark:bg-neutral-900 flex flex-col justify-center items-center min-h-screen py-10"
     >
       
       <div className="max-w-6xl mx-auto px-8 pb-8">

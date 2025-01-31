@@ -7,15 +7,15 @@ import BlurryBlob from "@/components/ui/blurry-blob";
 export default function Home() {
   return (
     <div className=" max-w-screen">
-      <Hero/>
-      <Howitworks/>
+      <Hero />
+      <Howitworks />
       <BlurryBlob
-  className=" rounded-xl opacity-45 right-0 h-56 w-56 top-1"
-  firstBlobColor="bg-purple-400"
-  secondBlobColor="bg-blue-400"
-/>
-      <Features/>
-      <Showcase/>
+        className=" rounded-xl opacity-45 right-0 sm:h-56 sm:w-56 h-32 w-32 sm:top-1 top-5"
+        firstBlobColor="bg-purple-400"
+        secondBlobColor="bg-blue-400"
+      />
+      <Features />
+      <Showcase />
     </div>
   );
 }
