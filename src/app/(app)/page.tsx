@@ -10,11 +10,12 @@ export default function Home() {
       <Hero />
       <Howitworks />
       <BlurryBlob
-        className=" rounded-xl opacity-45 right-0 sm:h-56 sm:w-56 h-32 w-32 sm:top-1 top-5"
+        className=" rounded-xl opacity-45 right-0 sm:h-56 sm:w-56 h-32 w-32 sm:-top-20 top-5"
         firstBlobColor="bg-purple-400"
         secondBlobColor="bg-blue-400"
       />
       <Features />
+     
       <Showcase />
     </div>
   );
