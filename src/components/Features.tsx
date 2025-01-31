@@ -1,4 +1,3 @@
-import BlurryBlob from "./ui/blurry-blob";
 import { HoverEffect } from "./ui/card-hover-effect";
 
 export function Features() {

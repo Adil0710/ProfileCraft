@@ -240,7 +240,7 @@ export default function LandingPage() {
             whileTap={{ scale: 0.95 }}
             className="bg-purple-500 px-12 py-4 rounded-full text-white text-lg"
           >
-            Create Your Profile - It's Free!
+            Create Your Profile - It&apos;s Free!
           </motion.button>
         </div>
       </motion.div>

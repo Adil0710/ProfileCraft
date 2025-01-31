@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import { Button } from "./ui/button";
+
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Header from "./ui/header";
@@ -15,10 +15,11 @@ function Howitworks() {
       id="features"
       className=" border-t border-black/[0.1] dark:border-white/[0.1] w-full h-full bg-white dark:bg-black flex justify-center pt-10 min-h-screen"
     >
-      
       <div className="max-w-6xl mx-auto px-8">
-       
-        <Header header=" How ProfileCraft Works" description="Create your perfect profile in three simple steps" />
+        <Header
+          header=" How ProfileCraft Works"
+          description="Create your perfect profile in three simple steps"
+        />
         <div className=" py-8 pt-12 flex flex-col items-center justify-center gap-16">
           <div className="relative">
             <div
@@ -65,7 +66,7 @@ function Howitworks() {
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 transition={{ delay: 1 * 0.1 }}
-                viewport={{once:true}}
+                viewport={{ once: true }}
               >
                 <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center text-2xl font-bold">
                   1
@@ -103,7 +104,7 @@ function Howitworks() {
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 transition={{ delay: 2 * 0.1 }}
-                viewport={{once:true}}
+                viewport={{ once: true }}
               >
                 <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center text-2xl font-bold">
                   2
@@ -142,7 +143,7 @@ function Howitworks() {
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 transition={{ delay: 3 * 0.1 }}
-                viewport={{once:true}}
+                viewport={{ once: true }}
               >
                 <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center text-2xl font-bold">
                   3
@@ -177,18 +178,14 @@ function Howitworks() {
             {" "}
             <button
               className={`group relative rounded-full p-2 text-base font-semibold`}
-             
             >
-              <div
-                className="absolute left-0 top-0 flex h-full w-10 items-center justify-end rounded-full transition-all duration-200 ease-in-out group-hover:w-full bg-indigo-600"
-                
-              >
+              <div className="absolute left-0 top-0 flex h-full w-10 items-center justify-end rounded-full transition-all duration-200 ease-in-out group-hover:w-full bg-indigo-600">
                 <span className="mr-3 text-white transition-all flex duration-200 ease-in-out">
                   <ArrowRight size={20} />
                 </span>
               </div>
               <span className="relative left-4 z-10 whitespace-nowrap px-8 font-semibold text-black dark:text-white transition-all duration-200 ease-in-out group-hover:-left-3 group-hover:text-white">
-             Start Creating Your Profile
+                Start Creating Your Profile
               </span>
             </button>
           </Link>
