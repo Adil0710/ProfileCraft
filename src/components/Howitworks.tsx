@@ -72,7 +72,7 @@ function Howitworks() {
                   1
                 </div>
                 <div className="mt-8 text-center">
-                  <div className="h-24 w-24 mx-auto mb-6 bg-gray-200 dark:bg-neutral-700 group-hover:bg-gray-50 transition-all duration-300 dark:group-hover:bg-neutral-600 rounded-full flex items-center justify-center">
+                  <div className="h-24 w-24 mx-auto mb-6 bg-indigo-100/50 group-hover:bg-gray-50 border-indigo-200/70 dark:bg-neutral-700 dark:border-neutral-500 border transition-all duration-300 dark:group-hover:bg-neutral-600 rounded-full flex items-center justify-center">
                     <svg
                       className="h-12 w-12 text-indigo-500 group-hover:scale-125 transition-transform group-hover:rotate-3"
                       fill="none"
@@ -110,7 +110,7 @@ function Howitworks() {
                   2
                 </div>
                 <div className="mt-8 text-center">
-                  <div className="h-24 w-24 mx-auto mb-6 bg-gray-200 dark:bg-neutral-700 group-hover:bg-gray-50 transition-all duration-300 dark:group-hover:bg-neutral-600 rounded-full flex items-center justify-center">
+                  <div className="h-24 w-24 mx-auto mb-6 bg-indigo-100/50 group-hover:bg-gray-50 border-indigo-200/70 dark:bg-neutral-700 dark:border-neutral-500 border transition-all duration-300 dark:group-hover:bg-neutral-600 rounded-full flex items-center justify-center">
                     <svg
                       className="h-12 w-12 text-indigo-500 group-hover:scale-125 transition-transform group-hover:rotate-3"
                       fill="none"
@@ -149,7 +149,7 @@ function Howitworks() {
                   3
                 </div>
                 <div className="mt-8 text-center">
-                  <div className="h-24 w-24 mx-auto mb-6 bg-gray-200 dark:bg-neutral-700 group-hover:bg-gray-50 transition-all duration-300 dark:group-hover:bg-neutral-600 rounded-full flex items-center justify-center">
+                  <div className="h-24 w-24 mx-auto mb-6 bg-indigo-100/50 group-hover:bg-gray-50 border-indigo-200/70 dark:bg-neutral-700 dark:border-neutral-500 border transition-all duration-300 dark:group-hover:bg-neutral-600 rounded-full flex items-center justify-center">
                     <svg
                       className="h-12 w-12 text-indigo-500 group-hover:scale-125 transition-transform group-hover:rotate-3"
                       fill="none"

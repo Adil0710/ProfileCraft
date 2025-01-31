@@ -1,6 +1,13 @@
+"use client"
 import React from "react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
+import Header from "./ui/header";
+import { motion } from "framer-motion"
+
+const hoverVariant = {
+  whileHover: {rotate: 5}
+}
 
 function Showcase() {
   return (
@@ -8,30 +15,27 @@ function Showcase() {
       id="showcase"
       className="relative overflow-x-hidden max-w-screen h-full bg-gray-50 dark:bg-neutral-900 flex flex-col justify-center items-center min-h-screen py-10"
     >
-      <div className="absolute min-h-52 min-w-52 left-[90%] top-0 items-center justify-center">
+      <div className="absolute min-h-52 min-w-52 left-[90%] sm:top-auto top-0 items-center justify-center">
         <div className="relative w-full max-w-lg">
           <div
             className={cn(
-              "absolute sm:-right-12 sm:-top-40 right-48 sm:h-52 sm:w-52 h-32 w-32 animate-pop-blob rounded-sm bg-blue-400 p-8 opacity-45 mix-blend-multiply blur-3xl filter"
+              "absolute sm:-right-12 sm:-top-40  sm:h-52 sm:w-52 h-32 w-32 animate-pop-blob rounded-sm bg-blue-400 p-8 opacity-45 mix-blend-multiply blur-3xl filter"
             )}
           ></div>
           <div
             className={cn(
-              "absolute sm:-left-10 sm:-top-72 top-10 -left-48 sm:h-52 sm:w-52 h-32 w-32 animate-pop-blob rounded-sm bg-purple-400 p-8 opacity-45 mix-blend-multiply blur-3xl filter"
+              "absolute sm:-left-10 sm:-top-72 top-10 sm:h-52 sm:w-52 h-32 w-32 animate-pop-blob rounded-sm bg-purple-400 p-8 opacity-45 mix-blend-multiply blur-3xl filter"
             )}
           ></div>
         </div>
       </div>
       <div className="max-w-6xl mx-auto px-8 pb-8">
-        <div className="text-center mb-16 animate__animated animate__fadeIn">
-          <h2 className="sm:text-4xl text-xl font-bold dark:text-white text-black mb-4">
-            Profile Showcase
-          </h2>
-          <p className="dark:text-neutral-300 text-neutral-700 sm:text-lg text-base">
-            See how others are using ProfileCraft to present their digital
-            identity
-          </p>
-        </div>
+        
+        <Header
+          header="Profile Showcase"
+          description=" See how others are using ProfileCraft to present their digital
+            identity"
+        />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="bg-white dark:bg-black rounded-xl shadow-lg overflow-hidden animate__animated animate__fadeInUp">
             <div className="p-6">
@@ -45,7 +49,7 @@ function Showcase() {
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4 mb-4">
-                <div className="bg-gray-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 rounded-lg p-4 hover:bg-gray-200 transition">
+                <motion.div variants={hoverVariant} className="bg-gray-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 rounded-lg p-4 hover:bg-gray-200 transition">
                   <svg
                     className="w-6 h-6 text-indigo-600 mb-2"
                     fill="currentColor"
@@ -56,7 +60,7 @@ function Showcase() {
                   <span className="text-sm text-gray-600 dark:text-gray-400">
                     Twitter
                   </span>
-                </div>
+                </motion.div>
                 <div className="bg-gray-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 rounded-lg p-4 hover:bg-gray-200 transition">
                   <svg
                     className="w-6 h-6 text-indigo-600 mb-2"

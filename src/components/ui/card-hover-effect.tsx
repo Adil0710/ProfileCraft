@@ -24,8 +24,22 @@ export const HoverEffect = ({
       )}
     >
       {items.map((item, idx) => (
-        <div
+        <motion.div
           key={item.title}
+          initial={{
+            offset: 6,
+            opacity: 0,
+            filter: "blur(6px)",
+          }}
+          whileInView={{
+            offset: -1,
+            opacity: 1,
+            filter: "blur(0px)",
+          }}
+          transition={{
+            delay: 0.08 * idx,
+            ease: "easeOut",
+          }}
           className="relative group  block p-2 h-full w-full group"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
@@ -48,13 +62,11 @@ export const HoverEffect = ({
             )}
           </AnimatePresence>
           <Card className=" pl-4 group-hover:pl-5 transition-all">
-          
-              <CardIcon>{item.icon}</CardIcon>
-              <CardTitle>{item.title}</CardTitle>
-              <CardDescription>{item.description}</CardDescription>
-        
+            <CardIcon>{item.icon}</CardIcon>
+            <CardTitle>{item.title}</CardTitle>
+            <CardDescription>{item.description}</CardDescription>
           </Card>
-        </div>
+        </motion.div>
       ))}
     </div>
   );

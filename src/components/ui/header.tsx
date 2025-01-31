@@ -12,7 +12,7 @@ function Header({ header, description }: HeaderProps) {
       <motion.h2
         whileInView={{ y: 0, opacity: 1 }}
         initial={{ y: 50, opacity: 0 }}
-        viewport={{once:true}}
+    
         className="sm:text-4xl text-xl font-bold dark:text-white text-black mb-4"
       >
        {header}
@@ -20,7 +20,7 @@ function Header({ header, description }: HeaderProps) {
       <motion.p
         whileInView={{ y: 0, opacity: 1 }}
         initial={{ y: 50, opacity: 0 }}
-        viewport={{once:true}}
+       
         className="dark:text-neutral-300 text-neutral-700 sm:text-lg text-base"
       >
        {description}
