@@ -13,7 +13,7 @@ function Showcase() {
   return (
     <div
       id="showcase"
-      className="relative overflow-x-hidden max-w-screen h-full bg-[#F7FAFF] dark:bg-neutral-900 flex flex-col justify-center items-center min-h-screen pb-10 pt-20 z-0"
+      className="relative overflow-x-hidden max-w-screen h-full bg-[#F7FAFF] dark:bg-neutral-900 flex flex-col justify-center items-center min-h-screen pb-10 pt-24 z-0"
     >
       <div className="absolute min-h-52 min-w-52 sm:top-5 top-20 left-[50%] -translate-x-1/2 items-center justify-center z-10">
         <div className="relative w-full max-w-lg">

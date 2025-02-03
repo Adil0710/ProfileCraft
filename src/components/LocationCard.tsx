@@ -48,7 +48,7 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
           switch (condition) {
             case "Clear":
               return (
-                <Sun className="w-8 h-8 text-neutral-800 dark:text-neutral-300" />
+                <Sun className="w-8 h-8 text-neutral-800 " />
               );
             case "Clouds":
               return (

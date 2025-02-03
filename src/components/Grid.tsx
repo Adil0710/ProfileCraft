@@ -111,19 +111,24 @@ function Grid({ profileUpdated, setProfileUpdated }: GridProps) {
           {/* Spotify */}
 
           <Link href={spotifyLink} target="_blank">
-            <div className="bg-green-100 dark:bg-gradient-to-l from-black/20 to-green-100 rounded-2xl px-5 py-5 h-48 border border-neutral-200 relative overflow-hidden">
+            <div className="bg-green-100 dark:bg-gradient-to-l from-black/20 to-green-100 rounded-2xl px-5 py-5 h-48 border border-neutral-200 relative ">
               <div className="logo-container">
                 <Logo name="spotify" size={33} />
                 <div className="ripple"></div>
 
                 {/* Music Chords */}
                 <Music
-                  className="music-chord chord1"
+                  className="music-chord chord1 z-10"
                   size={20}
                   strokeWidth={3}
                 />
                 <Music
-                  className="music-chord chord2"
+                  className="music-chord chord2 z-10"
+                  size={20}
+                  strokeWidth={3}
+                />
+                 <Music
+                  className="music-chord chord3 z-10"
                   size={20}
                   strokeWidth={3}
                 />

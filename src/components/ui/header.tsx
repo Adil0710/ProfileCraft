@@ -13,7 +13,7 @@ function Header({ header, description }: HeaderProps) {
         whileInView={{ y: 0, opacity: 1 }}
         initial={{ y: 50, opacity: 0 }}
     
-        className="sm:text-4xl text-xl font-bold dark:text-white text-black mb-4"
+        className="sm:text-4xl text-xl font-bold dark:bg-gradient-to-b dark:from-white dark:to-neutral-700 bg-gradient-to-b from-black to-neutral-500 mb-4 text-transparent bg-clip-text"
       >
        {header}
       </motion.h2>
@@ -21,7 +21,7 @@ function Header({ header, description }: HeaderProps) {
         whileInView={{ y: 0, opacity: 1 }}
         initial={{ y: 50, opacity: 0 }}
        
-        className="dark:text-neutral-300 text-neutral-700 sm:text-lg text-base"
+        className="dark:text-neutral-400 text-neutral-600 sm:text-lg text-base"
       >
        {description}
       </motion.p>

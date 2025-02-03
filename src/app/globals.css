@@ -259,12 +259,16 @@ radial-gradient(at 53% 69%, #c568ed 0px, transparent 50%);
 /* Unique animations for each chord */
 .chord1 {
   animation: chord1-animation 4s infinite ease-in-out;
-  animation-delay: 5s;
+  animation-delay: 4s;
 }
 
 .chord2 {
   animation: chord2-animation 4s infinite ease-in-out;
-  animation-delay: 8s;
+  animation-delay: 6.5s;
+}
+.chord3 {
+  animation: chord3-animation 4s infinite ease-in-out;
+  animation-delay: 9s;
 }
 
 
@@ -281,7 +285,7 @@ radial-gradient(at 53% 69%, #c568ed 0px, transparent 50%);
   100% {
     opacity: 0;
     transform: translate(-60px, -50px) scale(0.8) ;
-    filter: blur(2ypx);
+    filter: blur(2px);
   }
 }
 
@@ -300,6 +304,23 @@ radial-gradient(at 53% 69%, #c568ed 0px, transparent 50%);
     filter: blur(2px);
   }
 }
+
+@keyframes chord3-animation {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.4);
+  }
+  70% {
+    opacity: 0.5;
+    transform: translate(-50px, 40px) scale(1); /* Top-right direction */
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-60px, 50px) scale(0.8);
+    filter: blur(2px);
+  }
+}
+
 @keyframes float1 {
   0% { transform: translate(0px, 0px) rotate(0deg); }
   50% { transform: translate(10px, -10px) rotate(10deg); }
