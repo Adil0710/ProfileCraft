@@ -22,11 +22,16 @@ function Howitworks() {
         />
         <div className=" py-8 pt-12 flex flex-col items-center justify-center gap-16">
           <div className="relative">
-            <div
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{
+                width: "100%",
+              }}
+              transition={{ duration: 1 }}
               className={`hidden md:block absolute top-1/2 mt-4 left-0 w-full bg-gray-300 dark:bg-neutral-600 h-1 transition-colors duration-700 transform -translate-y-1/2 `}
             >
               <motion.div
-                initial={{ width: 0 }}
+                initial={{ width: 0, opacity: 0 }}
                 animate={{
                   width:
                     hoveredStep === 1
@@ -34,12 +39,20 @@ function Howitworks() {
                       : hoveredStep === 2
                       ? "100%"
                       : "0%",
+                  opacity: 1,
                 }}
                 transition={{ duration: 1 }}
                 className="h-1 bg-indigo-600"
               />
-            </div>
-            <div className="md:hidden block absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gray-300 dark:bg-neutral-600 transform ">
+            </motion.div>
+            <motion.div
+              initial={{ height: 0 }}
+              whileInView={{
+                height: "100%",
+              }}
+              transition={{duration:3}}
+              className="md:hidden block absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gray-300 dark:bg-neutral-600 transform "
+            >
               <motion.div
                 initial={{ height: 0 }}
                 animate={{
@@ -55,7 +68,7 @@ function Howitworks() {
               >
                 {" "}
               </motion.div>
-            </div>
+            </motion.div>
             <div className="grid md:grid-cols-3 md:gap-10 gap-14">
               {/* <div className="relative group"> */}
               {/* <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg blur opacity-0  group-hover:opacity-30 transition-all duration-500" id="el-iwncp6q6" style={{padding: "45px"}}></div> */}
