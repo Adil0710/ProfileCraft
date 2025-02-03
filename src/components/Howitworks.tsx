@@ -51,7 +51,7 @@ function Howitworks() {
               whileInView={{
                 height: "100%",
               }}
-              transition={{duration:3}}
+              transition={{duration:5}}
               viewport={{once:true}}
               className="md:hidden block absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gray-300 dark:bg-neutral-600 transform "
             >
