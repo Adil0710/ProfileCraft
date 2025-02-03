@@ -5,7 +5,7 @@ import { IoPlay, IoPlaySkipBack, IoPlaySkipForward } from "react-icons/io5";
 
 function LoginSide() {
   return (
-    <div className="fixed w-full inset-0 flex items-center -z-30 justify-end pr-[20%] overflow-hidden">
+    <div className=" w-full inset-0 flex items-center z-30 justify-center h-full overflow-hidden">
       {/* Floating Boxes Container */}
       <div className="relative w-80 h-80">
         <div

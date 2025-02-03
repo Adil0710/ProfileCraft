@@ -277,7 +277,7 @@ export default function LogIn() {
 
        
        {/* Right Side - Image or Content */}
-  <div className="hidden lg:flex items-center justify-center ">
+  <div className="hidden lg:flex items-center justify-center bg-gray-50 dark:bg-neutral-900">
     
     <LoginSide/>
   </div>

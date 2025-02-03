@@ -13,18 +13,18 @@ function Showcase() {
   return (
     <div
       id="showcase"
-      className="relative overflow-x-hidden max-w-screen h-full bg-gray-50 dark:bg-neutral-900 flex flex-col justify-center items-center min-h-screen py-10"
+      className="relative overflow-x-hidden max-w-screen h-full bg-[#F7FAFF] dark:bg-neutral-900 flex flex-col justify-center items-center min-h-screen pb-10 pt-20 z-0"
     >
-      <div className="absolute min-h-52 min-w-52 left-[90%] sm:top-auto top-0 items-center justify-center">
+      <div className="absolute min-h-52 min-w-52 sm:top-5 top-20 left-[50%] -translate-x-1/2 items-center justify-center z-10">
         <div className="relative w-full max-w-lg">
           <div
             className={cn(
-              "absolute sm:-right-12 sm:-top-40  sm:h-52 sm:w-52 h-32 w-32 animate-pop-blob rounded-sm bg-blue-400 p-8 opacity-45 mix-blend-multiply blur-3xl filter"
+              "absolute right-12 -top-40  sm:h-52 sm:w-52 h-32 w-32 animate-pop-blob rounded-sm bg-blue-400 p-8 opacity-45 dark:opacity-25 mix-blend-multiply blur-3xl filter"
             )}
           ></div>
           <div
             className={cn(
-              "absolute sm:-left-10 sm:-top-72 top-5 -left-24 sm:h-52 sm:w-52 h-32 w-32 animate-pop-blob rounded-sm bg-purple-400 p-8 opacity-45 mix-blend-multiply blur-3xl filter"
+              "absolute sm:-right-20 right-0 -top-40  sm:h-52 sm:w-52 h-32 w-32 animate-pop-blob rounded-sm bg-purple-400 p-8 opacity-45 dark:opacity-25 mix-blend-multiply blur-3xl filter"
             )}
           ></div>
         </div>

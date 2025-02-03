@@ -13,7 +13,7 @@ function Howitworks() {
   return (
     <div
       id="features"
-      className=" border-t border-black/[0.1] dark:border-white/[0.1] w-full h-full bg-white dark:bg-black flex justify-center pt-10 min-h-screen"
+      className=" border-t border-black/[0.1] dark:border-white/[0.1] w-full h-full bg-white dark:bg-black flex justify-center pt-10 min-h-screen z-0"
     >
       <div className="max-w-6xl mx-auto px-8">
         <Header
