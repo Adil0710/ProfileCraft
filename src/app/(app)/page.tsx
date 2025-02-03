@@ -9,13 +9,9 @@ export default function Home() {
     <div className=" max-w-screen">
       <Hero />
       <Howitworks />
-      <BlurryBlob
-        className=" rounded-xl opacity-45 right-0 sm:h-56 sm:w-56 h-24 w-24 sm:-top-20 top-5"
-        firstBlobColor="bg-purple-400"
-        secondBlobColor="bg-blue-400"
-      />
+
       <Features />
-     
+
       <Showcase />
     </div>
   );

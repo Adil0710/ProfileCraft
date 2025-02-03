@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import { HoverEffect } from "./ui/card-hover-effect";
 import Header from "./ui/header";
 
@@ -5,8 +6,22 @@ export function Features() {
   return (
     <div
       id="features"
-      className=" z-0 w-full h-full bg-white dark:bg-black flex justify-center items-center min-h-screen"
+      className="relative z-0 w-full h-full bg-white dark:bg-black min-h-screen"
     >
+      <div className="absolute min-h-52 min-w-52 left-[0%] top-0 sm:top-28 items-center justify-center">
+              <div className="relative w-full max-w-lg">
+                <div
+                  className={cn(
+                    "absolute sm:-right-10 sm:-top-40 top-20 sm:h-52 sm:w-52 h-32 w-32 animate-pop-blob rounded-sm bg-blue-400 p-8 opacity-45 mix-blend-multiply blur-3xl filter"
+                  )}
+                ></div>
+                <div
+                  className={cn(
+                    "absolute sm:-left-10 sm:-top-72 top-0 sm:h-52 sm:w-52 h-32 w-32 animate-pop-blob rounded-sm bg-purple-400 p-8 opacity-45 mix-blend-multiply blur-3xl filter"
+                  )}
+                ></div>
+              </div>
+            </div>
       
       <div className="max-w-6xl mx-auto px-8 py-8">
        
