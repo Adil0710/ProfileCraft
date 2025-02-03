@@ -27,6 +27,7 @@ function Howitworks() {
               whileInView={{
                 width: "100%",
               }}
+              viewport={{once:true}}
               transition={{ duration: 1 }}
               className={`hidden md:block absolute top-1/2 mt-4 left-0 w-full bg-gray-300 dark:bg-neutral-600 h-1 transition-colors duration-700 transform -translate-y-1/2 `}
             >
@@ -51,6 +52,7 @@ function Howitworks() {
                 height: "100%",
               }}
               transition={{duration:3}}
+              viewport={{once:true}}
               className="md:hidden block absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gray-300 dark:bg-neutral-600 transform "
             >
               <motion.div
