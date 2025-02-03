@@ -12,12 +12,12 @@ export function Features() {
               <div className="relative w-full max-w-lg">
                 <div
                   className={cn(
-                    "absolute sm:-right-10 sm:-top-40 top-20 sm:h-52 sm:w-52 h-32 w-32 animate-pop-blob rounded-sm bg-blue-400 p-8 opacity-45 mix-blend-multiply blur-3xl filter"
+                    "absolute sm:-right-10 sm:-top-40 top-20 sm:h-52 sm:w-52 h-28 w-28 animate-pop-blob rounded-sm bg-blue-400 p-8 opacity-45 mix-blend-multiply blur-3xl filter"
                   )}
                 ></div>
                 <div
                   className={cn(
-                    "absolute sm:-left-10 sm:-top-72 top-0 sm:h-52 sm:w-52 h-32 w-32 animate-pop-blob rounded-sm bg-purple-400 p-8 opacity-45 mix-blend-multiply blur-3xl filter"
+                    "absolute sm:-left-10 sm:-top-72 top-0 sm:h-52 sm:w-52 h-28 w-28 animate-pop-blob rounded-sm bg-purple-400 p-8 opacity-45 mix-blend-multiply blur-3xl filter"
                   )}
                 ></div>
               </div>
