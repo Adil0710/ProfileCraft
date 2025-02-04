@@ -1,6 +1,8 @@
 import React from "react";
-
-function Brand() {
+interface Brandprops {
+  className?:string
+}
+function Brand({className}:Brandprops) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,6 +12,7 @@ function Brand() {
       fill="none"
       stroke-linecap="round"
       stroke-linejoin="round"
+      className={`${className}`}
     >
       <defs>
         <radialGradient id="bg-gradient" cx="0%" cy="80%" r="100%">

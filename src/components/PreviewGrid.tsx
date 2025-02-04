@@ -1,15 +1,15 @@
 "use client";
 import React from "react";
 import Logo from "./Logo";
-import { Images, MessageSquareQuote, Music, Sun } from "lucide-react";
+import { Music, Sun } from "lucide-react";
 import { IoPlay, IoPlaySkipBack, IoPlaySkipForward } from "react-icons/io5";
 import Image from "next/image";
 import { Meteors } from "./ui/meteors";
 import { AnimatePresence, motion } from "framer-motion";
-import LocationCard from "./LocationCard";
+
 import Link from "next/link";
 import BlurFade from "./ui/blur-fade";
-import { Skeleton } from "./ui/skeleton";
+
 import { Separator } from "./ui/separator";
 import Header from "./ui/header";
 
@@ -26,300 +26,316 @@ function PreviewGrid() {
         />
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 m-4">
           <AnimatePresence>
-          {/* Instagram */}
-          <BlurFade delay={0.002} inView>
-            <motion.div whileHover={{ rotate: 4 }} className=" cursor-pointer">
-              <div className="bg-[#fff2f8] dark:bg-gradient-to-l from-black/10 to-[#fff2f8] rounded-2xl px-5 py-5 h-48 border border-neutral-200">
-                <div className="logo-container">
-                  <Logo name="instagram" size={33} />
-                </div>
-                <p className=" font-semibold text-xs text-black/60 mt-2">
-                  @yourhandle
-                </p>
-                <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                  <p className=" py-0.5 text-sm font-medium px-1.5 bg-pink-100 text-black w-20 rounded-full flex items-center justify-center hover:bg-pink-200 transition border border-neutral-300">
-                    Follow
+            {/* Instagram */}
+            <BlurFade delay={0.002} inView>
+              <motion.div
+                whileHover={{ rotate: 4 }}
+                className=" cursor-pointer"
+              >
+                <div className="bg-[#fff2f8] dark:bg-gradient-to-l from-black/10 to-[#fff2f8] rounded-2xl px-5 py-5 h-48 border border-neutral-200">
+                  <div className="logo-container">
+                    <Logo name="instagram" size={33} />
+                  </div>
+                  <p className=" font-semibold text-xs text-black/60 mt-2">
+                    @yourhandle
                   </p>
+                  <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                    <p className=" py-0.5 text-sm font-medium px-1.5 bg-pink-100 text-black w-20 rounded-full flex items-center justify-center hover:bg-pink-200 transition border border-neutral-300">
+                      Follow
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          </BlurFade>
+              </motion.div>
+            </BlurFade>
 
-          {/* Spotify */}
-          <BlurFade delay={0.1} inView>
-            <motion.div whileHover={{ rotate: -4 }} className=" cursor-pointer">
-              <div className="bg-green-100 dark:bg-gradient-to-l from-black/20 to-green-100 rounded-2xl px-5 py-5 h-48 border border-neutral-200 relative overflow-hidden">
-                <div className="logo-container">
-                  <Logo name="spotify" size={33} />
-                  <div className="ripple"></div>
+            {/* Spotify */}
+            <BlurFade delay={0.1} inView>
+              <motion.div
+                whileHover={{ rotate: -4 }}
+                className=" cursor-pointer"
+              >
+                <div className="bg-green-100 dark:bg-gradient-to-l from-black/20 to-green-100 rounded-2xl px-5 py-5 h-48 border border-neutral-200 relative overflow-hidden">
+                  <div className="logo-container">
+                    <Logo name="spotify" size={33} />
+                    <div className="ripple"></div>
 
-                  {/* Music Chords */}
-                  <Music
-                    className="music-chord chord1"
-                    size={20}
-                    strokeWidth={3}
-                  />
-                  <Music
-                    className="music-chord chord2"
-                    size={20}
-                    strokeWidth={3}
-                  />
-                  <Music
-                    className="music-chord chord3"
-                    size={20}
-                    strokeWidth={3}
-                  />
-                </div>
-                <p className=" font-semibold sm:text-xs text-black/60 mt-2">
-                  Spotify
-                </p>
-                <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 mt-8">
-                  <IoPlaySkipBack />{" "}
-                  <IoPlay className=" sm:text-5xl text-3xl" />{" "}
-                  <IoPlaySkipForward />
-                </div>
-              </div>
-            </motion.div>
-          </BlurFade>
-
-          <BlurFade delay={0.15} inView>
-            {/* Gmail */}
-            <div className=" cursor-pointer">
-              <div className="bg-[#ffe2e2] dark:bg-gradient-to-l from-black/10 to-[#ffe2e2] rounded-xl pl-5 py-5 h-48 border border-neutral-200">
-                <div className="logo-container">
-                  <Logo name="gmail" size={35} />
-                </div>
-                <p className="font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words overflow-hidden text-ellipsis whitespace-nowrap">
-                  your email
-                </p>
-                <div className="flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                  <p className="py-0.5 text-sm font-medium px-1.5 bg-red-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-red-300 transition border border-neutral-300">
-                    Mail
+                    {/* Music Chords */}
+                    <Music
+                      className="music-chord chord1"
+                      size={20}
+                      strokeWidth={3}
+                    />
+                    <Music
+                      className="music-chord chord2"
+                      size={20}
+                      strokeWidth={3}
+                    />
+                    <Music
+                      className="music-chord chord3"
+                      size={20}
+                      strokeWidth={3}
+                    />
+                  </div>
+                  <p className=" font-semibold sm:text-xs text-black/60 mt-2">
+                    Spotify
                   </p>
+                  <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 mt-8">
+                    <IoPlaySkipBack />{" "}
+                    <IoPlay className=" sm:text-5xl text-3xl" />{" "}
+                    <IoPlaySkipForward />
+                  </div>
                 </div>
-              </div>
-            </div>
-          </BlurFade>
+              </motion.div>
+            </BlurFade>
 
-          {/* LinkedIn */}
-          <BlurFade delay={0.2} inView>
-            <div className=" cursor-pointer">
-              <div className="bg-[#E9F4FA] dark:bg-gradient-to-l from-black/20 to-[#e9f3fa] rounded-xl px-5 py-5 h-48  border border-neutral-200">
-                <div className=" logo-container">
-                  <Logo name="linkedin" size={35} />
-                </div>
-                <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words overflow-hidden text-ellipsis whitespace-nowrap">
-                  @yourhandle
-                </p>
-                <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                  <p className=" py-0.5 text-sm font-medium px-1.5 bg-blue-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-blue-300 transition border border-neutral-300">
-                    Connect
+            <BlurFade delay={0.15} inView>
+              {/* Gmail */}
+              <motion.div whileHover={{rotate:4}} className=" cursor-pointer">
+                <div className="bg-[#ffe2e2] dark:bg-gradient-to-l from-black/10 to-[#ffe2e2] rounded-xl pl-5 py-5 h-48 border border-neutral-200">
+                  <div className="logo-container">
+                    <Logo name="gmail" size={35} />
+                  </div>
+                  <p className="font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words overflow-hidden text-ellipsis whitespace-nowrap">
+                    your email
                   </p>
+                  <div className="flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                    <p className="py-0.5 text-sm font-medium px-1.5 bg-red-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-red-300 transition border border-neutral-300">
+                      Mail
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </BlurFade>
+              </motion.div>
+            </BlurFade>
 
-          {/* GitHub */}
-          <BlurFade delay={0.25} inView>
-            <div className=" cursor-pointer">
-              <div className="bg-gray-50 dark:bg-gradient-to-l from-black/10 to-gray-50 rounded-xl px-5 py-5 h-48 border border-neutral-200">
-                <div className=" logo-container">
-                  <Logo name="github" size={35} />
-                </div>
-                <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
-                  @yourhandle
-                </p>
-                <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                  <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition border border-neutral-50">
-                    Profile
+            {/* LinkedIn */}
+            <BlurFade delay={0.2} inView>
+              <motion.div whileHover={{rotate:-4}} className=" cursor-pointer">
+                <div className="bg-[#E9F4FA] dark:bg-gradient-to-l from-black/20 to-[#e9f3fa] rounded-xl px-5 py-5 h-48  border border-neutral-200">
+                  <div className=" logo-container">
+                    <Logo name="linkedin" size={35} />
+                  </div>
+                  <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words overflow-hidden text-ellipsis whitespace-nowrap">
+                    @yourhandle
                   </p>
+                  <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                    <p className=" py-0.5 text-sm font-medium px-1.5 bg-blue-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-blue-300 transition border border-neutral-300">
+                      Connect
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </BlurFade>
+              </motion.div>
+            </BlurFade>
 
-          {/* Youtube */}
-          <BlurFade delay={0.3} inView>
-            <div className=" cursor-pointer">
-              <div className="bg-[#ffe7e7] dark:bg-gradient-to-l from-black/10 to-[#ffe7e7] rounded-xl px-5 py-5 h-48 border border-neutral-200">
-                <div className=" logo-container">
-                  <Logo name="youtube" size={35} />
-                </div>
-                <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
-                  Your Channel
-                </p>
-                <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                  <p className=" py-0.5 text-sm font-medium px-1.5 bg-rose-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-rose-300 transition border border-neutral-300">
-                    Channel
+            {/* GitHub */}
+            <BlurFade delay={0.25} inView>
+              <motion.div whileHover={{rotate:-4}} className=" cursor-pointer">
+                <div className="bg-gray-50 dark:bg-gradient-to-l from-black/10 to-gray-50 rounded-xl px-5 py-5 h-48 border border-neutral-200">
+                  <div className=" logo-container">
+                    <Logo name="github" size={35} />
+                  </div>
+                  <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
+                    @yourhandle
                   </p>
+                  <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                    <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition border border-neutral-50">
+                      Profile
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </BlurFade>
+              </motion.div>
+            </BlurFade>
 
-          {/* Twitter */}
-          <BlurFade delay={0.35} inView>
-            <div className=" cursor-pointer">
-              <div className="bg-[#f5f5f5] dark:bg-gradient-to-l from-black/10 to-[#e4f3ff] rounded-xl px-5 py-5 h-48 border border-neutral-200">
-                <div className=" logo-container">
-                  <Logo name="twitter" size={35} />
-                </div>
-                <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
-                  @yourhandle
-                </p>
-                <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                  <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition border border-neutral-200">
-                    Follow
+            {/* Youtube */}
+            <BlurFade delay={0.3} inView>
+              <motion.div whileHover={{rotate:4}} className=" cursor-pointer">
+                <div className="bg-[#ffe7e7] dark:bg-gradient-to-l from-black/10 to-[#ffe7e7] rounded-xl px-5 py-5 h-48 border border-neutral-200">
+                  <div className=" logo-container">
+                    <Logo name="youtube" size={35} />
+                  </div>
+                  <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
+                    Your Channel
                   </p>
+                  <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                    <p className=" py-0.5 text-sm font-medium px-1.5 bg-rose-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-rose-300 transition border border-neutral-300">
+                      Channel
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </BlurFade>
+              </motion.div>
+            </BlurFade>
 
-          {/* Threads */}
-          <BlurFade delay={0.4} inView>
-            <div className=" cursor-pointer">
-              <div className="bg-gray-50 dark:bg-gradient-to-l from-black/10 to-gray-50 rounded-xl px-5 py-5 h-48 border border-neutral-200">
-                <div className=" logo-container">
-                  <Logo name="threads" size={35} />
-                </div>
-                <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
-                  @yourhandle
-                </p>
-                <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                  <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition border border-neutral-200">
-                    Follow
+            {/* Twitter */}
+            <BlurFade delay={0.35} inView>
+              <motion.div whileHover={{rotate:-4}} className=" cursor-pointer">
+                <div className="bg-[#f5f5f5] dark:bg-gradient-to-l from-black/10 to-[#e4f3ff] rounded-xl px-5 py-5 h-48 border border-neutral-200">
+                  <div className=" logo-container">
+                    <Logo name="twitter" size={35} />
+                  </div>
+                  <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
+                    @yourhandle
                   </p>
+                  <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                    <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition border border-neutral-200">
+                      Follow
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </BlurFade>
+              </motion.div>
+            </BlurFade>
 
-          {/* FavouriteQuote */}
+            {/* Threads */}
+            <BlurFade delay={0.4} inView>
+              <motion.div whileHover={{rotate:4}} className=" cursor-pointer">
+                <div className="bg-gray-50 dark:bg-gradient-to-l from-black/10 to-gray-50 rounded-xl px-5 py-5 h-48 border border-neutral-200">
+                  <div className=" logo-container">
+                    <Logo name="threads" size={35} />
+                  </div>
+                  <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
+                    @yourhandle
+                  </p>
+                  <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                    <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition border border-neutral-200">
+                      Follow
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </BlurFade>
 
-          <motion.div
-            initial={{
-              offset: 6,
-              opacity: 0,
-              filter: "blur(6px)",
-            }}
-            whileInView={{
-              offset: 0,
-              opacity: 1,
-              filter: "blur(0px)",
-            }}
-            transition={{
-              delay: 0.04 + 0.45,
-              duration: 0.4,
-              ease: "easeOut",
-            }}
-            viewport={{ once: true }}
-            className="relative rounded-xl md:col-span-3 sm:col-span-2 col-span-2 lg:col-span-2 h-48 overflow-hidden"
-          >
-            <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-full blur-3xl" />
+            {/* FavouriteQuote */}
 
-            {/* Content */}
-            <div className="relative shadow-xl bg-gray-900 border border-gray-800 px-5 py-5 h-full rounded-xl flex flex-col items-center justify-center">
-              {/* FavQuotes component */}
-
-              <p className="font-normal text-sm sm:text-base text-slate-300 relative z-40">
-                It is not the strongest of the species that survive, nor the
-                most intelligent, but the one most responsive to change.
-              </p>
-
-              <Meteors number={20} />
-            </div>
-          </motion.div>
-
-          {/* Photo */}
-
-          <motion.div
-            initial={{
-              offset: 6,
-              opacity: 0,
-              filter: "blur(6px)",
-            }}
-            whileInView={{
-              offset: 0,
-              opacity: 1,
-              filter: "blur(0px)",
-            }}
-            transition={{
-              delay: 0.04 + 0.5,
-              duration: 0.4,
-              ease: "easeOut",
-            }}
-            viewport={{ once: true }}
-            className="bg-gray-50 relative dark:bg-gray-800 rounded-xl col-span-2 md:col-span-3 sm:col-span-2 lg:col-span-2 row-span-2 md:h-[400px] sm:h-auto h-[400px] overflow-hidden border border-neutral-200 dark:border-none "
-          >
-            <Image
-              src="/landing.jpg"
-              alt="image"
-              fill
-              className="w-full h-full object-cover"
-              priority
-            />
-          </motion.div>
-
-          {/* Occupation */}
-          <motion.div
-            initial={{
-              offset: 6,
-              opacity: 0,
-              filter: "blur(6px)",
-            }}
-            whileInView={{
-              offset: 0,
-              opacity: 1,
-              filter: "blur(0px)",
-            }}
-            transition={{
-              delay: 0.04 + 0.55,
-              duration: 0.4,
-              ease: "easeOut",
-            }}
-            viewport={{ once: true }}
-            className=" bgcustom rounded-xl px-5 py-5 col-span-2  h-48 border "
-          >
-            <div className="">
-              <img
-                width="37"
-                height="37"
-                src="https://img.icons8.com/emoji/48/rocket-emji.png"
-                alt="rocket-emji"
-              />
-            </div>
-            <p className=" font-semibold w-full mx-auto sm:text-sm text-xs text-center text-black/70 mt-2 ">
-              {" "}
-              Proudly I&apos;m a
-            </p>
-            <p className=" font-bold w-full text-center text-base text-black/90 mt-1 ">
-              {" "}
-              Software Developer
-            </p>
-          </motion.div>
-
-          {/* Location */}
-          
             <motion.div
-            initial={{
-              offset: 6,
-              opacity: 0,
-              filter: "blur(6px)",
-            }}
-            whileHover={{
-              rotate:2
-            }}
-            whileInView={{
-              offset: 0,
-              opacity: 1,
-              filter: "blur(0px)",
-            }}
-           
-            viewport={{ once: true }}
+              initial={{
+                offset: 6,
+                opacity: 0,
+                filter: "blur(6px)",
+              }}
+              whileInView={{
+                offset: 0,
+                opacity: 1,
+                filter: "blur(0px)",
+                transition:{
+                  delay: 0.04 + 0.45,
+                  duration: 0.4,
+                  ease: "easeOut",
+                }
+              }}
+              
+              whileHover={{rotate:2}}
+              viewport={{ once: true }}
+              className="relative rounded-xl md:col-span-3 sm:col-span-2 col-span-2 lg:col-span-2 h-48 overflow-hidden"
+            >
+              <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-full blur-3xl" />
+
+              {/* Content */}
+              <div className="relative shadow-xl bg-gray-900 border border-gray-800 px-5 py-5 h-full rounded-xl flex flex-col items-center justify-center">
+                {/* FavQuotes component */}
+
+                <p className="font-normal text-sm sm:text-base text-slate-300 relative z-40">
+                  It is not the strongest of the species that survive, nor the
+                  most intelligent, but the one most responsive to change.
+                </p>
+
+                <Meteors number={20} />
+              </div>
+            </motion.div>
+
+            {/* Photo */}
+
+            <motion.div
+              initial={{
+                offset: 6,
+                opacity: 0,
+                filter: "blur(6px)",
+              }}
+              whileInView={{
+                offset: 0,
+                opacity: 1,
+                filter: "blur(0px)",
+                transition: {
+                  delay: 0.04 + 0.5,
+                  duration: 0.4,
+                  ease: "easeOut",
+                },
+              }}
+              whileHover={{rotate: 3}}
+              viewport={{ once: true }}
+              className="bg-gray-50 relative dark:bg-gray-800 rounded-xl col-span-2 md:col-span-3 sm:col-span-2 lg:col-span-2 row-span-2 md:h-[400px] sm:h-auto h-[400px] overflow-hidden border border-neutral-200 dark:border-none "
+            >
+              <Image
+                src="/landing.jpg"
+                alt="image"
+                fill
+                className="w-full h-full object-cover"
+                priority
+              />
+            </motion.div>
+
+            {/* Occupation */}
+            <motion.div
+              initial={{
+                offset: 6,
+                opacity: 0,
+                filter: "blur(6px)",
+              }}
+              whileInView={{
+                offset: 0,
+                opacity: 1,
+                filter: "blur(0px)",
+                transition: {
+                  delay: 0.04 + 0.55,
+                  duration: 0.4,
+                  ease: "easeOut",
+                },
+              }}
+              whileHover={{
+                rotate:-2
+              }}
+              viewport={{ once: true }}
+              className=" bgcustom rounded-xl px-5 py-5 col-span-2  h-48 border "
+            >
+              <div className="">
+                <img
+                  width="37"
+                  height="37"
+                  src="https://img.icons8.com/emoji/48/rocket-emji.png"
+                  alt="rocket-emji"
+                />
+              </div>
+              <p className=" font-semibold w-full mx-auto sm:text-sm text-xs text-center text-black/70 mt-2 ">
+                {" "}
+                Proudly I&apos;m a
+              </p>
+              <p className=" font-bold w-full text-center text-base text-black/90 mt-1 ">
+                {" "}
+                Software Developer
+              </p>
+            </motion.div>
+
+            {/* Location */}
+
+            <motion.div
+              initial={{
+                offset: 6,
+                opacity: 0,
+                filter: "blur(6px)",
+              }}
+              whileInView={{
+                offset: 0,
+                opacity: 1,
+                filter: "blur(0px)",
+                transition: {
+                  delay: 0.04 + 0.6,
+                  duration: 0.4,
+                  ease: "easeOut",
+                },
+              }}
+              whileHover={{
+                rotate: 2,
+              }}
+              viewport={{ once: true }}
               className="bg-purple-100 dark:bg-gradient-to-l from-black/20 to-purple-100  rounded-xl p-5 sm:col-span-1 md:col-span-1 lg:col-span-3 col-span-3 h-48 border border-neutral-200 dark:border-neutral-800
-       transition-all duration-300 relative overflow-hidden cursor-pointer"
+        relative overflow-hidden cursor-pointer"
             >
               <div className="flex flex-col justify-between h-full z-10 ">
                 <div className="text-2xl flex flex-row gap-2 z-10  font-bold text-neutral-800 ">
@@ -344,52 +360,54 @@ function PreviewGrid() {
               </div>
 
               {/* Add GlobeDemo in the bottom right corner */}
-            
             </motion.div>
-         
-          {/* Custom_Link */}
-          <Link
-            href="https://devadil.vercel.app"
-            target="_blank"
-            className=" cursor-pointer"
-          >
-            <motion.div
-              initial={{
-                offset: 6,
-                opacity: 0,
-                filter: "blur(6px)",
-              }}
-              whileInView={{
-                offset: 0,
-                opacity: 1,
-                filter: "blur(0px)",
-              }}
-              transition={{
-                delay: 0.04 + 0.65,
-                duration: 0.4,
-                ease: "easeOut",
-              }}
-              viewport={{ once: true }}
-              className="bg-[#e2efff] dark:bg-gradient-to-l from-black/10 to-[#e2efff] rounded-xl px-5 pb-5 pt-4 h-48 border sm:col-span-2 col-span-1 border-neutral-200"
+
+            {/* Custom_Link */}
+            <Link
+              href="https://devadil.vercel.app"
+              target="_blank"
+              className=" cursor-pointer"
             >
-              <div className=" logo-container shadow-lg rounded-md bg-blue-200">
-                <img
-                  width="40"
-                  height="40"
-                  src="https://img.icons8.com/bubbles/100/geography.png"
-                  alt="geography"
-                />
-              </div>
-              <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words overflow-hidden text-ellipsis whitespace-nowrap">
-                Devadil.vercel.app
-              </p>
-              <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                <p className=" py-0.5 text-sm font-medium px-1.5 bg-blue-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-blue-300 transition border border-neutral-300">
-                  Visit
+              <motion.div
+                initial={{
+                  offset: 6,
+                  opacity: 0,
+                  filter: "blur(6px)",
+                }}
+                whileInView={{
+                  offset: 0,
+                  opacity: 1,
+                  filter: "blur(0px)",
+                  transition: {
+                    delay: 0.04 + 0.65,
+                    duration: 0.4,
+                    ease: "easeOut",
+                  },
+                }}
+                whileHover={{
+                  rotate: -4,
+                }}
+                viewport={{ once: true }}
+                className="bg-[#e2efff] dark:bg-gradient-to-l from-black/10 to-[#e2efff] rounded-xl px-5 pb-5 pt-4 h-48 border sm:col-span-2 col-span-1 border-neutral-200"
+              >
+                <div className=" logo-container shadow-lg rounded-md bg-blue-200">
+                  <img
+                    width="40"
+                    height="40"
+                    src="https://img.icons8.com/bubbles/100/geography.png"
+                    alt="geography"
+                  />
+                </div>
+                <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words overflow-hidden text-ellipsis whitespace-nowrap">
+                  Devadil.vercel.app
                 </p>
-              </div>
-            </motion.div>
-          </Link>
+                <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                  <p className=" py-0.5 text-sm font-medium px-1.5 bg-blue-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-blue-300 transition border border-neutral-300">
+                    Visit
+                  </p>
+                </div>
+              </motion.div>
+            </Link>
           </AnimatePresence>
         </div>
       </div>
