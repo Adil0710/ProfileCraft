@@ -16,9 +16,9 @@ export function CardSpotlightDemo() {
           <Step title="Welcome to ProfileCraft" />
         </ul>
       </div>
-      <div className="flex items-center gap-4 mt-5">
+      <div className="flex items-center gap-4 mt-5 z-20">
         <Separator className="flex-1" />
-        <span className="text-muted-foreground">or</span>
+        <span className="text-muted-foreground z-20">or</span>
         <Separator className="flex-1" />
       </div>
       <div className="dark:text-neutral-200 text-neutral-800 mt-4 relative z-20">
@@ -27,10 +27,7 @@ export function CardSpotlightDemo() {
           <Step title="Welcome to ProfileCraft" />
         </ul>
       </div>
-      <p className="dark:text-neutral-300 text-neutral-700 mt-4 relative z-20 text-sm">
-        Ensuring your account is properly secured helps protect your personal
-        information and data.
-      </p>
+     
     </CardSpotlight>
   );
 }
