@@ -23,7 +23,7 @@ function Key({
   className?: string;
   children?: React.ReactNode;
 }) {
-  let { highlighted } = useContext(KeyboardContext);
+  const { highlighted } = useContext(KeyboardContext);
 
   return (
     <motion.div
