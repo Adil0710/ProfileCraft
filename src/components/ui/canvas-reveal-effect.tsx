@@ -284,6 +284,7 @@ const ShaderMaterial = ({
   }, [size.width, size.height, source]);
 
   return (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     <mesh ref={ref as any}>
       <planeGeometry args={[2, 2]} />
       <primitive object={material} attach="material" />

@@ -37,11 +37,11 @@ export function BentoCard({
       <div className="relative h-80 shrink-0">
         {graphic}
         {fade.includes("top") && (
-          // eslint-disable-next-line tailwindcss/no-contradicting-classname
+       
           <div className="absolute inset-0 bg-gradient-to-b from-white to-30% group-data-[dark]:from-gray-950 group-data-[dark]:from-[-25%]" />
         )}
         {fade.includes("bottom") && (
-          // eslint-disable-next-line tailwindcss/no-contradicting-classname
+       
           <div className="absolute inset-0 bg-gradient-to-t from-white to-30% dark:from-gray-950 dark:from-[5%]" />
         )}
       </div>

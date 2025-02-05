@@ -99,7 +99,7 @@ export const projects = [
     ),
   },
   {
-    title: "Secure Links",
+    title: "Secure Profile",
     description:
       "Keep your profile safe with advanced security features and link protection.",
     icon: (
