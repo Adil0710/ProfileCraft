@@ -12,7 +12,7 @@ import { CardSpotlightDemo } from "./CardSpotLight";
 
 export function HowWorks() {
   return (
-    <div className=" bg-white flex flex-col justify-center items-center dark:bg-black py-10">
+    <div className=" bg-white flex flex-col justify-center items-center dark:bg-black py-10 px-5">
       <Header
         header=" How ProfileCraft Works"
         description="Create your perfect profile in three simple steps"
