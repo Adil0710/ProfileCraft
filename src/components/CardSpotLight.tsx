@@ -4,7 +4,7 @@ import { Separator } from "./ui/separator";
 export function CardSpotlightDemo() {
   return (
     <CardSpotlight className="h-full w-full">
-      <p className="text-xl font-bold relative z-20 mt-2 dark:text-white text-black">
+      <p className="text-xl font-bold relative z-20 pt-0 sm:pt-2 dark:text-white text-black">
         Authentication steps
       </p>
       <div className="dark:text-neutral-200 text-neutral-800 mt-4 relative z-20">
