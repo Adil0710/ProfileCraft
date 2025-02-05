@@ -109,7 +109,7 @@ export function LogoCluster() {
       <div className="absolute left-1/2 h-full w-[26rem] -translate-x-1/2">
         <MainLogo />
         <Logo
-          src="/X.svg"
+          src="/x.svg"
           left={350}
           top={144}
           hover={{ x: 6, y: 1, rotate: 5, delay: 0.38 }}
