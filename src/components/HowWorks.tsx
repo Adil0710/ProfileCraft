@@ -24,7 +24,7 @@ export function HowWorks() {
           title="Perfect Social Profile"
           description="Share all your social profiles, bio, and more with one beautiful link. Create your personalized profile grid in minutes with ProfileCraft."
           graphic={
-            // eslint-disable-next-line tailwindcss/no-contradicting-classname
+         
             <div>
               <AnimatedBeamMultipleOutput className="bg-white dark:bg-gray-950 z-10 absolute right-0 top-0 h-full rounded-none border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_-10%,#000_-50%)] group-hover:scale-105" />
               <div
@@ -43,7 +43,7 @@ export function HowWorks() {
           description="Ensuring your account is properly secured helps protect your personal
         information and data."
           graphic={
-            // eslint-disable-next-line tailwindcss/no-contradicting-classname
+          
            <CardSpotlightDemo/>
           }
           fade={["bottom"]}
