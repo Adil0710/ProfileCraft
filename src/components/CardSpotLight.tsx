@@ -16,12 +16,12 @@ export function CardSpotlightDemo() {
           <Step title="Welcome to ProfileCraft" />
         </ul>
       </div>
-      <div className="flex items-center gap-4 mt-5 z-20">
+      <div className="flex items-center gap-4 mt-3 z-20">
         <Separator className="flex-1" />
         <span className="text-muted-foreground z-20">or</span>
         <Separator className="flex-1" />
       </div>
-      <div className="dark:text-neutral-200 text-neutral-800 mt-4 relative z-20">
+      <div className="dark:text-neutral-200 text-neutral-800 mt-3 relative z-20">
         <ul className="list-none  mt-2">
           <Step title="Login with Google" />
           <Step title="Welcome to ProfileCraft" />

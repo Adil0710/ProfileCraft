@@ -97,14 +97,14 @@ function Logo({
       src={src}
     
       style={{ left, top } as React.CSSProperties}
-      className={`absolute size-16 rounded-full bg-white shadow ring-1 ring-black/5 dark:bg-gray-900  dark:ring-white/10 ${className}`}
+      className={`absolute size-16 rounded-full bg-white shadow ring-1 ring-black/5 dark:bg-gray-900  dark:ring-white/10 ${className} z-20`}
     />
   );
 }
 
 export function LogoCluster() {
   return (
-    <div aria-hidden="true" className="relative h-full overflow-hidden">
+    <div aria-hidden="true" className="relative h-full overflow-hidden z-20">
       <Circles />
       <div className="absolute left-1/2 h-full w-[26rem] -translate-x-1/2">
         <MainLogo />
