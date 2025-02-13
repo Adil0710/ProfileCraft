@@ -10,11 +10,10 @@ export default function Home() {
   return (
     <div className=" max-w-screen">
       <Hero />
-      <HowWorks/>
-
+      <PreviewGrid />
+      <HowWorks />
       <Features />
       <Showcase />
-      <PreviewGrid/>
     </div>
   );
 }

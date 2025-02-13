@@ -226,229 +226,246 @@ export default function UserProfile({
               <div className="w-full h-auto lg:h-screen overflow-y-auto pt-28 sm:pb-5 pb-20 md:pr-0 pr-0 lg:pr-10 hidden-scrollbar">
                 <div className="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 m-4">
                   {/* LinkedIn */}
-
-                  <Link href={`${linkedinProfile}`} target="_blank">
-                    <BlurFade delay={{ lg: 0.25, base: 0.002 }}>
-                      <div className="bg-gradient-to-br dark:from-sky-300 dark:to-blue-600 from-sky-200 to-blue-500 rounded-xl px-5 py-5 h-48  ">
-                        <div className=" logo-container">
-                          <Logo name="linkedin" size={35} />
-                        </div>
-                        <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words overflow-hidden text-ellipsis whitespace-nowrap">
-                          {linkedinProfile}
-                        </p>
-                        <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                          <p className=" py-0.5 text-sm font-medium px-1.5 bg-blue-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-blue-300 transition">
-                            Connect
+                  {linkedinProfile && (
+                    <Link href={`${linkedinProfile}`} target="_blank">
+                      <BlurFade delay={{ lg: 0.25, base: 0.002 }}>
+                        <div className="bg-gradient-to-br dark:from-sky-300 dark:to-blue-600 from-sky-200 to-blue-500 rounded-xl px-5 py-5 h-48  ">
+                          <div className=" logo-container">
+                            <Logo name="linkedin" size={35} />
+                          </div>
+                          <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words overflow-hidden text-ellipsis whitespace-nowrap">
+                            {linkedinProfile}
                           </p>
+                          <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                            <p className=" py-0.5 text-sm font-medium px-1.5 bg-blue-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-blue-300 transition">
+                              Connect
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    </BlurFade>
-                  </Link>
+                      </BlurFade>
+                    </Link>
+                  )}
 
                   {/* Spotify */}
 
-                  <Link href={spotifyLink} target="_blank">
-                    <BlurFade delay={{ lg: 0.3, base: 0.1 }}>
-                      <div className="bg-gradient-to-br dark:from-green-200 dark:to-emerald-500 from-green-100 to-emerald-400 rounded-2xl px-5 py-5 h-48  relative overflow-hidden">
-                        <div className="logo-container">
-                          <Logo name="spotify" size={33} />
-                          <div className="ripple"></div>
+                  {spotifyLink && (
+                    <Link href={spotifyLink} target="_blank">
+                      <BlurFade delay={{ lg: 0.3, base: 0.1 }}>
+                        <div className="bg-gradient-to-br dark:from-green-200 dark:to-emerald-500 from-green-100 to-emerald-400 rounded-2xl px-5 py-5 h-48  relative overflow-hidden">
+                          <div className="logo-container">
+                            <Logo name="spotify" size={33} />
+                            <div className="ripple"></div>
 
-                          {/* Music Chords */}
-                          <Music
-                            className="music-chord chord1"
-                            size={20}
-                            strokeWidth={3}
-                          />
-                          <Music
-                            className="music-chord chord2"
-                            size={20}
-                            strokeWidth={3}
-                          />
+                            {/* Music Chords */}
+                            <Music
+                              className="music-chord chord1"
+                              size={20}
+                              strokeWidth={3}
+                            />
+                            <Music
+                              className="music-chord chord2"
+                              size={20}
+                              strokeWidth={3}
+                            />
+                          </div>
+                          <p className=" font-semibold sm:text-xs text-black/60 mt-2">
+                            Spotify
+                          </p>
+                          <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 mt-8">
+                            <IoPlaySkipBack />{" "}
+                            <IoPlay className=" sm:text-5xl text-3xl" />{" "}
+                            <IoPlaySkipForward />
+                          </div>
                         </div>
-                        <p className=" font-semibold sm:text-xs text-black/60 mt-2">
-                          Spotify
-                        </p>
-                        <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 mt-8">
-                          <IoPlaySkipBack />{" "}
-                          <IoPlay className=" sm:text-5xl text-3xl" />{" "}
-                          <IoPlaySkipForward />
-                        </div>
-                      </div>
-                    </BlurFade>
-                  </Link>
+                      </BlurFade>
+                    </Link>
+                  )}
 
                   {/* Gmail */}
 
-                  <Link href={`mailto:${user.email}`} target="_blank">
-                    <BlurFade delay={{ lg: 0.35, base: 0.15 }}>
-                      <div className="bg-gradient-to-br dark:from-rose-300 dark:to-red-600 from-rose-200 to-red-500 rounded-xl pl-5 py-5 h-48 ">
-                        <div className="logo-container">
-                          <Logo name="gmail" size={35} />
-                        </div>
-                        <p className="font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words overflow-hidden text-ellipsis whitespace-nowrap">
-                          {user.email}
-                        </p>
-                        <div className="flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                          <p className="py-0.5 text-sm font-medium px-1.5 bg-red-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-red-300 transition">
-                            Mail
+                  {user.email && (
+                    <Link href={`mailto:${user.email}`} target="_blank">
+                      <BlurFade delay={{ lg: 0.35, base: 0.15 }}>
+                        <div className="bg-gradient-to-br dark:from-rose-300 dark:to-red-600 from-rose-200 to-red-500 rounded-xl pl-5 py-5 h-48 ">
+                          <div className="logo-container">
+                            <Logo name="gmail" size={35} />
+                          </div>
+                          <p className="font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words overflow-hidden text-ellipsis whitespace-nowrap">
+                            {user.email}
                           </p>
+                          <div className="flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                            <p className="py-0.5 text-sm font-medium px-1.5 bg-red-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-red-300 transition">
+                              Mail
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    </BlurFade>
-                  </Link>
+                      </BlurFade>
+                    </Link>
+                  )}
 
                   {/* Instagram */}
 
-                  <Link
-                    href={`https://www.instagram.com/${instagramUsername}`}
-                    target="_blank"
-                  >
-                    <BlurFade delay={0.2}>
-                      <div className=" bg-gradient-to-br dark:from-pink-300 dark:to-purple-500 from-pink-200 to-purple-400 rounded-2xl px-5 py-5 h-48">
-                        <div className="logo-container">
-                          <Logo name="instagram" size={33} />
-                        </div>
-                        <p className=" font-semibold text-xs text-black/60 mt-2">
-                          @ {instagramUsername}
-                        </p>
-                        <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                          <p className=" py-0.5 text-sm font-medium px-1.5 bg-pink-100 text-black w-20 rounded-full flex items-center justify-center hover:bg-pink-200 transition">
-                            Follow
+                  {instagramUsername && (
+                    <Link
+                      href={`https://www.instagram.com/${instagramUsername}`}
+                      target="_blank"
+                    >
+                      <BlurFade delay={0.2}>
+                        <div className=" bg-gradient-to-br dark:from-pink-300 dark:to-purple-500 from-pink-200 to-purple-400 rounded-2xl px-5 py-5 h-48">
+                          <div className="logo-container">
+                            <Logo name="instagram" size={33} />
+                          </div>
+                          <p className=" font-semibold text-xs text-black/60 mt-2">
+                            @ {instagramUsername}
                           </p>
+                          <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                            <p className=" py-0.5 text-sm font-medium px-1.5 bg-pink-100 text-black w-20 rounded-full flex items-center justify-center hover:bg-pink-200 transition">
+                              Follow
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    </BlurFade>
-                  </Link>
+                      </BlurFade>
+                    </Link>
+                  )}
 
                   {/* GitHub */}
 
-                  <Link
-                    href={`https://github.com/${githubUsername}`}
-                    target="_blank"
-                  >
-                    {" "}
-                    <BlurFade delay={0.25}>
-                      <div className="bg-gradient-to-br dark:from-neutral-100 dark:to-neutral-500  from-neutral-50 to-neutral-400 rounded-xl px-5 py-5 h-48 ">
-                        <div className=" logo-container">
-                          <Logo name="github" size={35} />
-                        </div>
-                        <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
-                          {githubUsername}
-                        </p>
-                        <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                          <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition">
-                            Profile
+                  {githubUsername && (
+                    <Link
+                      href={`https://github.com/${githubUsername}`}
+                      target="_blank"
+                    >
+                      {" "}
+                      <BlurFade delay={0.25}>
+                        <div className="bg-gradient-to-br dark:from-neutral-100 dark:to-neutral-500  from-neutral-50 to-neutral-400 rounded-xl px-5 py-5 h-48 ">
+                          <div className=" logo-container">
+                            <Logo name="github" size={35} />
+                          </div>
+                          <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
+                            {githubUsername}
                           </p>
+                          <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                            <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition">
+                              Profile
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    </BlurFade>
-                  </Link>
+                      </BlurFade>
+                    </Link>
+                  )}
 
                   {/* Youtube */}
 
-                  <Link
-                    href={`https://www.youtube.com/@${youtubeChannel}`}
-                    target="_blank"
-                  >
-                    <BlurFade delay={0.3}>
-                      <div className="bg-gradient-to-r from-red-300 dark:to-red-600 to-red-500 rounded-xl px-5 py-5 h-48 ">
-                        <div className=" logo-container">
-                          <Logo name="youtube" size={35} />
-                        </div>
-                        <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
-                          @ {youtubeChannel}
-                        </p>
-                        <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                          <p className=" py-0.5 text-sm font-medium px-1.5 bg-rose-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-rose-300 transition">
-                            Channel
+                  {youtubeChannel && (
+                    <Link
+                      href={`https://www.youtube.com/@${youtubeChannel}`}
+                      target="_blank"
+                    >
+                      <BlurFade delay={0.3}>
+                        <div className="bg-gradient-to-r from-red-300 dark:to-red-600 to-red-500 rounded-xl px-5 py-5 h-48 ">
+                          <div className=" logo-container">
+                            <Logo name="youtube" size={35} />
+                          </div>
+                          <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
+                            @ {youtubeChannel}
                           </p>
+                          <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                            <p className=" py-0.5 text-sm font-medium px-1.5 bg-rose-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-rose-300 transition">
+                              Channel
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    </BlurFade>
-                  </Link>
+                      </BlurFade>
+                    </Link>
+                  )}
 
                   {/* Twitter */}
 
-                  <Link
-                    href={`https://x.com/${twitterUsername}`}
-                    target="_blank"
-                  >
-                    <BlurFade delay={0.35}>
-                      <div className="bg-gradient-to-br dark:from-[#daeeff] dark:to-neutral-500 from-[#dcefff] to-neutral-400 rounded-xl px-5 py-5 h-48 ">
-                        <div className=" logo-container">
-                          <Logo name="twitter" size={35} />
-                        </div>
-                        <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
-                          @ {twitterUsername}
-                        </p>
-                        <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                          <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition">
-                            Follow
+                  {twitterUsername && (
+                    <Link
+                      href={`https://x.com/${twitterUsername}`}
+                      target="_blank"
+                    >
+                      <BlurFade delay={0.35}>
+                        <div className="bg-gradient-to-br dark:from-[#daeeff] dark:to-neutral-500 from-[#dcefff] to-neutral-400 rounded-xl px-5 py-5 h-48 ">
+                          <div className=" logo-container">
+                            <Logo name="twitter" size={35} />
+                          </div>
+                          <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
+                            @ {twitterUsername}
                           </p>
+                          <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                            <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition">
+                              Follow
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    </BlurFade>
-                  </Link>
+                      </BlurFade>
+                    </Link>
+                  )}
 
                   {/* Threads */}
 
-                  <Link
-                    href={`https://www.threads.net/@${threadsUsername}`}
-                    target="_blank"
-                  >
-                    <BlurFade delay={0.4}>
-                      <div className="bg-gradient-to-br dark:from-neutral-100 dark:to-neutral-500  from-neutral-50 to-neutral-400 rounded-xl px-5 py-5 h-48 ">
-                        <div className=" logo-container">
-                          <Logo name="threads" size={35} />
-                        </div>
-                        <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
-                          {threadsUsername}
-                        </p>
-                        <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                          <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition">
-                            Follow
+                  {threadsUsername && (
+                    <Link
+                      href={`https://www.threads.net/@${threadsUsername}`}
+                      target="_blank"
+                    >
+                      <BlurFade delay={0.4}>
+                        <div className="bg-gradient-to-br dark:from-neutral-100 dark:to-neutral-500  from-neutral-50 to-neutral-400 rounded-xl px-5 py-5 h-48 ">
+                          <div className=" logo-container">
+                            <Logo name="threads" size={35} />
+                          </div>
+                          <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words">
+                            {threadsUsername}
                           </p>
+                          <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                            <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition">
+                              Follow
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    </BlurFade>
-                  </Link>
+                      </BlurFade>
+                    </Link>
+                  )}
 
                   {/* FavouriteQuote */}
 
-                  <motion.div
-                    initial={{
-                      offset: 6,
-                      opacity: 0,
-                      filter: "blur(6px)",
-                    }}
-                    animate={{
-                      offset: 0,
-                      opacity: 1,
-                      filter: "blur(0px)",
-                    }}
-                    transition={{
-                      delay: 0.04 + 0.45,
-                      duration: 0.4,
-                      ease: "easeOut",
-                    }}
-                    className="relative rounded-xl md:col-span-3 sm:col-span-2 col-span-2 lg:col-span-2 h-48 overflow-hidden"
-                  >
-                    <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.95] rounded-full blur-3xl" />
+                  {user.favoriteQuote && (
+                    <motion.div
+                      initial={{
+                        offset: 6,
+                        opacity: 0,
+                        filter: "blur(6px)",
+                      }}
+                      animate={{
+                        offset: 0,
+                        opacity: 1,
+                        filter: "blur(0px)",
+                      }}
+                      transition={{
+                        delay: 0.04 + 0.45,
+                        duration: 0.4,
+                        ease: "easeOut",
+                      }}
+                      className="relative rounded-xl md:col-span-3 sm:col-span-2 col-span-2 lg:col-span-2 h-48 overflow-hidden"
+                    >
+                      <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.95] rounded-full blur-3xl" />
 
-                    {/* Content */}
-                    <div className="relative shadow-xl bg-gray-900/10 px-5 py-5 h-full rounded-xl flex flex-col items-center justify-center">
-                      {/* FavQuotes component */}
-                      <p className="font-medium text-sm sm:text-base text-slate-800 dark:text-slate-100 relative z-40">
-                        {user.favoriteQuote}
-                      </p>
+                      {/* Content */}
+                      <div className="relative shadow-xl bg-gray-900/10 px-5 py-5 h-full rounded-xl flex flex-col items-center justify-center">
+                        {/* FavQuotes component */}
+                        <p className="font-medium text-sm sm:text-base text-slate-800 dark:text-slate-100 relative z-40">
+                          {user.favoriteQuote}
+                        </p>
 
-                      <Meteors number={20} />
-                    </div>
-                  </motion.div>
+                        <Meteors number={20} />
+                      </div>
+                    </motion.div>
+                  )}
 
                   {/* Photo */}
-                  {user.image ? (
+                  {user.image && (
                     <motion.div
                       initial={{
                         offset: 6,
@@ -475,76 +492,80 @@ export default function UserProfile({
                         priority
                       />
                     </motion.div>
-                  ) : (
-                    ""
                   )}
 
                   {/* Occupation */}
 
-                  <motion.div
-                    initial={{
-                      offset: 6,
-                      opacity: 0,
-                      filter: "blur(6px)",
-                    }}
-                    animate={{
-                      offset: 0,
-                      opacity: 1,
-                      filter: "blur(0px)",
-                    }}
-                    transition={{
-                      delay: 0.04 + 0.5,
-                      duration: 0.4,
-                      ease: "easeOut",
-                    }}
-                    className=" bgcustom rounded-xl px-5 py-5 col-span-2  h-48 border "
-                  >
-                    <div className="">
-                      <img
-                        width="37"
-                        height="37"
-                        src="https://img.icons8.com/emoji/48/rocket-emji.png"
-                        alt="rocket-emji"
-                      />
-                    </div>
-                    <p className=" font-semibold w-full mx-auto sm:text-sm text-xs text-center text-black/70 mt-2 ">
-                      {" "}
-                      Proudly I&apos;m a
-                    </p>
-                    <p className=" font-bold w-full text-center text-base text-black/90 mt-1 ">
-                      {" "}
-                      {user.occupation}
-                    </p>
-                  </motion.div>
+                  {user.occupation && (
+                    <motion.div
+                      initial={{
+                        offset: 6,
+                        opacity: 0,
+                        filter: "blur(6px)",
+                      }}
+                      animate={{
+                        offset: 0,
+                        opacity: 1,
+                        filter: "blur(0px)",
+                      }}
+                      transition={{
+                        delay: 0.04 + 0.5,
+                        duration: 0.4,
+                        ease: "easeOut",
+                      }}
+                      className=" bgcustom rounded-xl px-5 py-5 col-span-2  h-48 border "
+                    >
+                      <div className="">
+                        <img
+                          width="37"
+                          height="37"
+                          src="https://img.icons8.com/emoji/48/rocket-emji.png"
+                          alt="rocket-emji"
+                        />
+                      </div>
+                      <p className=" font-semibold w-full mx-auto sm:text-sm text-xs text-center text-black/70 mt-2 ">
+                        {" "}
+                        Proudly I&apos;m a
+                      </p>
+                      <p className=" font-bold w-full text-center text-base text-black/90 mt-1 ">
+                        {" "}
+                        {user.occupation}
+                      </p>
+                    </motion.div>
+                  )}
 
                   {/* Custom_Link */}
 
-                  <Link href={`${customLink}`} target="_blank">
-                    <BlurFade delay={0.55}>
-                      <div className="bg-gradient-to-br dark:from-pink-300 dark:to-violet-500 from-pink-200 to-violet-400 rounded-xl px-5 pb-5 pt-4 h-48  sm:col-span-2 col-span-1 ">
-                        <div className=" logo-container shadow-lg rounded-md bg-blue-200">
-                          <img
-                            width="40"
-                            height="40"
-                            src="https://img.icons8.com/bubbles/100/geography.png"
-                            alt="geography"
-                          />
-                        </div>
-                        <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words overflow-hidden text-ellipsis whitespace-nowrap">
-                          {customLink}
-                        </p>
-                        <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                          <p className=" py-0.5 text-sm font-medium px-1.5 bg-blue-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-blue-300 transition">
-                            Visit
+                  {customLink && (
+                    <Link href={`${customLink}`} target="_blank">
+                      <BlurFade delay={0.55}>
+                        <div className="bg-gradient-to-br dark:from-pink-300 dark:to-violet-500 from-pink-200 to-violet-400 rounded-xl px-5 pb-5 pt-4 h-48  sm:col-span-2 col-span-1 ">
+                          <div className=" logo-container shadow-lg rounded-md bg-blue-200">
+                            <img
+                              width="40"
+                              height="40"
+                              src="https://img.icons8.com/bubbles/100/geography.png"
+                              alt="geography"
+                            />
+                          </div>
+                          <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words overflow-hidden text-ellipsis whitespace-nowrap">
+                            {customLink}
                           </p>
+                          <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
+                            <p className=" py-0.5 text-sm font-medium px-1.5 bg-blue-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-blue-300 transition">
+                              Visit
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    </BlurFade>
-                  </Link>
+                      </BlurFade>
+                    </Link>
+                  )}
 
                   {/* Location */}
 
-                  <LocationCard location={`${user.location}`} />
+                  {user.location && (
+                    <LocationCard location={`${user.location}`} />
+                  )}
                 </div>
               </div>
             </div>

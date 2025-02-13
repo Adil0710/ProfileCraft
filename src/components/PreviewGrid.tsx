@@ -19,7 +19,7 @@ function PreviewGrid() {
       id="show"
       className=" z-0 w-full h-full bg-white dark:bg-black min-h-screen py-10"
     >
-      <div className="max-w-6xl mx-auto px-8 h-full">
+      <div className="max-w-6xl mx-auto px-8 mt-10 h-full">
         <Header
           header="Preview Your Bento Grid"
           description="See how your profile will look in real-time"

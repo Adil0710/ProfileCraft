@@ -13,7 +13,7 @@ import { CardSpotlightDemo } from "./CardSpotLight";
 export function HowWorks() {
   return (
     <div
-      className=" bg-white flex flex-col justify-center items-center dark:bg-black min-h-screen py-10 px-5"
+      className=" bg-white flex flex-col justify-center items-center dark:bg-black min-h-screen py-10 px-5 pt-20"
       // style={{
       //   backgroundImage: `radial-gradient(circle at 1px 1px, rgba(6,182,212,0.2) 1px, transparent 0.5px)`,
 
@@ -24,7 +24,7 @@ export function HowWorks() {
       <Header
         header=" How ProfileCraft Works"
         description="Create your perfect profile in three simple steps"
-        className="mb-5"
+        className="mb-2"
       />
       <div className="mt-0 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2 max-w-6xl">
         <BentoCard
@@ -36,7 +36,7 @@ export function HowWorks() {
               <AnimatedBeamMultipleOutput className="bg-white dark:bg-gray-950 z-10 absolute right-0 top-0 h-full rounded-none border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_-10%,#000_-50%)] group-hover:scale-105" />
               <div
                 className={cn(
-                  "absolute -left-1 -top-10 h-28 w-28  animate-pop-blob rounded-sm bg-blue-400 z-50 p-8 opacity-50 mix-blend-multiply blur-3xl filter"
+                  "absolute -left-1 -top-10 h-28 w-28  animate-pop-blob rounded-sm bg-blue-400 z-[1000] p-8 dark:opacity-100 opacity-50 mix-blend-multiply blur-3xl filter"
                 )}
               ></div>
             </div>

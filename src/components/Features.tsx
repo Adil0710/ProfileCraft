@@ -9,7 +9,7 @@ export function Features() {
       className="relative z-0 w-full h-full bg-white dark:bg-black min-h-screen"
       
     >
-      <div className="absolute min-h-52 min-w-52 left-[0%] top-0 sm:top-28 z-10 items-center justify-center">
+      <div className="absolute min-h-52 min-w-52 left-[0%] top-0 sm:top-52 z-10 items-center justify-center">
               <div className="relative w-full max-w-lg">
                 <div
                   className={cn(
@@ -24,7 +24,7 @@ export function Features() {
               </div>
             </div>
       
-      <div className="max-w-6xl mx-auto px-8 py-8">
+      <div className="max-w-6xl mx-auto px-8 py-8 pt-24">
        
         <Header header="  Craft Your Perfect Profile" description=" Everything you need to create an impressive social media hub"/>
         <HoverEffect items={projects} />

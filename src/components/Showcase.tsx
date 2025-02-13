@@ -13,9 +13,9 @@ function Showcase() {
   return (
     <div
       id="showcase"
-      className="relative overflow-x-hidden max-w-screen h-full bg-[#F7FAFF] dark:bg-neutral-900 flex flex-col justify-center items-center min-h-screen pb-10 pt-24 z-0"
+      className="relative overflow-x-hidden max-w-screen h-full bg-[#F7FAFF] dark:bg-neutral-950 flex flex-col justify-center items-center min-h-screen pb-10 pt-0 z-0"
     >
-      <div className="absolute min-h-52 min-w-52 sm:top-5 top-20 left-[50%] -translate-x-1/2 items-center justify-center z-10">
+      <div className="absolute min-h-52 min-w-52 sm:top-5 top-20 left-[93%] -translate-x-[93%] items-center justify-center z-00">
         <div className="relative w-full max-w-lg">
           <div
             className={cn(
@@ -35,8 +35,9 @@ function Showcase() {
           header="Profile Showcase"
           description=" See how others are using ProfileCraft to present their digital
             identity"
+          className="z-10"
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
           <div className="bg-white dark:bg-black rounded-xl shadow-lg overflow-hidden animate__animated animate__fadeInUp">
             <div className="p-6">
               <div className="flex items-center mb-6">
