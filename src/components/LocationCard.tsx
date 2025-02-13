@@ -96,9 +96,10 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
         },
       }}
       viewport={{ once: true }}
-      className=" bg-gradient-to-br dark:from-neutral-100 dark:to-neutral-500  from-neutral-100 to-neutral-400 rounded-xl p-5 sm:col-span-3 col-span-1 h-48  dark:border-neutral-800
+      className=" bg-gradient-to-br  dark:from-gray-200 dark:to-gray-950  from-gray-50 to-gray-950 rounded-xl p-5 sm:col-span-3 col-span-1 h-48  
     relative overflow-hidden cursor-pointer"
     >
+       <div className="sm:block hidden absolute inset-0 bg-[url(https://res.cloudinary.com/eldoraui/image/upload/v1734021299/map_pcqdwb.png)] bg-[length:530px_430px] bg-[right_-75px] bg-no-repeat [mask-image:linear-gradient(to_bottom,black_50%,transparent)]" />
       <Link
         href={`https://www.google.com/maps/place/${location}`}
         target="_blank"
@@ -115,14 +116,14 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
 
           <div className="flex items-center justify-between z-10">
             <div>
-              <div className="text-3xl font-bold text-neutral-700 ">
+              <div className="text-3xl font-bold text-neutral-800 ">
                 {loading ? (
                   <Skeleton className="h-12 w-20" />
                 ) : (
                   weather.temperature
                 )}
               </div>
-              <div className="text-sm font-medium text-neutral-600 ">
+              <div className="text-sm font-medium text-neutral-800 ">
                 {loading ? (
                   <Skeleton className="w-10 h-5 mt-2" />
                 ) : (

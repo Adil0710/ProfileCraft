@@ -400,9 +400,10 @@ function PreviewGrid() {
                 rotate: 2,
               }}
               viewport={{ once: true }}
-              className=" bg-gradient-to-br dark:from-neutral-100 dark:to-neutral-500  from-neutral-100 to-neutral-400 rounded-xl p-5 sm:col-span-3 col-span-1 h-48  dark:border-neutral-800
+              className=" bg-gradient-to-br  dark:from-gray-200 dark:to-gray-950  from-gray-50 to-gray-950 rounded-xl p-5 sm:col-span-3 col-span-1 h-48 
         relative overflow-hidden cursor-pointer"
             >
+               <div className="sm:block hidden absolute inset-0 bg-[url(https://res.cloudinary.com/eldoraui/image/upload/v1734021299/map_pcqdwb.png)] bg-[length:530px_430px] bg-[right_-75px] bg-no-repeat [mask-image:linear-gradient(to_bottom,black_50%,transparent)]" />
               <div className="flex flex-col justify-between h-full z-10 ">
                 <div className="text-2xl flex flex-row gap-2 z-10  font-bold text-neutral-800 ">
                   <Sun className="w-8 h-8 text-neutral-800 " />
@@ -415,10 +416,10 @@ function PreviewGrid() {
 
                 <div className="flex items-center justify-between z-10">
                   <div>
-                    <div className="text-3xl font-bold text-neutral-700 ">
+                    <div className="text-3xl font-bold text-neutral-800 ">
                       28°C
                     </div>
-                    <div className="text-sm font-medium text-neutral-600 ">
+                    <div className="text-sm font-medium text-neutral-800 ">
                       Clear
                     </div>
                   </div>
