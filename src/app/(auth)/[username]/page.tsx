@@ -251,7 +251,7 @@ export default function UserProfile({
                   {spotifyLink && (
                     <Link href={spotifyLink} target="_blank">
                       <BlurFade delay={{ lg: 0.3, base: 0.1 }}>
-                        <div className="bg-gradient-to-br dark:from-green-200 dark:to-emerald-500 from-green-100 to-emerald-400 rounded-2xl px-5 py-5 h-48  relative overflow-hidden">
+                        <div className="bg-gradient-to-br dark:from-green-200 dark:to-emerald-500 from-green-100 to-emerald-400 rounded-2xl px-5 py-5 h-48 relative">
                           <div className="logo-container">
                             <Logo name="spotify" size={33} />
                             <div className="ripple"></div>
