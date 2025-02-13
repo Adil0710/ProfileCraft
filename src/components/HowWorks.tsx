@@ -12,7 +12,15 @@ import { CardSpotlightDemo } from "./CardSpotLight";
 
 export function HowWorks() {
   return (
-    <div className=" bg-white flex flex-col justify-center items-center dark:bg-black py-10 px-5">
+    <div
+      className=" bg-white flex flex-col justify-center items-center dark:bg-black min-h-screen py-10 px-5"
+      // style={{
+      //   backgroundImage: `radial-gradient(circle at 1px 1px, rgba(6,182,212,0.2) 1px, transparent 0.5px)`,
+
+      //   backgroundSize: "8px 8px",
+      //   backgroundRepeat: "repeat",
+      // }}
+    >
       <Header
         header=" How ProfileCraft Works"
         description="Create your perfect profile in three simple steps"
@@ -24,7 +32,6 @@ export function HowWorks() {
           title="Perfect Social Profile"
           description="Share all your social profiles, bio, and more with one beautiful link. Create your personalized profile grid in minutes with ProfileCraft."
           graphic={
-         
             <div>
               <AnimatedBeamMultipleOutput className="bg-white dark:bg-gray-950 z-10 absolute right-0 top-0 h-full rounded-none border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_-10%,#000_-50%)] group-hover:scale-105" />
               <div
@@ -38,39 +45,44 @@ export function HowWorks() {
           className="max-lg:rounded-t-4xl lg:rounded-tl-4xl lg:col-span-3"
         />
         <BentoCard
-          eyebrow="Analysis"
-          title="Undercut your competitors"
-          description="Ensuring your account is properly secured helps protect your personal
-        information and data."
+          eyebrow="Signup / Login"
+          title="Get Started"
+          description="Sign up with your email and choose your unique username or login with Google OAuth for your profile link."
           graphic={
-          
-           <CardSpotlightDemo/>
+            <>
+              <CardSpotlightDemo />
+              <div
+                className={cn(
+                  "absolute -right-1 -top-10 h-28 w-28  animate-pop-blob rounded-sm bg-purple-400 z-50 p-8 opacity-50 mix-blend-multiply blur-3xl filter"
+                )}
+              ></div>
+            </>
           }
           fade={["bottom"]}
           className="lg:rounded-tr-4xl lg:col-span-3"
         />
         <BentoCard
-          eyebrow="Speed"
-          title="Built for power users"
-          description="It’s never been faster to cold email your entire contact list using our streamlined keyboard shortcuts."
+          eyebrow="Plan"
+          title="It's Free Forever"
+          description="PrifileCraft is free to use for everyone. No credit card required. J ust sign up and start creating your profile."
           graphic={
             <div className="flex size-full pl-10 pt-10">
-              <Keyboard highlighted={["LeftCommand", "C", "S"]} />
+              <Keyboard highlighted={["F", "R","E", "E"]} />
             </div>
           }
           className="lg:rounded-bl-4xl lg:col-span-2"
         />
         <BentoCard
-          eyebrow="Source"
-          title="Get the furthest reach"
-          description="Bypass those inconvenient privacy laws to source leads from the most unexpected places."
+          eyebrow="Create Profile"
+          title="Add Your Content"
+          description="Add your details like social links, bio, images, and other personal details. Your profile is ready."
           graphic={<LogoCluster />}
           className="lg:col-span-2"
         />
         <BentoCard
-          eyebrow="Limitless"
-          title="Sell globally"
-          description="Radiant helps you sell in locations currently under international embargo."
+          eyebrow="Share"
+          title="Show it to the World"
+          description="Get your unique link and share your profile link with the world. You can also share it on social media platforms."
           graphic={<Map />}
           className="max-lg:rounded-b-4xl lg:rounded-br-4xl lg:col-span-2"
         />

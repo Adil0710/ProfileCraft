@@ -11,7 +11,7 @@ export default function Home() {
     <div className=" max-w-screen">
       <Hero />
       <HowWorks/>
-      <Howitworks />
+      {/* <Howitworks /> */}
       <Features />
       <Showcase />
       <PreviewGrid/>

@@ -9,7 +9,7 @@ import { CanvasRevealEffect } from "./canvas-reveal-effect";
 export const CardSpotlight = ({
   children,
   radius = 350,
-  color = "#262626",
+  color = "#ce93d8",
   className,
   ...props
 }: {
@@ -52,7 +52,7 @@ export const CardSpotlight = ({
             radial-gradient(
               ${radius}px circle at ${mouseX}px ${mouseY}px,
               white,
-              transparent 80%
+              transparent 70%
             )
           `,
         }}

@@ -42,7 +42,7 @@ export function BentoCard({
         )}
         {fade.includes("bottom") && (
        
-          <div className="absolute inset-0 bg-gradient-to-t from-white to-30% dark:from-gray-950 dark:from-[5%]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white to-30% dark:from-gray-950 dark:from-[-5%]" />
         )}
       </div>
       <div className="relative p-10">

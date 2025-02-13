@@ -7,6 +7,7 @@ export function Features() {
     <div
       id="features"
       className="relative z-0 w-full h-full bg-white dark:bg-black min-h-screen"
+      
     >
       <div className="absolute min-h-52 min-w-52 left-[0%] top-0 sm:top-28 z-10 items-center justify-center">
               <div className="relative w-full max-w-lg">
