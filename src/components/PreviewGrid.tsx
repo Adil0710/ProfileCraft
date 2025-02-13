@@ -26,27 +26,29 @@ function PreviewGrid() {
         />
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 m-4">
           <AnimatePresence>
-            {/* Instagram */}
-            <BlurFade delay={0.002} inView>
+
+             {/* LinkedIn */}
+             <BlurFade delay={0.002} inView>
               <motion.div
-                whileHover={{ rotate: 4 }}
+                whileHover={{ rotate: -4 }}
                 className=" cursor-pointer"
               >
-                <div className=" bg-gradient-to-br dark:from-pink-300 dark:to-purple-500 from-pink-200 to-purple-400 rounded-2xl px-5 py-5 h-48">
-                  <div className="logo-container">
-                    <Logo name="instagram" size={33} />
+                <div className="bg-gradient-to-br dark:from-sky-300 dark:to-blue-600 from-sky-200 to-blue-500 rounded-xl px-5 py-5 h-48  ">
+                  <div className=" logo-container">
+                    <Logo name="linkedin" size={35} />
                   </div>
-                  <p className=" font-semibold text-xs text-black/60 mt-2">
+                  <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words overflow-hidden text-ellipsis whitespace-nowrap">
                     @yourhandle
                   </p>
                   <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                    <p className=" py-0.5 text-sm font-medium px-1.5 bg-pink-100 text-black w-20 rounded-full flex items-center justify-center hover:bg-pink-200 transition ">
-                      Follow
+                    <p className=" py-0.5 text-sm font-medium px-1.5 bg-blue-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-blue-300 transition ">
+                      Connect
                     </p>
                   </div>
                 </div>
               </motion.div>
             </BlurFade>
+          
 
             {/* Spotify */}
             <BlurFade delay={0.1} inView>
@@ -110,22 +112,22 @@ function PreviewGrid() {
               </motion.div>
             </BlurFade>
 
-            {/* LinkedIn */}
-            <BlurFade delay={0.2} inView>
+             {/* Instagram */}
+             <BlurFade delay={0.2} inView>
               <motion.div
-                whileHover={{ rotate: -4 }}
+                whileHover={{ rotate: 4 }}
                 className=" cursor-pointer"
               >
-                <div className="bg-gradient-to-br dark:from-sky-300 dark:to-blue-600 from-sky-200 to-blue-500 rounded-xl px-5 py-5 h-48  ">
-                  <div className=" logo-container">
-                    <Logo name="linkedin" size={35} />
+                <div className=" bg-gradient-to-br dark:from-pink-300 dark:to-purple-500 from-pink-200 to-purple-400 rounded-2xl px-5 py-5 h-48">
+                  <div className="logo-container">
+                    <Logo name="instagram" size={33} />
                   </div>
-                  <p className=" font-semibold sm:text-xs text-[10px] text-black/60 mt-1 break-words overflow-hidden text-ellipsis whitespace-nowrap">
+                  <p className=" font-semibold text-xs text-black/60 mt-2">
                     @yourhandle
                   </p>
                   <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                    <p className=" py-0.5 text-sm font-medium px-1.5 bg-blue-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-blue-300 transition ">
-                      Connect
+                    <p className=" py-0.5 text-sm font-medium px-1.5 bg-pink-100 text-black w-20 rounded-full flex items-center justify-center hover:bg-pink-200 transition ">
+                      Follow
                     </p>
                   </div>
                 </div>
@@ -329,56 +331,6 @@ function PreviewGrid() {
               </p>
             </motion.div>
 
-            {/* Location */}
-
-            <motion.div
-              initial={{
-                offset: 6,
-                opacity: 0,
-                filter: "blur(6px)",
-              }}
-              whileInView={{
-                offset: 0,
-                opacity: 1,
-                filter: "blur(0px)",
-                transition: {
-                  delay: 0.04 + 0.6,
-                  duration: 0.4,
-                  ease: "easeOut",
-                },
-              }}
-              whileHover={{
-                rotate: 2,
-              }}
-              viewport={{ once: true }}
-              className=" bg-gradient-to-br dark:from-neutral-100 dark:to-neutral-500  from-neutral-100 to-neutral-400 rounded-xl p-5 sm:col-span-1 md:col-span-1 lg:col-span-3 col-span-3 h-48  dark:border-neutral-800
-        relative overflow-hidden cursor-pointer"
-            >
-              <div className="flex flex-col justify-between h-full z-10 ">
-                <div className="text-2xl flex flex-row gap-2 z-10  font-bold text-neutral-800 ">
-                  <Sun className="w-8 h-8 text-neutral-800 " />
-                  <Separator
-                    orientation="vertical"
-                    className="w-0.5 bg-neutral-500 rounded-full"
-                  />
-                  Solapur
-                </div>
-
-                <div className="flex items-center justify-between z-10">
-                  <div>
-                    <div className="text-3xl font-bold text-neutral-700 ">
-                      28°C
-                    </div>
-                    <div className="text-sm font-medium text-neutral-600 ">
-                      Clear
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Add GlobeDemo in the bottom right corner */}
-            </motion.div>
-
             {/* Custom_Link */}
             <Link
               href="https://devadil.vercel.app"
@@ -396,7 +348,7 @@ function PreviewGrid() {
                   opacity: 1,
                   filter: "blur(0px)",
                   transition: {
-                    delay: 0.04 + 0.65,
+                    delay: 0.04 + 0.60,
                     duration: 0.4,
                     ease: "easeOut",
                   },
@@ -425,6 +377,58 @@ function PreviewGrid() {
                 </div>
               </motion.div>
             </Link>
+
+            {/* Location */}
+
+            <motion.div
+              initial={{
+                offset: 6,
+                opacity: 0,
+                filter: "blur(6px)",
+              }}
+              whileInView={{
+                offset: 0,
+                opacity: 1,
+                filter: "blur(0px)",
+                transition: {
+                  delay: 0.04 + 0.65,
+                  duration: 0.4,
+                  ease: "easeOut",
+                },
+              }}
+              whileHover={{
+                rotate: 2,
+              }}
+              viewport={{ once: true }}
+              className=" bg-gradient-to-br dark:from-neutral-100 dark:to-neutral-500  from-neutral-100 to-neutral-400 rounded-xl p-5 sm:col-span-3 col-span-1 h-48  dark:border-neutral-800
+        relative overflow-hidden cursor-pointer"
+            >
+              <div className="flex flex-col justify-between h-full z-10 ">
+                <div className="text-2xl flex flex-row gap-2 z-10  font-bold text-neutral-800 ">
+                  <Sun className="w-8 h-8 text-neutral-800 " />
+                  <Separator
+                    orientation="vertical"
+                    className="w-0.5 bg-neutral-500 rounded-full"
+                  />
+                  Solapur
+                </div>
+
+                <div className="flex items-center justify-between z-10">
+                  <div>
+                    <div className="text-3xl font-bold text-neutral-700 ">
+                      28°C
+                    </div>
+                    <div className="text-sm font-medium text-neutral-600 ">
+                      Clear
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Add GlobeDemo in the bottom right corner */}
+            </motion.div>
+
+            
           </AnimatePresence>
         </div>
       </div>

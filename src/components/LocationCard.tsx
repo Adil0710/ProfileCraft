@@ -4,7 +4,6 @@ import { Sun, CloudRain, Cloud, Wind, Droplets } from "lucide-react"; // Import 
 import { Skeleton } from "./ui/skeleton";
 import { Separator } from "./ui/separator";
 import { motion } from "framer-motion";
-import { GlobeDemo } from "./GlobeDemo";
 
 interface LocationCardProps {
   location: string; // Location name fetched from the database
@@ -91,13 +90,13 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
         opacity: 1,
         filter: "blur(0px)",
         transition: {
-          delay: 0.04 + 0.55,
+          delay: 0.04 + 0.6,
           duration: 0.4,
           ease: "easeOut",
         },
       }}
       viewport={{ once: true }}
-      className=" bg-gradient-to-br dark:from-neutral-100 dark:to-neutral-500  from-neutral-100 to-neutral-400 rounded-xl p-5 sm:col-span-1 md:col-span-1 lg:col-span-3 col-span-3 h-48  dark:border-neutral-800
+      className=" bg-gradient-to-br dark:from-neutral-100 dark:to-neutral-500  from-neutral-100 to-neutral-400 rounded-xl p-5 sm:col-span-3 col-span-1 h-48  dark:border-neutral-800
     relative overflow-hidden cursor-pointer"
     >
       <Link
@@ -135,9 +134,7 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
         </div>
 
         {/* Add GlobeDemo in the bottom right corner */}
-        <div className="absolute top-0 left-[45%] w-full h-full z-0">
-          <GlobeDemo/>
-        </div>
+        <div className="absolute top-0 left-[45%] w-full h-full z-0"></div>
       </Link>
     </motion.div>
   );
