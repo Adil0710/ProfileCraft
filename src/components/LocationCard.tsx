@@ -3,7 +3,8 @@ import Link from "next/link";
 import { Sun, CloudRain, Cloud, Wind, Droplets } from "lucide-react"; // Import Lucide icons
 import { Skeleton } from "./ui/skeleton";
 import { Separator } from "./ui/separator";
-import BlurFade from "./ui/blur-fade";
+import { motion } from "framer-motion";
+import { GlobeDemo } from "./GlobeDemo";
 
 interface LocationCardProps {
   location: string; // Location name fetched from the database
@@ -47,29 +48,17 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
         const icon = (() => {
           switch (condition) {
             case "Clear":
-              return (
-                <Sun className="w-8 h-8 text-neutral-800 " />
-              );
+              return <Sun className="w-8 h-8 text-neutral-800 " />;
             case "Clouds":
-              return (
-                <Cloud className="w-8 h-8 text-neutral-800" />
-              );
+              return <Cloud className="w-8 h-8 text-neutral-800" />;
             case "Rain":
-              return (
-                <CloudRain className="w-8 h-8 text-neutral-800" />
-              );
+              return <CloudRain className="w-8 h-8 text-neutral-800" />;
             case "Drizzle":
-              return (
-                <Droplets className="w-8 h-8 text-neutral-800" />
-              );
+              return <Droplets className="w-8 h-8 text-neutral-800" />;
             case "Mist":
-              return (
-                <Wind className="w-8 h-8 text-neutral-800" />
-              );
+              return <Wind className="w-8 h-8 text-neutral-800" />;
             default:
-              return (
-                <Sun className="w-8 h-8 text-neutral-800" />
-              );
+              return <Sun className="w-8 h-8 text-neutral-800" />;
           }
         })();
 
@@ -91,47 +80,66 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
   }, [location]);
 
   return (
-    <Link
-      href={`https://www.google.com/maps/place/${location}`}
-      target="_blank"
+    <motion.div
+      initial={{
+        offset: 6,
+        opacity: 0,
+        filter: "blur(6px)",
+      }}
+      animate={{
+        offset: 0,
+        opacity: 1,
+        filter: "blur(0px)",
+        transition: {
+          delay: 0.04 + 0.55,
+          duration: 0.4,
+          ease: "easeOut",
+        },
+      }}
+      viewport={{ once: true }}
+      className=" bg-gradient-to-br dark:from-neutral-100 dark:to-neutral-500  from-neutral-100 to-neutral-400 rounded-xl p-5 sm:col-span-1 md:col-span-1 lg:col-span-3 col-span-3 h-48  dark:border-neutral-800
+    relative overflow-hidden cursor-pointer"
     >
-      <BlurFade delay={0.55}>
-        <div
-          className="bg-purple-100 dark:bg-gradient-to-l from-black/20 to-purple-100  rounded-xl p-5 col-span-1 h-48 border border-neutral-200 dark:border-neutral-800
-       transition-all duration-300 relative overflow-hidden"
-        >
-          <div className="flex flex-col justify-between h-full z-10 ">
-            <div className="text-2xl flex flex-row gap-2 z-10  font-bold text-neutral-800 ">
-              {loading ? <Skeleton className="w-8 h-8" /> : weather.icon}
-              <Separator orientation="vertical" className="w-0.5 bg-neutral-500 rounded-full" />
-              {location}
-            </div>
+      <Link
+        href={`https://www.google.com/maps/place/${location}`}
+        target="_blank"
+      >
+        <div className="flex flex-col justify-between h-full z-10 ">
+          <div className="text-2xl flex flex-row gap-2 z-10  font-bold text-neutral-800 ">
+            {loading ? <Skeleton className="w-8 h-8" /> : weather.icon}
+            <Separator
+              orientation="vertical"
+              className="w-0.5 bg-neutral-500 rounded-full"
+            />
+            {location}
+          </div>
 
-            <div className="flex items-center justify-between z-10">
-              <div>
-                <div className="text-3xl font-bold text-neutral-700 ">
-                  {loading ? (
-                    <Skeleton className="h-12 w-20" />
-                  ) : (
-                    weather.temperature
-                  )}
-                </div>
-                <div className="text-sm font-medium text-neutral-600 ">
-                  {loading ? (
-                    <Skeleton className="w-10 h-5 mt-2" />
-                  ) : (
-                    weather.condition
-                  )}
-                </div>
+          <div className="flex items-center justify-between z-10">
+            <div>
+              <div className="text-3xl font-bold text-neutral-700 ">
+                {loading ? (
+                  <Skeleton className="h-12 w-20" />
+                ) : (
+                  weather.temperature
+                )}
+              </div>
+              <div className="text-sm font-medium text-neutral-600 ">
+                {loading ? (
+                  <Skeleton className="w-10 h-5 mt-2" />
+                ) : (
+                  weather.condition
+                )}
               </div>
             </div>
           </div>
-
-          {/* Add GlobeDemo in the bottom right corner */}
-          <div className="absolute top-0 left-[45%] w-full h-full z-0"></div>
         </div>
-      </BlurFade>
-    </Link>
+
+        {/* Add GlobeDemo in the bottom right corner */}
+        <div className="absolute top-0 left-[45%] w-full h-full z-0">
+          <GlobeDemo/>
+        </div>
+      </Link>
+    </motion.div>
   );
 };
 

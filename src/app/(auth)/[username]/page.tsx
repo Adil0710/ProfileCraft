@@ -55,7 +55,7 @@ export default function UserProfile({
         console.log(response);
       } catch (err) {
         setError("User not found or an error occurred.");
-        console.log(err)
+        console.log(err);
       }
     }
     fetchUser();
@@ -232,7 +232,7 @@ export default function UserProfile({
                     target="_blank"
                   >
                     <BlurFade delay={{ lg: 0.25, base: 0.002 }}>
-                      <div className="bg-[#fff2f8] dark:bg-gradient-to-l from-black/10 to-[#fff2f8] rounded-2xl px-5 py-5 h-48 border border-neutral-200">
+                      <div className="bg-gradient-to-br dark:from-pink-300 dark:to-purple-500 from-pink-200 to-purple-400 rounded-2xl px-5 py-5 h-48">
                         <div className="logo-container">
                           <Logo name="instagram" size={33} />
                         </div>
@@ -240,7 +240,7 @@ export default function UserProfile({
                           @ {instagramUsername}
                         </p>
                         <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                          <p className=" py-0.5 text-sm font-medium px-1.5 bg-pink-100 text-black w-20 rounded-full flex items-center justify-center hover:bg-pink-200 transition border border-neutral-300">
+                          <p className=" py-0.5 text-sm font-medium px-1.5 bg-pink-100 text-black w-20 rounded-full flex items-center justify-center hover:bg-pink-200 transition ">
                             Follow
                           </p>
                         </div>
@@ -252,7 +252,7 @@ export default function UserProfile({
 
                   <Link href={spotifyLink} target="_blank">
                     <BlurFade delay={{ lg: 0.3, base: 0.1 }}>
-                      <div className="bg-green-100 dark:bg-gradient-to-l from-black/20 to-green-100 rounded-2xl px-5 py-5 h-48 border border-neutral-200 relative overflow-hidden">
+                      <div className="bg-gradient-to-br dark:from-green-200 dark:to-emerald-500 from-green-100 to-emerald-400 rounded-2xl px-5 py-5 h-48  relative overflow-hidden">
                         <div className="logo-container">
                           <Logo name="spotify" size={33} />
                           <div className="ripple"></div>
@@ -265,6 +265,11 @@ export default function UserProfile({
                           />
                           <Music
                             className="music-chord chord2"
+                            size={20}
+                            strokeWidth={3}
+                          />
+                          <Music
+                            className="music-chord chord3"
                             size={20}
                             strokeWidth={3}
                           />
@@ -285,7 +290,7 @@ export default function UserProfile({
 
                   <Link href={`mailto:${user.email}`} target="_blank">
                     <BlurFade delay={{ lg: 0.35, base: 0.15 }}>
-                      <div className="bg-[#ffe2e2] dark:bg-gradient-to-l from-black/10 to-[#ffe2e2] rounded-xl pl-5 py-5 h-48 border border-neutral-200">
+                    <div className="bg-gradient-to-br dark:from-rose-300 dark:to-red-600 from-rose-200 to-red-500 rounded-xl pl-5 py-5 h-48 ">
                         <div className="logo-container">
                           <Logo name="gmail" size={35} />
                         </div>
@@ -293,7 +298,7 @@ export default function UserProfile({
                           {user.email}
                         </p>
                         <div className="flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                          <p className="py-0.5 text-sm font-medium px-1.5 bg-red-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-red-300 transition border border-neutral-300">
+                          <p className="py-0.5 text-sm font-medium px-1.5 bg-red-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-red-300 transition ">
                             Mail
                           </p>
                         </div>
@@ -305,7 +310,7 @@ export default function UserProfile({
 
                   <Link href={`${linkedinProfile}`} target="_blank">
                     <BlurFade delay={0.2}>
-                      <div className="bg-[#E9F4FA] dark:bg-gradient-to-l from-black/20 to-[#e9f3fa] rounded-xl px-5 py-5 h-48  border border-neutral-200">
+                    <div className="bg-gradient-to-br dark:from-sky-300 dark:to-blue-600 from-sky-200 to-blue-500 rounded-xl px-5 py-5 h-48  ">
                         <div className=" logo-container">
                           <Logo name="linkedin" size={35} />
                         </div>
@@ -313,7 +318,7 @@ export default function UserProfile({
                           {linkedinProfile}
                         </p>
                         <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                          <p className=" py-0.5 text-sm font-medium px-1.5 bg-blue-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-blue-300 transition border border-neutral-300">
+                          <p className=" py-0.5 text-sm font-medium px-1.5 bg-blue-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-blue-300 transition">
                             Connect
                           </p>
                         </div>
@@ -329,7 +334,7 @@ export default function UserProfile({
                   >
                     {" "}
                     <BlurFade delay={0.25}>
-                      <div className="bg-gray-50 dark:bg-gradient-to-l from-black/10 to-gray-50 rounded-xl px-5 py-5 h-48 border border-neutral-200">
+                    <div className="bg-gradient-to-br dark:from-neutral-100 dark:to-neutral-500  from-neutral-50 to-neutral-400 rounded-xl px-5 py-5 h-48 ">
                         <div className=" logo-container">
                           <Logo name="github" size={35} />
                         </div>
@@ -337,7 +342,7 @@ export default function UserProfile({
                           {githubUsername}
                         </p>
                         <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                          <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition border border-neutral-50">
+                          <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition">
                             Profile
                           </p>
                         </div>
@@ -352,7 +357,7 @@ export default function UserProfile({
                     target="_blank"
                   >
                     <BlurFade delay={0.3}>
-                      <div className="bg-[#ffe7e7] dark:bg-gradient-to-l from-black/10 to-[#ffe7e7] rounded-xl px-5 py-5 h-48 border border-neutral-200">
+                    <div className="bg-gradient-to-r from-red-300 dark:to-red-600 to-red-500 rounded-xl px-5 py-5 h-48 ">
                         <div className=" logo-container">
                           <Logo name="youtube" size={35} />
                         </div>
@@ -360,7 +365,7 @@ export default function UserProfile({
                           @ {youtubeChannel}
                         </p>
                         <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                          <p className=" py-0.5 text-sm font-medium px-1.5 bg-rose-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-rose-300 transition border border-neutral-300">
+                          <p className=" py-0.5 text-sm font-medium px-1.5 bg-rose-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-rose-300 transition">
                             Channel
                           </p>
                         </div>
@@ -375,7 +380,7 @@ export default function UserProfile({
                     target="_blank"
                   >
                     <BlurFade delay={0.35}>
-                      <div className="bg-[#f5f5f5] dark:bg-gradient-to-l from-black/10 to-[#e4f3ff] rounded-xl px-5 py-5 h-48 border border-neutral-200">
+                    <div className="bg-gradient-to-br dark:from-[#daeeff] dark:to-neutral-500 from-[#dcefff] to-neutral-400 rounded-xl px-5 py-5 h-48 ">
                         <div className=" logo-container">
                           <Logo name="twitter" size={35} />
                         </div>
@@ -383,7 +388,7 @@ export default function UserProfile({
                           @ {twitterUsername}
                         </p>
                         <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                          <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition border border-neutral-200">
+                          <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition">
                             Follow
                           </p>
                         </div>
@@ -398,7 +403,7 @@ export default function UserProfile({
                     target="_blank"
                   >
                     <BlurFade delay={0.4}>
-                      <div className="bg-gray-50 dark:bg-gradient-to-l from-black/10 to-gray-50 rounded-xl px-5 py-5 h-48 border border-neutral-200">
+                      <div className="bg-gradient-to-br dark:from-neutral-100 dark:to-neutral-500  from-neutral-50 to-neutral-400 rounded-xl px-5 py-5 h-48 ">
                         <div className=" logo-container">
                           <Logo name="threads" size={35} />
                         </div>
@@ -406,7 +411,7 @@ export default function UserProfile({
                           {threadsUsername}
                         </p>
                         <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                          <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition border border-neutral-200">
+                          <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition">
                             Follow
                           </p>
                         </div>
@@ -432,14 +437,14 @@ export default function UserProfile({
                       duration: 0.4,
                       ease: "easeOut",
                     }}
-                    className="relative rounded-xl md:col-span-3 sm:col-span-2 col-span-2 lg:col-span-2 col-span-2 h-48 overflow-hidden"
+                    className="relative rounded-xl md:col-span-3 sm:col-span-2 col-span-2 lg:col-span-2 h-48 overflow-hidden"
                   >
-                    <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-full blur-3xl" />
+                    <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.95] rounded-full blur-3xl" />
 
                     {/* Content */}
-                    <div className="relative shadow-xl bg-gray-900 border border-gray-800 px-5 py-5 h-full rounded-xl flex flex-col items-center justify-center">
+                    <div className="relative shadow-xl bg-gray-900/10  px-5 py-5 h-full rounded-xl flex flex-col items-center justify-center">
                       {/* FavQuotes component */}
-                      <p className="font-normal text-sm sm:text-base text-slate-300 relative z-40">
+                      <p className="font-medium text-sm sm:text-base text-slate-800 dark:text-slate-100 relative z-40">
                         {user.favoriteQuote}
                       </p>
 
@@ -518,7 +523,7 @@ export default function UserProfile({
                   </motion.div>
 
                   {/* Location */}
-
+                    
                   <LocationCard location={`${user.location}`} />
 
                   {/* Custom_Link */}

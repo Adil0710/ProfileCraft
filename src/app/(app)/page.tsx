@@ -1,6 +1,6 @@
 import { Features } from "@/components/Features";
 import Hero from "@/components/Hero";
-import Howitworks from "@/components/Howitworks";
+
 import { HowWorks } from "@/components/HowWorks";
 
 import PreviewGrid from "@/components/PreviewGrid";
@@ -11,7 +11,7 @@ export default function Home() {
     <div className=" max-w-screen">
       <Hero />
       <HowWorks/>
-      {/* <Howitworks /> */}
+
       <Features />
       <Showcase />
       <PreviewGrid/>

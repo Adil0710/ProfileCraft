@@ -32,7 +32,7 @@ function PreviewGrid() {
                 whileHover={{ rotate: 4 }}
                 className=" cursor-pointer"
               >
-                <div className="bg-[#fff2f8] dark:bg-gradient-to-l from-black/10 to-[#fff2f8] rounded-2xl px-5 py-5 h-48 border border-neutral-200">
+                <div className=" bg-gradient-to-br dark:from-pink-300 dark:to-purple-500 from-pink-200 to-purple-400 rounded-2xl px-5 py-5 h-48">
                   <div className="logo-container">
                     <Logo name="instagram" size={33} />
                   </div>
@@ -40,7 +40,7 @@ function PreviewGrid() {
                     @yourhandle
                   </p>
                   <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                    <p className=" py-0.5 text-sm font-medium px-1.5 bg-pink-100 text-black w-20 rounded-full flex items-center justify-center hover:bg-pink-200 transition border border-neutral-300">
+                    <p className=" py-0.5 text-sm font-medium px-1.5 bg-pink-100 text-black w-20 rounded-full flex items-center justify-center hover:bg-pink-200 transition ">
                       Follow
                     </p>
                   </div>
@@ -54,7 +54,7 @@ function PreviewGrid() {
                 whileHover={{ rotate: -4 }}
                 className=" cursor-pointer"
               >
-                <div className="bg-green-100 dark:bg-gradient-to-l from-black/20 to-green-100 rounded-2xl px-5 py-5 h-48 border border-neutral-200 relative overflow-hidden">
+                <div className="bg-gradient-to-br dark:from-green-200 dark:to-emerald-500 from-green-100 to-emerald-400 rounded-2xl px-5 py-5 h-48  relative overflow-hidden">
                   <div className="logo-container">
                     <Logo name="spotify" size={33} />
                     <div className="ripple"></div>
@@ -90,8 +90,11 @@ function PreviewGrid() {
 
             <BlurFade delay={0.15} inView>
               {/* Gmail */}
-              <motion.div whileHover={{rotate:4}} className=" cursor-pointer">
-                <div className="bg-[#ffe2e2] dark:bg-gradient-to-l from-black/10 to-[#ffe2e2] rounded-xl pl-5 py-5 h-48 border border-neutral-200">
+              <motion.div
+                whileHover={{ rotate: 4 }}
+                className=" cursor-pointer"
+              >
+                <div className="bg-gradient-to-br dark:from-rose-300 dark:to-red-600 from-rose-200 to-red-500 rounded-xl pl-5 py-5 h-48 ">
                   <div className="logo-container">
                     <Logo name="gmail" size={35} />
                   </div>
@@ -99,7 +102,7 @@ function PreviewGrid() {
                     your email
                   </p>
                   <div className="flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                    <p className="py-0.5 text-sm font-medium px-1.5 bg-red-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-red-300 transition border border-neutral-300">
+                    <p className="py-0.5 text-sm font-medium px-1.5 bg-red-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-red-300 transition ">
                       Mail
                     </p>
                   </div>
@@ -109,8 +112,11 @@ function PreviewGrid() {
 
             {/* LinkedIn */}
             <BlurFade delay={0.2} inView>
-              <motion.div whileHover={{rotate:-4}} className=" cursor-pointer">
-                <div className="bg-[#E9F4FA] dark:bg-gradient-to-l from-black/20 to-[#e9f3fa] rounded-xl px-5 py-5 h-48  border border-neutral-200">
+              <motion.div
+                whileHover={{ rotate: -4 }}
+                className=" cursor-pointer"
+              >
+                <div className="bg-gradient-to-br dark:from-sky-300 dark:to-blue-600 from-sky-200 to-blue-500 rounded-xl px-5 py-5 h-48  ">
                   <div className=" logo-container">
                     <Logo name="linkedin" size={35} />
                   </div>
@@ -118,7 +124,7 @@ function PreviewGrid() {
                     @yourhandle
                   </p>
                   <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                    <p className=" py-0.5 text-sm font-medium px-1.5 bg-blue-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-blue-300 transition border border-neutral-300">
+                    <p className=" py-0.5 text-sm font-medium px-1.5 bg-blue-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-blue-300 transition ">
                       Connect
                     </p>
                   </div>
@@ -128,8 +134,11 @@ function PreviewGrid() {
 
             {/* GitHub */}
             <BlurFade delay={0.25} inView>
-              <motion.div whileHover={{rotate:-4}} className=" cursor-pointer">
-                <div className="bg-gray-50 dark:bg-gradient-to-l from-black/10 to-gray-50 rounded-xl px-5 py-5 h-48 border border-neutral-200">
+              <motion.div
+                whileHover={{ rotate: -4 }}
+                className=" cursor-pointer"
+              >
+                <div className="bg-gradient-to-br dark:from-neutral-100 dark:to-neutral-500  from-neutral-50 to-neutral-400 rounded-xl px-5 py-5 h-48 ">
                   <div className=" logo-container">
                     <Logo name="github" size={35} />
                   </div>
@@ -137,7 +146,7 @@ function PreviewGrid() {
                     @yourhandle
                   </p>
                   <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                    <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition border border-neutral-50">
+                    <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition ">
                       Profile
                     </p>
                   </div>
@@ -147,8 +156,11 @@ function PreviewGrid() {
 
             {/* Youtube */}
             <BlurFade delay={0.3} inView>
-              <motion.div whileHover={{rotate:4}} className=" cursor-pointer">
-                <div className="bg-[#ffe7e7] dark:bg-gradient-to-l from-black/10 to-[#ffe7e7] rounded-xl px-5 py-5 h-48 border border-neutral-200">
+              <motion.div
+                whileHover={{ rotate: 4 }}
+                className=" cursor-pointer"
+              >
+                <div className="bg-gradient-to-r from-red-300 dark:to-red-600 to-red-500 rounded-xl px-5 py-5 h-48 ">
                   <div className=" logo-container">
                     <Logo name="youtube" size={35} />
                   </div>
@@ -156,7 +168,7 @@ function PreviewGrid() {
                     Your Channel
                   </p>
                   <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                    <p className=" py-0.5 text-sm font-medium px-1.5 bg-rose-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-rose-300 transition border border-neutral-300">
+                    <p className=" py-0.5 text-sm font-medium px-1.5 bg-rose-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-rose-300 transition ">
                       Channel
                     </p>
                   </div>
@@ -166,8 +178,11 @@ function PreviewGrid() {
 
             {/* Twitter */}
             <BlurFade delay={0.35} inView>
-              <motion.div whileHover={{rotate:-4}} className=" cursor-pointer">
-                <div className="bg-[#f5f5f5] dark:bg-gradient-to-l from-black/10 to-[#e4f3ff] rounded-xl px-5 py-5 h-48 border border-neutral-200">
+              <motion.div
+                whileHover={{ rotate: -4 }}
+                className=" cursor-pointer"
+              >
+                <div className="bg-gradient-to-br dark:from-[#daeeff] dark:to-neutral-500 from-[#dcefff] to-neutral-400 rounded-xl px-5 py-5 h-48 ">
                   <div className=" logo-container">
                     <Logo name="twitter" size={35} />
                   </div>
@@ -175,7 +190,7 @@ function PreviewGrid() {
                     @yourhandle
                   </p>
                   <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                    <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition border border-neutral-200">
+                    <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition ">
                       Follow
                     </p>
                   </div>
@@ -185,8 +200,11 @@ function PreviewGrid() {
 
             {/* Threads */}
             <BlurFade delay={0.4} inView>
-              <motion.div whileHover={{rotate:4}} className=" cursor-pointer">
-                <div className="bg-gray-50 dark:bg-gradient-to-l from-black/10 to-gray-50 rounded-xl px-5 py-5 h-48 border border-neutral-200">
+              <motion.div
+                whileHover={{ rotate: 4 }}
+                className=" cursor-pointer"
+              >
+                <div className="bg-gradient-to-br dark:from-neutral-100 dark:to-neutral-500  from-neutral-50 to-neutral-400 rounded-xl px-5 py-5 h-48 ">
                   <div className=" logo-container">
                     <Logo name="threads" size={35} />
                   </div>
@@ -194,7 +212,7 @@ function PreviewGrid() {
                     @yourhandle
                   </p>
                   <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                    <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition border border-neutral-200">
+                    <p className=" py-0.5 text-sm font-medium px-1.5 bg-neutral-800 text-white w-20 rounded-full flex items-center justify-center hover:bg-neutral-950 transition ">
                       Follow
                     </p>
                   </div>
@@ -214,24 +232,23 @@ function PreviewGrid() {
                 offset: 0,
                 opacity: 1,
                 filter: "blur(0px)",
-                transition:{
+                transition: {
                   delay: 0.04 + 0.45,
                   duration: 0.4,
                   ease: "easeOut",
-                }
+                },
               }}
-              
-              whileHover={{rotate:2}}
+              whileHover={{ rotate: 2 }}
               viewport={{ once: true }}
               className="relative rounded-xl md:col-span-3 sm:col-span-2 col-span-2 lg:col-span-2 h-48 overflow-hidden"
             >
-              <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.80] bg-red-500 rounded-full blur-3xl" />
+              <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-500 to-teal-500 transform scale-[0.95] rounded-full blur-3xl" />
 
               {/* Content */}
-              <div className="relative shadow-xl bg-gray-900 border border-gray-800 px-5 py-5 h-full rounded-xl flex flex-col items-center justify-center">
+              <div className="relative shadow-xl bg-gray-900/10 px-5 py-5 h-full rounded-xl flex flex-col items-center justify-center">
                 {/* FavQuotes component */}
 
-                <p className="font-normal text-sm sm:text-base text-slate-300 relative z-40">
+                <p className="font-medium text-sm sm:text-base text-slate-800 dark:text-slate-100 relative z-40">
                   It is not the strongest of the species that survive, nor the
                   most intelligent, but the one most responsive to change.
                 </p>
@@ -258,9 +275,9 @@ function PreviewGrid() {
                   ease: "easeOut",
                 },
               }}
-              whileHover={{rotate: 3}}
+              whileHover={{ rotate: 3 }}
               viewport={{ once: true }}
-              className="bg-gray-50 relative dark:bg-gray-800 rounded-xl col-span-2 md:col-span-3 sm:col-span-2 lg:col-span-2 row-span-2 md:h-[400px] sm:h-auto h-[400px] overflow-hidden border border-neutral-200 dark:border-none "
+              className="bg-gray-50 relative dark:bg-gray-800 rounded-xl col-span-2 md:col-span-3 sm:col-span-2 lg:col-span-2 row-span-2 md:h-[400px] sm:h-auto h-[400px] overflow-hidden  dark:border-none "
             >
               <Image
                 src="/landing.jpg"
@@ -289,7 +306,7 @@ function PreviewGrid() {
                 },
               }}
               whileHover={{
-                rotate:-2
+                rotate: -2,
               }}
               viewport={{ once: true }}
               className=" bgcustom rounded-xl px-5 py-5 col-span-2  h-48 border "
@@ -334,7 +351,7 @@ function PreviewGrid() {
                 rotate: 2,
               }}
               viewport={{ once: true }}
-              className="bg-purple-100 dark:bg-gradient-to-l from-black/20 to-purple-100  rounded-xl p-5 sm:col-span-1 md:col-span-1 lg:col-span-3 col-span-3 h-48 border border-neutral-200 dark:border-neutral-800
+              className=" bg-gradient-to-br dark:from-neutral-100 dark:to-neutral-500  from-neutral-100 to-neutral-400 rounded-xl p-5 sm:col-span-1 md:col-span-1 lg:col-span-3 col-span-3 h-48  dark:border-neutral-800
         relative overflow-hidden cursor-pointer"
             >
               <div className="flex flex-col justify-between h-full z-10 ">
@@ -388,9 +405,9 @@ function PreviewGrid() {
                   rotate: -4,
                 }}
                 viewport={{ once: true }}
-                className="bg-[#e2efff] dark:bg-gradient-to-l from-black/10 to-[#e2efff] rounded-xl px-5 pb-5 pt-4 h-48 border sm:col-span-2 col-span-1 border-neutral-200"
+                className="bg-gradient-to-br dark:from-pink-300 dark:to-violet-500 from-pink-200 to-violet-400 rounded-xl px-5 pb-5 pt-4 h-48  sm:col-span-2 col-span-1 "
               >
-                <div className=" logo-container shadow-lg rounded-md bg-blue-200">
+                <div className=" logo-container shadow-lg rounded-md bg-transparent">
                   <img
                     width="40"
                     height="40"
@@ -402,7 +419,7 @@ function PreviewGrid() {
                   Devadil.vercel.app
                 </p>
                 <div className=" flex flex-row items-center sm:text-3xl text-xl justify-between w-full text-neutral-800 sm:mt-12 mt-10">
-                  <p className=" py-0.5 text-sm font-medium px-1.5 bg-blue-200 text-black w-20 rounded-full flex items-center justify-center hover:bg-blue-300 transition border border-neutral-300">
+                  <p className=" py-0.5 text-sm font-medium px-1.5 bg-purple-200 text-black w-20 rounded-full flex items-center justify-center  transition">
                     Visit
                   </p>
                 </div>
