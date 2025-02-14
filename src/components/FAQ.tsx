@@ -5,6 +5,8 @@ import Header from "./ui/header";
 import { ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { Separator } from "./ui/separator";
 
 const FAQData = [
   {
@@ -13,7 +15,7 @@ const FAQData = [
       "Simply sign up for an account, choose your unique username, and start customizing your profile grid. Add your social media links, bio, location, and images to create your perfect digital identity.",
   },
   {
-    title: "What social media platforms supported?",
+    title: "Supported platforms?",
     description:
       "We support all major social media platforms including Instagram, Twitter, LinkedIn, YouTube, TikTok, GitHub, and many more. You can add custom links to any platform or website.",
   },
@@ -38,8 +40,8 @@ function FAQ() {
 
   return (
     <div
-      id="showcase"
-      className="relative overflow-x-hidden max-w-screen h-full bg-white dark:bg-black flex flex-col mx-auto min-h-screen py-10 pt-20 z-0"
+      id="FAQ"
+      className="relative overflow-x-hidden max-w-screen h-full bg-white dark:bg-black flex flex-col mx-auto min-h-screen pt-20 z-0"
     >
       <Header
         header="Frequently Asked Questions"
@@ -49,10 +51,13 @@ function FAQ() {
         {FAQData.map((faq, index) => (
           <div
             key={index}
-            className={cn("dark:bg-neutral-800 bg-neutral-200 rounded-lg w-full mb-4 overflow-hidden transition-all", openIndex === index && "dark:bg-neutral-900 bg-neutral-200")}
+            className={cn(
+              "dark:bg-neutral-800 bg-neutral-200 rounded-lg w-full mb-4 overflow-hidden transition-all",
+              openIndex === index && "dark:bg-neutral-900 bg-neutral-200"
+            )}
           >
             <button
-              className="w-full flex justify-between items-center p-6 sm:text-lg text-sm font-semibold dark:text-neutral-200 text-neutral-800 cursor-pointer focus:outline-none"
+              className="w-full flex justify-between items-center sm:p-6 px-6 py-3 sm:text-lg text-sm font-semibold dark:text-neutral-200 text-neutral-800 cursor-pointer focus:outline-none"
               onClick={() => toggleFAQ(index)}
             >
               <span>{faq.title}</span>
@@ -60,20 +65,52 @@ function FAQ() {
                 animate={{ rotate: openIndex === index ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <ChevronDown className=" dark:text-indigo-500 text-indigo-600"/>
+                <ChevronDown className=" dark:text-indigo-500 text-indigo-600" />
               </motion.div>
             </button>
 
             <motion.div
               initial={false}
-              animate={{ height: openIndex === index ? "auto" : 0, opacity: openIndex === index ? 1 : 0 }}
+              animate={{
+                height: openIndex === index ? "auto" : 0,
+                opacity: openIndex === index ? 1 : 0,
+              }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="overflow-hidden dark:text-gray-400 text-gray-700"
             >
-              <div className="px-6 pb-6 sm:text-base text-xs">{faq.description}</div>
+              <div className="px-6 pb-6 sm:text-base text-xs">
+                {faq.description}
+              </div>
             </motion.div>
           </div>
         ))}
+        <Separator orientation="horizontal" className=" max-w-6xl mt-16"/>
+      </div>
+      
+      <div className=" absolute bottom-5 flex flex-row text-sm sm:text-base w-full items-center justify-center">
+        <p className="text-neutral-500">
+          Powered by{" "}
+          <Link
+            href="/"
+            className="underline text-neutral-800 hover:text-black duration-200 dark:text-neutral-300 dark:hover:text-neutral-50"
+          >
+            ProfileCraft
+          </Link>
+        </p>
+        <Separator
+          orientation="vertical"
+          className="h-5 w-[1px] bg-gray-300 dark:bg-neutral-600 mx-4"
+        />{" "}
+        <p className="text-neutral-500">
+          Developed by{" "}
+          <Link
+            href="https://devadil.vercel.app/"
+            target="_blank"
+            className=" text-neutral-800 dark:text-neutral-300 dark:hover:text-neutral-50 font-semibold hover:text-black duration-200"
+          >
+            Adil
+          </Link>
+        </p>
       </div>
     </div>
   );
