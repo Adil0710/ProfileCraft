@@ -17,7 +17,7 @@ function PreviewGrid() {
   return (
     <div
       id="preview"
-      className=" z-0 w-full h-full bg-white dark:bg-black min-h-screen py-10"
+      className=" z-0 w-full h-full bg-[#F7FAFF] dark:bg-neutral-950 min-h-screen py-10"
     >
       <div className="max-w-6xl mx-auto mt-10 h-full">
         <div className=" px-5">
