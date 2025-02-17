@@ -28,7 +28,7 @@ export default function Navbar() {
             className=" sm:block hidden"
           >
             <RainbowButton className=" px-3 py-1 rounded-lg h-auto text-xs font-semibold">
-              <FaGithub size={18} className=" mr-2" /> Star on Github
+              <FaGithub size={18} className=" mr-2" /> Star on GitHub
             </RainbowButton>
           </Link>
           {session ? (
