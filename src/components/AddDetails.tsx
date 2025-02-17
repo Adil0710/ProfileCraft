@@ -23,7 +23,7 @@ import {
   DrawerClose,
 } from "@/components/ui/drawer";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -35,23 +35,27 @@ import {
 import { Textarea } from "./ui/textarea";
 import { ScrollArea } from "./ui/scroll-area";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2 } from "lucide-react";
+import { CircleCheckIcon, CircleXIcon, Loader2 } from "lucide-react";
 import { Skeleton } from "./ui/skeleton";
+import Logo from "./Logo";
+import { ApiResponse } from "@/types/ApiResponse";
+import { useDebounceCallback } from "usehooks-ts";
 
 // Hardcoded platforms
 const platforms = [
-  { platform: "Instagram" },
-  { platform: "Threads" },
-  { platform: "Spotify" },
-  { platform: "LinkedIn" },
-  { platform: "GitHub" },
-  { platform: "YouTube" },
-  { platform: "Twitter" },
-  { platform: "Custom" },
+  { platform: "instagram" },
+  { platform: "threads" },
+  { platform: "spotify" },
+  { platform: "linkedin" },
+  { platform: "github" },
+  { platform: "youtube" },
+  { platform: "twitter" },
+  { platform: "custom" },
 ];
 
 // Zod schema for validation
 const profileSchema = z.object({
+  username: z.string(),
   name: z.string(),
   socialLinks: z.array(
     z.object({
@@ -94,12 +98,17 @@ export default function AddDetails({
   const [selectedGender, setSelectedGender] = useState<string | null>(null); // State for gender selection
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [loading, setIsLoading] = useState(false);
+  const [username, setUsername] = useState("");
+  const [usernameMessage, setUsernameMessage] = useState("");
+  const [isCheckingUsername, setIsCheckingUSername] = useState(false);
+  const debounced = useDebounceCallback(setUsername, 300);
 
   // Initialize form with default values
   const form = useForm({
     resolver: zodResolver(profileSchema),
     defaultValues: {
       socialLinks,
+      username: "",
       name: "",
       about: "",
       occupation: "",
@@ -111,6 +120,28 @@ export default function AddDetails({
   });
 
   // Fetch profile details and set them in form when drawer opens
+  useEffect(() => {
+    const checkUsernameUnique = async () => {
+      if (username) {
+        setIsCheckingUSername(true);
+        setUsernameMessage("");
+        try {
+          const response = await axios.get(
+            `/api/check-username-unique?username=${username}`
+          );
+          setUsernameMessage(response.data.message);
+        } catch (error) {
+          const axiosError = error as AxiosError<ApiResponse>;
+          setUsernameMessage(
+            axiosError.response?.data.message ?? "Error Checking username"
+          );
+        } finally {
+          setIsCheckingUSername(false);
+        }
+      }
+    };
+    checkUsernameUnique();
+  }, [username]);
   useEffect(() => {
     const getProfileDetails = async () => {
       setIsLoading(true);
@@ -131,6 +162,7 @@ export default function AddDetails({
 
         form.reset({
           socialLinks: fetchedLinks,
+          username: user.username || "",
           name: user.name || "",
           about: user.about || "",
           occupation: user.occupation || "",
@@ -158,6 +190,7 @@ export default function AddDetails({
     try {
       // Create FormData to handle multipart/form-data
       const formData = new FormData();
+      formData.append("username", data.username);
       formData.append("name", data.name);
       formData.append("about", data.about || "");
       formData.append("occupation", data.occupation || "");
@@ -222,7 +255,7 @@ export default function AddDetails({
     <Drawer open={isOpen} onOpenChange={onClose}>
       <DrawerContent>
         <ScrollArea className=" overflow-y-auto">
-          <div className="mx-auto w-full sm:px-0 px-5 max-w-lg">
+          <div className="mx-auto w-full sm:px-0 px-3 max-w-xl">
             <DrawerHeader className=" flex items-center justify-center flex-col">
               <DrawerTitle>Profile</DrawerTitle>
               <DrawerDescription>Add or update profile</DrawerDescription>
@@ -231,156 +264,83 @@ export default function AddDetails({
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className=" space-y-5"
+                className=" space-y-8 grid grid-cols-2 gap-x-4 mt-5"
               >
-                {/* Name Field */}
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Full Name</FormLabel>
-                      <FormControl>
-                        {loading ? (
-                          <Skeleton className=" h-4 w-full" />
-                        ) : (
-                          <Input
-                            placeholder="Your current occupation"
-                            {...field}
+                <div className=" col-span-2 grid grid-cols-2 gap-x-4">
+                  {/* Name Field */}
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem className=" col-span-1">
+                        <FormLabel>Full Name</FormLabel>
+                        <FormControl>
+                          {loading ? (
+                            <Skeleton className=" h-6 w-full" />
+                          ) : (
+                            <Input
+                              placeholder="Your current occupation"
+                              {...field}
+                            />
+                          )}
+                        </FormControl>
+
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  {/* USername Field */}
+                  <FormField
+                    control={form.control}
+                    name="username"
+                    render={({ field }) => (
+                      <FormItem className=" col-span-1">
+                        <FormLabel>Username</FormLabel>
+                        <div className=" relative">
+                        <FormControl>
+                          {loading ? (
+                            <Skeleton className=" h-6 w-full" />
+                          ) : (
+                            <Input placeholder="Username" {...field}   onChange={(e) => {
+                              field.onChange(e);
+                              debounced(e.target.value);
+                              if (e.target.value === "") {
+                                setUsernameMessage("");
+                              }
+                            }}/>
+                          )}
+                        </FormControl>
+                        {isCheckingUsername && (
+                          <Loader2
+                            className="absolute right-2 top-1/2 h-4 w-4 animate-spin"
+                            style={{ marginTop: "-2.2%" }}
                           />
                         )}
-                      </FormControl>
-
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                {/* About Field */}
-                <FormField
-                  control={form.control}
-                  name="about"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Bio</FormLabel>
-                      <FormControl>
-                        <Textarea
-                          placeholder="Tell us about yourself"
-                          {...field}
-                          rows={3}
-                          className="resize-none"
-                          maxLength={200}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                      <div className="mt-1 text-right text-xs text-gray-500">
-                        Max 200 characters
+                        {!isCheckingUsername &&
+                          usernameMessage &&
+                          (usernameMessage === "Username is available" ? (
+                            <CircleCheckIcon className="absolute right-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-green-500" />
+                          ) : (
+                            <CircleXIcon className="absolute right-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-red-500" />
+                          ))}
                       </div>
-                    </FormItem>
-                  )}
-                />
-
-                {/* Favorite Quote Field */}
-                <FormField
-                  control={form.control}
-                  name="favoriteQuote"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Favorite Quote</FormLabel>
-                      <FormControl>
-                        <Textarea
-                          placeholder="Your favorite quote"
-                          {...field}
-                          rows={3}
-                          className="resize-none"
-                          maxLength={200}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                      <div className="mt-1 text-right text-xs text-gray-500">
-                        Max 200 characters
-                      </div>
-                    </FormItem>
-                  )}
-                />
-
-                {/* Image */}
-                <FormField
-                  control={form.control}
-                  name="image"
-                  render={({ field }) => (
-                    <FormItem className="cursor-pointer">
-                      <div className="flex w-full items-center gap-5">
-                        <FormLabel className="flex-shrink-0 w-1/6 text-left">
-                          Image
-                        </FormLabel>
-                        <FormControl className="flex-grow">
-                          <Input
-                            type="file"
-                            accept="image/*"
-                            onChange={(e) => {
-                              const file = e.target.files?.[0]; // Get the selected file
-                              field.onChange(file); // Update the field with the selected file
-                            }}
-                          />
-                        </FormControl>
-                      </div>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                {/* Gender Dropdown */}
-                <FormField
-                  control={form.control}
-                  name="gender"
-                  render={() => (
-                    <FormItem>
-                      <div className="flex w-full items-center gap-5">
-                        <FormLabel className="flex-shrink-0 w-1/6 text-left">
-                          Gender
-                        </FormLabel>
-
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <Button className="flex-grow" variant="outline">
-                              {selectedGender
-                                ? selectedGender
-                                : "Select Gender"}
-                            </Button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent className="w-64">
-                            <DropdownMenuLabel>Choose Gender</DropdownMenuLabel>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuCheckboxItem
-                              checked={selectedGender === "male"}
-                              onCheckedChange={(checked) => {
-                                if (checked) {
-                                  setSelectedGender("Male");
-                                  form.setValue("gender", "Male");
-                                }
-                              }}
-                            >
-                              Male
-                            </DropdownMenuCheckboxItem>
-                            <DropdownMenuCheckboxItem
-                              checked={selectedGender === "Female"}
-                              onCheckedChange={(checked) => {
-                                if (checked) {
-                                  setSelectedGender("Female");
-                                  form.setValue("gender", "Female");
-                                }
-                              }}
-                            >
-                              Female
-                            </DropdownMenuCheckboxItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
-                      </div>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                      {usernameMessage && (
+                        <p
+                          className={`text-sm flex items-center ${
+                            usernameMessage === "Username is available"
+                              ? "text-green-500"
+                              : "text-red-500"
+                          }`}
+                        >
+                          {usernameMessage}
+                        </p>
+                      )}
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
 
                 {/* Social Media Links */}
                 {socialLinks.map((link, index) => (
@@ -389,27 +349,44 @@ export default function AddDetails({
                     control={form.control}
                     name={`socialLinks.${index}.platform_username`}
                     render={({}) => (
-                      <FormItem>
-                        <div className="flex w-full items-center gap-5">
-                          <FormLabel className="flex-shrink-0 w-1/6 text-left">
-                            {link.platform}
-                          </FormLabel>
-                          <FormControl className="flex-grow">
-                            <Input
-                              placeholder={
-                                link.platform === "Spotify"
-                                  ? "song or playlist link"
-                                  : link.platform === "Custom"
-                                  ? "Your custom link | e.g. https://devadil.vercel.app/"
-                                  : link.platform === "LinkedIn"
-                                  ? "LinkedIn profile URL"
-                                  : `${link.platform} username`
-                              }
-                              value={link.platform_username}
-                              onChange={(e) =>
-                                handleUsernameChange(index, e.target.value)
+                      <FormItem className=" col-span-1">
+                        <div className="flex flex-col w-full gap-3">
+                          <FormLabel>
+                            <Logo
+                              name={
+                                link.platform as
+                                  | "instagram"
+                                  | "threads"
+                                  | "spotify"
+                                  | "twitter"
+                                  | "gmail"
+                                  | "linkedin"
+                                  | "github"
+                                  | "youtube"
+                                  | "rocket"
                               }
                             />
+                          </FormLabel>
+                          <FormControl className="flex-grow">
+                            {loading ? (
+                              <Skeleton className=" h-6 w-full" />
+                            ) : (
+                              <Input
+                                placeholder={
+                                  link.platform === "spotify"
+                                    ? "song or playlist link"
+                                    : link.platform === "custom"
+                                    ? "Your custom link | e.g. https://devadil.vercel.app/"
+                                    : link.platform === "linkedIn"
+                                    ? "LinkedIn profile URL"
+                                    : `${link.platform} username`
+                                }
+                                value={link.platform_username}
+                                onChange={(e) =>
+                                  handleUsernameChange(index, e.target.value)
+                                }
+                              />
+                            )}
                           </FormControl>
                         </div>
 
@@ -419,47 +396,197 @@ export default function AddDetails({
                   />
                 ))}
 
-                {/* Location Field */}
-                <FormField
-                  control={form.control}
-                  name="location"
-                  render={({ field }) => (
-                    <FormItem>
-                      <div className="flex w-full items-center gap-5">
-                        <FormLabel className="flex-shrink-0 w-1/6 text-left">
-                          Location
-                        </FormLabel>
-                        <FormControl className="flex-grow">
-                          <Input placeholder="Your location" {...field} />
-                        </FormControl>
-                      </div>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                {/* Occupation Field */}
-                <FormField
-                  control={form.control}
-                  name="occupation"
-                  render={({ field }) => (
-                    <FormItem>
-                      <div className="flex w-full items-center gap-5">
-                        <FormLabel className="flex-shrink-0 w-1/6 text-left">
-                          Occupation
-                        </FormLabel>
-                        <FormControl className="flex-grow">
-                          <Input
-                            placeholder="Your current occupation"
-                            {...field}
-                          />
-                        </FormControl>
-                      </div>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                <div className=" col-span-2 grid grid-cols-2 gap-x-4">
+                  {/* Location Field */}
+                  <FormField
+                    control={form.control}
+                    name="location"
+                    render={({ field }) => (
+                      <FormItem className=" col-span-1">
+                        <div className="flex w-full flex-col gap-5">
+                          <FormLabel>Location</FormLabel>
+                          <FormControl className="flex-grow">
+                            {loading ? (
+                              <Skeleton className=" h-6 w-full" />
+                            ) : (
+                              <Input placeholder="Your city" {...field} />
+                            )}
+                          </FormControl>
+                        </div>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  {/* Occupation Field */}
+                  <FormField
+                    control={form.control}
+                    name="occupation"
+                    render={({ field }) => (
+                      <FormItem className=" col-span-1">
+                        <div className="flex flex-col w-full  gap-5">
+                          <FormLabel>Occupation</FormLabel>
+                          <FormControl className="flex-grow">
+                            {loading ? (
+                              <Skeleton className=" h-6 w-full" />
+                            ) : (
+                              <Input
+                                placeholder="Your current occupation"
+                                {...field}
+                              />
+                            )}
+                          </FormControl>
+                        </div>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
 
-                <DrawerFooter>
+                <div className=" col-span-2 grid grid-cols-2 gap-x-4">
+                  {/* Favorite Quote Field */}
+                  <FormField
+                    control={form.control}
+                    name="favoriteQuote"
+                    render={({ field }) => (
+                      <FormItem className=" col-span-1">
+                        <FormLabel>Favorite Quote</FormLabel>
+                        <FormControl>
+                          {loading ? (
+                            <div>
+                              <Skeleton className=" h-6 w-full" />
+
+                              <Skeleton className=" h-6 w-1/2 mt-3" />
+                            </div>
+                          ) : (
+                            <Textarea
+                              placeholder="Your favorite quote"
+                              {...field}
+                              rows={3}
+                              className="resize-none"
+                              maxLength={200}
+                            />
+                          )}
+                        </FormControl>
+                        <FormMessage />
+                        <div className="mt-1 text-right text-xs text-gray-500">
+                          Max 200 characters
+                        </div>
+                      </FormItem>
+                    )}
+                  />
+                  {/* About Field */}
+                  <FormField
+                    control={form.control}
+                    name="about"
+                    render={({ field }) => (
+                      <FormItem className=" col-span-1">
+                        <FormLabel>Bio</FormLabel>
+                        <FormControl>
+                          {loading ? (
+                            <div>
+                              <Skeleton className=" h-6 w-full" />
+
+                              <Skeleton className=" h-6 w-1/2 mt-3" />
+                            </div>
+                          ) : (
+                            <Textarea
+                              placeholder="Tell us about yourself"
+                              {...field}
+                              rows={3}
+                              className="resize-none"
+                              maxLength={200}
+                            />
+                          )}
+                        </FormControl>
+                        <FormMessage />
+                        <div className="mt-1 text-right text-xs text-gray-500">
+                          Max 200 characters
+                        </div>
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                <div className=" col-span-2 grid grid-cols-2 gap-x-4">
+                  {/* Gender Dropdown */}
+                  <FormField
+                    control={form.control}
+                    name="gender"
+                    render={() => (
+                      <FormItem className=" col-span-1">
+                        <div className="flex flex-col w-full gap-3">
+                          <FormLabel>Gender</FormLabel>
+                          {loading ? (
+                            <Skeleton className=" h-6 w-full" />
+                          ) : (
+                            <DropdownMenu>
+                              <DropdownMenuTrigger asChild>
+                                <Button className="flex-grow" variant="outline">
+                                  {selectedGender
+                                    ? selectedGender
+                                    : "Select Gender"}
+                                </Button>
+                              </DropdownMenuTrigger>
+                              <DropdownMenuContent className="w-64">
+                                <DropdownMenuLabel>
+                                  Choose Gender
+                                </DropdownMenuLabel>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuCheckboxItem
+                                  checked={selectedGender === "male"}
+                                  onCheckedChange={(checked) => {
+                                    if (checked) {
+                                      setSelectedGender("Male");
+                                      form.setValue("gender", "Male");
+                                    }
+                                  }}
+                                >
+                                  Male
+                                </DropdownMenuCheckboxItem>
+                                <DropdownMenuCheckboxItem
+                                  checked={selectedGender === "Female"}
+                                  onCheckedChange={(checked) => {
+                                    if (checked) {
+                                      setSelectedGender("Female");
+                                      form.setValue("gender", "Female");
+                                    }
+                                  }}
+                                >
+                                  Female
+                                </DropdownMenuCheckboxItem>
+                              </DropdownMenuContent>
+                            </DropdownMenu>
+                          )}
+                        </div>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  {/* Image */}
+                  <FormField
+                    control={form.control}
+                    name="image"
+                    render={({ field }) => (
+                      <FormItem className="cursor-pointer col-span-1">
+                        <div className="flex w-full flex-col gap-3">
+                          <FormLabel>Image</FormLabel>
+                          <FormControl className="flex-grow">
+                            <Input
+                              type="file"
+                              accept="image/*"
+                              onChange={(e) => {
+                                const file = e.target.files?.[0]; // Get the selected file
+                                field.onChange(file); // Update the field with the selected file
+                              }}
+                            />
+                          </FormControl>
+                        </div>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                <DrawerFooter className=" col-span-2 px-0">
                   <Button type="submit" disabled={isSubmitting}>
                     {isSubmitting ? (
                       <>

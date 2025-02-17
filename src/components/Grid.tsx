@@ -329,7 +329,7 @@ function Grid({ profileUpdated, setProfileUpdated }: GridProps) {
             }}
             className="bg-gray-50 relative dark:bg-gray-800 rounded-xl col-span-2 md:col-span-3 sm:col-span-2 lg:col-span-2 row-span-2 md:h-[400px] sm:h-auto h-[400px] overflow-hidden border border-neutral-200 dark:border-none "
           >
-            {!profileDetails.image ? (
+            {profileDetails.image ? (
               <Image
                 src={profileDetails.image}
                 alt={profileDetails.name}

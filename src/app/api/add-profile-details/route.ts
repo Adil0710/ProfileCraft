@@ -57,6 +57,7 @@ export async function PUT(request: Request) {
     }
 
     const formData = await request.formData();
+    const username = formData.get("username") as string;
     const name = formData.get("name") as string;
     const about = formData.get("about") as string;
     const favoriteQuote = formData.get("favoriteQuote") as string;
@@ -160,6 +161,7 @@ export async function PUT(request: Request) {
       userId,
       {
         $set: {
+          username: username || existingUser.username,
           name: name || existingUser.name,
           about: about || existingUser.about,
           favoriteQuote: favoriteQuote || existingUser.favoriteQuote,
@@ -189,6 +191,7 @@ export async function PUT(request: Request) {
       ...session,
       user: {
         ...session.user,
+        username: updatedUser.username,
         name: updatedUser.name,
         profilePhoto: updatedUser.profilePhoto,
         about: updatedUser.about,
