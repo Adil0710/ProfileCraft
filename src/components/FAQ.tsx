@@ -39,13 +39,13 @@ function FAQ() {
   return (
     <div
       id="FAQ"
-      className="relative overflow-x-hidden max-w-screen h-full bg-white dark:bg-black flex flex-col mx-auto min-h-[75vh] sm:min-h-screen pt-20 z-0"
+      className="relative overflow-x-hidden max-w-screen h-full bg-white dark:bg-black flex flex-col mx-auto min-h-[75vh] sm:min-h-screen pt-20 z-0 px-5"
     >
       <Header
         header="Frequently Asked Questions"
         description="Everything you need to know about ProfileCraft"
       />
-      <div className="max-w-3xl w-full px-8 pb-8 flex flex-col mx-auto">
+      <div className="max-w-3xl w-full px-3 pb-8 flex flex-col mx-auto">
         {FAQData.map((faq, index) => (
           <div
             key={index}
