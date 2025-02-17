@@ -13,7 +13,7 @@ import { CardSpotlightDemo } from "./CardSpotLight";
 export function HowWorks() {
   return (
     <div
-      className=" bg-white flex flex-col justify-center items-center dark:bg-black min-h-screen py-10 px-5 pt-20"
+      className=" bg-white flex flex-col justify-center items-center dark:bg-black min-h-screen py-10 px-5 pt-20" id="how"
       // style={{
       //   backgroundImage: `radial-gradient(circle at 1px 1px, rgba(6,182,212,0.2) 1px, transparent 0.5px)`,
 

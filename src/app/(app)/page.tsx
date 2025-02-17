@@ -1,5 +1,6 @@
 import FAQ from "@/components/FAQ";
 import { Features } from "@/components/Features";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 
 import { HowWorks } from "@/components/HowWorks";
@@ -16,6 +17,7 @@ export default function Home() {
       <Features />
       <Showcase />
       <FAQ/>
+      <Footer/>
     </div>
   );
 }

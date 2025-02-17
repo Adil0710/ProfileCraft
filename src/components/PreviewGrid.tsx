@@ -16,14 +16,16 @@ import Header from "./ui/header";
 function PreviewGrid() {
   return (
     <div
-      id="show"
+      id="preview"
       className=" z-0 w-full h-full bg-white dark:bg-black min-h-screen py-10"
     >
-      <div className="max-w-6xl mx-auto px-8 mt-10 h-full">
+      <div className="max-w-6xl mx-auto mt-10 h-full">
+        <div className=" px-5">
         <Header
           header="Preview Your Bento Grid"
           description="See how your profile will look in real-time"
         />
+        </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 m-4">
           <AnimatePresence>
 
@@ -56,7 +58,7 @@ function PreviewGrid() {
                 whileHover={{ rotate: -4 }}
                 className=" cursor-pointer"
               >
-                <div className="bg-gradient-to-br dark:from-green-200 dark:to-emerald-500 from-green-100 to-emerald-400 rounded-2xl px-5 py-5 h-48  relative overflow-hidden">
+                <div className="bg-gradient-to-br dark:from-green-200 dark:to-emerald-500 from-green-100 to-emerald-400 rounded-2xl px-5 py-5 h-48  relative">
                   <div className="logo-container">
                     <Logo name="spotify" size={33} />
                     <div className="ripple"></div>

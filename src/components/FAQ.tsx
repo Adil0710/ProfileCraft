@@ -5,8 +5,7 @@ import Header from "./ui/header";
 import { ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
-import { Separator } from "./ui/separator";
+
 
 const FAQData = [
   {
@@ -84,34 +83,10 @@ function FAQ() {
             </motion.div>
           </div>
         ))}
-        <Separator orientation="horizontal" className=" max-w-6xl mt-16"/>
+       
       </div>
       
-      <div className=" absolute bottom-5 flex flex-row text-sm sm:text-base w-full items-center justify-center">
-        <p className="text-neutral-500">
-          Powered by{" "}
-          <Link
-            href="/"
-            className="underline text-neutral-800 hover:text-black duration-200 dark:text-neutral-300 dark:hover:text-neutral-50"
-          >
-            ProfileCraft
-          </Link>
-        </p>
-        <Separator
-          orientation="vertical"
-          className="h-5 w-[1px] bg-gray-300 dark:bg-neutral-600 mx-4"
-        />{" "}
-        <p className="text-neutral-500">
-          Developed by{" "}
-          <Link
-            href="https://devadil.vercel.app/"
-            target="_blank"
-            className=" text-neutral-800 dark:text-neutral-300 dark:hover:text-neutral-50 font-semibold hover:text-black duration-200"
-          >
-            Adil
-          </Link>
-        </p>
-      </div>
+     
     </div>
   );
 }
