@@ -100,7 +100,7 @@ function Footer() {
             href="https://github.com/Adil0710/ProfileCraft"
             className=" mt-10"
           >
-            <RainbowButton className=" px-3 py-1 rounded-lg h-auto text-xs font-semibold">
+            <RainbowButton className=" px-3 py-1.5 rounded-lg h-auto text-xs font-semibold">
               <FaGithub size={18} className=" mr-2" /> Star on GitHub
             </RainbowButton>
           </Link>
