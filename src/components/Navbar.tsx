@@ -21,12 +21,16 @@ export default function Navbar() {
         <Link href={"/"}>
           <Brand />
         </Link>
-        <Link href="https://github.com/Adil0710/ProfileCraft" className=" sm:block hidden">
-          <RainbowButton className=" px-3 py-1 rounded-lg h-auto text-xs font-semibold">
-            <FaGithub size={18} className=" mr-2" /> Star on Github
-          </RainbowButton>
-        </Link>
-        <div className=" flex sm:gap-5 gap-2 justify-center items-center">
+
+        <div className=" flex sm:gap-4 gap-2 justify-center items-center">
+          <Link
+            href="https://github.com/Adil0710/ProfileCraft"
+            className=" sm:block hidden"
+          >
+            <RainbowButton className=" px-3 py-1 rounded-lg h-auto text-xs font-semibold">
+              <FaGithub size={18} className=" mr-2" /> Star on Github
+            </RainbowButton>
+          </Link>
           {session ? (
             <>
               {pathname !== "/" ? (

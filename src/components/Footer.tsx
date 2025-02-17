@@ -3,6 +3,8 @@ import React from "react";
 import { Separator } from "./ui/separator";
 import { Github, Linkedin } from "lucide-react";
 import X from "./X";
+import { RainbowButton } from "./magicui/rainbow-button";
+import { FaGithub } from "react-icons/fa";
 
 const SocialLinks = [
   {
@@ -94,6 +96,14 @@ function Footer() {
               </Link>
             ))}
           </div>
+          <Link
+            href="https://github.com/Adil0710/ProfileCraft"
+            className=" mt-10"
+          >
+            <RainbowButton className=" px-3 py-1 rounded-lg h-auto text-xs font-semibold">
+              <FaGithub size={18} className=" mr-2" /> Star on Github
+            </RainbowButton>
+          </Link>
         </div>
       </div>
       <Separator orientation="horizontal" className=" max-w-4xl mt-5" />
