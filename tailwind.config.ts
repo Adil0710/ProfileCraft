@@ -120,6 +120,17 @@ const config: Config = {
   				'100%': {
   					'background-position': '200%'
   				}
+  			},
+  			shine: {
+  				'0%': {
+  					'background-position': '0% 0%'
+  				},
+  				'50%': {
+  					'background-position': '100% 100%'
+  				},
+  				to: {
+  					'background-position': '0% 0%'
+  				}
   			}
   		},
   		animation: {
@@ -127,7 +138,8 @@ const config: Config = {
   			'caret-blink': 'caret-blink 1.25s ease-out infinite',
   			'meteor-effect': 'meteor 5s linear infinite',
   			gradient: 'gradient 8s linear infinite',
-  			rainbow: 'rainbow var(--speed, 2s) infinite linear'
+  			rainbow: 'rainbow var(--speed, 2s) infinite linear',
+  			shine: 'shine var(--duration) infinite linear'
   		}
   	}
   },

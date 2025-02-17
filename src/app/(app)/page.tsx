@@ -10,7 +10,7 @@ import Showcase from "@/components/Showcase";
 
 export default function Home() {
   return (
-    <div className=" max-w-screen">
+    <div className=" max-w-screen ">
       <Hero />
       <PreviewGrid />
       <HowWorks />

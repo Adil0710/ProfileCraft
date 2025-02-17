@@ -6,6 +6,7 @@ import { AnimatedGradientText } from "./ui/animated-gradient-text";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { RainbowButton } from "./magicui/rainbow-button";
+import { IoFlash } from "react-icons/io5";
 
 function HeroText() {
   return (
@@ -33,7 +34,7 @@ function HeroText() {
           🎉 <hr className="mx-2 h-4 w-px shrink-0 bg-gray-300" />{" "}
           <span
             className={cn(
-              `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
+              `inline animate-gradient bg-gradient-to-r from-blue-500 dark:from-blue-300 dark:via-[#c187ff] via-[#9c40ff] dark:to-blue-300 to-blue-500 bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
             )}
           >
             A Beautiful Link For Your Bio !
@@ -94,9 +95,9 @@ function HeroText() {
             rel="noopener noreferrer"
           >
             Sign up{" "}
-            <ChevronRight
+            <IoFlash
               size={18}
-              className=" text-neutral-600 dark:text-neutral-400 group-hover:translate-x-1.5 transition-transform"
+              className=" text-amber-600 group-hover:scale-125 group-hover:rotate-12 transition-transform"
             />
           </Link>
         </div>
