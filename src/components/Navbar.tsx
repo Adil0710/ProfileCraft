@@ -16,13 +16,13 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className=" navbar max-w-screen fixed border-b-neutral-50 dark:border-b-neutral-900 z-[999] border-b w-full px-5 sm:px-10 py-1 ">
-      <div className="max-w-6xl mx-auto flex items-center justify-between w-full">
-        <Link href={"/"}>
-          <Brand />
-        </Link>
+    <nav className=" navbar max-w-screen fixed border-b-neutral-50 dark:border-b-neutral-900 border-b w-full px-5 sm:px-10 py-1 z-50 flex items-center justify-between">
+      <Link href={"/"}>
+        <Brand />
+      </Link>
 
-        <div className=" flex sm:gap-4 gap-2 justify-center items-center">
+      <div className=" flex sm:gap-4 gap-2 justify-center items-center">
+        {pathname === "/" && (
           <Link
             href="https://github.com/Adil0710/ProfileCraft"
             className=" sm:block hidden"
@@ -31,40 +31,40 @@ export default function Navbar() {
               <FaGithub size={18} className=" mr-2" /> Star on GitHub
             </RainbowButton>
           </Link>
-          {session ? (
-            <>
-              {pathname !== "/" ? (
-                <Link href="/">
-                  <Button size="sm" variant="ghost">
-                    Home
-                  </Button>
-                </Link>
-              ) : (
-                <Link href="/dashboard">
-                  <Button size="sm" variant="ghost">
-                    Profile
-                  </Button>
-                </Link>
-              )}
-
-              <Button size="sm" variant="ghost" onClick={() => signOut()}>
-                Logout
-              </Button>
-            </>
-          ) : (
-            <>
-              <Link href="/sign-in">
+        )}
+        {session ? (
+          <>
+            {pathname !== "/" ? (
+              <Link href="/">
                 <Button size="sm" variant="ghost">
-                  Login
+                  Home
                 </Button>
               </Link>
-            </>
-          )}
+            ) : (
+              <Link href="/dashboard">
+                <Button size="sm" variant="ghost">
+                  Profile
+                </Button>
+              </Link>
+            )}
 
-          <Separator orientation="vertical" className=" h-5" />
+            <Button size="sm" variant="ghost" onClick={() => signOut()}>
+              Logout
+            </Button>
+          </>
+        ) : (
+          <>
+            <Link href="/sign-in">
+              <Button size="sm" variant="ghost">
+                Login
+              </Button>
+            </Link>
+          </>
+        )}
 
-          <ModeToggle />
-        </div>
+        <Separator orientation="vertical" className=" h-5" />
+
+        <ModeToggle />
       </div>
     </nav>
   );
