@@ -32,27 +32,27 @@ export default function Navbar() {
                 <FaGithub size={18} className=" mr-2" /> Star on GitHub
               </RainbowButton>
             </Link>
-            <Link href="/#preview">
+            <Link href="/#preview" className=" sm:block hidden">
               <Button size="sm" variant="ghost">
                 Preview
               </Button>
             </Link>
-            <Link href="/#how">
+            <Link href="/#how" className=" sm:block hidden">
               <Button size="sm" variant="ghost">
                 How It Works
               </Button>
             </Link>
-            <Link href="/#features">
+            <Link href="/#features" className=" sm:block hidden">
               <Button size="sm" variant="ghost">
                 Features
               </Button>
             </Link>
-            <Link href="/#showcase">
+            <Link href="/#showcase" className=" sm:block hidden">
               <Button size="sm" variant="ghost">
                 Showcase
               </Button>
             </Link>
-            <Link href="/#FAQ">
+            <Link href="/#FAQ" className=" sm:block hidden">
               <Button size="sm" variant="ghost">
                 FAQ
               </Button>
