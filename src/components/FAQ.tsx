@@ -6,7 +6,6 @@ import { ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-
 const FAQData = [
   {
     title: "How do I create my profile?",
@@ -40,7 +39,7 @@ function FAQ() {
   return (
     <div
       id="FAQ"
-      className="relative overflow-x-hidden max-w-screen h-full bg-white dark:bg-black flex flex-col mx-auto min-h-screen pt-20 z-0"
+      className="relative overflow-x-hidden max-w-screen h-full bg-white dark:bg-black flex flex-col mx-auto min-h-[75vh] sm:min-h-screen pt-20 z-0"
     >
       <Header
         header="Frequently Asked Questions"
@@ -83,10 +82,7 @@ function FAQ() {
             </motion.div>
           </div>
         ))}
-       
       </div>
-      
-     
     </div>
   );
 }
