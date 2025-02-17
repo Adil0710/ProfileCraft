@@ -6,6 +6,9 @@ import Header from "./ui/header";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { ShineBorder } from "./magicui/shine-border";
+import X from "./X";
+import Image from "next/image";
+import Link from "next/link";
 
 const hoverVariant = {
   whileHover: { rotate: 5 },
@@ -41,12 +44,13 @@ function Showcase() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
           <ShineBorder
             className="p-0"
-            color={[ "#9c27b0", "#2196f3", "#FE8FB5"]}
+            color={["#9c27b0", "#2196f3", "#FE8FB5"]}
           >
             <div className="bg-white dark:bg-black rounded-xl shadow-lg overflow-hidden animate__animated animate__fadeInUp">
               <div className="p-6">
                 <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-200 rounded-full"></div>
+                  <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-200 rounded-full overflow-hidden"><Image src={`https://res.cloudinary.com/dknqlet5o/image/upload/v1734007370/ProfileCraft_user_profiles/6714afb53e4df1884f9c1f66_profilePhoto.jpg`} alt="Adil Patel" width={100} height={100}
+                        objectFit="cover"/></div>
                   <div className="ml-4">
                     <h3 className="font-semibold text-lg">@adil</h3>
                     <p className="text-gray-500 dark:text-gray-400">
@@ -59,25 +63,25 @@ function Showcase() {
                     variants={hoverVariant}
                     className="bg-gray-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 rounded-lg p-4 hover:bg-gray-200 transition"
                   >
-                    <svg
-                      className="w-6 h-6 text-indigo-600 mb-2"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-                    </svg>
+                   <X className=" w-6 h-6 mb-2 text-indigo-600 dark:text-indigo-500"/>
                     <span className="text-sm text-gray-600 dark:text-gray-400">
                       Twitter
                     </span>
                   </motion.div>
                   <div className="bg-gray-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 rounded-lg p-4 hover:bg-gray-200 transition">
                     <svg
-                      className="w-6 h-6 text-indigo-600 mb-2"
+                      className="w-6 h-6 text-indigo-600 dark:text-indigo-500 mb-2"
                       fill="currentColor"
                       viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.882 18.275c-.235.527-.469.997-.704 1.41-.23.405-.478.768-.753 1.084a3.39 3.39 0 0 1-.493.458c-.825.622-1.674.925-2.554.925-.912 0-1.693-.243-2.34-.73-.647-.488-1.166-1.285-1.557-2.391-.39-1.107-.59-2.514-.59-4.222 0-2.402.357-4.307 1.072-5.71.713-1.404 1.665-2.106 2.854-2.106.295 0 .596.063.902.19.306.127.636.354.992.682.355.328.748.77 1.177 1.325.43.555.885 1.215 1.367 1.982l.41-.631c.34-.526.715-1.013 1.124-1.462.41-.45.853-.83 1.328-1.141a2.88 2.88 0 0 1 1.557-.47c.89 0 1.688.244 2.395.731.707.488 1.262 1.285 1.665 2.391.403 1.106.605 2.513.605 4.222 0 2.402-.366 4.307-1.097 5.71-.732 1.404-1.692 2.106-2.881 2.106-.296 0-.597-.063-.902-.19a3.803 3.803 0 0 1-.992-.682c-.356-.328-.748-.77-1.177-1.325-.43-.555-.885-1.215-1.368-1.982l-.41.631z" />
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M12 .297C5.373.297 0 5.67 0 12.297c0 5.302 3.438 9.8 8.207 11.385.6.11.82-.26.82-.577v-2.012c-3.338.726-4.042-1.416-4.042-1.416-.546-1.39-1.333-1.76-1.333-1.76-1.091-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.49.998.107-.776.418-1.306.76-1.606-2.665-.304-5.467-1.332-5.467-5.93 0-1.31.468-2.383 1.236-3.223-.124-.303-.535-1.522.116-3.176 0 0 1.007-.323 3.3 1.23a11.49 11.49 0 0 1 3.003-.404c1.02.004 2.044.138 3.003.404 2.29-1.553 3.297-1.23 3.297-1.23.653 1.654.242 2.873.118 3.176.77.84 1.235 1.913 1.235 3.223 0 4.61-2.807 5.624-5.48 5.921.43.37.813 1.103.813 2.224v3.293c0 .32.217.693.825.576C20.565 22.093 24 17.596 24 12.297 24 5.67 18.627.297 12 .297Z"
+                      />
                     </svg>
+
                     <span className="text-sm text-gray-600 dark:text-gray-400">
                       GitHub
                     </span>
@@ -87,15 +91,17 @@ function Showcase() {
                   Full-stack developer passionate about creating beautiful web
                   experiences.
                 </p>
+                <Link href="https://profilecraft.vercel.app/adil">
                 <button className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-500 transition">
                   View Profile
                 </button>
+                </Link>
               </div>
             </div>
           </ShineBorder>
           <ShineBorder
             className="p-0"
-            color={[ "#9c27b0", "#2196f3", "#FE8FB5"]}
+            color={["#9c27b0", "#2196f3", "#FE8FB5"]}
           >
             <div className="bg-white dark:bg-black rounded-xl shadow-lg overflow-hidden animate__animated animate__fadeInUp">
               <div className="p-6">
@@ -111,7 +117,7 @@ function Showcase() {
                 <div className="grid grid-cols-2 gap-4 mb-4">
                   <div className="bg-gray-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 rounded-lg p-4 hover:bg-gray-200 transition">
                     <svg
-                      className="w-6 h-6 text-indigo-600 mb-2"
+                      className="w-6 h-6 text-indigo-600 dark:text-indigo-500 mb-2"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -123,7 +129,7 @@ function Showcase() {
                   </div>
                   <div className="bg-gray-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 rounded-lg p-4 hover:bg-gray-200 transition">
                     <svg
-                      className="w-6 h-6 text-indigo-600 mb-2"
+                      className="w-6 h-6 text-indigo-600 dark:text-indigo-500 mb-2"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -145,7 +151,7 @@ function Showcase() {
           </ShineBorder>
           <ShineBorder
             className="p-0"
-            color={[ "#9c27b0", "#2196f3", "#FE8FB5"]}
+            color={["#9c27b0", "#2196f3", "#FE8FB5"]}
           >
             <div className="bg-white dark:bg-black rounded-xl shadow-lg overflow-hidden animate__animated animate__fadeInUp">
               <div className="p-6">
@@ -161,7 +167,7 @@ function Showcase() {
                 <div className="grid grid-cols-2 gap-4 mb-4">
                   <div className="bg-gray-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 rounded-lg p-4 hover:bg-gray-200 transition">
                     <svg
-                      className="w-6 h-6 text-indigo-600 mb-2"
+                      className="w-6 h-6 text-indigo-600 dark:text-indigo-500 mb-2"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -173,7 +179,7 @@ function Showcase() {
                   </div>
                   <div className="bg-gray-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 rounded-lg p-4 hover:bg-gray-200 transition">
                     <svg
-                      className="w-6 h-6 text-indigo-600 mb-2"
+                      className="w-6 h-6 text-indigo-600 dark:text-indigo-500 mb-2"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >

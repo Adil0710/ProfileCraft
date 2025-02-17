@@ -21,25 +21,57 @@ export default function Navbar() {
         <Brand />
       </Link>
 
-      <div className=" flex sm:gap-4 gap-2 justify-center items-center">
+      <div className=" flex sm:gap-3 gap-2 justify-center items-center">
         {pathname === "/" && (
-          <Link
-            href="https://github.com/Adil0710/ProfileCraft"
-            className=" sm:block hidden"
-          >
-            <RainbowButton className=" px-3 py-1.5 rounded-lg h-auto text-xs font-semibold">
-              <FaGithub size={18} className=" mr-2" /> Star on GitHub
-            </RainbowButton>
-          </Link>
+          <>
+            <Link
+              href="https://github.com/Adil0710/ProfileCraft"
+              className=" sm:block hidden"
+            >
+              <RainbowButton className=" px-3 py-1.5 rounded-lg h-auto text-xs font-semibold">
+                <FaGithub size={18} className=" mr-2" /> Star on GitHub
+              </RainbowButton>
+            </Link>
+            <Link href="/#preview">
+              <Button size="sm" variant="ghost">
+                Preview
+              </Button>
+            </Link>
+            <Link href="/#how">
+              <Button size="sm" variant="ghost">
+                How It Works
+              </Button>
+            </Link>
+            <Link href="/#features">
+              <Button size="sm" variant="ghost">
+                Features
+              </Button>
+            </Link>
+            <Link href="/#showcase">
+              <Button size="sm" variant="ghost">
+                Showcase
+              </Button>
+            </Link>
+            <Link href="/#FAQ">
+              <Button size="sm" variant="ghost">
+                FAQ
+              </Button>
+            </Link>
+          </>
         )}
         {session ? (
           <>
             {pathname !== "/" ? (
+              <>
               <Link href="/">
                 <Button size="sm" variant="ghost">
                   Home
                 </Button>
               </Link>
+               <Button size="sm" variant="ghost" onClick={() => signOut()}>
+               Logout
+             </Button>
+             </>
             ) : (
               <Link href="/dashboard">
                 <Button size="sm" variant="ghost">
@@ -48,9 +80,7 @@ export default function Navbar() {
               </Link>
             )}
 
-            <Button size="sm" variant="ghost" onClick={() => signOut()}>
-              Logout
-            </Button>
+           
           </>
         ) : (
           <>
