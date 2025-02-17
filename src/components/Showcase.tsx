@@ -1,13 +1,14 @@
-"use client"
+"use client";
 import React from "react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import Header from "./ui/header";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 const hoverVariant = {
-  whileHover: {rotate: 5}
-}
+  whileHover: { rotate: 5 },
+};
 
 function Showcase() {
   return (
@@ -30,7 +31,6 @@ function Showcase() {
         </div>
       </div>
       <div className="max-w-6xl mx-auto px-8 pb-8">
-        
         <Header
           header="Profile Showcase"
           description=" See how others are using ProfileCraft to present their digital
@@ -50,7 +50,10 @@ function Showcase() {
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4 mb-4">
-                <motion.div variants={hoverVariant} className="bg-gray-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 rounded-lg p-4 hover:bg-gray-200 transition">
+                <motion.div
+                  variants={hoverVariant}
+                  className="bg-gray-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 rounded-lg p-4 hover:bg-gray-200 transition"
+                >
                   <svg
                     className="w-6 h-6 text-indigo-600 mb-2"
                     fill="currentColor"
@@ -178,9 +181,18 @@ function Showcase() {
           </div>
         </div>
       </div>
-      <Button className=" mt-20 bg-indigo-600 hover:bg-indigo-500 text-white">
-        Join These Creators
-      </Button>
+      <button
+        className={`group relative rounded-full p-2 text-base font-semibold mt-10`}
+      >
+        <div className="absolute left-0 top-0 flex h-full w-10 items-center justify-end rounded-full transition-all duration-200 ease-in-out group-hover:w-full bg-indigo-600">
+          <span className="mr-3 text-white transition-all flex duration-200 ease-in-out">
+            <ArrowRight size={20} />
+          </span>
+        </div>
+        <span className="relative left-4 z-10 whitespace-nowrap px-8 font-semibold text-black dark:text-white transition-all duration-200 ease-in-out group-hover:-left-3 group-hover:text-white">
+          Join These Creators
+        </span>
+      </button>
     </div>
   );
 }

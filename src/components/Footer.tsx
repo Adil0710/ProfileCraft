@@ -70,7 +70,7 @@ function Footer() {
           <div className=" flex flex-col mt-3 gap-2 text-sm">
             {FooterItems.map((item, index) => (
               <Link
-                className="text-neutral-700 dark:text-neutral-400 hover:text-black dark:hover:text-white"
+                className="text-neutral-700 dark:text-neutral-400 hover:text-indigo-600 dark:hover:text-indigo-500"
                 href={item.link}
                 key={index}
               >
@@ -86,7 +86,7 @@ function Footer() {
           <div className=" flex flex-row mt-3 gap-5 text-sm">
             {SocialLinks.map((item, index) => (
               <Link
-                className="text-neutral-700 dark:text-neutral-400 hover:text-black dark:hover:text-white"
+                className="text-neutral-700 dark:text-neutral-400 hover:text-indigo-600 dark:hover:text-indigo-500"
                 href={item.href}
                 key={index}
               >

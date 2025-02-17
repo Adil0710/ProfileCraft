@@ -5,6 +5,7 @@ import BlurFade from "./ui/blur-fade";
 import { AnimatedGradientText } from "./ui/animated-gradient-text";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { RainbowButton } from "./magicui/rainbow-button";
 
 function HeroText() {
   return (
@@ -73,16 +74,19 @@ function HeroText() {
       </BlurFade>
       <BlurFade delay={0.04 * 3}>
         <div className="flex gap-4 items-center flex-col sm:flex-row">
+
           <Link
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-1 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-9 px-4 sm:px-5 group"
+            className=" group"
             href="/sign-in"
             rel="noopener noreferrer"
           >
+            <RainbowButton className="bg-transparent-500 rounded-full border border-solid border-transparent transition-colors flex items-center justify-center  text-sm sm:text-base h-9 px-4 sm:px-5">
             Login{" "}
             <ChevronRight
               size={18}
               className=" group-hover:translate-x-1.5 transition-transform"
             />
+            </RainbowButton>
           </Link>
           <Link
             className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#fff] dark:hover:bg-[#0000007c] hover:border-transparent gap-1 text-sm sm:text-base h-9 px-4 sm:px-5  group"
