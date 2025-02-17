@@ -201,6 +201,7 @@ function Showcase() {
           </ShineBorder>
         </div>
       </div>
+      <Link href={"/sign-up"}>
       <button
         className={`group relative rounded-full p-2 text-base font-semibold mt-10`}
       >
@@ -213,6 +214,7 @@ function Showcase() {
           Join These Creators
         </span>
       </button>
+      </Link>
     </div>
   );
 }
