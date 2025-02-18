@@ -31,7 +31,7 @@ export default function RegistrationEmail({
       cellspacing="0"
       role="presentation"
       style="
-        max-width: 500px;
+        max-width: 550px;
         background-color: #ffffff;
         border: 1px solid #eee;
         border-radius: 5px;
@@ -153,7 +153,14 @@ export default function RegistrationEmail({
         text-transform: uppercase;
       "
     >
-      Securely powered by ProfileCraft.
+      Securely powered by <a
+                href="https://profilecraft.vercel.app"
+                style="color: #000;
+                text-decoration: underline;"
+                target="_blank"
+                >
+                ProfileCraft.
+                </a>
     </p>
   </body>
 </html>
