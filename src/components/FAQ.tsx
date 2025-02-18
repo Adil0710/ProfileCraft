@@ -15,7 +15,7 @@ const FAQData = [
   {
     title: "Supported platforms?",
     description:
-      "We support all major social media platforms including Instagram, Twitter, LinkedIn, YouTube, TikTok, GitHub, and many more. You can add custom links to any platform or website.",
+      "We support all major social media platforms including Instagram, Twitter, LinkedIn, YouTube, GitHub, and many more. You can add custom links to any platform or website.",
   },
   {
     title: "Can I use it as portfolio?",
