@@ -74,7 +74,7 @@ function FAQ() {
                 opacity: openIndex === index ? 1 : 0,
               }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="overflow-hidden dark:text-gray-400 text-gray-700"
+              className="overflow-hidden dark:text-neutral-400 text-neutral-700"
             >
               <div className="px-6 pb-6 sm:text-base text-xs">
                 {faq.description}
