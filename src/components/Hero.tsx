@@ -35,9 +35,9 @@ function Hero() {
         <div className="social-icon floatanimate absolute right-[22%] sm:right-[15%] sm:top-[50%] top-[63%]  sm:p-6 p-0 rounded-xl backdrop-blur-sm hover:scale-105 transition-all cursor-pointer">
           <BlurFade delay={0.04 * 3}>
             <motion.svg
-              className="w-16 h-16"
+              className="sm:w-16 sm:h-16 w-10 h-10"
               fill="currentColor"
- viewBox="-19.5036 -32.49725 169.0312 194.9835"
+              viewBox="-19.5036 -32.49725 169.0312 194.9835"
               style={{
                 x: smoothX,
                 y: smoothY,
@@ -103,7 +103,7 @@ function Hero() {
                 y: smoothY,
                 position: "absolute",
               }}
-              className="w-10 h-10 text-neutral-800 dark:text-neutral-300"
+              className="sm:w-10 sm:h-10 h-6 w-6 text-neutral-800 dark:text-neutral-300"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -120,7 +120,7 @@ function Hero() {
                 y: smoothY,
                 position: "absolute",
               }}
-              className="w-12 h-12 text-[#FF0000]"
+              className="sm:w-12 sm:h-12 h-8 w-8 text-[#FF0000]"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -137,7 +137,7 @@ function Hero() {
                 y: smoothY,
                 position: "absolute",
               }}
-              className="w-12 h-12 text-gray-800 dark:text-gray-200"
+              className="sm:w-12 sm:h-12 h-8 w-8 text-gray-800 dark:text-gray-200"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -154,7 +154,7 @@ function Hero() {
                 y: smoothY,
                 position: "absolute",
               }}
-              className="w-12 h-12 text-green-500 dark:text-green-400"
+              className="sm:w-12 sm:h-12 h-8 w-8 text-green-500 dark:text-green-400"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -179,7 +179,7 @@ function Hero() {
               clip-rule="evenodd"
               fill="currentColor"
               viewBox="0 0 512 512"
-              className=" w-12 h-12 text-neutral-800 dark:text-neutral-300"
+              className=" sm:w-12 sm:h-12 h-8 w-8 text-neutral-800 dark:text-neutral-300"
             >
               <path d="M105 0h302c57.75 0 105 47.25 105 105v302c0 57.75-47.25 105-105 105H105C47.25 512 0 464.75 0 407V105C0 47.25 47.25 0 105 0z" />
               <path
