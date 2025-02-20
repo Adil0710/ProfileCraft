@@ -27,7 +27,7 @@ const SocialLinks = [
 const FooterItems = [
   {
     title: "Home",
-    link: "#hero",
+    link: "/",
   },
   {
     title: "Preview",
@@ -54,7 +54,9 @@ const FooterItems = [
 function Footer() {
   const getFullYear = new Date().getFullYear();
   return (
-    <div className=" dark:bg-neutral-950 bg-[#F7FAFF]  text-sm sm:text-base w-full py-10 flex flex-col  items-center justify-center px-5">
+    <div className="group relative dark:bg-neutral-950 bg-[#F7FAFF]  text-sm sm:text-base w-full py-10 flex flex-col  items-center justify-center px-5 ">
+      <span className=" bg-gradient-to-r from-transparent via-indigo-400 to-transparent sm:w-1/2 w-full h-px absolute inset-x-0 m-auto top-px"></span>
+      <span className=" bg-gradient-to-r from-transparent via-indigo-400 to-transparent sm:w-1/2 w-full h-[5px] absolute inset-x-0 m-auto top-px blur-sm opacity-0 group-hover:opacity-100 duration-300 transition-opacity"></span>
       <div className=" grid sm:grid-cols-3 grid-cols-2 w-full max-w-4xl sm:gap-5 gap-8">
         <div className=" col-span-3 sm:col-span-1 order-3 sm:order-1">
           <h1 className=" font-bold text-2xl text-neutral-800 dark:text-neutral-200">

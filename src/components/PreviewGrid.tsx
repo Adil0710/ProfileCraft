@@ -17,8 +17,10 @@ function PreviewGrid() {
   return (
     <div
       id="preview"
-      className=" z-0 w-full h-full bg-[#F7FAFF] dark:bg-neutral-950 min-h-screen py-10"
+      className="group relative z-0 w-full h-full bg-[#F7FAFF] dark:bg-neutral-950 min-h-screen py-10"
     >
+        <span className=" bg-gradient-to-r from-transparent via-indigo-400 to-transparent sm:w-1/2 w-full h-px absolute inset-x-0 m-auto top-px"></span>
+        <span className=" bg-gradient-to-r from-transparent via-indigo-400 to-transparent sm:w-1/2 w-full h-[5px] absolute inset-x-0 m-auto -top-px blur-sm opacity-0 group-hover:opacity-100 duration-300 transition-opacity"></span>
       <div className="max-w-6xl mx-auto mt-10 h-full">
         <div className=" px-5">
         <Header
