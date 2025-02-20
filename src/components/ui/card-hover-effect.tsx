@@ -28,17 +28,19 @@ export const HoverEffect = ({
           key={item.title}
           initial={{
             opacity: 0,
-            scale: 0.2,
+            x: -100,
+            scale:0.8
           }}
           whileInView={{
             opacity: 1,
-            scale: 1,
+            x: 0,
+            scale:1
           }}
           transition={{
             delay: 0.08 * idx,
             ease: "easeOut",
           }}
-          viewport={{once:true}}
+          viewport={{ once: true }}
           className="relative group  block p-2 h-full w-full group"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
