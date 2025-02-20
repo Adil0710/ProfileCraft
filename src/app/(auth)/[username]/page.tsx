@@ -316,7 +316,7 @@ export default function UserProfile({
                       target="_blank"
                     >
                       <BlurFade delay={0.2}>
-                        <div className=" bg-gradient-to-br dark:from-pink-300 dark:to-purple-500 from-pink-200 to-purple-400 rounded-2xl px-5 py-5 h-48">
+                        <div className=" bg-gradient-to-br from-pink-300 to-indigo-400 dark:from-pink-300 dark:to-indigo-500 rounded-2xl px-5 py-5 h-48">
                           <div className="logo-container">
                             <Logo name="instagram" size={33} />
                           </div>
