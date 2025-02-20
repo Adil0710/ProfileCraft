@@ -267,6 +267,11 @@ export default function UserProfile({
                               size={20}
                               strokeWidth={3}
                             />
+                            <Music
+                              className="music-chord chord3"
+                              size={20}
+                              strokeWidth={3}
+                            />
                           </div>
                           <p className=" font-semibold sm:text-xs text-black/60 mt-2">
                             Spotify
