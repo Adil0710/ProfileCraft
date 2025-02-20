@@ -25,7 +25,7 @@ const FAQData = [
   {
     title: "Is it open-source project?",
     description:
-      "Yes! ProfileCraft is an open-source project. Anyone can contribute—just fork the repository and you're ready to contribute. Happy Coding ❤️",
+      "Yes! ProfileCraft is an open-source project. Anyone can contribute-just fork the repository and you're ready to contribute. Happy Coding ❤️",
   },
 ];
 
