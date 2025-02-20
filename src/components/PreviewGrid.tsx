@@ -142,7 +142,7 @@ function PreviewGrid() {
                 whileHover={{ rotate: -4 }}
                 className=" cursor-pointer"
               >
-                <div className="bg-gradient-to-br dark:from-neutral-100 dark:to-neutral-500  from-neutral-50 to-neutral-400 rounded-xl px-5 py-5 h-48 ">
+                <div className="bg-gradient-to-br dark:from-[#daeeff] dark:to-neutral-500  from-neutral-50 to-neutral-400 rounded-xl px-5 py-5 h-48 ">
                   <div className=" logo-container">
                     <Logo name="github" size={35} />
                   </div>
@@ -186,7 +186,7 @@ function PreviewGrid() {
                 whileHover={{ rotate: -4 }}
                 className=" cursor-pointer"
               >
-                <div className="bg-gradient-to-br dark:from-[#daeeff] dark:to-neutral-500 from-[#dcefff] to-neutral-400 rounded-xl px-5 py-5 h-48 ">
+                <div className="bg-gradient-to-br dark:from-yellow-200 dark:to-orange-400 from-yellow-100 to-orange-300 rounded-xl px-5 py-5 h-48 ">
                   <div className=" logo-container">
                     <Logo name="twitter" size={35} />
                   </div>
@@ -208,7 +208,7 @@ function PreviewGrid() {
                 whileHover={{ rotate: 4 }}
                 className=" cursor-pointer"
               >
-                <div className="bg-gradient-to-br dark:from-neutral-100 dark:to-neutral-500  from-neutral-50 to-neutral-400 rounded-xl px-5 py-5 h-48 ">
+                <div className="bg-gradient-to-br dark:from-emerald-300 dark:to-sky-600 from-emerald-200 to-sky-500 rounded-xl px-5 py-5 h-48 ">
                   <div className=" logo-container">
                     <Logo name="threads" size={35} />
                   </div>
@@ -402,7 +402,7 @@ function PreviewGrid() {
                 rotate: 2,
               }}
               viewport={{ once: true }}
-              className=" bg-gradient-to-br  dark:from-gray-200 dark:to-gray-950  from-gray-50 to-gray-950 rounded-xl p-5 sm:col-span-3 col-span-1 h-48 
+              className=" bg-gradient-to-br  dark:from-gray-200 dark:to-gray-900 from-gray-100 to-gray-800 rounded-xl p-5 sm:col-span-3 col-span-1 h-48 
         relative overflow-hidden cursor-pointer"
             >
                <div className="sm:block hidden absolute inset-0 bg-[url(https://res.cloudinary.com/eldoraui/image/upload/v1734021299/map_pcqdwb.png)] bg-[length:530px_430px] bg-[right_-75px] bg-no-repeat [mask-image:linear-gradient(to_bottom,black_50%,transparent)]" />

@@ -96,7 +96,7 @@ const LocationCard: React.FC<LocationCardProps> = ({ location }) => {
         },
       }}
       viewport={{ once: true }}
-      className=" bg-gradient-to-br  dark:from-gray-200 dark:to-gray-950  from-gray-50 to-gray-950 rounded-xl p-5 sm:col-span-3 col-span-1 h-48  
+      className=" bg-gradient-to-br  dark:from-gray-200 dark:to-gray-900 from-gray-100 to-gray-800 rounded-xl p-5 sm:col-span-3 col-span-1 h-48  
     relative overflow-hidden cursor-pointer"
     >
        <div className="sm:block hidden absolute inset-0 bg-[url(https://res.cloudinary.com/eldoraui/image/upload/v1734021299/map_pcqdwb.png)] bg-[length:530px_430px] bg-[right_-75px] bg-no-repeat [mask-image:linear-gradient(to_bottom,black_50%,transparent)]" />
