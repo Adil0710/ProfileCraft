@@ -87,7 +87,7 @@ function Grid({ profileUpdated, setProfileUpdated }: GridProps) {
 
   return (
     <>
-      <div className="w-full h-auto lg:h-screen overflow-y-auto pt-28 sm:pb-5 pb-20 md:pr-0 pr-0 lg:pr-10">
+      <div className="w-full h-auto lg:h-screen overflow-y-auto sm:pt-28 pt-16 sm:pb-5 pb-20 md:pr-0 pr-0 lg:pr-10">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 m-4">
           {/* LinkedIn */}
 
