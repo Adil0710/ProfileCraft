@@ -108,7 +108,7 @@ export default function Navbar() {
             fill="none"
             stroke="currentColor"
             className="stroke-accent-foreground text-accent-foreground" // Applies ShadCN accent color
-            strokeWidth="1.5" // Makes the lines thinner
+            strokeWidth="1.2" // Makes the lines thinner
             strokeLinecap="round"
             strokeLinejoin="round"
           >
