@@ -49,8 +49,15 @@ function Showcase() {
             <div className="bg-white dark:bg-black rounded-xl shadow-lg overflow-hidden animate__animated animate__fadeInUp">
               <div className="p-6">
                 <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-200 rounded-full overflow-hidden"><Image src={`https://res.cloudinary.com/dknqlet5o/image/upload/v1734007370/ProfileCraft_user_profiles/6714afb53e4df1884f9c1f66_profilePhoto.jpg`} alt="Adil Patel" width={100} height={100}
-                        objectFit="cover"/></div>
+                  <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-200 rounded-full overflow-hidden">
+                    <Image
+                      src={`https://res.cloudinary.com/dknqlet5o/image/upload/v1734007370/ProfileCraft_user_profiles/6714afb53e4df1884f9c1f66_profilePhoto.jpg`}
+                      alt="Adil Patel"
+                      width={100}
+                      height={100}
+                      objectFit="cover"
+                    />
+                  </div>
                   <div className="ml-4">
                     <h3 className="font-semibold text-lg">@adil</h3>
                     <p className="text-gray-500 dark:text-gray-400">
@@ -63,7 +70,7 @@ function Showcase() {
                     variants={hoverVariant}
                     className="bg-gray-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 rounded-lg p-4 hover:bg-gray-200 transition"
                   >
-                   <X className=" w-6 h-6 mb-2 text-indigo-600 dark:text-indigo-500"/>
+                    <X className=" w-6 h-6 mb-2 text-indigo-600 dark:text-indigo-500" />
                     <span className="text-sm text-gray-600 dark:text-gray-400">
                       Twitter
                     </span>
@@ -92,9 +99,9 @@ function Showcase() {
                   experiences.
                 </p>
                 <Link href="https://profilecraft.vercel.app/adil">
-                <button className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-500 transition">
-                  View Profile
-                </button>
+                  <button className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-500 transition">
+                    View Profile
+                  </button>
                 </Link>
               </div>
             </div>
@@ -183,10 +190,11 @@ function Showcase() {
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10c0-2.62-.99-5-2.62-6.84-1.66-1.86-3.98-3.12-6.38-3.16-.03 0-.05 0-.08 0-.61 0-1.09.5-1.09 1.11s.48 1.1 1.09 1.11c1.9.05 3.9.98 5.31 2.53 1.37 1.49 2.17 3.52 2.17 5.65 0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8c.62 0 1.11-.5 1.11-1.11s-.49-1.11-1.11-1.11zM9.55 9.78c-.41 0-.82.08-1.21.24-1.46.56-2.41 2.06-2.41 3.77 0 2.2 1.64 4 3.66 4s3.66-1.8 3.66-4c0-.42-.07-.83-.19-1.22-.27-.83-.78-1.53-1.47-2.06-.71-.54-1.58-.82-2.42-.82zM10.5 11c.42 0 .83.14 1.17.41.37.3.63.7.76 1.12.08.24.12.49.12.75 0 1.1-.84 2-1.88 2s-1.88-.9-1.88-2 .84-2 1.88-2z" />
                     </svg>
+
                     <span className="text-sm text-gray-600 dark:text-gray-400">
-                      TikTok
+                     Threads
                     </span>
                   </div>
                 </div>
@@ -202,18 +210,18 @@ function Showcase() {
         </div>
       </div>
       <Link href={"/sign-up"}>
-      <button
-        className={`group relative rounded-full p-2 text-base font-semibold mt-10`}
-      >
-        <div className="absolute left-0 top-0 flex h-full w-10 items-center justify-end rounded-full transition-all duration-200 ease-in-out group-hover:w-full bg-indigo-600">
-          <span className="mr-3 text-white transition-all flex duration-200 ease-in-out">
-            <ArrowRight size={20} />
+        <button
+          className={`group relative rounded-full p-2 text-base font-semibold mt-10`}
+        >
+          <div className="absolute left-0 top-0 flex h-full w-10 items-center justify-end rounded-full transition-all duration-200 ease-in-out group-hover:w-full bg-indigo-600">
+            <span className="mr-3 text-white transition-all flex duration-200 ease-in-out">
+              <ArrowRight size={20} />
+            </span>
+          </div>
+          <span className="relative left-4 z-10 whitespace-nowrap px-8 font-semibold text-black dark:text-white transition-all duration-200 ease-in-out group-hover:-left-3 group-hover:text-white">
+            Join These Creators
           </span>
-        </div>
-        <span className="relative left-4 z-10 whitespace-nowrap px-8 font-semibold text-black dark:text-white transition-all duration-200 ease-in-out group-hover:-left-3 group-hover:text-white">
-          Join These Creators
-        </span>
-      </button>
+        </button>
       </Link>
     </div>
   );
