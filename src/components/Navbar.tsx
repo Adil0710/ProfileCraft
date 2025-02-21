@@ -31,7 +31,12 @@ export default function Navbar() {
   }, [menuOpen]);
 
   return (
-    <nav className={cn(" max-w-screen fixed border-b-neutral-50 dark:border-b-neutral-900 border-b w-full px-2 sm:px-10 py-2 z-50 flex items-center justify-between ", !menuOpen ? "navbar" : "bg-white/95 dark:bg-black/95")}>
+    <nav
+      className={cn(
+        " max-w-screen fixed border-b-neutral-50 dark:border-b-neutral-900 border-b w-full px-2 sm:px-10 py-2 z-50 flex items-center justify-between ",
+        !menuOpen ? "navbar" : "bg-white/95 dark:bg-black/95"
+      )}
+    >
       {/* Brand Logo */}
       <Link href={"/"} onClick={() => setMenuOpen(false)}>
         <Brand />
@@ -48,7 +53,10 @@ export default function Navbar() {
             </Link>
             {["Preview", "How It Works", "Features", "Showcase", "FAQ"].map(
               (item) => (
-                <Link key={item} href={`/#${item.toLowerCase().replace(/ /g, "")}`}>
+                <Link
+                  key={item}
+                  href={`/#${item.toLowerCase().replace(/ /g, "")}`}
+                >
                   <Button size="sm" variant="ghost">
                     {item}
                   </Button>
@@ -99,13 +107,13 @@ export default function Navbar() {
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            className=" text-accent-foreground"
-            strokeWidth="2"
+            className="stroke-accent-foreground text-accent-foreground" // Applies ShadCN accent color
+            strokeWidth="1.5" // Makes the lines thinner
             strokeLinecap="round"
             strokeLinejoin="round"
           >
             <motion.path
-              d="M2 6 L20 6"
+              d="M4 6 L20 6"
               variants={{
                 open: { d: "M5 5L19 19" },
                 closed: { d: "M4 6L20 6" },
