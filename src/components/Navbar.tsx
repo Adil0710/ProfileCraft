@@ -154,6 +154,8 @@ export default function Navbar() {
             exit={{ opacity: 0, y: -10 }}
             className="absolute inset-x-0 top-full w-full backdrop-blur-xl filter border-b border-neutral-200 dark:border-neutral-800 sm:hidden flex flex-col items-center gap-2 py-4 bg-white/10 dark:bg-black"
           >
+            <span className=" bg-gradient-to-r from-transparent via-indigo-400 to-transparent sm:w-1/2 w-full h-px absolute inset-x-0 m-auto bottom-px"></span>
+            <span className=" bg-gradient-to-r from-transparent via-indigo-400 to-transparent sm:w-1/2 w-full h-[3px] absolute inset-x-0 m-auto -bottom-px blur-sm opacity-100 duration-300 transition-opacity"></span>
             {pathname === "/" && (
               <>
                 <Link href="https://github.com/Adil0710/ProfileCraft">
