@@ -33,7 +33,7 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        " max-w-screen fixed border-b-neutral-50 transition-all duration-300 dark:border-b-neutral-900 border-b w-full px-2 sm:px-10 py-2 z-50 flex items-center justify-between ",
+        " max-w-screen fixed border-b-neutral-50 dark:border-b-neutral-900 border-b w-full px-2 sm:px-10 py-2 z-50 flex items-center justify-between ",
         !menuOpen ? "navbar" : "bg-white dark:bg-black"
       )}
     >
