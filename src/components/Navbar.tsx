@@ -33,8 +33,8 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        " max-w-screen fixed border-b-neutral-50 dark:border-b-neutral-900 border-b w-full px-2 sm:px-10 py-2 z-50 flex items-center justify-between ",
-        !menuOpen ? "navbar" : "bg-white/95 dark:bg-black/95"
+        " max-w-screen fixed border-b-neutral-50 transition-all duration-300 dark:border-b-neutral-900 border-b w-full px-2 sm:px-10 py-2 z-50 flex items-center justify-between ",
+        !menuOpen ? "navbar" : "bg-white dark:bg-black"
       )}
     >
       {/* Brand Logo */}
@@ -152,9 +152,9 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute inset-x-0 top-full w-full backdrop-blur-xl filter border-b border-neutral-200 dark:border-neutral-800 sm:hidden flex flex-col items-center gap-2 py-4 bg-white/10 dark:bg-black"
+            className="absolute inset-x-0 top-full w-full backdrop-blur-xl filter sm:hidden flex flex-col items-center gap-2 py-4 bg-white/10 dark:bg-black"
           >
-            <span className=" bg-gradient-to-r from-transparent via-indigo-400 to-transparent sm:w-1/2 w-full h-px absolute inset-x-0 m-auto bottom-px"></span>
+            <span className=" bg-gradient-to-r from-transparent via-indigo-400 to-transparent sm:w-1/2 w-full h-px absolute inset-x-0 m-auto -bottom-px"></span>
             <span className=" bg-gradient-to-r from-transparent via-indigo-400 to-transparent sm:w-1/2 w-full h-[3px] absolute inset-x-0 m-auto -bottom-px blur-sm opacity-100 duration-300 transition-opacity"></span>
             {pathname === "/" && (
               <>
