@@ -55,7 +55,7 @@ const platforms = [
 
 // Zod schema for validation
 const profileSchema = z.object({
-  username: z.string(),
+  username: z.string() .regex(/^(?!.*[^\w_]).*$/, "Special characters and space not allowed"),
   name: z.string(),
   socialLinks: z.array(
     z.object({
