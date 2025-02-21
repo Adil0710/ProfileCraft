@@ -144,7 +144,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute inset-x-0 top-full w-full backdrop-blur-md filter border-b border-neutral-200 dark:border-neutral-800 sm:hidden flex flex-col items-center gap-2 py-4 bg-white/10 dark:bg-black"
+            className="absolute inset-x-0 top-full w-full backdrop-blur-xl filter border-b border-neutral-200 dark:border-neutral-800 sm:hidden flex flex-col items-center gap-2 py-4 bg-white/10 dark:bg-black"
           >
             {pathname === "/" && (
               <>
