@@ -26,7 +26,7 @@ export function HowWorks() {
         description="Create your perfect profile in three simple steps"
         className="mb-2"
       />
-      <div className="mt-0 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2 max-w-6xl">
+      <div className="mt-12 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2 max-w-6xl">
         <BentoCard
           eyebrow="ProfileCraft"
           title="Perfect Social Profile"
