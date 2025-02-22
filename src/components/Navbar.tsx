@@ -152,7 +152,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute inset-x-0 top-full w-full backdrop-blur-xl filter sm:hidden flex flex-col items-center gap-2 py-5 bg-white/10 dark:bg-black"
+            className="absolute inset-x-0 top-full w-full backdrop-blur-xl filter sm:hidden flex flex-col items-center gap-2 py-5 bg-white/10 dark:bg-black/70"
           >
             <span className=" bg-gradient-to-r from-transparent via-indigo-400 to-transparent sm:w-1/2 w-full h-px absolute inset-x-0 m-auto -bottom-px"></span>
             <span className=" bg-gradient-to-r from-transparent via-indigo-400 to-transparent sm:w-1/2 w-full h-[3px] absolute inset-x-0 m-auto -bottom-px blur-sm opacity-100 duration-300 transition-opacity"></span>
@@ -170,7 +170,11 @@ export default function Navbar() {
                       href={`/#${item.toLowerCase().replace(/ /g, "")}`}
                       onClick={() => setMenuOpen(false)}
                     >
-                      <Button size="sm" variant="ghost" className=" font-semibold">
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        className=" font-semibold"
+                      >
                         {item}
                       </Button>
                     </Link>
@@ -182,7 +186,11 @@ export default function Navbar() {
               pathname !== "/" ? (
                 <>
                   <Link href="/" onClick={() => setMenuOpen(false)}>
-                    <Button size="sm" variant="ghost" className=" font-semibold">
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      className=" font-semibold"
+                    >
                       Home
                     </Button>
                   </Link>
